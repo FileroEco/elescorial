@@ -1,0 +1,158 @@
+---
+import Base from '../../../../layouts/Base.astro';
+import RelatedDestinations from '../../../../components/RelatedDestinations.astro';
+import { SITE, t } from '../../../../data/i18n.js';
+
+const lang = 'pt';
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "TouristAttraction",
+  "name": "Madrid de los Borbones",
+  "alternateName": ["Madrid neoclásico", "Madrid ilustrado"],
+  "sameAs": ["https://www.wikidata.org/wiki/Q2807"],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Madrid",
+    "addressCountry": "ES"
+  },
+  "about": [
+    { "@type": "Person", "name": "Carlos III de España", "sameAs": "https://www.wikidata.org/wiki/Q190601" },
+    { "@type": "Person", "name": "Felipe V de España", "sameAs": "https://www.wikidata.org/wiki/Q169794" },
+    { "@type": "Thing", "name": "Palacio Real de Madrid", "sameAs": "https://www.wikidata.org/wiki/Q171528" },
+    { "@type": "Thing", "name": "Museo del Prado", "sameAs": "https://www.wikidata.org/wiki/Q160112" },
+    { "@type": "Person", "name": "Juan de Villanueva", "sameAs": "https://www.wikidata.org/wiki/Q380142" },
+    { "@type": "Person", "name": "Francesco Sabatini", "sameAs": "https://www.wikidata.org/wiki/Q711075" },
+    { "@type": "Person", "name": "Francisco de Goya", "sameAs": "https://www.wikidata.org/wiki/Q5432" },
+    { "@type": "Thing", "name": "Puerta de Alcalá", "sameAs": "https://www.wikidata.org/wiki/Q1139077" },
+    { "@type": "Thing", "name": "Parque del Retiro", "sameAs": "https://www.wikidata.org/wiki/Q585764" },
+    { "@type": "Thing", "name": "Paisaje de la Luz", "sameAs": "https://www.wikidata.org/wiki/Q108399498" },
+    { "@type": "Thing", "name": "Neoclasicismo" },
+    { "@type": "Thing", "name": "Ilustración española" }
+  ]
+};
+---
+
+<Base lang={lang} title="Madrid de los Borbones — Ruta teatralizada por el Madrid ilustrado" description="Ruta teatralizada por el Madrid de los Borbones. Palacio Real, Museo del Prado, Retiro, Puerta de Alcalá, Goya. Con María Victoria Solaz, guía intérprete diplomada." jsonLd={jsonLd} path="/madrid/bourbons/">
+
+  <div class="w-full h-64 md:h-96 overflow-hidden">
+    <img src="/img/madrid/skyline-borbones.webp" alt="Madrid skyline Cibeles" class="w-full h-full object-cover" width="600" height="400" loading="eager" />
+  </div>
+
+  <article class="max-w-3xl mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold mb-4">Madrid de los Borbones</h1>
+    <p class="text-xl text-sepia mb-8">Si los Austrias rezaban, los Borbones clasifican. Con la llegada de la dinastía francesa, Madrid dejó de esconderse tras callejones de ladrillo para abrirse a la luz de la Razón — o al menos, esa era la intención.</p>
+
+    <section class="prose prose-lg max-w-none mb-12">
+
+      <h2>La utopía de piedra blanca: el Palacio Real</h2>
+      <p>
+        Olvidad las fortalezas oscuras. Tras el incendio del Real Alcázar en 1734, Felipe V y Carlos III ordenan levantar un palacio que hable el idioma de Versalles pero con el acento del Guadarrama. Piedra blanca de Colmenar y granito gris. No hay madera en su estructura — para evitar el fuego, solo bóvedas y mármol. Es un edificio de luz donde el rey ya no se esconde tras celosías sino que se asoma a balcones que miran al infinito del Campo del Moro.
+      </p>
+      <p>
+        Los arquitectos italianos Filippo Juvarra y Giambattista Sacchetti definieron el Barroco tardío italiano al servicio de una monarquía que necesitaba demostrar que España seguía siendo una potencia. Aquí la conexión italiana vuelve a aparecer — los Borbones, como Felipe II antes que ellos, confiaron en el genio de Italia para construir su imagen de poder.
+      </p>
+
+      <h2>El pánico de la Reina: la Plaza de Oriente</h2>
+      <p>
+        Frente a la mole del Palacio, las estatuas de los antiguos monarcas no coronan la cornisa — caminan a ras de suelo entre nosotros. Cuentan que la reina Isabel de Farnesio despertaba bañada en sudor tras una pesadilla recurrente: un terremoto sacudía la Villa y las gigantescas figuras de piedra se desplomaban sobre su familia. El pánico fue tal que las estatuas, destinadas originalmente a la balaustrada superior, fueron bajadas a tierra por decreto de su hijo Carlos III. Hoy, pasear por la Plaza de Oriente es sentir la superstición de una estirpe que temía que el pasado de España cayera, literalmente, sobre sus cabezas.
+      </p>
+
+      <h2>El triángulo de la Ilustración: el Paseo del Prado</h2>
+      <p>
+        Carlos III, el "Alcalde de Madrid", desplaza el centro de gravedad de la ciudad hacia el este. Pasear por aquí es recorrer el cerebro de la Ilustración.
+      </p>
+      <p>
+        Juan de Villanueva diseña el Gabinete de Historia Natural — hoy Museo del Prado — no como pinacoteca, sino como laboratorio de ciencia. A su lado, el Real Jardín Botánico trae las plantas del Nuevo Mundo para ser estudiadas. Y en lo alto de la colina, el Observatorio Astronómico busca las leyes del universo. Es el Madrid de la Razón, custodiado por los dioses paganos de las fuentes: Cibeles, Neptuno y Apolo — un programa iconográfico que legitima la conexión del Estado con la agricultura, las artes y el comercio marítimo.
+      </p>
+      <p>
+        Este eje es hoy Patrimonio de la Humanidad UNESCO como "Paisaje de la Luz". Carlos III no solo embelleció Madrid — creó un ecosistema de conocimiento que cuatro siglos después sigue vivo.
+      </p>
+
+      <h2>El motín y la Puerta de la Discordia</h2>
+      <div class="my-6">
+        <img src="/img/madrid/gran-via-noche.webp" alt="Gran Vía de Madrid de noche" class="rounded-lg w-full" width="626" height="418" loading="lazy" />
+      </div>
+      <p>
+        Bajo los Borbones, Madrid vive su mayor tensión: el choque entre la modernidad francesa y el orgullo castizo. Los ministros de Carlos III — Esquilache — quieren iluminar las calles y prohibir el embozo. El resultado: el Motín de Esquilache. El pueblo le gritó al Rey que su progreso no podía borrar su identidad.
+      </p>
+      <p>
+        La Puerta de Alcalá, obra de Francesco Sabatini en 1778, es el primer arco de triunfo construido en Europa tras la caída de Roma. Es el símbolo del triunfo de la Razón — pero también del límite que el pueblo impone a los reyes que quieren cambiar demasiado rápido.
+      </p>
+
+      <h2>La ribera de la vanidad: la Ermita de la Virgen del Puerto</h2>
+      <p>
+        Los Borbones quisieron domesticar el Manzanares, convertir nuestro "aprendiz de río" en una avenida francesa. En la Ermita de la Virgen del Puerto, Pedro de Ribera esculpió un capricho barroco que parece un juguete de porcelana. Pero la realidad era otra: mientras los reyes soñaban con paseos arbolados, las lavanderas del Manzanares rompían el silencio con sus cantos y sus manos heladas, recordándole a la Corte que, bajo los encajes, Madrid seguía siendo de barro y esfuerzo.
+      </p>
+
+      <h2>La Puerta del Sol: el kilómetro cero de la Ilustración</h2>
+      <p>
+        La Real Casa de Correos (1768) fue el primer gran edificio administrativo del centro. Carlos III no solo quería que el correo funcionara — quería un reloj que pusiera en hora a toda España. Es el lugar donde la ciudad dejó de medir el tiempo por el sol y empezó a medirlo por el progreso.
+      </p>
+
+      <h2>San Francisco el Grande: la cúpula que desafía a Roma</h2>
+      <p>
+        La cuarta cúpula más grande de la Cristiandad — mayor que San Pablo en Londres. Fue el gran proyecto de Carlos III para demostrar que Madrid podía mirar de tú a tú a Roma. Sus capillas guardan una obra maestra de Goya — "San Bernardino de Siena predicando" — donde el pintor se retrató a sí mismo con una mirada desafiante. Es la prueba de que el arte borbónico tenía alma propia, más allá de la importación francesa.
+      </p>
+
+      <h2>El neoclasicismo escondido: el Oratorio del Caballero de Gracia</h2>
+      <div class="my-6">
+        <img src="/img/guia/guias-monasterio.webp" alt="Guías del Monasterio de El Escorial" class="rounded-lg w-full" width="1024" height="768" loading="lazy" />
+      </div>
+      <p>
+        Oculto tras el bullicio de la Gran Vía. Juan de Villanueva creó aquí un espacio de una pureza matemática asombrosa: catorce columnas monolíticas de granito simulan tres naves donde solo hay una, iluminando el alma a través de una cúpula oval. Es el Madrid de la Ilustración silenciosa, donde los nobles más avanzados buscaban a Dios a través de la armonía de las columnas jónicas y la luz cenital.
+      </p>
+
+      <h2>El Barrio de Salamanca: la retícula de la aristocracia</h2>
+      <p>
+        Bajo Isabel II, el Marqués de Salamanca proyectó un Madrid que ya no se retorcía como los Austrias. El Plan Castro de 1860 introdujo la manzana cuadrangular, chaflanes, patios interiores de ventilación — rompiendo el modelo de las <a href="/pt/madrid/austrias/" class="underline">Casas a la Malicia de los Austrias</a>. Calles con alcantarillado, luz de gas y fachadas ordenadas. Es el Madrid del siglo XIX, el de una aristocracia que ya no lleva armadura sino levita, y que cena en los jardines de la Castellana mientras suena una ópera de Verdi.
+      </p>
+
+      <h2>Donde comer: el convite ilustrado</h2>
+      <p>
+        <strong>Lhardy</strong> (Carrera de San Jerónimo, 8) — Fundado en 1839 por un suizo, fue el primero en servir consomé y en poner manteles de lino. Sus espejos de plata y maderas de caoba son el escenario de la alta política. Aquí, entre una ración de cocido elegante y un suflé, los ministros de Isabel II decidían el destino de España. Es el templo de la burguesía borbónica.
+      </p>
+      <p>
+        <strong>La Mallorquina</strong> (Puerta del Sol) — Desde 1894, ha endulzado las tertulias de los intelectuales que veían pasar la historia por la Puerta del Sol. Es la democratización del gusto francés por la pastelería fina.
+      </p>
+      <p>
+        <strong>Taberna de Antonio Sánchez</strong> (Mesón de Paredes) — Activa desde 1787, es la trinchera del vino castizo. Mientras Carlos III firmaba decretos, aquí se servía vino en jarra. Sus paredes sin reformar guardan el eco de quienes vieron cómo los Borbones intentaban, en vano, cambiarle el alma a la Villa.
+      </p>
+      <p>
+        <strong>Casa Pedro</strong> (Fuencarral) — Fundado en 1702, es anterior incluso al Palacio Real. La parada obligatoria de los viajeros que venían del norte a la capital de los Borbones.
+      </p>
+
+      <h2>El vínculo con los Austrias</h2>
+      <p>
+        El <a href="/pt/madrid/austrias/" class="underline">Madrid de los Austrias</a> no fue destruido por los Borbones — lo sepultó bajo una capa de mármol y razón. Pero la picaresca sigue viva en los callejones que los Borbones no pudieron enderezar, y el ladrillo rojo asoma bajo el estuco blanco cuando el tiempo hace su trabajo. Los dos Madrides conviven como dos capas geológicas: la capa inferior de ladrillo y pizarra de los Habsburgo, y la capa superior de piedra de Colmenar de los Borbones. María Victoria te muestra las dos.
+      </p>
+
+      <h2>La geometría sagrada del "Alcalde de Madrid"</h2>
+      <p>
+        Se dice que Carlos III no diseñó el Salón del Prado por estética, sino por magia teúrgica. Las fuentes de Cibeles, Apolo y Neptuno formarían un triángulo de poder destinado a canalizar las energías de la tierra hacia el Observatorio Astronómico. La tesis oculta: el Rey buscaba la "Ciudad Ideal" de los filósofos, un Madrid que funcionara como un talismán gigante para evitar que la decadencia de los Austrias se repitiera.
+      </p>
+      <p>
+        Y el misterio más negro: la Real Fábrica de Porcelana del Buen Retiro — "La China". Cuando los ingleses la destruyeron durante la Guerra de la Independencia, muchos susurraron que no fue solo por rivalidad comercial, sino para ocultar un laboratorio de alquimia donde los Borbones intentaban transmutar el destino de España. Dicen que si te sitúas bajo la estatua de Apolo al amanecer del solsticio de verano, la luz señala la entrada a una cámara oculta bajo el Observatorio donde se guardan los planos de una España que nunca llegó a ser.
+      </p>
+    </section>
+
+    <RelatedDestinations links={[
+      { href: "/pt/madrid/austrias/", title: "Madrid de los Austrias", description: "Bajo el mármol borbónico asoma el ladrillo rojo de los Habsburgo. Dos capas de Madrid que se necesitan para entender la ciudad." },
+      { href: "/pt/el-escorial/", title: "Monasterio de El Escorial", description: "Los Borbones heredaron El Escorial y lo ampliaron. La conexión entre el monasterio y el Palacio Real es directa." },
+      { href: "/pt/segovia/", title: "Segovia — Ciencia e Ilustración", description: "El Real Colegio de Artillería de Segovia fue el Silicon Valley borbónico. Proust formuló sus leyes allí." },
+      { href: "/pt/avila/", title: "Ávila — La España profunda", description: "El contraste perfecto: del mármol neoclásico de los Borbones al granito medieval de la muralla más antigua de Europa." },
+    ]} />
+
+    <div class="cta-box rounded-lg p-8 text-center">
+      <h2 class="text-2xl font-bold mb-2">Tour Personalizado</h2>
+      <p class="text-sepia mb-4">Recorre el Madrid de las Luces con María Victoria — donde el mármol brilla pero las sombras acechan</p>
+      <a
+        href="/pt/madrid/tour-personalizado/"
+        class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium"
+      >
+        Ver detalles y reservar →
+      </a>
+    </div>
+  </article>
+
+</Base>

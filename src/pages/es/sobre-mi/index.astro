@@ -1,0 +1,77 @@
+---
+import Base from '../../../layouts/Base.astro';
+import RelatedDestinations from '../../../components/RelatedDestinations.astro';
+import { SITE } from '../../../data/i18n.js';
+const lang = 'es';
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "María Victoria Solaz Andújar",
+  "jobTitle": "Guía de Patrimonio Nacional",
+  "knowsAbout": ["Felipe II de España","Monasterio de El Escorial","Historia de España siglo XVI","Patrimonio de la Humanidad UNESCO","Contrarreforma","Estilo herreriano"],
+  "knowsLanguage": ["es","en","it","fr","pt"],
+  "hasCredential": {
+    "@type": "EducationalOccupationalCredential",
+    "credentialCategory": "Licenciatura en Turismo — Guía de Patrimonio Nacional"
+  },
+  "workLocation": {"@type": "Place","name": "Comunidad de Madrid"}
+};
+---
+<Base lang={lang} title="María Victoria Solaz — Guía de Patrimonio Nacional" description="María Victoria Solaz Andújar, guía oficial de Patrimonio Nacional. Especialista en Felipe II y el Monasterio de El Escorial. Visitas en 5 idiomas." jsonLd={jsonLd} path="/sobre-mi/">
+  <article class="max-w-3xl mx-auto px-4 py-12">
+    <div class="flex flex-col md:flex-row gap-8 items-start mb-12">
+      <img src="/img/guia/retrato-guia.webp" alt="María Victoria Solaz Andújar, guía de Patrimonio Nacional" class="w-full md:w-64 rounded-lg" width="800" height="450" loading="eager" />
+      <div>
+        <h1 class="text-4xl font-bold mb-4">María Victoria Solaz Andújar</h1>
+        <p class="text-lg text-borgoña font-medium mb-4">Guía de Patrimonio Nacional</p>
+        <section class="prose prose-lg max-w-none">
+          <p>No te voy a contar la historia de Felipe II. Te la voy a hacer vivir.</p>
+          <p>Soy guía intérprete diplomada, especialista en Felipe II y el Monasterio de El Escorial. Llevo décadas enseñando este lugar a personas de todo el mundo, y cada visita es diferente porque cada grupo trae preguntas que no esperaba.</p>
+          <p>Hablo cinco idiomas — español, inglés, italiano, francés y portugués — porque entender la historia de Felipe II es entender medio mundo: desde Nápoles hasta los Países Bajos, desde Lisboa hasta las Filipinas.</p>
+        </section>
+      </div>
+    </div>
+
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold mb-4">Por qué mis visitas no se parecen a ninguna otra</h2>
+      <div class="prose prose-lg max-w-none">
+        <p>No sigo un guion. Llevo la historia dentro y la cuento como quien te invita a su casa y te enseña cada rincón con orgullo. Mis visitas son teatralizadas no porque me ponga un disfraz (aunque a veces lo hago), sino porque la historia de Felipe II es puro drama: poder, fe, soledad y una obsesión arquitectónica que cambió España para siempre.</p>
+        <p>Los niños salen de mis visitas escolares fascinados. Los turistas italianos descubren que Felipe II gobernó Nápoles, Milán y Sicilia. Y los que vienen pensando que El Escorial es "solo un monasterio" se van entendiendo que es un palacio, una biblioteca, un panteón y una declaración de principios.</p>
+        <p>Después de la visita, muchas veces nos sentamos a comer juntos. Porque la historia no termina cuando sales por la puerta — termina cuando la compartes en una mesa.</p>
+      </div>
+    </section>
+
+    <section class="info-box rounded-lg p-8 mb-12">
+      <h2 class="text-xl font-bold mb-4">Credenciales</h2>
+      <ul class="space-y-2 text-gray-700">
+        <li>📜 Licenciada en Turismo — Guía de Patrimonio Nacional (título oficial)</li>
+        <li>🌍 5 idiomas: español, inglés, italiano, francés, portugués</li>
+        <li>🏛️ Especialista en Felipe II, El Escorial y Patrimonio UNESCO</li>
+        <li>🎭 Visitas teatralizadas con narrativa propia</li>
+        <li>👥 Experiencia con grupos internacionales de todos los continentes</li>
+      </ul>
+    </section>
+
+    <section class="border-t border-gray-200 pt-8">
+      <h2 class="text-2xl font-bold mb-4">Mi historia</h2>
+      <div class="prose prose-lg max-w-none">
+        <p>
+          Mi conexión con El Escorial no es profesional — es visceral. Este lugar forma parte de mi historia familiar, de las personas que quiero y de las que ya no están. Mis hermanos, con los que crecí recorriendo estos pasillos cuando nadie nos miraba, me enseñaron que la historia no está en los libros sino en las personas que la caminan.
+        </p>
+        <p>
+          Cada vez que cruzo el Patio de los Reyes, los siento conmigo. Y cada vez que un turista me dice que mi visita le ha cambiado la forma de ver este lugar, sé que ellos también estarían orgullosos.
+        </p>
+        <p>
+          Esta web es un regalo de mi hijo Raúl, que decidió que mi pasión merecía un escenario más grande que el granito de la sierra. Él se encarga de la tecnología; yo me encargo de que Felipe II siga vivo cada mañana.
+        </p>
+      </div>
+    </section>
+
+    <RelatedDestinations links={[
+      { href: "/es/el-escorial/", title: "Monasterio de El Escorial", description: "Mi pasión, mi obsesión, mi casa. El lugar donde Felipe II sigue vivo cada mañana gracias a las visitas teatralizadas." },
+      { href: "/es/avila/", title: "Ávila — La fortaleza mística", description: "Santa Teresa, la muralla y el granito. El vértice espiritual del eje imperial que conecto en cada visita." },
+      { href: "/es/segovia/", title: "Segovia — Del Acueducto al Alcázar", description: "La ciencia de Proust, el genio de Herrera y el silencio de San Juan de la Cruz. El tercer vértice del triángulo." },
+      { href: "/es/madrid/", title: "Madrid — Tours personalizados", description: "De los Austrias a los Borbones, Madrid es la cara urbana de lo que El Escorial es en la sierra." },
+    ]} />
+  </article>
+</Base>

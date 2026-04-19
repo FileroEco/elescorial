@@ -1,0 +1,45 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { SITE } from '../../../data/i18n.js';
+const lang = 'en';
+---
+<Base lang={lang} title="Contact — Book your tour" description="Book your tour. María Victoria Solaz." path="/contact/">
+  <article class="max-w-3xl mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold mb-8">Contact</h1>
+    <div class="grid md:grid-cols-2 gap-8">
+      <div>
+        <h2 class="text-xl font-bold mb-4">WhatsApp (recommended)</h2>
+        <a href={`https://wa.me/${SITE.whatsapp.replace('+','')}`} target="_blank" rel="noopener" class="inline-block btn-whatsapp px-8 py-3 rounded-lg text-lg font-medium">💬 Open WhatsApp</a>
+      </div>
+      <div>
+        <h2 class="text-xl font-bold mb-4">Form</h2>
+        <form action="https://formspree.io/f/FORMSPREE_ID" method="POST" class="space-y-4">
+          <div>
+            <label for="name" class="block text-sm font-medium text-sepia mb-1">Name</label>
+            <input id="name" type="text" name="name" placeholder="Your name" required class="w-full border border-gray-300 rounded px-4 py-2" />
+          </div>
+          <div>
+            <label for="email" class="block text-sm font-medium text-sepia mb-1">Email</label>
+            <input id="email" type="email" name="email" placeholder="you@email.com" required class="w-full border border-gray-300 rounded px-4 py-2" />
+          </div>
+          <div>
+            <label for="destination" class="block text-sm font-medium text-sepia mb-1">Destination</label>
+            <select id="destination" name="destination" class="w-full border border-gray-300 rounded px-4 py-2">
+              <option value="">Which destination interests you?</option>
+              <option value="escorial">El Escorial</option>
+              <option value="avila">Ávila</option>
+              <option value="segovia">Segovia</option>
+              <option value="cuelgamuros">Cuelgamuros</option>
+              <option value="madrid">Madrid</option>
+            </select>
+          </div>
+          <div>
+            <label for="message" class="block text-sm font-medium text-sepia mb-1">Message</label>
+            <textarea id="message" name="message" placeholder="Your message" rows="4" class="w-full border border-gray-300 rounded px-4 py-2"></textarea>
+          </div>
+          <button type="submit" class="btn-primary px-6 py-2 rounded">Send</button>
+        </form>
+      </div>
+    </div>
+  </article>
+</Base>

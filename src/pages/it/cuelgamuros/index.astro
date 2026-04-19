@@ -1,0 +1,72 @@
+---
+import Base from '../../../layouts/Base.astro';
+import RelatedDestinations from '../../../components/RelatedDestinations.astro';
+import { SITE, t } from '../../../data/i18n.js';
+const lang = 'it';
+const ui = t(lang);
+const dest = ui.destinations.cuelgamuros;
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "TouristAttraction",
+  "name": "Cuelgamuros",
+  "alternateName": ["Valle de los Caídos","Valley of the Fallen","Valle dei Caduti"],
+  "sameAs": ["https://www.wikidata.org/wiki/Q1138282"],
+  "about": [
+    {"@type": "Thing","name": "Guerra civile spagnola","sameAs": "https://www.wikidata.org/wiki/Q10861"},
+    {"@type": "Thing","name": "Memoria storica"}
+  ]
+};
+---
+<Base lang={lang} title="Cuelgamuros (Valle dei Caduti) — Visita guidata con contesto storico" description="Visita guidata a Cuelgamuros con María Victoria Solaz. Contesto storico rigoroso ed equilibrato. Per italiani che conoscono il dibattito sui monumenti del Ventennio." jsonLd={jsonLd} path="/cuelgamuros/">
+  <div class="w-full h-64 md:h-96 overflow-hidden">
+    <img src="/img/cuelgamuros/atardecer-aerea.webp" alt="Croce di Cuelgamuros, precedentemente Valle dei Caduti" class="w-full h-full object-cover" width="1200" height="1026" loading="eager" />
+  </div>
+  <article class="max-w-3xl mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold mb-2">{dest.name}</h1>
+    <p class="text-sm text-sepia/70 mb-4">Precedentemente conosciuto come Valle dei Caduti</p>
+    <p class="text-xl text-sepia mb-8">Un luogo che non ammette indifferenza. Una cicatrice nella roccia della Sierra de Guadarrama che guarda in faccia a El Escorial, tentando di stabilire un dialogo — o un duello — con l'eternità.</p>
+
+    <section class="prose prose-lg max-w-none mb-12">
+      <h2>Il palcoscenico del vento</h2>
+      <p>La visita non inizia nella cripta. Inizia fuori, con il vento della sierra che sferza il viso. Cuelgamuros si capisce prima dalla geografia: una valle incastonata tra pinete e rocce di granito a pochi chilometri da <a href="/it/el-escorial/" class="underline">El Escorial</a>. Non è un caso. Questo luogo fu scelto proprio per la vicinanza al monastero di Filippo II.</p>
+      <p>La croce di 150 metri è visibile da oltre 30 chilometri. È la croce cristiana più grande del mondo.</p>
+
+      <h2>L'intrastoria dello scalpello</h2>
+      <p>Cuelgamuros fu costruito tra il 1940 e il 1958. La basilica è scavata nella roccia viva — 263 metri di navata sotterranea, più lunga della basilica di San Pietro a Roma. Nelle prime fasi, prigionieri politici parteciparono alla costruzione. María Victoria non elude questo capitolo: lo narra con il rigore e la sensibilità che richiede.</p>
+
+      <h2>La basilica: il sublime e il terribile</h2>
+      <div class="my-6">
+        <img src="/img/cuelgamuros/basilica-nave.webp" alt="Nave de la basílica de Cuelgamuros" class="rounded-lg w-full" width="1400" height="886" loading="lazy" />
+      </div>
+      <div class="my-6">
+        <img src="/img/cuelgamuros/basilica-cupula.webp" alt="Cúpula de la basílica de Cuelgamuros" class="rounded-lg w-full" width="1200" height="800" loading="lazy" />
+      </div>
+      <p>Entrare è sentire la pressione della montagna sul petto. La navata ricorda le catacombe romane ma con una scala che cerca il sublime. Più di 33.000 persone sono sepolte qui. Combattenti di entrambi gli schieramenti della Guerra Civile. Molti furono trasferiti senza il consenso delle famiglie.</p>
+
+      <h2>Un parallelo per gli italiani: il Ventennio</h2>
+      <p>Come italiani, conoscete il dibattito sui monumenti del Ventennio — il Foro Italico, l'EUR, l'Obelisco del Foro Mussolini. Si può separare la grandezza architettonica dall'ideologia che l'ha ispirata? Cuelgamuros pone la stessa domanda nella versione spagnola. María Victoria non dà risposte chiuse. Lancia le domande nell'aria e lascia che sia il visitatore stesso a trovare la propria verità storica.</p>
+
+            <div class="my-6">
+        <img src="/img/cuelgamuros/frontal-panoramica.webp" alt="Vista frontal de Cuelgamuros" class="rounded-lg w-full" width="1200" height="350" loading="lazy" />
+      </div>
+
+      <h2>La esumazione e il dibattito</h2>
+      <p>Nel 2019, i resti di Francisco Franco furono esumati. Nel 2023, il luogo fu ribattezzato Cuelgamuros. Questi cambiamenti riflettono un dibattito nazionale ancora vivo sulla memoria storica.</p>
+
+      <h2>Il legame con El Escorial</h2>
+      <p>Cuelgamuros si trova a meno di 10 km dal <a href="/it/el-escorial/" class="underline">Monastero dell’Escorial</a>. Dove Filippo II innalzò granito per l'eternità, il XX secolo scavò roccia per la memoria. Due monumenti separati da quattro secoli ma uniti dalla stessa sierra e dalla stessa pietra.</p>
+    </section>
+
+    <RelatedDestinations links={[
+      { href: "/it/el-escorial/", title: "Monastero dell’Escorial", description: "A 10 km. La visita combinata Escorial-Cuelgamuros è la più completa: quattro secoli in una giornata." },
+      { href: "/it/avila/", title: "Ávila — La fortezza mistica", description: "Dalla muraglia medievale al monumento del XX secolo. Due modi di costruire in pietra." },
+      { href: "/it/segovia/", title: "Segovia — Dall’acquedotto all’Alcázar", description: "Il triangolo Escorial-Cuelgamuros-Segovia condivide la Sierra de Guadarrama." },
+    ]} />
+
+    <div class="cta-box rounded-lg p-8 text-center">
+      <h2 class="text-2xl font-bold mb-2">{dest.productName}</h2>
+      <p class="text-sepia mb-4">Un luogo che richiede contesto, rigore e sensibilità. María Victoria offre tutti e tre.</p>
+      <a href={`/${lang}/cuelgamuros/${dest.productSlug}/`} class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium">Dettagli e prenotazione →</a>
+    </div>
+  </article>
+</Base>

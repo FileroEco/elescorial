@@ -1,0 +1,15 @@
+---
+const { links } = Astro.props;
+---
+
+<section class="border-t border-hueso mt-12 pt-8">
+  <h2 class="text-2xl font-display font-bold mb-6 text-tinta">Continúa el viaje</h2>
+  <div class="grid md:grid-cols-2 gap-4">
+    {links.map(link => (
+      <a href={link.href} class="card-hover rounded-lg p-5 block border">
+        <h3 class="font-display font-bold text-tinta mb-1">{link.title}</h3>
+        <p class="text-sm text-sepia">{link.description}</p>
+      </a>
+    ))}
+  </div>
+</section>

@@ -1,0 +1,200 @@
+---
+import Base from '../../../../layouts/Base.astro';
+import RelatedDestinations from '../../../../components/RelatedDestinations.astro';
+import { SITE, t } from '../../../../data/i18n.js';
+
+const lang = 'fr';
+const ui = t(lang);
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "TouristAttraction",
+  "name": "Madrid de los Austrias",
+  "alternateName": ["Madrid de los Habsburgo", "Casco Histórico de Madrid"],
+  "sameAs": ["https://www.wikidata.org/wiki/Q2807"],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Madrid",
+    "addressCountry": "ES"
+  },
+  "about": [
+    { "@type": "Person", "name": "Felipe II de España", "sameAs": "https://www.wikidata.org/wiki/Q527" },
+    { "@type": "Person", "name": "Felipe III de España", "sameAs": "https://www.wikidata.org/wiki/Q170844" },
+    { "@type": "Person", "name": "Felipe IV de España", "sameAs": "https://www.wikidata.org/wiki/Q171038" },
+    { "@type": "Person", "name": "Carlos II de España", "sameAs": "https://www.wikidata.org/wiki/Q130834" },
+    { "@type": "Person", "name": "Miguel de Cervantes", "sameAs": "https://www.wikidata.org/wiki/Q5682" },
+    { "@type": "Person", "name": "Lope de Vega", "sameAs": "https://www.wikidata.org/wiki/Q60025" },
+    { "@type": "Person", "name": "Francisco de Quevedo", "sameAs": "https://www.wikidata.org/wiki/Q130606" },
+    { "@type": "Person", "name": "Diego Velázquez", "sameAs": "https://www.wikidata.org/wiki/Q297" },
+    { "@type": "Thing", "name": "Plaza Mayor de Madrid", "sameAs": "https://www.wikidata.org/wiki/Q160270" },
+    { "@type": "Thing", "name": "Siglo de Oro" },
+    { "@type": "Thing", "name": "Monasterio de las Descalzas Reales" },
+    { "@type": "Thing", "name": "Real Alcázar de Madrid" },
+    { "@type": "Thing", "name": "Regalía de Aposento" },
+    { "@type": "Thing", "name": "Viajes de Agua de Madrid" }
+  ]
+};
+---
+
+<Base lang={lang} title="Madrid de los Austrias — Ruta teatralizada por la capital imperial" description="Ruta teatralizada por el Madrid de los Austrias con María Victoria Solaz. Plaza Mayor, Barrio de las Letras, Descalzas Reales, pasadizos secretos. Guía intérprete diplomada." jsonLd={jsonLd} path="/madrid/habsbourg/">
+
+  <div class="w-full h-64 md:h-96 overflow-hidden">
+    <img src="/img/madrid/plaza-mayor-atardecer.webp" alt="Plaza Mayor de Madrid at sunset" class="w-full h-full object-cover" width="1280" height="857" loading="eager" />
+  </div>
+
+  <article class="max-w-3xl mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold mb-4">Madrid de los Austrias</h1>
+    <p class="text-xl text-sepia mb-8">Madrid no nació de la planificación, sino de una obsesión imperial. En 1561, Felipe II convirtió una villa manchega en el centro de un imperio donde el sol no encontraba descanso. Caminar por sus calles no es hacer turismo — es navegar por un código genético de ladrillo, granito y pizarra.</p>
+
+    <section class="prose prose-lg max-w-none mb-12">
+
+      <h2>Estación I: el gen del agua (Mayrit)</h2>
+      <p>
+        Antes que Corte, Madrid fue agua. El nombre de la villa — Mayrit — significa "madre de las aguas". Los Austrias heredaron y expandieron los Viajes de Agua, una red subterránea de túneles y qanats de origen andalusí que permitía que la vida floreciera en la árida meseta. Sin esta ingeniería invisible, Madrid jamás habría sido capital. Es la única capital europea cuyo emplazamiento fue decidido por su sistema hidráulico. Felipe II no eligió Madrid por su belleza — la eligió por su silencio y su agua.
+      </p>
+
+      <h2>Estación II: la Cuesta de la Vega (donde todo empezó)</h2>
+      <p>
+        Bajo la sombra de la actual Almudena, el aire aún huele a frontera. Aquí está el lienzo de la Muralla Árabe — Madrid nació como Mayrit, una atalaya musulmana para vigilar el paso de los cristianos. Felipe II eligió este lugar porque desde aquí podía ver el camino hacia <a href="/fr/el-escorial/" class="underline">El Escorial</a>. Es el punto de mayor tensión: donde la Cruz se alzó sobre la Media Luna.
+      </p>
+
+      <h2>Estación III: la estética del poder (gris de sierra y rojo de barro)</h2>
+      <p>
+        Observad las torres. Felipe II trajo de Flandes el gusto por los chapiteles de pizarra, pero los fundió con el ladrillo rojo castellano y el granito gris de la Sierra de Guadarrama. No es una elección artística — es una declaración de principios: la calidez del barro frente a la frialdad eterna de la piedra. Es el estilo de los Austrias, una arquitectura austera que detesta el adorno para ensalzar la majestad de Dios y del Rey.
+      </p>
+
+      <h2>Estación IV: la Plaza de la Paja (el corazón de los linajes)</h2>
+      <div class="my-6">
+        <img src="/img/madrid/plaza-mayor-panoramica.webp" alt="Plaza Mayor de Madrid" class="rounded-lg w-full" width="626" height="282" loading="lazy" />
+      </div>
+      <p>
+        Mucho antes que la Plaza Mayor, existió la Plaza de la Paja. Aquí es donde el Madrid de los Austrias muestra su cara más aristocrática. En este rincón vivían los linajes que movían los hilos del reino — los Lassos de Castilla, los Vargas. Es el lugar donde la aristocracia vigilaba al Rey.
+      </p>
+      <p>
+        La joya oculta: la Capilla del Obispo. Entrar en este templo es retroceder al gótico final, un espacio de una belleza hiriente donde los nobles enterraban sus ambiciones bajo bóvedas de crucería, vigilando la plaza desde sus palacios de muros hoscos.
+      </p>
+
+      <h2>Estación V: el Callejón del Codo y la Plaza de la Villa</h2>
+      <p>
+        Aquí el tiempo se ha congelado. La Torre de los Lujanes, con su aire de fortaleza medieval, nos recuerda que Madrid es una ciudad de caballeros. En el Callejón del Codo, tan estrecho que obliga a rozar el hombro con el desconocido, era el lugar predilecto para las emboscadas — el honor se resolvía con una estocada rápida. Al desembocar en la Plaza de la Villa, la Torre de los Lujanes: donde estuvo preso el Rey de Francia, Francisco I, tras su derrota en Pavía.
+      </p>
+
+      <h2>Estación VI: la Calle de la Pasa y la Cárcel de Corte</h2>
+      <p>
+        "El que no pasa por la Calle de la Pasa, no se casa". Al lado de la Plaza de Puerta Cerrada, esta calle albergaba el Palacio Arzobispal — aquí se decidía la moral de la Villa. Mientras en los corrales de comedias se pecaba, en la Calle de la Pasa se gestionaban las dispensas.
+      </p>
+      <p>
+        Caminamos hacia donde hoy está el Ministerio de Asuntos Exteriores. Aquí estaba la Cárcel de Corte. Madrid no era solo palacios — era un hervidero de delincuentes, genios arruinados y deudores. Bajo sus rejas, se dice que muchos de los versos más ácidos de Quevedo fueron gestados. Es la parada de la Picaresca, donde el hidalgo arruinado compartía rancho con el pícaro de Guzmán de Alfarache.
+      </p>
+
+      <h2>Estación VII: la Plaza Mayor y el teatro del mundo</h2>
+      <p>
+        Bajo Felipe III, el arquitecto Juan Gómez de Mora puso orden al caos medieval. La Plaza Mayor se convirtió en el gran teatro del mundo. Imaginen el estruendo: aquí se celebraban por igual ejecuciones de la Inquisición, corridas de toros, beatificaciones y fastuosos autos de fe. Era el teatro donde el pueblo veía a su Rey, y el Rey medía el pulso a su pueblo.
+      </p>
+      <p>
+        Cada balcón tenía un precio, cada arco una historia de comercio y cada esquina un pregón. Es el Madrid de la Casa de la Panadería, donde el orden arquitectónico intentaba, en vano, contener la picaresca que bullía en el pavimento.
+      </p>
+
+      <h2>Estación VIII: la Calle Mayor y el rastro de la sangre</h2>
+      <div class="my-6">
+        <img src="/img/madrid/puerta-sol-oso.webp" alt="El Oso y el Madroño, Puerta del Sol" class="rounded-lg w-full" width="1049" height="600" loading="lazy" />
+      </div>
+      <p>
+        Esta calle era la arteria vital que conectaba el Alcázar con la Puerta del Sol. Deteneos frente al número 88. Allí, en 1622, fue asesinado el Conde de Villamediana, el hombre más brillante, temerario y lengua de fuego de la corte. Su asesinato, nunca resuelto, es el símbolo de la corrupción y el peligro de brillar demasiado cerca de Felipe IV.
+      </p>
+
+      <h2>Estación IX: espadas y plumas (el Siglo de Oro)</h2>
+      <p>
+        Entramos en el Barrio de las Letras, donde el odio y el genio compartían taberna. En estas calles estrechas, la historia de España se escribió con sangre y tinta. Es el Madrid donde Lope de Vega vivía como un ídolo de masas mientras Cervantes moría en la pobreza. Es el Madrid de los Mentideros de la Villa — como el de las Gradas de San Felipe, donde las noticias de Flandes llegaban mezcladas con los cotilleos de alcoba de palacio.
+      </p>
+      <p>
+        Los Austrias no solo gobernaban — patrocinaban el mayor estallido cultural de Occidente mientras sus finanzas se hundían por las deudas con los banqueros genoveses.
+      </p>
+
+      <h2>Estación X: las Descalzas Reales (el Alcázar de las mujeres)</h2>
+      <p>
+        No se puede entender a los Austrias sin su misticismo. Este monasterio era el refugio de las infantas y reinas — una embajada espiritual donde se custodiaban tesoros de todo el mundo. No eran solo lugares de oración — eran sedes bancarias y centros de espionaje. Las infantas que no se casaban se retiraban allí, convirtiendo el convento en un lobby político de primer orden. La ciudad tenía más clérigos y monjas por metro cuadrado que ninguna otra capital europea.
+      </p>
+
+      <h2>Estación XI: el Pasadizo de la Encarnación (la ciudad subterránea)</h2>
+      <p>
+        No todo el Madrid de los Austrias se caminaba bajo el sol. En 1612, la reina Margarita de Austria mandó construir un pasadizo secreto que permitía a los monarcas cruzar desde el Alcázar hasta el convento sin ser vistos por la plebe. No era un túnel lúgubre — era una galería de arte privada, iluminada y decorada con cuadros, donde los reyes se sentían a salvo de las miradas de los Mentideros. Se dice que Felipe IV lo usaba para encuentros prohibidos, fundiendo el pecado con el privilegio real en las entrañas de Madrid.
+      </p>
+
+      <h2>Estación XII: la Casa de las Siete Chimeneas</h2>
+      <div class="my-6">
+        <img src="/img/madrid/gran-via-bn.webp" alt="Gran Vía de Madrid" class="rounded-lg w-full" width="600" height="400" loading="lazy" />
+      </div>
+      <p>
+        En la Plaza del Rey. Se dice que aquí habitaba Elena, la amante de un joven Felipe II, quien murió en extrañas circunstancias. La leyenda cuenta que su fantasma aún camina por el tejado entre las siete chimeneas, buscando justicia en las noches de luna llena. Madrid no es solo historia — es fantasmagoría.
+      </p>
+
+      <h2>Estación XIII: la Plaza de la Cruz Verde (la sombra del Inquisidor)</h2>
+      <p>
+        Donde la Calle del Sacramento se cruza con la de Segovia. Este rincón era el lugar de las ejecuciones menores de la Inquisición. La Cruz Verde señalaba el punto donde los condenados eran entregados al brazo secular para su castigo. Es el Madrid más oscuro, donde la fe se convertía en terror para mantener el orden de la Contrarreforma.
+      </p>
+
+      <h2>Estación XIV: el Alcázar y el ocaso del Hechizado</h2>
+      <p>
+        Caminamos hacia el borde del barranco, donde hoy brilla el Palacio Real, pero donde antaño se alzaba un Alcázar sombrío y solemne. Allí, Felipe IV veía cómo su imperio se desgajaba mientras Velázquez pintaba el aire en Las Meninas. Y finalmente, el acto más trágico: Carlos II, el Hechizado. Un rey que personificaba la decadencia física de una estirpe que se había cruzado demasiado consigo misma. Madrid era entonces una ciudad de contrastes brutales: la mayor riqueza artística del mundo conviviendo con la mendicidad.
+      </p>
+      <p>
+        El Alcázar ardió en 1734, llevándose gran parte de la memoria física de los Austrias. Pero la ciudad invisible que construyeron bajo el pavimento sigue ahí.
+      </p>
+
+      <h2>Las Casas a la Malicia: por qué Madrid se ve así</h2>
+      <p>
+        Debido a la Regalía de Aposento, los madrileños debían alojar gratis a los funcionarios reales. Así nacieron las Casas a la Malicia: fachadas caóticas con ventanas desiguales diseñadas para ocultar el espacio real de la vivienda y evitar los impuestos. Madrid es, en esencia, una ciudad diseñada para el engaño, donde nada es lo que parece y todo secreto tiene un pasadizo que lo conecta con el trono.
+      </p>
+
+      <h2>Donde comer: posadas, tabernas y sabores de siglos</h2>
+      <p>
+        <strong>Sobrino de Botín</strong> (Calle de Cuchilleros, 17) — El restaurante más antiguo del mundo, fundado en 1725. Su horno de leña no ha dejado de arder desde que se encendió. Se cuenta que un joven Goya lavó platos aquí, y que Hemingway buscaba entre sus cochinillos el alma de España. Comer en sus cuevas de ladrillo es descender al subsuelo donde los Austrias guardaban secretos y vinos de Arganda.
+      </p>
+      <p>
+        <strong>Posada de la Villa</strong> (Cava Baja, 9) — Posada de 1642 donde los correos reales y los hidalgos de provincias buscaban lumbre. Su cocido madrileño se cocina en puchero de barro sobre cenizas, tal como lo tomaba la servidumbre del Alcázar.
+      </p>
+      <p>
+        <strong>Casa Alberto</strong> (Calle de las Huertas, 18) — En el corazón del Barrio de las Letras, sobre el solar donde Cervantes escribió su Viaje al Parnaso. Es el lugar para imaginar a Lope de Vega ahogando su soberbia en vino tras un estreno.
+      </p>
+      <p>
+        <strong>Las Carboneras</strong> (Plaza del Conde de Miranda) — Monjas de clausura vendiendo dulces a través de un torno, manteniendo una tradición de siglos. El Madrid de los conventos cerrados al mundo pero que movían los hilos de la herencia y el linaje.
+      </p>
+
+      <h2>El vínculo con El Escorial</h2>
+      <p>
+        Madrid de los Austrias es la cara urbana de lo que <a href="/fr/el-escorial/" class="underline">El Escorial</a> es en la sierra. Felipe II gobernaba desde El Escorial, pero su capital latía aquí — en estos callejones donde la picaresca, la fe y el poder se tejían en un laberinto de ladrillo. El estilo herreriano que nació en el monasterio se propagó por las torres y chapiteles de Madrid. Entender uno sin el otro es leer solo la mitad de la historia.
+      </p>
+
+      <h2>El horóscopo de piedra: la conspiración del Rey Planeta</h2>
+      <p>
+        Si creéis que la elección de Madrid fue un capricho geográfico, es que no habéis mirado al cielo. Existe una teoría que afirma que el Madrid de los Austrias es un gigantesco mapa estelar tallado en ladrillo y granito.
+      </p>
+      <p>
+        Se dice que Felipe II no diseñó Madrid como una capital, sino como un mecanismo de ocultación. Bajo el pavimento existe una red de túneles — los Viajes de Agua transformados en pasadizos — que conectan el Alcázar con cada convento y taberna estratégica. Felipe IV los usaba para visitar amantes, Olivares para mover espías. Hay quien afirma que bajo la Plaza Mayor hay una red de túneles que permitía a la Inquisición trasladar prisioneros en absoluto silencio.
+      </p>
+      <p>
+        Y el misterio más inquietante: se cuenta que Carlos II, el Hechizado, antes de morir legó un Sello oculto en algún lugar del subsuelo de la Plaza Mayor — una reliquia para que el espíritu de los Austrias siguiera gobernando desde las sombras. Madrid es una ciudad de dos pisos: el del sol y el de las sombras. Y en Ávila, la misma energía oculta late bajo <a href="/fr/avila/" class="underline">una muralla en Ávila</a> que quizás fue diseñada no para dejar fuera a los enemigos, sino para contener algo dentro.
+      </p>
+    </section>
+
+    <RelatedDestinations links={[
+      { href: "/fr/madrid/bourbons/", title: "Madrid de los Borbones", description: "Los Borbones no destruyeron al Madrid de los Austrias — lo sepultaron bajo mármol y razón. Descubre la otra capa de la capital." },
+      { href: "/fr/el-escorial/", title: "Monasterio de El Escorial", description: "El estilo herreriano nació en el monasterio y se propagó por las torres de Madrid. Felipe II gobernaba desde ambos." },
+      { href: "/fr/segovia/", title: "Segovia — La Casa de la Moneda", description: "La plata que financiaba el Madrid de los Austrias se acuñaba en la Segovia de Felipe II." },
+      { href: "/fr/avila/", title: "Ávila — Los Caballeros Leales", description: "Los mismos linajes guerreros que defendían la muralla de Ávila custodiaban a los reyes en Madrid." },
+    ]} />
+
+    <div class="cta-box rounded-lg p-8 text-center">
+      <h2 class="text-2xl font-bold mb-2">Tour Personalizado</h2>
+      <p class="text-sepia mb-4">Recorre el Madrid de los Austrias con María Victoria Solaz — donde cada callejón es un acto y cada esquina una trampa para el incauto</p>
+      <a
+        href="/fr/madrid/visite-personnalisee/"
+        class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium"
+      >
+        Ver detalles y reservar →
+      </a>
+    </div>
+  </article>
+
+</Base>

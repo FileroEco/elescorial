@@ -1,0 +1,74 @@
+---
+import Base from '../../../../layouts/Base.astro';
+import RelatedDestinations from '../../../../components/RelatedDestinations.astro';
+import { SITE, t } from '../../../../data/i18n.js';
+const lang = 'it';
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "TouristAttraction",
+  "name": "Madrid degli Asburgo",
+  "sameAs": ["https://www.wikidata.org/wiki/Q2807"],
+  "about": [
+    {"@type": "Person","name": "Filippo II di Spagna","sameAs": "https://www.wikidata.org/wiki/Q527"},
+    {"@type": "Thing","name": "Plaza Mayor di Madrid","sameAs": "https://www.wikidata.org/wiki/Q160270"},
+    {"@type": "Thing","name": "Secolo d'Oro"}
+  ]
+};
+---
+<Base lang={lang} title="Madrid degli Asburgo — Ruta teatralizzata per la capitale imperiale" description="Ruta teatralizzata per la Madrid degli Asburgo. Plaza Mayor, Barrio de las Letras, Descalzas Reales. Con María Victoria Solaz." jsonLd={jsonLd} path="/madrid/austrias/">
+  <div class="w-full h-64 md:h-96 overflow-hidden">
+    <img src="/img/madrid/plaza-mayor-atardecer.webp" alt="Plaza Mayor de Madrid at sunset" class="w-full h-full object-cover" width="1280" height="857" loading="eager" />
+  </div>
+
+  <article class="max-w-3xl mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold mb-4">Madrid degli Asburgo</h1>
+    <p class="text-xl text-sepia mb-8">Madrid non nacque dalla pianificazione, ma da un'ossessione imperiale. Nel 1561, Filippo II trasformò un villaggio mancego nel centro di un impero dove il sole non trovava riposo.</p>
+
+    <section class="prose prose-lg max-w-none mb-12">
+      <h2>Stazione I: il gene dell'acqua (Mayrit)</h2>
+      <p>Prima di essere Corte, Madrid fu acqua. Il nome — Mayrit — significa "madre delle acque". Gli Asburgo ereditarono i "Viajes de Agua", una rete sotterranea di qanat andalusi. È l'unica capitale europea scelta per il suo sistema idraulico. Filippo II non la scelse per bellezza — la scelse per il silenzio e l'acqua.</p>
+
+      <h2>Stazione II: l'estetica del potere</h2>
+      <div class="my-6">
+        <img src="/img/madrid/plaza-mayor-panoramica.webp" alt="Plaza Mayor de Madrid" class="rounded-lg w-full" width="626" height="282" loading="lazy" />
+      </div>
+      <p>Filippo II portò dalle Fiandre il gusto per i pinnacoli di ardesia, fondendoli con il mattone rosso castigliano e il granito della Sierra de Guadarrama. Non è una scelta artistica — è una dichiarazione di principi. Lo Stile degli Asburgo: un'architettura austera che detesta l'ornamento per esaltare la maestà di Dio e del Re.</p>
+
+      <h2>Stazione III: la Plaza Mayor e il teatro del mondo</h2>
+      <p>Sotto Filippo III, l'architetto Juan Gómez de Mora mise ordine al caos medievale. La Plaza Mayor divenne il gran teatro del mondo. Qui si celebravano esecuzioni dell'Inquisizione, corride e beatificazioni. Ogni balcone aveva un prezzo, ogni arco una storia.</p>
+
+      <h2>Stazione IV: spade e penne (il Secolo d'Oro)</h2>
+      <div class="my-6">
+        <img src="/img/madrid/puerta-sol-oso.webp" alt="El Oso y el Madroño, Puerta del Sol" class="rounded-lg w-full" width="1049" height="600" loading="lazy" />
+      </div>
+      <p>Nel Barrio de las Letras, l'odio e il genio condividevano la taverna. Lope de Vega viveva come un idolo di massa mentre Cervantes moriva in povertà. È la Madrid dei "Mentideros", dove le notizie dalle Fiandre arrivavano mescolate con i pettegolezzi di palazzo. Gli Asburgo non solo governavano — sponsorizzavano la più grande esplosione culturale dell'Occidente.</p>
+
+      <h2>Stazione V: le Descalzas Reales (l’Alcázar delle donne)</h2>
+      <p>Non si possono capire gli Asburgo senza il loro misticismo. Questo monastero era il rifugio delle infante e regine — un'ambasciata spirituale che custodiva tesori da tutto il mondo. Non erano solo luoghi di preghiera — erano sedi bancarie e centri di spionaggio.</p>
+
+      <h2>Stazione VI: l’Alcázar e il tramonto dello Stregato</h2>
+      <div class="my-6">
+        <img src="/img/madrid/gran-via-bn.webp" alt="Gran Vía de Madrid" class="rounded-lg w-full" width="600" height="400" loading="lazy" />
+      </div>
+      <p>Dove oggi brilla il Palazzo Reale, un tempo si ergeva un Alcázar tetro. Qui Filippo IV vedeva il suo impero sgretolarsi mentre Velázquez dipingeva l'aria nelle Meninas. E infine, Carlos II, lo Stregato — un re che personificava la decadenza di una stirpe. L'Alcázar bruciò nel 1734, portando con sé la memoria fisica degli Asburgo.</p>
+
+      <h2>Dove mangiare</h2>
+      <p><strong>Sobrino de Botín</strong> (Cuchilleros, 17) — Il ristorante più antico del mondo (1725). Si dice che il giovane Goya lavasse i piatti qui. <strong>Posada de la Villa</strong> (Cava Baja, 9) — Locanda del 1642 con il cocido madrileno cotto nel puchero d'argilla. <strong>Casa Alberto</strong> (Huertas, 18) — Sul terreno dove Cervantes scrisse.</p>
+
+      <h2>La cospirazione dei tunnel</h2>
+      <p>Si dice che sotto Madrid esiste una rete di passaggi segreti che collegano l’Alcázar con ogni convento. Filippo IV li usava per visite proibite, Olivares per muovere spie. Madrid è una città a due piani: quello del sole e quello delle ombre.</p>
+    </section>
+
+    <RelatedDestinations links={[
+      { href: "/it/madrid/borbones/", title: "Madrid dei Borbone", description: "I Borbone non distrussero la Madrid degli Asburgo — la seppellirono sotto marmo e ragione." },
+      { href: "/it/el-escorial/", title: "Monastero dell’Escorial", description: "Lo stile herreriano nacque nel monastero e si propagò per le torri di Madrid." },
+      { href: "/it/segovia/", title: "Segovia — La Zecca Reale", description: "L'argento che finanziava la Madrid degli Asburgo si coniava nella Segovia di Filippo II." },
+    ]} />
+
+    <div class="cta-box rounded-lg p-8 text-center">
+      <h2 class="text-2xl font-bold mb-2">Tour Personalizzato</h2>
+      <p class="text-sepia mb-4">Percorri la Madrid degli Asburgo con María Victoria — parla italiano</p>
+      <a href="/it/madrid/tour-personalizzato/" class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium">Dettagli e prenotazione →</a>
+    </div>
+  </article>
+</Base>

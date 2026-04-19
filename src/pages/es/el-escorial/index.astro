@@ -1,0 +1,126 @@
+---
+import Base from '../../../layouts/Base.astro';
+import RelatedDestinations from '../../../components/RelatedDestinations.astro';
+import { SITE, t } from '../../../data/i18n.js';
+
+const lang = 'es';
+const ui = t(lang);
+const dest = ui.destinations.escorial;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "TouristAttraction",
+  "name": "Monasterio de San Lorenzo de El Escorial",
+  "alternateName": ["El Escorial", "The Escorial", "L'Escorial", "Monastero dell'Escorial"],
+  "sameAs": [
+    "https://www.wikidata.org/wiki/Q160836",
+    "https://es.wikipedia.org/wiki/Monasterio_de_El_Escorial"
+  ],
+  "isPartOf": {
+    "@type": "UNESCOWorldHeritageSite",
+    "name": "Monastery and Site of the Escurial, Madrid"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "San Lorenzo de El Escorial",
+    "addressRegion": "Comunidad de Madrid",
+    "addressCountry": "ES"
+  },
+  "about": [
+    { "@type": "Person", "name": "Felipe II de España", "sameAs": "https://www.wikidata.org/wiki/Q527" },
+    { "@type": "Thing", "name": "Contrarreforma" },
+    { "@type": "ArchitecturalStyle", "name": "Estilo herreriano" }
+  ],
+  "mentions": [
+    { "@type": "TouristAttraction", "name": "Ávila", "sameAs": "https://www.wikidata.org/wiki/Q15688" },
+    { "@type": "TouristAttraction", "name": "Segovia", "sameAs": "https://www.wikidata.org/wiki/Q8356" },
+    { "@type": "TouristAttraction", "name": "Cuelgamuros", "sameAs": "https://www.wikidata.org/wiki/Q1138282" },
+    { "@type": "Person", "name": "Tiziano Vecellio", "sameAs": "https://www.wikidata.org/wiki/Q47551" },
+    { "@type": "Person", "name": "Sofonisba Anguissola", "sameAs": "https://www.wikidata.org/wiki/Q234791" },
+    { "@type": "Person", "name": "Juan de Herrera", "sameAs": "https://www.wikidata.org/wiki/Q470737" },
+    { "@type": "Person", "name": "Juan Bautista de Toledo" },
+    { "@type": "Thing", "name": "Palazzo Reale di Napoli" },
+    { "@type": "Thing", "name": "Batalla de San Quintín" },
+    { "@type": "Thing", "name": "Leyenda Negra Española" }
+  ],
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "María Victoria Solaz Andújar",
+    "priceRange": "€€",
+    "knowsLanguage": ["es", "en", "it", "fr", "pt"],
+    "hasCredential": {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "Licenciatura en Turismo — Guía de Patrimonio Nacional"
+    }
+  }
+};
+---
+
+<Base lang={lang} title={`${dest.name} — Visita teatralizada con guía oficial`} description="Descubre el Monasterio de El Escorial con una visita teatralizada. María Victoria Solaz, guía oficial de Patrimonio especializada en Felipe II." jsonLd={jsonLd} path="/el-escorial/">
+
+  <div class="w-full h-64 md:h-96 overflow-hidden">
+    <img src="/img/escorial/fachada.webp" alt="Fachada principal del Monasterio de San Lorenzo de El Escorial, Patio de los Reyes" class="w-full h-full object-cover" width="540" height="312" loading="eager" />
+  </div>
+
+  <article class="max-w-3xl mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold mb-4">{dest.name}</h1>
+    <p class="text-xl text-sepia mb-8">Mucho más que un monasterio. Un palacio, una biblioteca, un panteón y la declaración de principios de un rey que quiso gobernar el mundo desde una celda.</p>
+
+    <section class="prose prose-lg max-w-none mb-12">
+      <h2>Felipe II no construyó un edificio. Construyó una obsesión.</h2>
+      <p>
+        Las guías turísticas te dirán que El Escorial se construyó para conmemorar la batalla de San Quintín. Es verdad, pero es solo la superficie. Felipe II diseñó este lugar como el centro neurálgico de un imperio que abarcaba desde Nápoles hasta las Filipinas. Cada piedra, cada pasillo, cada decisión arquitectónica tiene una intención política y espiritual que solo se entiende cuando alguien te la cuenta mirándote a los ojos.
+      </p>
+      <p>
+        Aquí gobernó el rey más poderoso de su época desde una habitación austera con vistas directas al altar de la Basílica. Aquí Tiziano envió sus últimas obras maestras desde Venecia. En esta corte, Sofonisba Anguissola pintó los retratos de la familia real. Y aquí, en el Panteón Real, descansan los reyes de España en un silencio que impone más que cualquier discurso.
+      </p>
+
+      <h2>Lo que no aparece en Wikipedia</h2>
+      <p>
+        La intrahistoria del Escorial está en los detalles que solo conoce quien lleva décadas estudiando a Felipe II. La psicología de un rey que controlaba un imperio desde su escritorio pero no podía controlar la gota que lo consumía. Las cartas personales que revelan a un padre preocupado, no solo a un monarca. La silla de manos en la que fue transportado al final de su vida, un objeto que cuenta más sobre el poder y la fragilidad humana que cualquier libro de texto.
+      </p>
+      <p>
+        Estas son las historias que no están en las audioguías. Y son las que hacen que una visita al Escorial pase de ser "interesante" a ser inolvidable.
+      </p>
+
+      <h2>Patrimonio de la Humanidad desde 1984</h2>
+      <p>
+        La UNESCO reconoció El Escorial como Patrimonio de la Humanidad por su excepcional valor como conjunto arquitectónico renacentista. El estilo herreriano, creado por Juan de Herrera para este edificio, influyó en la arquitectura de todo el imperio — incluido el Palazzo Reale de Nápoles. Entender El Escorial es entender la ambición estética de toda una época.
+      </p>
+
+      <div class="my-8">
+        <img src="/img/guia/guia-disfraz-epoca.webp" alt="María Victoria Solaz con compañera disfrazada de época de Felipe II" class="rounded-lg w-full" width="1080" height="1440" loading="lazy" />
+        <p class="text-sm text-sepia/70 mt-2">María Victoria con una visita teatralizada en la que la historia cobra vida</p>
+      </div>
+
+      <div class="my-8">
+        <img src="/img/guia/guias-pasillo-monasterio.webp" alt="Guías en los pasillos del Monasterio de El Escorial" class="rounded-lg w-full" width="1024" height="768" loading="lazy" />
+        <p class="text-sm text-sepia/70 mt-2 text-center italic">Los pasillos del Monasterio — donde cada paso es un acto de la función</p>
+      </div>
+
+      <h2>El eje imperial: Escorial, Ávila, Segovia y Cuelgamuros</h2>
+      <p>
+        El Escorial no existe en el vacío. Forma parte de un triángulo histórico con <a href="/es/avila/" class="underline">Ávila</a> y <a href="/es/segovia/" class="underline">Segovia</a> — tres ciudades Patrimonio UNESCO unidas por la historia de Castilla y el reinado de Felipe II. Y a pocos kilómetros, <a href="/es/cuelgamuros/" class="underline">Cuelgamuros</a> (Valle de los Caídos) añade una capa de historia del siglo XX que completa el viaje. María Victoria domina los cuatro destinos con la misma pasión y rigor, ofreciendo una continuidad narrativa que ningún otro guía puede igualar. Y en <a href="/es/madrid/austrias/" class="underline">el Madrid de los Austrias</a>, las calles que Felipe II pisó completan el retrato del rey que construyó este monasterio.
+      </p>
+    </section>
+
+    <RelatedDestinations links={[
+      { href: "/es/avila/", title: "Ávila — La fortaleza mística", description: "Si El Escorial es el cerebro de Felipe II, Ávila es su conciencia. Santa Teresa, la muralla y el romanticismo más austero de Castilla." },
+      { href: "/es/segovia/", title: "Segovia — Del Acueducto al Alcázar", description: "Juan de Herrera diseñó la Casa de la Moneda de Segovia para el mismo rey. La conexión imperial es directa." },
+      { href: "/es/cuelgamuros/", title: "Cuelgamuros — Memoria y piedra", description: "A 10 km del Escorial. Dos monumentos separados por cuatro siglos, unidos por la misma sierra." },
+      { href: "/es/madrid/austrias/", title: "Madrid de los Austrias", description: "Felipe II trasladó la corte a Madrid en 1561. El estilo herreriano del Escorial se propagó por las torres de la capital." },
+    ]} />
+
+    <div class="cta-box rounded-lg p-8 text-center">
+      <h2 class="text-2xl font-bold mb-2">{dest.productName}</h2>
+      <p class="text-sepia mb-4">Reserva tu visita con María Victoria</p>
+      <a
+        href={`/${lang}/el-escorial/${dest.productSlug}/`}
+        class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium"
+      >
+        Ver detalles y reservar →
+      </a>
+    </div>
+  </article>
+
+</Base>

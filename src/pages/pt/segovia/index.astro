@@ -1,0 +1,44 @@
+---
+import Base from '../../../layouts/Base.astro';
+import RelatedDestinations from '../../../components/RelatedDestinations.astro';
+import { SITE, t } from '../../../data/i18n.js';
+const lang = 'pt';
+const ui = t(lang);
+const dest = ui.destinations.segovia;
+const jsonLd = {"@context":"https://schema.org","@type":"TouristAttraction","name":"Segóvia","sameAs":["https://www.wikidata.org/wiki/Q8356"],"isPartOf":{"@type":"UNESCOWorldHeritageSite","name":"Old Town of Segovia and its Aqueduct"},"about":[{"@type":"Thing","name":"Aqueduto de Segóvia","sameAs":"https://www.wikidata.org/wiki/Q184100"},{"@type":"Thing","name":"Alcázar de Segóvia","sameAs":"https://www.wikidata.org/wiki/Q178012"}]};
+---
+<Base lang={lang} title="Segóvia — Visita guiada do Aqueduto ao Alcázar" description="Visita guiada a Segóvia com María Victoria Solaz. Aqueduto romano, Alcázar, Catedral, Casa da Moeda Real. Guia diplomada." jsonLd={jsonLd} path="/segovia/">
+  <div class="w-full h-64 md:h-96 overflow-hidden">
+    <img src="/img/segovia/acueducto-noche.webp" alt="Aqueduct of Segovia at night" class="w-full h-full object-cover" width="1600" height="1097" loading="eager" />
+  </div>
+
+  <article class="max-w-3xl mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold mb-4">{dest.name}</h1>
+    <p class="text-xl text-sepia mb-8">Segóvia não é uma cidade de um só ato. É uma ópera monumental que se estende das cavernas da pré-história aos laboratórios do Iluminismo.</p>
+    <section class="prose prose-lg max-w-none mb-12">
+      <h2>O esqueleto dos gigantes: o Aqueduto</h2>
+      <p>167 arcos de granito sem uma gota de argamassa. 20.400 blocos unidos pela gravidade. Roma não ergueu este colosso só para saciar a sede — é um grito de propaganda imperial. Durante séculos chamaram-lhe "A Ponte do Diabo".</p>
+            <div class="my-6">
+        <img src="/img/segovia/acueducto-dia.webp" alt="Acueducto de Segovia" class="rounded-lg w-full" width="1400" height="976" loading="lazy" />
+      </div>
+
+      <h2>O Alcázar: a proa do navio de pedra</h2>
+      <p>Aqui Isabel a Católica foi proclamada Rainha de Castela em 1474. O Alcázar foi também o Real Colégio de Artilharia, onde o químico Louis Proust formulou a Lei das Proporções Definidas.</p>
+      <h2>A Casa da Moeda Real: a inovação de Filipe II</h2>
+      <p>Desenhada por Juan de Herrera (o mesmo arquiteto de <a href="/pt/el-escorial/" class="underline">El Escorial</a>), a primeira fábrica mecanizada de Espanha com tecnologia do Tirol.</p>
+      <h2>São João da Cruz</h2>
+      <p>Se em <a href="/pt/avila/" class="underline">Ávila</a> Teresa é a chama, em Segóvia São João da Cruz é o silêncio.</p>
+      <h2>Onde comer</h2>
+      <p><strong>Mesón de Cándido</strong> — o ritual do leitão cortado com o bordo de um prato. <strong>José María</strong> — inovação no assado. <strong>Mesón Duque</strong> — desde 1895.</p>
+    </section>
+    <RelatedDestinations links={[
+      { href: "/pt/el-escorial/", title: "Mosteiro de El Escorial", description: "Herrera desenhou El Escorial e a Casa da Moeda de Segóvia. Duas obras, um génio." },
+      { href: "/pt/avila/", title: "Ávila — A fortaleza mística", description: "Teresa em Ávila, São João em Segóvia." },
+      { href: "/pt/cuelgamuros/", title: "Cuelgamuros — Memória e pedra", description: "O triângulo Escorial-Cuelgamuros-Segóvia partilha a serra." },
+    ]} />
+    <div class="cta-box rounded-lg p-8 text-center">
+      <h2 class="text-2xl font-bold mb-2">{dest.productName}</h2>
+      <a href={`/${lang}/segovia/${dest.productSlug}/`} class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium">Detalhes e reserva →</a>
+    </div>
+  </article>
+</Base>

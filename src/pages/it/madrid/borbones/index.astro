@@ -1,0 +1,68 @@
+---
+import Base from '../../../../layouts/Base.astro';
+import RelatedDestinations from '../../../../components/RelatedDestinations.astro';
+import { SITE, t } from '../../../../data/i18n.js';
+const lang = 'it';
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "TouristAttraction",
+  "name": "Madrid dei Borbone",
+  "sameAs": ["https://www.wikidata.org/wiki/Q2807"],
+  "about": [
+    {"@type": "Person","name": "Carlo III di Spagna","sameAs": "https://www.wikidata.org/wiki/Q190601"},
+    {"@type": "Thing","name": "Palazzo Reale di Madrid","sameAs": "https://www.wikidata.org/wiki/Q171528"},
+    {"@type": "Thing","name": "Museo del Prado","sameAs": "https://www.wikidata.org/wiki/Q160112"},
+    {"@type": "Person","name": "Filippo Juvarra","sameAs": "https://www.wikidata.org/wiki/Q316699"},
+    {"@type": "Person","name": "Giambattista Sacchetti","sameAs": "https://www.wikidata.org/wiki/Q3762228"}
+  ]
+};
+---
+<Base lang={lang} title="Madrid dei Borbone — Ruta teatralizzata per la Madrid illuminata" description="Ruta teatralizzata per la Madrid dei Borbone. Palazzo Reale (di architetti italiani!), Prado, Retiro, Puerta de Alcalá, Goya. Con María Victoria Solaz." jsonLd={jsonLd} path="/madrid/borbones/">
+  <div class="w-full h-64 md:h-96 overflow-hidden">
+    <img src="/img/madrid/skyline-borbones.webp" alt="Madrid skyline Cibeles" class="w-full h-full object-cover" width="600" height="400" loading="eager" />
+  </div>
+
+  <article class="max-w-3xl mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold mb-4">Madrid dei Borbone</h1>
+    <p class="text-xl text-sepia mb-8">Se gli Asburgo pregavano, i Borbone classificano. Con l'arrivo della dinastia francese, Madrid smise di nascondersi dietro vicoli di mattone per aprirsi alla luce della Ragione.</p>
+
+    <section class="prose prose-lg max-w-none mb-12">
+      <h2>Il Palazzo Reale: il trionfo dell'architettura italiana</h2>
+      <p>Dopo l'incendio dell’Alcázar nel 1734, Filippo V e Carlo III ordinarono un palazzo che parlasse il linguaggio di Versailles con l'accento del Guadarrama. Ma gli architetti? <strong>Italiani.</strong> Filippo Juvarra e Giambattista Sacchetti definirono il Barocco tardio italiano al servizio della monarchia spagnola. Pietra bianca di Colmenar e granito grigio. Niente legno — solo volte e marmo. Per un italiano, visitare il Palazzo Reale è scoprire il genio dei propri architetti al servizio di una corona straniera.</p>
+
+      <h2>Il Triangolo dell'Illuminismo: il Paseo del Prado</h2>
+      <div class="my-6">
+        <img src="/img/madrid/gran-via-noche.webp" alt="Gran Vía de Madrid de noche" class="rounded-lg w-full" width="626" height="418" loading="lazy" />
+      </div>
+      <p>Carlo III — che prima fu Re di Napoli (lo sapevate?) — spostò il centro di gravità di Madrid verso est. Il Gabinetto di Storia Naturale di Juan de Villanueva (oggi Museo del Prado), il Real Giardino Botanico e l'Osservatorio Astronomico formano un ecosistema di conoscenza che oggi è Patrimonio UNESCO come "Paisaje de la Luz".</p>
+      <p>Le fontane di Cibele, Nettuno e Apollo custodiscono questo asse. Carlo III non abbellì Madrid — creò la versione spagnola di ciò che aveva già fatto a Napoli con la Reggia di Caserta e il Museo Archeologico.</p>
+
+      <h2>Francesco Sabatini e la Puerta de Alcalá</h2>
+      <p>Un altro italiano. Francesco Sabatini, palermitano, progettò la Puerta de Alcalá nel 1778 — il primo arco di trionfo costruito in Europa dopo la caduta di Roma. Per gli italiani, Madrid dei Borbone è un museo a cielo aperto del genio italiano esportato.</p>
+
+      <h2>Il panico della Regina: la Plaza de Oriente</h2>
+      <div class="my-6">
+        <img src="/img/guia/guias-monasterio.webp" alt="Guías del Monasterio de El Escorial" class="rounded-lg w-full" width="1024" height="768" loading="lazy" />
+      </div>
+      <p>Le statue degli antichi monarchi non coronano la cornice del Palazzo — camminano a livello del suolo tra noi. La regina Elisabetta Farnese (italiana!) si svegliava sudata dopo un incubo ricorrente: le statue che crollavano sulla sua famiglia. Il panico fu tale che furono tolte dalla balaustra. Passeggiare per la Plaza de Oriente è sentire la superstizione di una stirpe che temeva il peso del proprio passato.</p>
+
+      <h2>Dove mangiare</h2>
+      <p><strong>Lhardy</strong> (Carrera de San Jerónimo, 8) — Fondato nel 1839, il primo a servire consommé. Qui i ministri di Isabella II decidevano il destino della Spagna. <strong>La Mallorquina</strong> (Puerta del Sol) — Dal 1894, la democratizzazione della pasticceria fine. <strong>Taberna de Antonio Sánchez</strong> — Attiva dal 1787, la trincea del vino casticcio contro le parrucche francesi.</p>
+
+      <h2>Il segreto alchemico del Buen Retiro</h2>
+      <p>Il mistero più oscuro avvolge la Real Fabbrica di Porcellana del Buen Retiro — "La China". Quando gli inglesi la distrussero durante la Guerra d'Indipendenza, molti sussurrarono che non fu solo per rivalità commerciale, ma per occultare un laboratorio di alchimia dove i Borbone tentavano di trasmutare il destino della Spagna.</p>
+    </section>
+
+    <RelatedDestinations links={[
+      { href: "/it/madrid/austrias/", title: "Madrid degli Asburgo", description: "Sotto il marmo borbonico spunta il mattone rosso degli Asburgo. Due strati che si necessitano." },
+      { href: "/it/el-escorial/", title: "Monastero dell’Escorial", description: "I Borbone ereditarono El Escorial e lo ampliarono. La connessione tra il monastero e il Palazzo Reale è diretta." },
+      { href: "/it/segovia/", title: "Segovia — Scienza e Illuminismo", description: "Il Real Colegio de Artillería fu la Silicon Valley borbonica. Proust formulò le sue leggi lì." },
+    ]} />
+
+    <div class="cta-box rounded-lg p-8 text-center">
+      <h2 class="text-2xl font-bold mb-2">Tour Personalizzato</h2>
+      <p class="text-sepia mb-4">Percorri la Madrid delle Luci con María Victoria — dove il marmo brilla ma le ombre insidiano</p>
+      <a href="/it/madrid/tour-personalizzato/" class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium">Dettagli e prenotazione →</a>
+    </div>
+  </article>
+</Base>

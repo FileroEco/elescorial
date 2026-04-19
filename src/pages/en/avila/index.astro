@@ -1,0 +1,77 @@
+---
+import Base from '../../../layouts/Base.astro';
+import RelatedDestinations from '../../../components/RelatedDestinations.astro';
+import { SITE, t } from '../../../data/i18n.js';
+const lang = 'en';
+const ui = t(lang);
+const dest = ui.destinations.avila;
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "TouristAttraction",
+  "name": "Ávila",
+  "sameAs": ["https://www.wikidata.org/wiki/Q15688"],
+  "isPartOf": {"@type": "UNESCOWorldHeritageSite","name": "Old Town of Ávila with its Extra-Muros Churches"},
+  "about": [
+    {"@type": "Person","name": "Saint Teresa of Ávila","sameAs": "https://www.wikidata.org/wiki/Q171411"},
+    {"@type": "Thing","name": "Walls of Ávila","sameAs": "https://www.wikidata.org/wiki/Q608462"}
+  ]
+};
+---
+<Base lang={lang} title="Ávila — Guided tour of Castile's mystic fortress" description="Guided tour of Ávila with María Victoria Solaz. UNESCO walls, Saint Teresa, Romanesque architecture. Certified Heritage guide. 5 languages." jsonLd={jsonLd} path="/avila/">
+  <div class="w-full h-64 md:h-96 overflow-hidden">
+    <img src="/img/avila/muralla-atardecer.webp" alt="Walls of Ávila at sunset" class="w-full h-full object-cover" width="626" height="417" loading="eager" />
+  </div>
+
+  <article class="max-w-3xl mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold mb-4">{dest.name}</h1>
+    <p class="text-xl text-sepia mb-8">You don't visit Ávila. You climb it. At 1,131 metres above sea level, this city is the mystic heart of Castile and the most perfectly preserved medieval fortress in Europe.</p>
+
+    <section class="prose prose-lg max-w-none mb-12">
+      <h2>The Walls: the Empire's granite belt</h2>
+      <p>Europe's best-preserved medieval monument. 2,516 metres of perimeter, 87 towers and 9 gates watching over the plateau for over a thousand years. But Ávila's walls are more than a military defence — they're a living organism built with the bones of earlier civilisations. Look at the foundations: Roman steles and Vetton altars used as rubble by medieval knights. Ávila was raised on the ashes of other worlds.</p>
+
+      <h2>The Cathedral of El Salvador: temple and fortress</h2>
+      <div class="my-6">
+        <img src="/img/avila/catedral-interior.webp" alt="Interior de la Catedral de Ávila" class="rounded-lg w-full" width="1200" height="675" loading="lazy" />
+      </div>
+      <p>Spain's first Gothic cathedral wasn't built to be delicate. Its apse — the Cimorro — is literally embedded in the wall. In Ávila, faith and defence were the same thing. The caleña stone, a ferruginous sandstone with reddish veins, makes the cathedral seem to bleed at sunset.</p>
+
+      <h2>Saint Teresa of Jesus: the warrior mystic</h2>
+      <div class="my-6">
+        <img src="/img/avila/catedral-leon.webp" alt="León de granito y torre de la Catedral de Ávila" class="rounded-lg w-full max-w-md mx-auto" width="1200" height="1600" loading="lazy" />
+      </div>
+      <p>Strip away the flowers and candles. Teresa de Cepeda y Ahumada was the most dangerous woman of the 16th century. In an Ávila of warrior lineages and men who spoke of honour, she spoke of freedom.</p>
+      <p>Her reform of the Carmelites wasn't a spiritual retreat — it was a slap in the face of the system. While Philip II built <a href="/en/el-escorial/" class="underline">El Escorial</a> with silver from the Indies, she raised convents with willpower and broken sandals.</p>
+
+      <h2>The City of the Loyal Knights</h2>
+      <div class="my-6">
+        <img src="/img/avila/cimorro.webp" alt="El Cimorro, ábside fortificado de la Catedral de Ávila" class="rounded-lg w-full" width="1200" height="800" loading="lazy" />
+      </div>
+      <p>Ávila wasn't a city of courtiers but of frontier men. The palaces of the Dávila, Águila and Guzmán families are fortress-houses attached to the wall because Ávila's nobility didn't live for the dance — they lived for the watch.</p>
+
+      <h2>The Romanesque and the Basilica of San Vicente</h2>
+      <p>Ávila is an open catalogue of Romanesque architecture. In the Basilica of San Vicente, the Martyrs' Cenotaph tells a story of martyrdom and glory carved with a delicacy that makes you forget you're looking at cold rock.</p>
+
+      <h2>Where to eat</h2>
+      <p><strong>Restaurante El Almacén</strong> — next to the walls, where avant-garde meets battlements. <strong>Mesón de Los Infantes</strong> — in a 16th-century building, the Ávila beef steak. <strong>La Flor de Castilla</strong> — since 1860, custodians of the Yemas de Santa Teresa.</p>
+
+      <h2>The link to El Escorial</h2>
+      <p>If <a href="/en/el-escorial/" class="underline">El Escorial</a> is Philip II's brain, Ávila is his conscience. Ávila is the spiritual vertex of the imperial axis with <a href="/en/segovia/" class="underline">Segovia</a> and El Escorial — three UNESCO World Heritage cities united by the history of Castile.</p>
+
+      <h2>The secret of the walls</h2>
+      <p>To the casual eye, the walls are a military defence. To the initiated, they're something else. Why did so many kings seek refuge here in their darkest moments? Perhaps Teresa's "Interior Castle" wasn't a metaphor but a literal description. Walking along the ramparts, be careful: in Ávila, you're not the one watching history — it's the geometry of centuries that's watching you.</p>
+    </section>
+
+    <RelatedDestinations links={[
+      { href: "/en/el-escorial/", title: "Royal Monastery of El Escorial", description: "If Ávila is Philip II's conscience, El Escorial is his brain. One hour by road." },
+      { href: "/en/segovia/", title: "Segovia — Aqueduct to Alcázar", description: "If Teresa is the flame in Ávila, Saint John of the Cross is the silence in Segovia." },
+      { href: "/en/cuelgamuros/", title: "Cuelgamuros — Memory and stone", description: "From medieval walls to a 20th-century basilica. Two ways of building monuments that demand context." },
+    ]} />
+
+    <div class="cta-box rounded-lg p-8 text-center">
+      <h2 class="text-2xl font-bold mb-2">{dest.productName}</h2>
+      <p class="text-sepia mb-4">With María Victoria Solaz, the walls stop being stone and become an open book</p>
+      <a href={`/${lang}/avila/${dest.productSlug}/`} class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium">Details & booking →</a>
+    </div>
+  </article>
+</Base>

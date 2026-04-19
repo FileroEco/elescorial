@@ -1,0 +1,73 @@
+---
+import Base from '../../../layouts/Base.astro';
+import RelatedDestinations from '../../../components/RelatedDestinations.astro';
+import { SITE, t } from '../../../data/i18n.js';
+const lang = 'it';
+const ui = t(lang);
+const dest = ui.destinations.segovia;
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "TouristAttraction",
+  "name": "Segovia",
+  "sameAs": ["https://www.wikidata.org/wiki/Q8356"],
+  "isPartOf": {"@type": "UNESCOWorldHeritageSite","name": "Old Town of Segovia and its Aqueduct"},
+  "about": [
+    {"@type": "Thing","name": "Acquedotto di Segovia","sameAs": "https://www.wikidata.org/wiki/Q184100"},
+    {"@type": "Thing","name": "Alcázar di Segovia","sameAs": "https://www.wikidata.org/wiki/Q178012"},
+    {"@type": "Person","name": "Isabella I di Castiglia","sameAs": "https://www.wikidata.org/wiki/Q504"},
+    {"@type": "Person","name": "Filippo II di Spagna","sameAs": "https://www.wikidata.org/wiki/Q527"},
+    {"@type": "Person","name": "San Giovanni della Croce","sameAs": "https://www.wikidata.org/wiki/Q189524"}
+  ]
+};
+---
+<Base lang={lang} title="Segovia — Visita guidata dall’Acquedotto all’Alcázar" description="Visita guidata a Segovia con María Victoria Solaz. Acquedotto romano, Alcázar, Cattedrale, Zecca Reale di Filippo II. Guida interprete diplomata." jsonLd={jsonLd} path="/segovia/">
+  <div class="w-full h-64 md:h-96 overflow-hidden">
+    <img src="/img/segovia/acueducto-noche.webp" alt="Aqueduct of Segovia at night" class="w-full h-full object-cover" width="1600" height="1097" loading="eager" />
+  </div>
+
+  <article class="max-w-3xl mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold mb-4">{dest.name}</h1>
+    <p class="text-xl text-sepia mb-8">Segovia non è una città di un solo atto. È un'opera monumentale che si estende dalle caverne della preistoria ai laboratori dell'Illuminismo.</p>
+
+    <section class="prose prose-lg max-w-none mb-12">
+      <h2>Lo scheletro dei giganti: l'Acquedotto</h2>
+      <p>Entrate con stupore. Davanti a voi, l'Acquedotto. Non è un'opera di ingegneria — è una sfida alle leggi della fisica e di Dio. Con i suoi 167 archi di granito del Guadarrama, si erge senza una sola goccia di malta. 20.400 blocchi di pietra uniti dalla forza di gravità e da un calcolo matematico terrificante.</p>
+      <p>Roma non eresse questo colosso solo per placare la sete. È un grido di propaganda imperiale scolpito nel granito. L'acqua viaggiava 17 chilometri dal fiume Acebeda. Per secoli il popolo lo chiamò "Il Ponte del Diavolo", credendo che solo il Maligno potesse innalzare un tale colosso in una sola notte.</p>
+
+            <div class="my-6">
+        <img src="/img/segovia/acueducto-dia.webp" alt="Acueducto de Segovia" class="rounded-lg w-full" width="1400" height="976" loading="lazy" />
+      </div>
+
+      <h2>La Cattedrale: l'ultimo respiro del Gotico</h2>
+      <p>La "Dama delle Cattedrali" è in realtà una sopravvissuta. L'antica cattedrale romanica fu rasa al suolo durante la Guerra delle Comunità; le pietre che oggi calpestate furono innalzate nel 1525 sulle ceneri di una rivolta contro Carlo V. È un anacronismo glorioso. Mentre il resto d'Europa abbracciava il Rinascimento, Segovia rimase fedele al Gotico Tardio.</p>
+
+      <h2>L'Alcázar: la prua della nave di pietra</h2>
+      <p>Dimenticate le fiabe. L'Alcázar è una macchina di guerra e di governo. Fu qui che Isabella la Cattolica uscì il 13 dicembre 1474 per essere proclamata Regina di Castiglia. In questo cortile si forgiò il destino dell'America.</p>
+      <p>Ma c'è di più: l’Alcázar fu il Real Colegio de Artillería, il più antico del mondo. Sotto le sue volte, il chimico Louis Proust formulò la Legge delle Proporzioni Definite. Segovia fu la Silicon Valley del XVIII secolo.</p>
+
+      <h2>La Zecca Reale: l'ingegno di Filippo II</h2>
+      <p>Scendendo nella valle dell'Eresma, troviamo il capriccio tecnologico del nostro Re Prudente. Filippo II portò dal Tirolo la tecnologia di laminazione a rulli. Fu la prima fabbrica meccanizzata di Spagna. Progettata da Juan de Herrera (lo stesso architetto de <a href="/it/el-escorial/" class="underline">El Escorial</a>), è un monumento all'industrializzazione precoce — la connessione tra la tecnologia tirolese e l'impero spagnolo passa per queste ruote idrauliche.</p>
+
+      <h2>San Giovanni della Croce: il silenzio dall'altra parte del fiume</h2>
+      <p>Se ad <a href="/it/avila/" class="underline">Ávila</a> Teresa è la fiamma, a Segovia San Giovanni della Croce è il silenzio. Nel Convento dei Carmelitani Scalzi, il piccolo frate trovò il suo rifugio finale. Dopo essere stato imprigionato e torturato a Toledo, fu qui, affacciato su un balcone naturale sull'Eresma, che scrisse versi che sono il vertice della letteratura universale.</p>
+
+      <h2>Dove mangiare: il banchetto del fuoco e dell'argilla</h2>
+      <p><strong>Mesón de Cándido</strong> — all'ombra dell’Acquedotto, il rituale di tagliare il maialino con il bordo di un piatto è riconosciuto in tutto il mondo. <strong>Restaurante José María</strong> — il centro dell'innovazione nell'arrosto tradizionale. <strong>Mesón Duque</strong> — dal 1895, tempio dei judiones de La Granja.</p>
+
+      <h2>La chiave templare e la mappa delle stelle</h2>
+      <p>Esiste una teoria che afferma che Segovia è un riflesso terrestre della costellazione della Vergine. La distanza esatta tra la Chiesa della Vera Cruz, l’Alcázar e l'antica Sinagoga Maggiore traccia una geometria sacra. E il gigante di pietra ha la sua ombra: dicono che manca una pietra — una sola — che il Diavolo non riuscì a collocare.</p>
+    </section>
+
+    <RelatedDestinations links={[
+      { href: "/it/el-escorial/", title: "Monastero dell’Escorial", description: "Juan de Herrera progettò sia El Escorial che la Zecca di Segovia. Due opere, un solo genio al servizio di Filippo II." },
+      { href: "/it/avila/", title: "Ávila — La fortezza mistica", description: "Teresa ad Ávila, San Giovanni a Segovia. Le due facce della mistica castigliana." },
+      { href: "/it/cuelgamuros/", title: "Cuelgamuros — Memoria e pietra", description: "Dal granito romano dell’Acquedotto al granito del XX secolo. Segovia e Cuelgamuros condividono la sierra." },
+    ]} />
+
+    <div class="cta-box rounded-lg p-8 text-center">
+      <h2 class="text-2xl font-bold mb-2">{dest.productName}</h2>
+      <p class="text-sepia mb-4">Con María Victoria Solaz, Segovia smette di essere un catalogo di monumenti per diventare un thriller storico</p>
+      <a href={`/${lang}/segovia/${dest.productSlug}/`} class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium">Dettagli e prenotazione →</a>
+    </div>
+  </article>
+</Base>

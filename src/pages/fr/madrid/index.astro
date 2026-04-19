@@ -1,0 +1,39 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { SITE, t } from '../../../data/i18n.js';
+const lang = 'fr';
+const ui = t(lang);
+const dest = ui.destinations.madrid;
+const jsonLd = {"@context":"https://schema.org","@type":"TouristAttraction","name":"Madrid historique","sameAs":["https://www.wikidata.org/wiki/Q2807"]};
+---
+<Base lang={lang} title="Madrid — Visites personnalisées des Habsbourg aux Bourbons" description="Visites personnalisées du Madrid des Habsbourg et des Bourbons. Musées, palais avec María Victoria Solaz." jsonLd={jsonLd} path="/madrid/">
+  <div class="w-full h-64 md:h-96 overflow-hidden">
+    <img src="/img/madrid/cibeles-atardecer.webp" alt="Madrid Cibeles at sunset" class="w-full h-full object-cover" width="612" height="408" loading="eager" />
+  </div>
+
+  <article class="max-w-3xl mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold mb-4">{dest.name}</h1>
+    <p class="text-xl text-sepia mb-8">{dest.tagline}</p>
+    <section class="prose prose-lg max-w-none mb-8">
+      <h2>Deux Madrid en une seule ville</h2>
+      <p>Madrid a deux âmes historiques. Le Madrid des Habsbourg — celui de Philippe II, la Plaza Mayor, les ruelles qui cachent des siècles d'intrigues. Et le Madrid des Bourbons — le Palais Royal, le Prado, le Retiro et la réinvention d'une capitale qui voulait rivaliser avec Paris et Vienne.</p>
+      <h2>Une visite sur mesure</h2>
+      <p>Selon votre temps et vos intérêts, María Victoria conçoit un parcours personnalisé. Prado le matin et Madrid des Habsbourg l'après-midi ? Le Santiago Bernabéu combiné avec les musées ? Tout est possible.</p>
+    </section>
+    <section class="grid md:grid-cols-2 gap-6 mb-12">
+      <a href="/fr/madrid/habsbourg/" class="card-hover rounded-lg p-6 border block">
+        <h2 class="text-xl font-bold mb-2">Madrid des Habsbourg</h2>
+        <p class="text-sepia">La capitale impériale de Philippe II. Plaza Mayor, Quartier des Lettres, passages secrets et le Siècle d'Or.</p>
+      </a>
+      <a href="/fr/madrid/bourbons/" class="card-hover rounded-lg p-6 border block">
+        <h2 class="text-xl font-bold mb-2">Madrid des Bourbons</h2>
+        <p class="text-sepia">Le Madrid des Lumières. Palais Royal, Prado, Retiro et la réinvention néoclassique de la capitale.</p>
+      </a>
+    </section>
+    <div class="cta-box rounded-lg p-8 text-center">
+      <h2 class="text-2xl font-bold mb-2">{dest.productName}</h2>
+      <p class="text-sepia mb-4">Dites à María Victoria ce que vous aimeriez voir</p>
+      <a href={`/${lang}/madrid/${dest.productSlug}/`} class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium">Détails et réservation →</a>
+    </div>
+  </article>
+</Base>

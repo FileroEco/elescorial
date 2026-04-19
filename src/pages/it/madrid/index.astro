@@ -1,0 +1,55 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { SITE, t } from '../../../data/i18n.js';
+const lang = 'it';
+const ui = t(lang);
+const dest = ui.destinations.madrid;
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "TouristAttraction",
+  "name": "Madrid storica",
+  "sameAs": ["https://www.wikidata.org/wiki/Q2807"],
+  "about": [
+    {"@type": "Thing","name": "Casa d'Austria"},
+    {"@type": "Thing","name": "Casa di Borbone"},
+    {"@type": "Thing","name": "Museo del Prado"},
+    {"@type": "Thing","name": "Palazzo Reale di Madrid"}
+  ]
+};
+---
+<Base lang={lang} title="Madrid — Tour personalizzati dagli Asburgo ai Borbone" description="Tour personalizzati per la Madrid degli Asburgo e dei Borbone. Musei, palazzi e monumenti con María Victoria Solaz, guida interprete diplomata." jsonLd={jsonLd} path="/madrid/">
+  <div class="w-full h-64 md:h-96 overflow-hidden">
+    <img src="/img/madrid/cibeles-atardecer.webp" alt="Madrid Cibeles at sunset" class="w-full h-full object-cover" width="612" height="408" loading="eager" />
+  </div>
+
+  <article class="max-w-3xl mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold mb-4">{dest.name}</h1>
+    <p class="text-xl text-sepia mb-8">{dest.tagline}</p>
+
+    <section class="prose prose-lg max-w-none mb-8">
+      <h2>Due Madrid in una città</h2>
+      <p>Madrid ha due anime storiche. La Madrid degli Asburgo — quella di Filippo II, la Plaza Mayor, le chiese barocche e i vicoli che nascondono secoli di intrighi. E la Madrid dei Borbone — il Palazzo Reale, il Prado, il Retiro e la reinvenzione di una capitale che volle competere con Parigi e Vienna.</p>
+      <p>María Victoria conosce entrambe. E ciò che la rende diversa è che non racconta Madrid come un museo: la racconta come una storia che collega ogni via, ogni piazza e ogni quadro con le persone che li hanno creati.</p>
+
+      <h2>Un tour su misura per te</h2>
+      <p>Non esistono due visite uguali. Secondo il tuo tempo, i tuoi interessi e il tuo livello di curiosità, María Victoria progetta un percorso personalizzato. Vuoi dedicare la mattina al Prado e il pomeriggio alla Madrid degli Asburgo? Fatto. Preferisci il Santiago Bernabéu combinato con i musei? Anche quello.</p>
+    </section>
+
+    <section class="grid md:grid-cols-2 gap-6 mb-12">
+      <a href="/it/madrid/austrias/" class="card-hover rounded-lg p-6 border block">
+        <h2 class="text-xl font-bold mb-2">Madrid degli Asburgo</h2>
+        <p class="text-sepia">La capitale imperiale di Filippo II. Plaza Mayor, Barrio de las Letras, passaggi segreti e il Secolo d'Oro.</p>
+      </a>
+      <a href="/it/madrid/borbones/" class="card-hover rounded-lg p-6 border block">
+        <h2 class="text-xl font-bold mb-2">Madrid dei Borbone</h2>
+        <p class="text-sepia">La Madrid illuminata. Palazzo Reale (di architetti italiani!), Prado, Retiro e la reinvenzione neoclassica.</p>
+      </a>
+    </section>
+
+    <div class="cta-box rounded-lg p-8 text-center">
+      <h2 class="text-2xl font-bold mb-2">{dest.productName}</h2>
+      <p class="text-sepia mb-4">Racconta a María Victoria cosa vuoi vedere — parla italiano</p>
+      <a href={`/${lang}/madrid/${dest.productSlug}/`} class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium">Dettagli e prenotazione →</a>
+    </div>
+  </article>
+</Base>

@@ -1,0 +1,71 @@
+---
+import Base from '../../../layouts/Base.astro';
+import RelatedDestinations from '../../../components/RelatedDestinations.astro';
+import { SITE } from '../../../data/i18n.js';
+const lang = 'en';
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "María Victoria Solaz Andújar",
+  "jobTitle": "National Heritage Guide",
+  "knowsAbout": ["Felipe II","Monasterio de El Escorial","Historia de España"],
+  "knowsLanguage": ["es","en","it","fr","pt"],
+  "hasCredential": {
+    "@type": "EducationalOccupationalCredential",
+    "credentialCategory": "Licenciatura en Turismo — Guía de Patrimonio Nacional"
+  },
+  "workLocation": {"@type": "Place","name": "Comunidad de Madrid"}
+};
+---
+<Base lang={lang} title="María Victoria Solaz — National Heritage Guide" description="María Victoria Solaz Andújar, National Heritage Guide. Specialist in Philip II and the Monastery of El Escorial. Tours in 5 languages." jsonLd={jsonLd} path="/about/">
+  <article class="max-w-3xl mx-auto px-4 py-12">
+    <div class="flex flex-col md:flex-row gap-8 items-start mb-12">
+      <img src="/img/guia/retrato-guia.webp" alt="María Victoria Solaz Andújar" class="w-full md:w-64 rounded-lg" width="800" height="450" loading="eager" />
+      <div>
+        <h1 class="text-4xl font-bold mb-4">María Victoria Solaz Andújar</h1>
+        <p class="text-lg text-borgoña font-medium mb-4">National Heritage Guide</p>
+        <section class="prose prose-lg max-w-none">
+          <p>I won't tell you the story of Philip II. I'll make you live it.</p>
+          <p>I'm a certified National Heritage Guide, specialist in Philip II and the Monastery of El Escorial. I've been showing this place to people from all over the world for decades, and every tour is different because every group brings questions I didn't expect.</p>
+          <p>I speak five languages — Spanish, English, Italian, French and Portuguese — because understanding Philip II's history means understanding half the world: from Naples to the Netherlands, from Lisbon to the Philippines.</p>
+        </section>
+      </div>
+    </div>
+
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold mb-4">Why my tours are unlike any other</h2>
+      <div class="prose prose-lg max-w-none">
+        <p>I don't follow a script. I carry history inside me and tell it like someone inviting you into their home. My tours are dramatized not because I wear a costume (though sometimes I do), but because Philip II's story is pure drama: power, faith, solitude and an architectural obsession that changed Spain forever.</p>
+        <p>Children leave my school visits fascinated. Italian tourists discover that Philip II ruled Naples, Milan and Sicily. And those who come thinking El Escorial is "just a monastery" leave understanding it's a palace, a library, a pantheon and a manifesto.</p>
+        <p>After the tour, we often sit down to eat together. Because history doesn't end when you walk out the door — it ends when you share it over a table.</p>
+      </div>
+    </section>
+
+    <section class="info-box rounded-lg p-8 mb-12">
+      <h2 class="text-xl font-bold mb-4">Credentials</h2>
+      <ul class="space-y-2 text-sepia">
+        <li>📜 Tourism degree — Certified National Heritage Guide</li>
+        <li>🌍 5 languages: Spanish, English, Italian, French, Portuguese</li>
+        <li>🏛️ Specialist in Philip II, El Escorial and UNESCO Heritage</li>
+        <li>🎭 Dramatized tours with original narrative</li>
+        <li>👥 Experience with international groups from every continent</li>
+      </ul>
+    </section>
+
+    <section class="border-t border-hueso pt-8">
+      <h2 class="text-2xl font-bold mb-4">My story</h2>
+      <div class="prose prose-lg max-w-none">
+        <p>My connection to El Escorial isn't professional — it's visceral. This place is part of my family history, of the people I love and those no longer here. My brothers, with whom I grew up wandering these corridors when no one was watching, taught me that history isn't in books but in the people who walk it.</p>
+        <p>Every time I cross the Patio de los Reyes, I feel them with me. And every time a tourist tells me my tour changed the way they see this place, I know they'd be proud too.</p>
+        <p>This website is a gift from my son Raúl, who decided my passion deserved a bigger stage than the granite of the mountains. He handles the technology; I handle keeping Philip II alive every morning.</p>
+      </div>
+    </section>
+
+    <RelatedDestinations links={[
+      { href: "/en/el-escorial/", title: "Royal Monastery of El Escorial", description: "My passion, my obsession, my home. Where Philip II lives every morning." },
+      { href: "/en/avila/", title: "Ávila — The mystic fortress", description: "Saint Teresa, the walls and granite. The spiritual vertex of the imperial axis." },
+      { href: "/en/segovia/", title: "Segovia — Aqueduct to Alcázar", description: "Proust's science, Herrera's genius and Saint John's silence." },
+      { href: "/en/madrid/", title: "Madrid — Custom tours", description: "From the Habsburgs to the Bourbons, Madrid is the urban face of what El Escorial is in the mountains." },
+    ]} />
+  </article>
+</Base>

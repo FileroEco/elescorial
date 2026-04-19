@@ -1,0 +1,93 @@
+---
+import Base from '../../../../layouts/Base.astro';
+import { SITE, t } from '../../../../data/i18n.js';
+
+const lang = 'es';
+const ui = t(lang);
+const dest = ui.destinations.cuelgamuros;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "TouristTrip",
+  "name": "Visita Guiada a Cuelgamuros (Valle de los Caídos)",
+  "description": "Visita guiada a Cuelgamuros con contexto histórico riguroso. María Victoria Solaz, guía intérprete diplomada.",
+  "touristType": ["Cultural", "Heritage"],
+  "itinerary": {
+    "@type": "ItemList",
+    "itemListElement": [
+      {"@type": "ListItem","position": 1,"item": {"@type": "TouristAttraction","name": "Cuelgamuros","sameAs": "https://www.wikidata.org/wiki/Q1138282"}}
+    ]
+  },
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "María Victoria Solaz Andújar",
+    "priceRange": "€€",
+    "knowsLanguage": ["es","en","it","fr","pt"]
+  },
+  "offers": {
+    "@type": "Offer",
+    "availability": "https://schema.org/InStock",
+    "priceCurrency": "EUR"
+  },
+  "inLanguage": "es"
+};
+---
+
+<Base lang={lang} title="Visita Guiada a Cuelgamuros — Reserva con María Victoria Solaz" description="Visita guiada a Cuelgamuros (Valle de los Caídos). Contexto histórico y memoria. Se combina con El Escorial." jsonLd={jsonLd} path="/cuelgamuros/visita-guiada/">
+
+  <div class="w-full h-48 md:h-64 overflow-hidden">
+    <img src="/img/cuelgamuros/atardecer-aerea.webp" alt="Cuelgamuros al atardecer" class="w-full h-full object-cover" width="1200" height="675" loading="eager" />
+  </div>
+
+  <article class="max-w-3xl mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold mb-2">{dest.productName}</h1>
+    <p class="text-xl text-sepia mb-8">Cuelgamuros — anteriormente Valle de los Caídos</p>
+
+    <section class="mb-12">
+      <div class="grid md:grid-cols-3 gap-6 mb-8">
+        <div class="info-box p-4 rounded-lg text-center">
+          <p class="text-sm text-sepia/70">Duración</p>
+          <p class="text-lg font-bold">Según visita</p>
+        </div>
+        <div class="info-box p-4 rounded-lg text-center">
+          <p class="text-sm text-sepia/70">Precio</p>
+          <p class="text-lg font-bold">Consultar</p>
+        </div>
+        <div class="info-box p-4 rounded-lg text-center">
+          <p class="text-sm text-sepia/70">Idiomas</p>
+          <p class="text-lg font-bold">ES · EN · IT · FR · PT</p>
+        </div>
+      </div>
+
+      <div class="prose prose-lg max-w-none">
+        <h2>Qué incluye</h2>
+        <p>
+          Una visita contextualizada a Cuelgamuros que abarca el exterior (la cruz, el valle, el paisaje), la basílica excavada en la roca y el contexto histórico de la Guerra Civil, la posguerra, las exhumaciones de 2019 y el debate actual sobre memoria histórica. María Victoria no impone una lectura — ofrece las capas históricas y deja que cada visitante forme su propio juicio.
+        </p>
+
+        <h2>Para quién es esta visita</h2>
+        <p>
+          Para cualquier persona que quiera entender este lugar más allá de los titulares. Viajeros extranjeros que necesitan contexto sobre la historia reciente de España (especialmente italianos, que tienen su propio debate con los monumentos del Ventennio). Españoles que quieren ver el lugar con ojos nuevos. Historiadores, periodistas, estudiantes. Y cualquier persona curiosa que prefiera preguntas honestas a respuestas simplistas.
+        </p>
+        <p>
+          Se combina de forma natural con la visita al Monasterio de El Escorial — a menos de 10 kilómetros. Dos monumentos, cuatro siglos de distancia, la misma sierra.
+        </p>
+      </div>
+    </section>
+
+    <div class="cta-green rounded-lg p-8 text-center">
+      <h2 class="text-2xl font-bold mb-2">Reserva tu visita</h2>
+      <p class="text-sepia mb-4">Contacta directamente con María Victoria</p>
+      <a
+        href="https://wa.me/34659953930?text=Hola%20Mar%C3%ADa%20Victoria%2C%20me%20gustar%C3%ADa%20reservar%20una%20visita%20guiada%20a%20Cuelgamuros"
+        target="_blank"
+        rel="noopener"
+        class="inline-block btn-whatsapp px-8 py-3 rounded-lg text-lg font-medium"
+      >
+        💬 WhatsApp
+      </a>
+      <p class="text-sm text-sepia/70 mt-4">Respuesta habitual en menos de 24 horas</p>
+    </div>
+  </article>
+
+</Base>

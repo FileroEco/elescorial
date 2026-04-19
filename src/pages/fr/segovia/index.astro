@@ -1,0 +1,49 @@
+---
+import Base from '../../../layouts/Base.astro';
+import RelatedDestinations from '../../../components/RelatedDestinations.astro';
+import { SITE, t } from '../../../data/i18n.js';
+const lang = 'fr';
+const ui = t(lang);
+const dest = ui.destinations.segovia;
+const jsonLd = {"@context":"https://schema.org","@type":"TouristAttraction","name":"Ségovie","sameAs":["https://www.wikidata.org/wiki/Q8356"],"isPartOf":{"@type":"UNESCOWorldHeritageSite","name":"Old Town of Segovia and its Aqueduct"},"about":[{"@type":"Thing","name":"Aqueduc de Ségovie","sameAs":"https://www.wikidata.org/wiki/Q184100"},{"@type":"Thing","name":"Alcázar de Ségovie","sameAs":"https://www.wikidata.org/wiki/Q178012"}]};
+---
+<Base lang={lang} title="Ségovie — Visite guidée de l'Aqueduc à l’Alcázar" description="Visite guidée de Ségovie avec María Victoria Solaz. Aqueduc romain, Alcázar, Cathédrale, Hôtel de la Monnaie. Guide diplômée." jsonLd={jsonLd} path="/segovia/">
+  <div class="w-full h-64 md:h-96 overflow-hidden">
+    <img src="/img/segovia/acueducto-noche.webp" alt="Aqueduct of Segovia at night" class="w-full h-full object-cover" width="1600" height="1097" loading="eager" />
+  </div>
+
+  <article class="max-w-3xl mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold mb-4">{dest.name}</h1>
+    <p class="text-xl text-sepia mb-8">Ségovie n'est pas une ville d'un seul acte. C'est un opéra monumental qui s'étend des cavernes de la préhistoire aux laboratoires des Lumières.</p>
+    <section class="prose prose-lg max-w-none mb-12">
+      <h2>Le squelette des géants : l'Aqueduc</h2>
+      <p>Entrez avec émerveillement. 167 arcs de granit sans une seule goutte de mortier. 20 400 blocs de pierre tenus par la gravité et un calcul mathématique terrifiant. Rome n'a pas érigé ce colosse uniquement pour étancher la soif — c'est un cri de propagande impériale gravé dans le granit. Pendant des siècles, le peuple l'appelait « Le Pont du Diable ».</p>
+            <div class="my-6">
+        <img src="/img/segovia/acueducto-dia.webp" alt="Acueducto de Segovia" class="rounded-lg w-full" width="1400" height="976" loading="lazy" />
+      </div>
+
+      <h2>La Cathédrale : le dernier soupir du Gothique</h2>
+      <p>La « Dame des Cathédrales » est en réalité une survivante. L'ancienne cathédrale romane fut rasée pendant la Guerre des Comuneros. Un anachronisme glorieux — tandis que le reste de l'Europe embrassait la Renaissance, Ségovie restait fidèle au Gothique tardif.</p>
+      <h2>L'Alcázar : la proue du navire de pierre</h2>
+      <p>Oubliez les contes de fées. C'est ici qu'Isabelle la Catholique fut proclamée Reine de Castille le 13 décembre 1474. L'Alcázar fut aussi le Real Colegio de Artillería, le plus ancien du monde. Sous ses voûtes, le chimiste Louis Proust formula la Loi des Proportions Définies.</p>
+      <h2>L'Hôtel Royal de la Monnaie : l'innovation de Philippe II</h2>
+      <p>Philippe II apporta du Tyrol la technologie de laminage par rouleaux. Conçue par Juan de Herrera (le même architecte que <a href="/fr/el-escorial/" class="underline">l’Escorial</a>), c'est la première usine mécanisée d'Espagne.</p>
+      <h2>Saint Jean de la Croix</h2>
+      <p>Si à <a href="/fr/avila/" class="underline">Ávila</a> Thérèse est la flamme, à Ségovie Saint Jean de la Croix est le silence. Dans le Couvent des Carmes Déchaux, le petit frère trouva son refuge final après avoir été emprisonné et torturé à Tolède.</p>
+      <h2>Où manger</h2>
+      <p><strong>Mesón de Cándido</strong> — à l'ombre de l'Aqueduc, le rituel du cochon de lait coupé avec le bord d'une assiette. <strong>Restaurante José María</strong> — l'innovation du rôti traditionnel. <strong>Mesón Duque</strong> — depuis 1895.</p>
+      <h2>La clé templière et la carte des étoiles</h2>
+      <p>Une théorie affirme que Ségovie est un reflet terrestre de la constellation de la Vierge. On dit qu'il manque une pierre — une seule — que le Diable n'a pas pu poser.</p>
+    </section>
+    <RelatedDestinations links={[
+      { href: "/fr/el-escorial/", title: "Monastère de l’Escorial", description: "Herrera a conçu l’Escorial et la Monnaie de Ségovie. Deux œuvres, un même génie." },
+      { href: "/fr/avila/", title: "Ávila — La forteresse mystique", description: "Thérèse à Ávila, Saint Jean à Ségovie. Les deux faces de la mystique castillane." },
+      { href: "/fr/cuelgamuros/", title: "Cuelgamuros — Mémoire et pierre", description: "Le triangle Escorial-Cuelgamuros-Ségovie partage la Sierra de Guadarrama." },
+    ]} />
+    <div class="cta-box rounded-lg p-8 text-center">
+      <h2 class="text-2xl font-bold mb-2">{dest.productName}</h2>
+      <p class="text-sepia mb-4">Avec María Victoria, Ségovie cesse d'être un catalogue de monuments pour devenir un thriller historique</p>
+      <a href={`/${lang}/segovia/${dest.productSlug}/`} class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium">Détails et réservation →</a>
+    </div>
+  </article>
+</Base>

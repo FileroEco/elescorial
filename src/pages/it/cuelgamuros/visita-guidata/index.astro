@@ -1,0 +1,41 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { SITE, t } from '../../../data/i18n.js';
+const lang = 'it';
+---
+<Base lang={lang} title="Visita Guidata a Cuelgamuros — Prenota con María Victoria Solaz" description="Visita guidata a Cuelgamuros (Valle dei Caduti). Contesto storico rigoroso." path="/cuelgamuros/visita-guidata/">
+  <div class="w-full h-48 md:h-64 overflow-hidden">
+    <img src="/img/cuelgamuros/atardecer-aerea.webp" alt="Cuelgamuros at sunset" class="w-full h-full object-cover" width="1200" height="675" loading="eager" />
+  </div>
+
+  <article class="max-w-3xl mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold mb-2">Visita Guidata</h1>
+    <p class="text-xl text-sepia mb-8">Cuelgamuros — Valle dei Caduti</p>
+    <section class="mb-12">
+      <div class="grid md:grid-cols-3 gap-6 mb-8">
+        <div class="info-box p-4 rounded-lg text-center">
+          <p class="text-sm text-sepia/70">Durata</p>
+          <p class="text-lg font-bold">Da concordare</p>
+        </div>
+        <div class="info-box p-4 rounded-lg text-center">
+          <p class="text-sm text-sepia/70">Prezzo</p>
+          <p class="text-lg font-bold">Su richiesta</p>
+        </div>
+        <div class="info-box p-4 rounded-lg text-center">
+          <p class="text-sm text-sepia/70">Lingue</p>
+          <p class="text-lg font-bold">IT · ES · EN · FR · PT</p>
+        </div>
+      </div>
+      <div class="prose prose-lg max-w-none">
+        <p>Una visita contestualizzata con la basilica scavata nella roccia e il contesto della Guerra Civile. Come il Ventennio in Italia, questo monumento genera domande che meritano risposte oneste.</p>
+        <p>Per italiani che conoscono il dibattito sui monumenti del Ventennio. Si combina con El Escorial — a 10 km.</p>
+      </div>
+    </section>
+    <div class="cta-green rounded-lg p-8 text-center">
+      <h2 class="text-2xl font-bold mb-2">Prenota la tua visita</h2>
+      <p class="text-sepia mb-4">Contatta direttamente María Victoria</p>
+      <a href="https://wa.me/34659953930?text=Ciao%20María%20Victoria%2C%20vorrei%20una%20visita%20a%20Cuelgamuros" target="_blank" rel="noopener" class="inline-block btn-whatsapp px-8 py-3 rounded-lg text-lg font-medium">💬 WhatsApp</a>
+      <p class="text-sm text-sepia/70 mt-4">Risposta abituale entro 24 ore</p>
+    </div>
+  </article>
+</Base>

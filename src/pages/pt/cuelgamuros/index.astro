@@ -1,0 +1,48 @@
+---
+import Base from '../../../layouts/Base.astro';
+import RelatedDestinations from '../../../components/RelatedDestinations.astro';
+import { SITE, t } from '../../../data/i18n.js';
+const lang = 'pt';
+const ui = t(lang);
+const dest = ui.destinations.cuelgamuros;
+const jsonLd = {"@context":"https://schema.org","@type":"TouristAttraction","name":"Cuelgamuros","alternateName":["Vale dos Caídos","Valle de los Caídos"],"sameAs":["https://www.wikidata.org/wiki/Q1138282"]};
+---
+<Base lang={lang} title="Cuelgamuros (Vale dos Caídos) — Visita guiada com contexto histórico" description="Visita guiada a Cuelgamuros com María Victoria Solaz. Contexto histórico rigoroso e equilibrado. Guia diplomada." jsonLd={jsonLd} path="/cuelgamuros/">
+  <div class="w-full h-64 md:h-96 overflow-hidden">
+    <img src="/img/cuelgamuros/atardecer-aerea.webp" alt="Cruz de Cuelgamuros" class="w-full h-full object-cover" width="1200" height="1026" loading="eager" />
+  </div>
+  <article class="max-w-3xl mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold mb-2">{dest.name}</h1>
+    <p class="text-sm text-sepia/70 mb-4">Anteriormente conhecido como Vale dos Caídos</p>
+    <p class="text-xl text-sepia mb-8">Um lugar que não admite indiferença. Uma cicatriz na rocha da Serra de Guadarrama que olha de frente para El Escorial.</p>
+    <section class="prose prose-lg max-w-none mb-12">
+      <h2>O palco do vento</h2>
+      <p>A visita não começa na cripta. Começa lá fora, com o vento da serra. Cuelgamuros fica a poucos quilómetros de <a href="/pt/el-escorial/" class="underline">El Escorial</a>. A cruz de 150 metros é visível a mais de 30 km — a maior cruz cristã do mundo.</p>
+      <h2>A basílica: o sublime e o terrível</h2>
+      <div class="my-6">
+        <img src="/img/cuelgamuros/basilica-nave.webp" alt="Nave de la basílica de Cuelgamuros" class="rounded-lg w-full" width="1400" height="886" loading="lazy" />
+      </div>
+      <div class="my-6">
+        <img src="/img/cuelgamuros/basilica-cupula.webp" alt="Cúpula de la basílica de Cuelgamuros" class="rounded-lg w-full" width="1200" height="800" loading="lazy" />
+      </div>
+      <p>263 metros de nave subterrânea escavada na rocha, mais longa que a Basílica de São Pedro em Roma. Mais de 33.000 pessoas estão enterradas aqui — combatentes de ambos os lados da Guerra Civil. Muitos foram transferidos sem o consentimento das famílias.</p>
+            <div class="my-6">
+        <img src="/img/cuelgamuros/frontal-panoramica.webp" alt="Vista frontal de Cuelgamuros" class="rounded-lg w-full" width="1200" height="350" loading="lazy" />
+      </div>
+
+      <h2>Um lugar que exige contexto</h2>
+      <p>Em 2019, os restos de Franco foram exumados. Em 2023, o lugar foi rebatizado Cuelgamuros. María Victoria não dá respostas fechadas — lança perguntas e deixa cada visitante encontrar a sua verdade histórica.</p>
+      <h2>A conexão portuguesa</h2>
+      <p>Para os portugueses, este lugar evoca questões semelhantes sobre monumentos e memória — como lidar com heranças arquitetónicas complexas. Filipe II, que foi também Filipe I de Portugal, está a menos de 10 km no <a href="/pt/el-escorial/" class="underline">Mosteiro de El Escorial</a>.</p>
+    </section>
+    <RelatedDestinations links={[
+      { href: "/pt/el-escorial/", title: "Mosteiro de El Escorial", description: "A 10 km. A visita combinada é a mais completa: quatro séculos num dia." },
+      { href: "/pt/avila/", title: "Ávila — A fortaleza mística", description: "Da muralha medieval ao monumento do século XX." },
+      { href: "/pt/segovia/", title: "Segóvia — Do aqueduto ao Alcázar", description: "O triângulo Escorial-Cuelgamuros-Segóvia." },
+    ]} />
+    <div class="cta-box rounded-lg p-8 text-center">
+      <h2 class="text-2xl font-bold mb-2">{dest.productName}</h2>
+      <a href={`/${lang}/cuelgamuros/${dest.productSlug}/`} class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium">Detalhes e reserva →</a>
+    </div>
+  </article>
+</Base>

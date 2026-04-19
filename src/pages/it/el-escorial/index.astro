@@ -1,0 +1,96 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { SITE, t } from '../../../data/i18n.js';
+
+const lang = 'it';
+const ui = t(lang);
+const dest = ui.destinations.escorial;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "TouristAttraction",
+  "name": "Monastero di San Lorenzo de El Escorial",
+  "alternateName": ["El Escorial", "The Escorial", "L'Escorial", "Monasterio de El Escorial"],
+  "sameAs": [
+    "https://www.wikidata.org/wiki/Q160836",
+    "https://it.wikipedia.org/wiki/Monastero_dell%27Escorial"
+  ],
+  "isPartOf": {
+    "@type": "UNESCOWorldHeritageSite",
+    "name": "Monastery and Site of the Escurial, Madrid"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "San Lorenzo de El Escorial",
+    "addressRegion": "Comunidad de Madrid",
+    "addressCountry": "ES"
+  },
+  "about": [
+    { "@type": "Person", "name": "Filippo II di Spagna", "sameAs": "https://www.wikidata.org/wiki/Q527" },
+    { "@type": "Thing", "name": "Controriforma" },
+    { "@type": "ArchitecturalStyle", "name": "Stile herreriano" },
+    { "@type": "Person", "name": "Tiziano Vecellio", "sameAs": "https://www.wikidata.org/wiki/Q47551" },
+    { "@type": "Person", "name": "Sofonisba Anguissola", "sameAs": "https://www.wikidata.org/wiki/Q234791" }
+  ]
+};
+---
+
+<Base lang={lang} title="Monastero dell’Escorial — Visita teatralizzata con guida ufficiale italiana" description="Scopri il Monastero dell’Escorial con María Victoria Solaz, guida interprete diplomata. Il legame tra Filippo II e l'Italia raccontato con passione." jsonLd={jsonLd} path="/el-escorial/">
+
+  <div class="w-full h-64 md:h-96 overflow-hidden">
+    <img src="/img/escorial/fachada.webp" alt="Facciata principale del Monastero di San Lorenzo de El Escorial" class="w-full h-full object-cover" width="540" height="312" loading="eager" />
+  </div>
+
+  <article class="max-w-3xl mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold mb-4">{dest.name}</h1>
+    <p class="text-xl text-sepia mb-8">Il luogo dove Filippo II governava Napoli, Milano e la Sicilia — senza muoversi dalla sua scrivania.</p>
+
+    <section class="prose prose-lg max-w-none mb-12">
+      <h2>Filippo II e il legame con l'Italia</h2>
+      <p>
+        Quello che molti italiani non sanno è che Filippo II fu anche il loro re. Napoli, Milano, la Sicilia e la Sardegna facevano parte del suo impero. Da questo monastero nella Sierra de Madrid, il monarca più potente del XVI secolo governava mezza Italia — e lo faceva circondato da arte italiana.
+      </p>
+      <p>
+        Tiziano Vecellio fu il suo pittore di corte preferito: le sue ultime opere furono inviate da Venezia direttamente qui, all’Escorial. Sofonisba Anguissola, la pittrice cremonese che sfidò ogni convenzione del suo tempo, dipinse ritratti nella sua corte. E lo stile architettonico di questo edificio — lo stile herreriano — influenzò direttamente il Palazzo Reale di Napoli.
+      </p>
+      <p>
+        Visitare l’Escorial da italiano non è visitare un monumento straniero. È scoprire un capitolo dimenticato della propria storia.
+      </p>
+
+      <h2>Un monastero che è palazzo, biblioteca e pantheon</h2>
+      <p>
+        La Biblioteca Reale custodisce manoscritti italiani di valore inestimabile. Il Pantheon Reale ospita i resti dei monarchi spagnoli in un silenzio che impone rispetto. La Basilica, con il suo imponente retablo, è il cuore spirituale di un edificio che Filippo II concepì come il centro del mondo cattolico durante la Controriforma.
+      </p>
+      <p>
+        Ma sono i dettagli che rendono questa visita indimenticabile: la stanza da cui il re poteva vedere l'altare senza alzarsi dal letto, la sedia a portantina in cui fu trasportato negli ultimi anni della sua vita, le lettere personali che rivelano un padre preoccupato dietro la maschera del monarca.
+      </p>
+
+      <div class="my-8">
+        <img src="/img/guia/guia-disfraz-epoca.webp" alt="María Victoria Solaz con collega in costume d'epoca di Filippo II" class="rounded-lg w-full" width="1080" height="1440" loading="lazy" />
+        <p class="text-sm text-sepia/70 mt-2">María Victoria durante una visita teatralizzata: la storia prende vita</p>
+      </div>
+
+      <h2>Patrimonio dell’Umanità UNESCO dal 1984</h2>
+      <p>
+        L'UNESCO ha riconosciuto l’Escorial come Patrimonio dell’Umanità per il suo eccezionale valore come complesso architettonico rinascimentale. Lo stile herreriano, creato da Juan de Herrera per questo edificio, ha influenzato l'architettura dell'intero impero spagnolo — compresa l'Italia meridionale.
+      </p>
+    </section>
+
+      <div class="my-8">
+        <img src="/img/guia/guias-pasillo-monasterio.webp" alt="I corridoi del Monastero dell’Escorial" class="rounded-lg w-full" width="1024" height="768" loading="lazy" />
+      </div>
+    </section>
+
+    <div class="cta-box rounded-lg p-8 text-center">
+      <h2 class="text-2xl font-bold mb-2">{dest.productName}</h2>
+      <p class="text-sepia mb-4">Prenota con María Victoria — parla italiano</p>
+      <a
+        href={`/${lang}/el-escorial/${dest.productSlug}/`}
+        class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium"
+      >
+        Dettagli e prenotazione →
+      </a>
+    </div>
+  </article>
+
+</Base>

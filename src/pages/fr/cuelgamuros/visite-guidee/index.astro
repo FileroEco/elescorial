@@ -1,0 +1,41 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { SITE, t } from '../../../data/i18n.js';
+const lang = 'fr';
+---
+<Base lang={lang} title="Visite Guidée de Cuelgamuros — Réservez avec María Victoria" description="Visite guidée de Cuelgamuros (Vallée des Tombés). Contexte historique rigoureux." path="/cuelgamuros/visite-guidee/">
+  <div class="w-full h-48 md:h-64 overflow-hidden">
+    <img src="/img/cuelgamuros/atardecer-aerea.webp" alt="Cuelgamuros at sunset" class="w-full h-full object-cover" width="1200" height="675" loading="eager" />
+  </div>
+
+  <article class="max-w-3xl mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold mb-2">Visite Guidée</h1>
+    <p class="text-xl text-sepia mb-8">Cuelgamuros — Vallée des Tombés</p>
+    <section class="mb-12">
+      <div class="grid md:grid-cols-3 gap-6 mb-8">
+        <div class="info-box p-4 rounded-lg text-center">
+          <p class="text-sm text-sepia/70">Durée</p>
+          <p class="text-lg font-bold">Selon visite</p>
+        </div>
+        <div class="info-box p-4 rounded-lg text-center">
+          <p class="text-sm text-sepia/70">Prix</p>
+          <p class="text-lg font-bold">Sur demande</p>
+        </div>
+        <div class="info-box p-4 rounded-lg text-center">
+          <p class="text-sm text-sepia/70">Langues</p>
+          <p class="text-lg font-bold">FR · ES · EN · IT · PT</p>
+        </div>
+      </div>
+      <div class="prose prose-lg max-w-none">
+        <p>Une visite contextualisée: l'extérieur, la basilique et le contexte de la Guerre Civile espagnole.</p>
+        <p>Pour qui veut comprendre ce lieu complexe. Se combine avec l’Escorial — à 10 km.</p>
+      </div>
+    </section>
+    <div class="cta-green rounded-lg p-8 text-center">
+      <h2 class="text-2xl font-bold mb-2">Réservez votre visite</h2>
+      <p class="text-sepia mb-4">Contactez directement María Victoria</p>
+      <a href="https://wa.me/34659953930?text=Bonjour%20María%20Victoria%2C%20je%20souhaite%20une%20visite%20de%20Cuelgamuros" target="_blank" rel="noopener" class="inline-block btn-whatsapp px-8 py-3 rounded-lg text-lg font-medium">💬 WhatsApp</a>
+      <p class="text-sm text-sepia/70 mt-4">Réponse habituelle sous 24 heures</p>
+    </div>
+  </article>
+</Base>

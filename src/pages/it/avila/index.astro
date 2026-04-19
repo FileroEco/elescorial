@@ -1,0 +1,85 @@
+---
+import Base from '../../../layouts/Base.astro';
+import RelatedDestinations from '../../../components/RelatedDestinations.astro';
+import { SITE, t } from '../../../data/i18n.js';
+const lang = 'it';
+const ui = t(lang);
+const dest = ui.destinations.avila;
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "TouristAttraction",
+  "name": "Ávila",
+  "sameAs": ["https://www.wikidata.org/wiki/Q15688"],
+  "isPartOf": {"@type": "UNESCOWorldHeritageSite","name": "Old Town of Ávila with its Extra-Muros Churches"},
+  "about": [
+    {"@type": "Person","name": "Santa Teresa di Gesù","sameAs": "https://www.wikidata.org/wiki/Q171411"},
+    {"@type": "Thing","name": "Muraglia di Ávila","sameAs": "https://www.wikidata.org/wiki/Q608462"},
+    {"@type": "Thing","name": "Architettura romanica"},
+    {"@type": "Thing","name": "Mistica spagnola"}
+  ]
+};
+---
+<Base lang={lang} title="Ávila — Visita guidata alla fortezza mistica di Castiglia" description="Visita guidata ad Ávila con María Victoria Solaz. Muraglia Patrimonio UNESCO, Santa Teresa, romanico, i Cavalieri Leali. Storia teatralizzata in 5 lingue." jsonLd={jsonLd} path="/avila/">
+  <div class="w-full h-64 md:h-96 overflow-hidden">
+    <img src="/img/avila/muralla-atardecer.webp" alt="Walls of Ávila at sunset" class="w-full h-full object-cover" width="626" height="417" loading="eager" />
+  </div>
+
+  <article class="max-w-3xl mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold mb-4">{dest.name}</h1>
+    <p class="text-xl text-sepia mb-8">Ávila non si visita. Si scala. A 1.131 metri sul livello del mare, questa città è il cuore mistico di Castiglia e il baluardo più perfetto della cristianità medievale.</p>
+
+    <section class="prose prose-lg max-w-none mb-12">
+      <h2>La Muraglia: la cintura di granito dell'Impero</h2>
+      <p>È il monumento medievale meglio conservato d'Europa. 2.516 metri di perimetro, 87 torrioni e 9 porte che sorvegliano la meseta da oltre mille anni. Ma la muraglia di Ávila non è solo una difesa militare — è un organismo vivo costruito con le ossa di civiltà anteriori. Osservate le fondamenta: resti di stele romane e altari vettoni che i cavalieri medievali usarono come macerie. Ávila si è eretta sulle ceneri di altri mondi.</p>
+
+      <h2>La Cattedrale del Salvador: tempio e fortezza</h2>
+      <div class="my-6">
+        <img src="/img/avila/catedral-interior.webp" alt="Interior de la Catedral de Ávila" class="rounded-lg w-full" width="1200" height="675" loading="lazy" />
+      </div>
+      <p>La prima cattedrale gotica di Spagna non nacque per essere delicata. La sua abside — il Cimorro — è letteralmente incastrata nella muraglia. Ad Ávila, la fede e la difesa erano la stessa cosa. La pietra caleña, un'arenaria ferruginosa con venature rossastre, fa sì che al tramonto la cattedrale sembri sanguinare.</p>
+
+      <h2>Teresa di Gesù: la mistica guerriera</h2>
+      <div class="my-6">
+        <img src="/img/avila/catedral-leon.webp" alt="León de granito y torre de la Catedral de Ávila" class="rounded-lg w-full max-w-md mx-auto" width="1200" height="1600" loading="lazy" />
+      </div>
+      <p>Spogliatela dei fiori e delle candele. Teresa de Cepeda y Ahumada fu la donna più pericolosa del XVI secolo. In un'Ávila di stirpi guerriere e uomini che parlavano d'onore, lei parlò di libertà.</p>
+      <p>La sua riforma del Carmelo non fu un ritiro spirituale — fu uno schiaffo al sistema. Teresa fuggì di casa, sfidò suo padre, i vescovi e la stessa Inquisizione. Mentre Filippo II costruiva <a href="/it/el-escorial/" class="underline">El Escorial</a> con l'argento delle Indie, lei erigeva conventi con la forza della sua volontà e i suoi sandali rotti. Il suo "Castello interiore" non era solo una metafora spirituale — era una descrizione di ciò che Ávila è in realtà: uno scrigno di pietra indistruttibile.</p>
+
+      <h2>La città dei Cavalieri Leali</h2>
+      <div class="my-6">
+        <img src="/img/avila/cimorro.webp" alt="El Cimorro, ábside fortificado de la Catedral de Ávila" class="rounded-lg w-full" width="1200" height="800" loading="lazy" />
+      </div>
+      <p>Ávila non fu una città di cortigiani, ma di uomini di frontiera. Qui nacque la figura del Cavaliere Villano: uomini che guadagnarono la nobiltà a colpi di lancia. I palazzi dei Dávila, degli Águila, dei Guzmán — sono case-fortezza addossate alla muraglia perché la nobiltà di Ávila non viveva per il ballo, ma per la sorveglianza.</p>
+
+      <h2>Il romanico e la Basilica di San Vicente</h2>
+      <p>Ávila è un catalogo aperto di architettura romanica. Nella Basilica di San Vicente, il Cenotafio dei Martiri racconta una storia di martirio e gloria scolpita con una delicatezza che fa dimenticare di trovarsi davanti a roccia fredda.</p>
+
+      <h2>Il palinsesto delle tre culture</h2>
+      <p>Sotto l'ordine cristiano batte il cuore del quartiere ebraico e la traccia degli artigiani mudéjar. I Vettoni lasciarono i loro verracos di pietra — tori e cinghiali rozzi che sono il prologo di tutta la storia. Sono il collegamento con un'Hispania magica e pagana.</p>
+
+      <h2>Settimana Santa: quando la città diventa monastero</h2>
+      <p>Dichiarata di Interesse Turistico Internazionale. Il momento culminante: il silenzio della notte squarciato dal suono di una tromba contro il muro nord della muraglia. Vedere la Via Crucis percorrere il perimetro delle mura all'alba è tornare al XVI secolo.</p>
+
+      <h2>Dove mangiare: i templi della gastronomia abulense</h2>
+      <p><strong>Restaurante El Almacén</strong> — accanto alla muraglia, dove l'avanguardia abbraccia le merlature. <strong>Mesón de Los Infantes</strong> — in un edificio del XVI secolo, il chuletón di vitello avileño. <strong>La Flor de Castilla</strong> — dal 1860, custodi delle Yemas de Santa Teresa.</p>
+
+      <h2>Il legame con El Escorial</h2>
+      <p>Se <a href="/it/el-escorial/" class="underline">El Escorial</a> è il cervello di Filippo II, Ávila è la sua coscienza. Ávila è il vertice spirituale dell’asse imperiale insieme a <a href="/it/segovia/" class="underline">Segovia</a> e El Escorial — tre città Patrimonio UNESCO unite dalla storia di Castiglia.</p>
+
+      <h2>Il segreto della muraglia</h2>
+      <p>Per l'occhio distratto, la muraglia è una difesa militare. Per l'iniziato, è un'altra cosa. Perché tanti re cercarono rifugio qui nei loro momenti più bui? Forse il vero "Castello interiore" di cui parlava Teresa non era una metafora, ma una descrizione letterale. Camminando sul cammino di ronda, fate attenzione: ad Ávila non siete voi che osservate la storia — è la geometria dei secoli che sta osservando voi.</p>
+    </section>
+
+    <RelatedDestinations links={[
+      { href: "/it/el-escorial/", title: "Monastero dell’Escorial", description: "Se Ávila è la coscienza di Filippo II, El Escorial è il suo cervello. A un’ora di macchina." },
+      { href: "/it/segovia/", title: "Segovia — Dall’acquedotto all’Alcázar", description: "Se ad Ávila Teresa è la fiamma, a Segovia San Giovanni della Croce è il silenzio." },
+      { href: "/it/cuelgamuros/", title: "Cuelgamuros — Memoria e pietra", description: "Dalla muraglia medievale alla basilica del XX secolo. Due modi di costruire monumenti." },
+    ]} />
+
+    <div class="cta-box rounded-lg p-8 text-center">
+      <h2 class="text-2xl font-bold mb-2">{dest.productName}</h2>
+      <p class="text-sepia mb-4">Con María Victoria Solaz, la muraglia smette di essere pietra per diventare un libro aperto</p>
+      <a href={`/${lang}/avila/${dest.productSlug}/`} class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium">Dettagli e prenotazione →</a>
+    </div>
+  </article>
+</Base>

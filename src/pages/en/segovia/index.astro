@@ -1,0 +1,71 @@
+---
+import Base from '../../../layouts/Base.astro';
+import RelatedDestinations from '../../../components/RelatedDestinations.astro';
+import { SITE, t } from '../../../data/i18n.js';
+const lang = 'en';
+const ui = t(lang);
+const dest = ui.destinations.segovia;
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "TouristAttraction",
+  "name": "Segovia",
+  "sameAs": ["https://www.wikidata.org/wiki/Q8356"],
+  "isPartOf": {"@type": "UNESCOWorldHeritageSite","name": "Old Town of Segovia and its Aqueduct"},
+  "about": [
+    {"@type": "Thing","name": "Aqueduct of Segovia","sameAs": "https://www.wikidata.org/wiki/Q184100"},
+    {"@type": "Thing","name": "Alcázar of Segovia","sameAs": "https://www.wikidata.org/wiki/Q178012"},
+    {"@type": "Person","name": "Isabella I of Castile","sameAs": "https://www.wikidata.org/wiki/Q504"},
+    {"@type": "Person","name": "Philip II of Spain","sameAs": "https://www.wikidata.org/wiki/Q527"}
+  ]
+};
+---
+<Base lang={lang} title="Segovia — Guided tour from Aqueduct to Alcázar" description="Guided tour of Segovia with María Victoria Solaz. Roman Aqueduct, Alcázar, Cathedral, Philip II's Royal Mint. Certified Heritage guide." jsonLd={jsonLd} path="/segovia/">
+  <div class="w-full h-64 md:h-96 overflow-hidden">
+    <img src="/img/segovia/acueducto-noche.webp" alt="Aqueduct of Segovia at night" class="w-full h-full object-cover" width="1600" height="1097" loading="eager" />
+  </div>
+
+  <article class="max-w-3xl mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold mb-4">{dest.name}</h1>
+    <p class="text-xl text-sepia mb-8">Segovia isn't a city of one act. It's a monumental opera stretching from prehistoric caves to the laboratories of the Enlightenment.</p>
+
+    <section class="prose prose-lg max-w-none mb-12">
+      <h2>The skeleton of giants: the Aqueduct</h2>
+      <p>Enter with awe. Before you, the Aqueduct. Not a work of engineering — a challenge to the laws of physics and God. 167 granite arches from the Guadarrama mountains, standing without a single drop of mortar. 20,400 stone blocks held together by gravity and terrifying mathematics. Rome didn't build this colossus just to quench thirst — it's a cry of imperial propaganda carved in granite. For centuries, the people called it "The Devil's Bridge".</p>
+
+            <div class="my-6">
+        <img src="/img/segovia/acueducto-dia.webp" alt="Acueducto de Segovia" class="rounded-lg w-full" width="1400" height="976" loading="lazy" />
+      </div>
+
+      <h2>The Cathedral: Gothic's last breath</h2>
+      <p>The "Lady of Cathedrals" is actually a survivor. The old Romanesque cathedral was razed during the Revolt of the Comuneros; today's stones were raised in 1525 on the ashes of a revolt against Charles V. A glorious anachronism — while the rest of Europe embraced the Renaissance, Segovia stayed faithful to Late Gothic.</p>
+
+      <h2>The Alcázar: the prow of the stone ship</h2>
+      <p>Forget fairy tales. The Alcázar is a machine of war and government. It was here that Isabella the Catholic was proclaimed Queen of Castile on 13 December 1474. In this courtyard, the destiny of the Americas was forged.</p>
+      <p>The Alcázar was also the Royal College of Artillery, the oldest in the world. Under its vaults, chemist Louis Proust formulated the Law of Definite Proportions. Segovia was the Silicon Valley of the 18th century.</p>
+
+      <h2>The Royal Mint: Philip II's innovation</h2>
+      <p>Down in the Eresma valley, Philip II brought roller-milling technology from Tyrol. Spain's first mechanised factory. Designed by Juan de Herrera (the same architect as <a href="/en/el-escorial/" class="underline">El Escorial</a>), it's a monument to early industrialisation.</p>
+
+      <h2>Saint John of the Cross: silence across the river</h2>
+      <p>If in <a href="/en/avila/" class="underline">Ávila</a> Teresa is the flame, in Segovia Saint John of the Cross is the silence. In the Discalced Carmelite Convent, the small friar found his final refuge. After imprisonment and torture in Toledo, it was here he wrote verses that are the summit of universal literature.</p>
+
+      <h2>Where to eat</h2>
+      <p><strong>Mesón de Cándido</strong> — in the shadow of the Aqueduct, the ritual of cutting the roast suckling pig with a plate's edge is world-famous. <strong>Restaurante José María</strong> — the centre of innovation in traditional roasting. <strong>Mesón Duque</strong> — since 1895, temple of the judiones de La Granja.</p>
+
+      <h2>The Templar key and the star map</h2>
+      <p>There's a theory that Segovia is an earthly reflection of the constellation of Virgo. The exact distance between the Church of Vera Cruz, the Alcázar and the old Great Synagogue traces a sacred geometry. And the stone giant has its own shadow: they say one stone is missing — just one — that the Devil couldn't place.</p>
+    </section>
+
+    <RelatedDestinations links={[
+      { href: "/en/el-escorial/", title: "Royal Monastery of El Escorial", description: "Herrera designed both El Escorial and Segovia's Royal Mint. Two works, one genius serving Philip II." },
+      { href: "/en/avila/", title: "Ávila — The mystic fortress", description: "Teresa in Ávila, Saint John in Segovia. Two faces of Castilian mysticism." },
+      { href: "/en/cuelgamuros/", title: "Cuelgamuros — Memory and stone", description: "The Escorial-Cuelgamuros-Segovia triangle shares the Guadarrama mountains." },
+    ]} />
+
+    <div class="cta-box rounded-lg p-8 text-center">
+      <h2 class="text-2xl font-bold mb-2">{dest.productName}</h2>
+      <p class="text-sepia mb-4">With María Victoria, Segovia stops being a catalogue of monuments and becomes a historical thriller</p>
+      <a href={`/${lang}/segovia/${dest.productSlug}/`} class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium">Details & booking →</a>
+    </div>
+  </article>
+</Base>

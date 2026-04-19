@@ -1,0 +1,150 @@
+---
+import Base from '../../../layouts/Base.astro';
+import RelatedDestinations from '../../../components/RelatedDestinations.astro';
+import { SITE, t } from '../../../data/i18n.js';
+
+const lang = 'es';
+const ui = t(lang);
+const dest = ui.destinations.avila;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "TouristAttraction",
+  "name": "Ávila",
+  "alternateName": ["Ciudad de los Caballeros", "Ávila de los Leales"],
+  "sameAs": [
+    "https://www.wikidata.org/wiki/Q15688",
+    "https://es.wikipedia.org/wiki/%C3%81vila"
+  ],
+  "isPartOf": {
+    "@type": "UNESCOWorldHeritageSite",
+    "name": "Old Town of Ávila with its Extra-Muros Churches"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Ávila",
+    "addressRegion": "Castilla y León",
+    "addressCountry": "ES"
+  },
+  "about": [
+    { "@type": "Person", "name": "Santa Teresa de Jesús", "sameAs": "https://www.wikidata.org/wiki/Q171411" },
+    { "@type": "Thing", "name": "Muralla de Ávila", "sameAs": "https://www.wikidata.org/wiki/Q608462" },
+    { "@type": "Thing", "name": "Arquitectura románica" },
+    { "@type": "Thing", "name": "Mística española" },
+    { "@type": "Thing", "name": "Reconquista" },
+    { "@type": "Person", "name": "Felipe II de España", "sameAs": "https://www.wikidata.org/wiki/Q527" }
+  ]
+};
+---
+
+<Base lang={lang} title="Ávila — Visita guiada a la fortaleza mística de Castilla" description="Visita guiada a Ávila con María Victoria Solaz. Muralla Patrimonio UNESCO, Santa Teresa, románico, los Caballeros Leales. Historia teatralizada en 5 idiomas." jsonLd={jsonLd} path="/avila/">
+
+  <div class="w-full h-64 md:h-96 overflow-hidden">
+    <img src="/img/avila/muralla-atardecer.webp" alt="Muralla de Ávila al atardecer" class="w-full h-full object-cover" width="626" height="417" loading="eager" />
+  </div>
+
+  <article class="max-w-3xl mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold mb-4">{dest.name}</h1>
+    <p class="text-xl text-sepia mb-8">Ávila no se visita. Se escala. A 1.131 metros sobre el nivel del mar, esta ciudad es el corazón místico de Castilla y el baluarte más perfecto de la cristiandad medieval.</p>
+
+    <section class="prose prose-lg max-w-none mb-12">
+
+      <h2>La Muralla: el cinturón de granito del Imperio</h2>
+      <p>
+        Es el monumento medieval mejor conservado de Europa. 2.516 metros de perímetro, 87 torreones y 9 puertas que llevan más de mil años vigilando la meseta. Pero la muralla de Ávila no es solo una defensa militar — es un organismo vivo construido con los huesos de civilizaciones anteriores. Observa los cimientos: restos de estelas romanas y altares vetones que los caballeros medievales usaron como escombros. Ávila se levantó sobre las cenizas de otros mundos.
+      </p>
+      <p>
+        Cuando toquéis la muralla, no estaréis tocando piedra. Estaréis tocando el escudo físico de la Corona de Castilla.
+      </p>
+
+      <h2>La Catedral del Salvador: templo y fortaleza</h2>
+      <div class="my-6">
+        <img src="/img/avila/catedral-interior.webp" alt="Interior de la Catedral de Ávila" class="rounded-lg w-full" width="1200" height="675" loading="lazy" />
+        <p class="text-sm text-sepia/70 mt-2 text-center italic">Interior de la Catedral del Salvador — primera catedral gótica de España</p>
+      </div>
+      <p>
+        La primera catedral gótica de España no nació para ser delicada. Su ábside — el Cimorro — está literalmente incrustado en el lienzo de la muralla.</p>
+      <div class="my-6">
+        <img src="/img/avila/cimorro.webp" alt="El Cimorro, ábside fortificado de la Catedral de Ávila incrustado en la muralla" class="rounded-lg w-full" width="1200" height="800" loading="lazy" />
+        <p class="text-sm text-sepia/70 mt-2 text-center italic">El Cimorro — donde la fe y la defensa son una misma cosa</p>
+      </div>
+      <p> En Ávila, la fe y la defensa eran una misma cosa. La piedra caleña, esa arenisca ferruginosa con vetas rojizas, hace que al atardecer la catedral parezca sangrar, tiñéndose de un carmesí que recuerda el martirio de los santos que habitan sus naves.
+      </p>
+
+      <div class="my-6">
+        <img src="/img/avila/catedral-leon.webp" alt="León de granito y torre de la Catedral de Ávila" class="rounded-lg w-full max-w-md mx-auto" width="1200" height="1600" loading="lazy" />
+        <p class="text-sm text-sepia/70 mt-2 text-center italic">El león de granito vigila la Catedral — la piedra caleña parece sangrar al atardecer</p>
+      </div>
+
+      <h2>Teresa de Jesús: la mística guerrera</h2>
+      <p>
+        Despojadla de las flores y las velas. Teresa de Cepeda y Ahumada fue la mujer más peligrosa del siglo XVI. En una Ávila de linajes guerreros y hombres que hablaban de honor, ella habló de libertad.
+      </p>
+      <p>
+        Su reforma del Carmelo no fue un retiro espiritual — fue una bofetada al sistema. Teresa huyó de casa, desafió a su padre, a los obispos y a la propia Inquisición. Mientras Felipe II construía <a href="/es/el-escorial/" class="underline">El Escorial</a> con la plata de las Indias, ella levantaba conventos con la fuerza de su voluntad y sus alpargatas rotas. Su "Castillo Interior" no era solo una metáfora espiritual — era una descripción de lo que Ávila es en realidad: un cofre de piedra indestructible.
+      </p>
+
+      <h2>La ciudad de los Caballeros Leales</h2>
+      <p>
+        Ávila no fue una ciudad de cortesanos, sino de hombres de frontera. Aquí nació la figura del Caballero Villano: hombres que ganaron su hidalguía a golpe de lanza. Los palacios de los Dávila, los Águila, los Guzmán — son casas-fuerte adosadas a la muralla porque la nobleza de Ávila no vivía para el baile, sino para la vigilancia.
+      </p>
+      <p>
+        La Farsa de Ávila de 1465 lo confirma: aquí la nobleza rebelde escenificó la deposición de Enrique IV. Ávila no solo protegía reyes — también sabía cómo destruirlos. Es el drama del poder en su estado más crudo y visual.
+      </p>
+
+      <h2>El románico y la Basílica de San Vicente</h2>
+      <p>
+        Ávila es un catálogo abierto de arquitectura románica. En la Basílica de San Vicente, el Cenotafio de los Mártires cuenta una historia de tortura y gloria tallada con una delicadeza que hace olvidar que estás ante roca fría. La transición del románico al gótico se lee aquí con una claridad que rivaliza con las mejores catedrales de Europa.
+      </p>
+
+      <h2>El palimpsesto de las tres culturas</h2>
+      <p>
+        Bajo el orden cristiano late el corazón del barrio judío y el rastro de los alarifes mudéjares. La muralla misma es testimonio de este mestizaje forzoso y fascinante. Los vetones dejaron sus verracos de piedra — toros y cerdos toscos que son el prólogo de toda la historia. Son la conexión con una Hispania mágica y pagana que el granito intentó domesticar, pero no pudo borrar.
+      </p>
+
+      <h2>Semana Santa: cuando la ciudad se convierte en monasterio</h2>
+      <p>
+        Declarada de Interés Turístico Internacional. Cuando llega la primavera, Ávila se quita la armadura de guerrera para ponerse el sayal de penitente. El momento cumbre: el silencio de la noche desgarrado por el sonido de una corneta contra el lienzo norte de la muralla. Ver el Vía Crucis rodear el perímetro amurallado en la madrugada es retroceder al siglo XVI.
+      </p>
+
+      <h2>Donde comer: los templos de la gastronomía abulense</h2>
+      <p>
+        <strong>Restaurante El Almacén</strong> — junto a la muralla, donde la vanguardia abraza las almenas. Sus vistas nocturnas son el mejor epílogo de cualquier visita. <strong>Mesón de Los Infantes</strong> — en un edificio del siglo XVI, sus vigas y muros transportan a la época de los linajes. El chuletón de ternera avileña con el rigor que la tradición exige. <strong>La Flor de Castilla</strong> — desde 1860, custodios de las Yemas de Santa Teresa. Un bocado que concentra toda la dulzura que la Santa no pudo permitirse en vida.
+      </p>
+
+      <h2>El vínculo con El Escorial</h2>
+      <p>
+        Si <a href="/es/el-escorial/" class="underline">El Escorial</a> es el cerebro de Felipe II, Ávila es su conciencia. Ávila es el vértice espiritual del eje imperial junto a <a href="/es/segovia/" class="underline">Segovia</a> y El Escorial — tres ciudades Patrimonio UNESCO unidas por la historia de Castilla. Aquí el Rey Prudente buscó consejo, y aquí se forjó el carácter castellano que dominaría el mundo.
+      </p>
+
+      <h2>El secreto de la muralla</h2>
+      <p>
+        Para el ojo distraído, la muralla es una defensa militar. Para el iniciado, es otra cosa. ¿Por qué tantos reyes buscaron refugio aquí en sus momentos más oscuros? ¿Por qué la ciudad parece vibrar con una energía distinta cuando la luna llena golpea el granito? Quizás la verdadera "Castillo Interior" de la que hablaba Teresa no era una metáfora, sino una descripción literal. Al caminar por el adarve, tened cuidado: en Ávila, no sois vosotros quienes observáis la historia — es la geometría de los siglos la que os está observando a vosotros.
+      </p>
+
+      <h2>El final del acto: los Cuatro Postes</h2>
+      <p>
+        Cuando el sol se hunde tras la Sierra de Gredos, Ávila se ilumina como una joya de ámbar. Desde los Cuatro Postes, la ciudad amurallada flota en la penumbra de la noche castellana. Es el momento en que la guía calla, porque no hay palabra que pueda competir con esa visión. Es ahí donde comprendes que Ávila no es un destino turístico — es un estado del espíritu.
+      </p>
+    </section>
+
+    <RelatedDestinations links={[
+      { href: "/es/el-escorial/", title: "Monasterio de El Escorial", description: "Si Ávila es la conciencia de Felipe II, El Escorial es su cerebro. A una hora por carretera, el monasterio completa la visión del rey." },
+      { href: "/es/segovia/", title: "Segovia — Del Acueducto al Alcázar", description: "Si en Ávila Teresa es la llama, en Segovia San Juan de la Cruz es el silencio. Las dos ciudades comparten mística y granito." },
+      { href: "/es/cuelgamuros/", title: "Cuelgamuros — Memoria y piedra", description: "De la muralla medieval a la basílica del siglo XX. Dos formas de construir monumentos que exigen contexto." },
+      { href: "/es/madrid/austrias/", title: "Madrid de los Austrias", description: "Los caballeros de Ávila custodiaron a los reyes que después gobernaron desde las calles de la Villa y Corte." },
+    ]} />
+
+    <div class="cta-box rounded-lg p-8 text-center">
+      <h2 class="text-2xl font-bold mb-2">{dest.productName}</h2>
+      <p class="text-sepia mb-4">Con María Victoria Solaz, la muralla deja de ser piedra para convertirse en un libro abierto</p>
+      <a
+        href={`/${lang}/avila/${dest.productSlug}/`}
+        class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium"
+      >
+        Ver detalles y reservar →
+      </a>
+    </div>
+  </article>
+
+</Base>

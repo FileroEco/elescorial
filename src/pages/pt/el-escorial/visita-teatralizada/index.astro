@@ -1,0 +1,41 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { SITE, t } from '../../../data/i18n.js';
+const lang = 'pt';
+---
+<Base lang={lang} title="Visita Teatralizada ao Escorial — Reserve com María Victoria" description="Reserve a visita teatralizada ao Mosteiro de El Escorial. Guia intérprete diplomada." path="/el-escorial/visita-teatralizada/">
+  <div class="w-full h-48 md:h-64 overflow-hidden">
+    <img src="/img/escorial/fachada.webp" alt="El Escorial Monastery" class="w-full h-full object-cover" width="540" height="312" loading="eager" />
+  </div>
+
+  <article class="max-w-3xl mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold mb-2">Visita Teatralizada</h1>
+    <p class="text-xl text-sepia mb-8">Mosteiro de El Escorial</p>
+    <section class="mb-12">
+      <div class="grid md:grid-cols-3 gap-6 mb-8">
+        <div class="info-box p-4 rounded-lg text-center">
+          <p class="text-sm text-sepia/70">Duração</p>
+          <p class="text-lg font-bold">Flexível</p>
+        </div>
+        <div class="info-box p-4 rounded-lg text-center">
+          <p class="text-sm text-sepia/70">Preço</p>
+          <p class="text-lg font-bold">Sob consulta</p>
+        </div>
+        <div class="info-box p-4 rounded-lg text-center">
+          <p class="text-sm text-sepia/70">Idiomas</p>
+          <p class="text-lg font-bold">PT · ES · EN · IT · FR</p>
+        </div>
+      </div>
+      <div class="prose prose-lg max-w-none">
+        <p>Uma visita teatralizada ao Mosteiro de El Escorial com María Victoria Solaz. Biblioteca Real, Panteão dos Reis, Basílica e aposentos de Filipe II.</p>
+        <p>Para quem quer compreender El Escorial a sério. María Victoria fala português.</p>
+      </div>
+    </section>
+    <div class="cta-green rounded-lg p-8 text-center">
+      <h2 class="text-2xl font-bold mb-2">Reserve a sua visita</h2>
+      <p class="text-sepia mb-4">Contacte diretamente María Victoria</p>
+      <a href="https://wa.me/34659953930?text=Olá%20María%20Victoria%2C%20gostaria%20de%20reservar%20uma%20visita%20ao%20Escorial" target="_blank" rel="noopener" class="inline-block btn-whatsapp px-8 py-3 rounded-lg text-lg font-medium">💬 WhatsApp</a>
+      <p class="text-sm text-sepia/70 mt-4">Resposta habitual em menos de 24 horas</p>
+    </div>
+  </article>
+</Base>

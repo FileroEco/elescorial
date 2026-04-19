@@ -1,0 +1,108 @@
+---
+import Base from '../../../../layouts/Base.astro';
+import { SITE, t } from '../../../../data/i18n.js';
+
+const lang = 'es';
+const ui = t(lang);
+const dest = ui.destinations.madrid;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "TouristTrip",
+  "name": "Tour Personalizado por Madrid",
+  "description": "Tour personalizado por el Madrid de los Austrias y los Borbones con María Victoria Solaz, guía intérprete diplomada.",
+  "touristType": ["Cultural", "Heritage"],
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "María Victoria Solaz Andújar",
+    "priceRange": "€€",
+    "knowsLanguage": ["es", "en", "it", "fr", "pt"]
+  },
+  "offers": {
+    "@type": "Offer",
+    "availability": "https://schema.org/InStock",
+    "priceCurrency": "EUR"
+  },
+  "inLanguage": "es"
+};
+---
+
+<Base lang={lang} title="Tour Personalizado por Madrid — María Victoria Solaz" description="Tour a medida por el Madrid de los Austrias y los Borbones. Museos, palacios, Bernabéu. Guía intérprete diplomada. 5 idiomas." jsonLd={jsonLd} path="/madrid/tour-personalizado/">
+
+  <div class="w-full h-64 md:h-96 overflow-hidden">
+    <img src="/img/madrid/cibeles-atardecer.webp" alt="Madrid al atardecer, Fuente de Cibeles" class="w-full h-full object-cover" width="612" height="408" loading="eager" />
+  </div>
+
+  <article class="max-w-3xl mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold mb-2">{dest.productName}</h1>
+    <p class="text-xl text-sepia mb-8">Madrid de los Austrias · Madrid de los Borbones · Museos · Bernabéu</p>
+
+    <section class="mb-12">
+      <div class="grid md:grid-cols-3 gap-6 mb-8">
+        <div class="info-box p-4 rounded-lg text-center">
+          <p class="text-sm text-sepia/70">Duración</p>
+          <p class="text-lg font-bold">A tu medida</p>
+        </div>
+        <div class="info-box p-4 rounded-lg text-center">
+          <p class="text-sm text-sepia/70">Precio</p>
+          <p class="text-lg font-bold">Consultar</p>
+        </div>
+        <div class="info-box p-4 rounded-lg text-center">
+          <p class="text-sm text-sepia/70">Idiomas</p>
+          <p class="text-lg font-bold">ES · EN · IT · FR · PT</p>
+        </div>
+      </div>
+
+      <div class="prose prose-lg max-w-none">
+        <h2>Qué puedes incluir</h2>
+        <p>
+          Cada tour se diseña según tus intereses. Algunas opciones que puedes combinar:
+        </p>
+        <p>
+          <strong>Madrid de los Austrias:</strong> Plaza Mayor, Catedral de la Almudena, Monasterio de las Descalzas Reales, callejones del Madrid medieval, la huella de Felipe II en la capital.
+        </p>
+        <p>
+          </p>
+        <div class="my-6">
+          <img src="/img/madrid/plaza-mayor-atardecer.webp" alt="Plaza Mayor de Madrid al atardecer" class="rounded-lg w-full" width="1280" height="857" loading="lazy" />
+          <p class="text-sm text-sepia/70 mt-2 text-center italic">Madrid de los Austrias — Plaza Mayor al atardecer</p>
+        </div>
+        <p>
+        <strong>Madrid de los Borbones:</strong> Palacio Real, Jardines de Sabatini, Puerta del Sol, Gran Vía, Retiro, Templo de Debod.
+        </p>
+        <p>
+          </p>
+        <div class="my-6">
+          <img src="/img/madrid/puerta-alcala.webp" alt="Puerta de Alcalá de Madrid" class="rounded-lg w-full" width="768" height="479" loading="lazy" />
+          <p class="text-sm text-sepia/70 mt-2 text-center italic">Madrid de los Borbones — Puerta de Alcalá de Sabatini</p>
+        </div>
+        <p>
+        <strong>Museos:</strong> Prado, Reina Sofía, Thyssen — o cualquier museo que te interese. María Victoria adapta la visita a tu nivel de conocimiento y al tiempo disponible.
+        </p>
+        <p>
+          <strong>Santiago Bernabéu:</strong> Para combinar con un tour por los museos o el Madrid histórico. Porque una ciudad también se entiende por sus pasiones.
+        </p>
+
+        <h2>Para quién es este tour</h2>
+        <p>
+          Para quien visita Madrid y quiere ir más allá de lo obvio. Familias, parejas, grupos de amigos, viajeros de negocios con una tarde libre. El tour se adapta a ti, no al revés.
+        </p>
+      </div>
+    </section>
+
+    <div class="cta-green rounded-lg p-8 text-center">
+      <h2 class="text-2xl font-bold mb-2">Diseña tu tour</h2>
+      <p class="text-sepia mb-4">Cuéntale a María Victoria qué te gustaría ver</p>
+      <a
+        href="https://wa.me/34659953930?text=Hola%20Mar%C3%ADa%20Victoria%2C%20me%20gustar%C3%ADa%20un%20tour%20personalizado%20por%20Madrid"
+        target="_blank"
+        rel="noopener"
+        class="inline-block btn-whatsapp px-8 py-3 rounded-lg text-lg font-medium"
+      >
+        💬 WhatsApp
+      </a>
+      <p class="text-sm text-sepia/70 mt-4">Respuesta habitual en menos de 24 horas</p>
+    </div>
+  </article>
+
+</Base>

@@ -1,0 +1,83 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { SITE, t } from '../../../data/i18n.js';
+
+const lang = 'en';
+const ui = t(lang);
+const dest = ui.destinations.madrid;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "TouristAttraction",
+  "name": "Madrid histórico",
+  "alternateName": ["Madrid de los Austrias", "Madrid de los Borbones"],
+  "sameAs": ["https://www.wikidata.org/wiki/Q2807"],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Madrid",
+    "addressCountry": "ES"
+  },
+  "about": [
+    { "@type": "Thing", "name": "Casa de Austria" },
+    { "@type": "Thing", "name": "Casa de Borbón" },
+    { "@type": "Thing", "name": "Museo del Prado" },
+    { "@type": "Thing", "name": "Palacio Real de Madrid" }
+  ]
+};
+---
+
+<Base lang={lang} title="Madrid — Tours personalizados de los Austrias y los Borbones" description="Tours personalizados por el Madrid de los Austrias y los Borbones. Museos, palacios y monumentos con María Victoria Solaz, guía intérprete diplomada." jsonLd={jsonLd} path="/madrid/">
+
+  <div class="w-full h-64 md:h-96 overflow-hidden">
+    <img src="/img/madrid/cibeles-atardecer.webp" alt="Madrid Cibeles at sunset" class="w-full h-full object-cover" width="612" height="408" loading="eager" />
+  </div>
+
+  <article class="max-w-3xl mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold mb-4">{dest.name}</h1>
+    <p class="text-xl text-sepia mb-8">{dest.tagline}</p>
+
+    <section class="prose prose-lg max-w-none mb-12">
+      <h2>Dos Madrides en una ciudad</h2>
+      <p>
+        Madrid tiene dos almas históricas. El Madrid de los Austrias — el de Felipe II, la Plaza Mayor, las iglesias barrocas y los callejones que esconden siglos de intrigas cortesanas. Y el Madrid de los Borbones — el del Palacio Real, el Prado, el Retiro y la reinvención de una capital que quiso competir con París y Viena.
+      </p>
+      <p>
+        María Victoria conoce ambos como quien conoce su propia casa. Y lo que la hace diferente es que no te cuenta Madrid como un museo: te lo cuenta como una historia que conecta cada calle, cada plaza y cada cuadro con las personas que los crearon.
+      </p>
+
+      <h2>Un tour a tu medida</h2>
+      <p>
+        No hay dos visitas iguales. Según tu tiempo, tus intereses y tu nivel de curiosidad, María Victoria diseña un recorrido personalizado. ¿Quieres dedicar la mañana al Prado y la tarde al Madrid de los Austrias? Hecho. ¿Prefieres un recorrido temático sobre la corte de Felipe II? También. ¿Vienes con niños y quieres que no se aburran? Ella lleva décadas haciendo visitas escolares — sabe exactamente cómo.
+      </p>
+
+      <h2>Museos, palacios y más</h2>
+      <p>
+        Museo del Prado, Museo Reina Sofía, Palacio Real, Catedral de la Almudena, Plaza Mayor, Puerta del Sol, Retiro, Templo de Debod — y cualquier rincón que te interese. María Victoria también organiza visitas al Santiago Bernabéu cuando lo combinas con un tour por los museos de Madrid. Porque la historia de una ciudad no tiene por qué ser solemne — a veces también pasa por un estadio.
+      </p>
+    </section>
+
+    <!-- SUB-RUTAS -->
+    <section class="grid md:grid-cols-2 gap-6 mb-12">
+      <a href="/en/madrid/habsburgs/" class="card-hover rounded-lg p-6 border block">
+        <h2 class="text-xl font-bold mb-2">Madrid de los Austrias</h2>
+        <p class="text-sepia">La capital imperial de Felipe II. Plaza Mayor, Barrio de las Letras, pasadizos secretos, Casas a la Malicia y el Siglo de Oro.</p>
+      </a>
+      <a href="/en/madrid/bourbons/" class="card-hover rounded-lg p-6 border block">
+        <h2 class="text-xl font-bold mb-2">Madrid de los Borbones</h2>
+        <p class="text-sepia">El Madrid ilustrado. Palacio Real, Prado, Retiro, Gran Vía y la reinvención de una capital que quiso competir con París.</p>
+      </a>
+    </section>
+
+    <div class="cta-box rounded-lg p-8 text-center">
+      <h2 class="text-2xl font-bold mb-2">{dest.productName}</h2>
+      <p class="text-sepia mb-4">Cuéntale qué quieres ver y ella te diseña el recorrido</p>
+      <a
+        href={`/${lang}/madrid/${dest.productSlug}/`}
+        class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium"
+      >
+        Ver detalles y reservar →
+      </a>
+    </div>
+  </article>
+
+</Base>

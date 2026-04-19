@@ -1,0 +1,41 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { SITE, t } from '../../../data/i18n.js';
+const lang = 'fr';
+---
+<Base lang={lang} title="Visite Personnalisée de Madrid — Réservez avec María Victoria" description="Visite sur mesure du Madrid des Habsbourg et Bourbons. Guide diplômée. 5 langues." path="/madrid/visite-personnalisee/">
+  <div class="w-full h-48 md:h-64 overflow-hidden">
+    <img src="/img/madrid/cibeles-atardecer.webp" alt="Madrid at sunset" class="w-full h-full object-cover" width="612" height="408" loading="eager" />
+  </div>
+
+  <article class="max-w-3xl mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold mb-2">Visite Personnalisée</h1>
+    <p class="text-xl text-sepia mb-8">Madrid — Des Habsbourg aux Bourbons</p>
+    <section class="mb-12">
+      <div class="grid md:grid-cols-3 gap-6 mb-8">
+        <div class="info-box p-4 rounded-lg text-center">
+          <p class="text-sm text-sepia/70">Durée</p>
+          <p class="text-lg font-bold">Sur mesure</p>
+        </div>
+        <div class="info-box p-4 rounded-lg text-center">
+          <p class="text-sm text-sepia/70">Prix</p>
+          <p class="text-lg font-bold">Sur demande</p>
+        </div>
+        <div class="info-box p-4 rounded-lg text-center">
+          <p class="text-sm text-sepia/70">Langues</p>
+          <p class="text-lg font-bold">FR · ES · EN · IT · PT</p>
+        </div>
+      </div>
+      <div class="prose prose-lg max-w-none">
+        <p>Chaque visite selon vos intérêts. Madrid des Habsbourg, Madrid des Bourbons, musées, Santiago Bernabéu.</p>
+        <p>Pour les voyageurs qui veulent aller au-delà de l'évident. Couples, familles, groupes.</p>
+      </div>
+    </section>
+    <div class="cta-green rounded-lg p-8 text-center">
+      <h2 class="text-2xl font-bold mb-2">Concevez votre visite</h2>
+      <p class="text-sepia mb-4">Dites à María Victoria ce que vous aimeriez voir</p>
+      <a href="https://wa.me/34659953930?text=Bonjour%20María%20Victoria%2C%20je%20souhaite%20une%20visite%20personnalisée%20de%20Madrid" target="_blank" rel="noopener" class="inline-block btn-whatsapp px-8 py-3 rounded-lg text-lg font-medium">💬 WhatsApp</a>
+      <p class="text-sm text-sepia/70 mt-4">Réponse habituelle sous 24 heures</p>
+    </div>
+  </article>
+</Base>

@@ -1,0 +1,41 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { SITE, t } from '../../../data/i18n.js';
+const lang = 'en';
+---
+<Base lang={lang} title="Dramatized Tour of El Escorial — Book with María Victoria Solaz" description="Book a dramatized tour of El Escorial. Certified Heritage guide. 5 languages." path="/el-escorial/dramatized-tour/">
+  <div class="w-full h-48 md:h-64 overflow-hidden">
+    <img src="/img/escorial/fachada.webp" alt="El Escorial Monastery" class="w-full h-full object-cover" width="540" height="312" loading="eager" />
+  </div>
+
+  <article class="max-w-3xl mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold mb-2">Dramatized Tour</h1>
+    <p class="text-xl text-sepia mb-8">Royal Monastery of El Escorial</p>
+    <section class="mb-12">
+      <div class="grid md:grid-cols-3 gap-6 mb-8">
+        <div class="info-box p-4 rounded-lg text-center">
+          <p class="text-sm text-sepia/70">Duration</p>
+          <p class="text-lg font-bold">Flexible</p>
+        </div>
+        <div class="info-box p-4 rounded-lg text-center">
+          <p class="text-sm text-sepia/70">Price</p>
+          <p class="text-lg font-bold">On request</p>
+        </div>
+        <div class="info-box p-4 rounded-lg text-center">
+          <p class="text-sm text-sepia/70">Languages</p>
+          <p class="text-lg font-bold">EN · ES · IT · FR · PT</p>
+        </div>
+      </div>
+      <div class="prose prose-lg max-w-none">
+        <p>An immersive dramatized tour with María Victoria Solaz, certified Heritage guide. Royal Library, Royal Pantheon, Basilica and Philip II's private quarters.</p>
+        <p>For anyone who wants to understand El Escorial beyond the guidebook. Families, couples, cultural travellers.</p>
+      </div>
+    </section>
+    <div class="cta-green rounded-lg p-8 text-center">
+      <h2 class="text-2xl font-bold mb-2">Book your tour</h2>
+      <p class="text-sepia mb-4">Contact María Victoria directly</p>
+      <a href="https://wa.me/34659953930?text=Hello%20María%20Victoria%2C%20I'd%20like%20to%20book%20a%20tour%20of%20El%20Escorial" target="_blank" rel="noopener" class="inline-block btn-whatsapp px-8 py-3 rounded-lg text-lg font-medium">💬 WhatsApp</a>
+      <p class="text-sm text-sepia/70 mt-4">Usually replies within 24 hours</p>
+    </div>
+  </article>
+</Base>

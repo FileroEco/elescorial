@@ -1,0 +1,109 @@
+---
+import Base from '../../../../layouts/Base.astro';
+import { SITE, t } from '../../../../data/i18n.js';
+
+const lang = 'es';
+const ui = t(lang);
+const dest = ui.destinations.escorial;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "TouristTrip",
+  "name": "Visita Teatralizada al Monasterio de El Escorial",
+  "description": "Visita guiada teatralizada por el Monasterio de El Escorial con María Victoria Solaz, guía intérprete diplomada.",
+  "touristType": ["Cultural", "Heritage"],
+  "itinerary": {
+    "@type": "ItemList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@type": "TouristAttraction",
+        "name": "Monasterio de San Lorenzo de El Escorial",
+        "sameAs": "https://www.wikidata.org/wiki/Q160836"
+      }
+    }]
+  },
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "María Victoria Solaz Andújar",
+    "priceRange": "€€",
+    "areaServed": [
+      { "@type": "City", "name": "San Lorenzo de El Escorial" }
+    ],
+    "knowsLanguage": ["es", "en", "it", "fr", "pt"],
+    "hasCredential": {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "Licenciatura en Turismo — Guía de Patrimonio Nacional"
+    }
+  },
+  "offers": {
+    "@type": "Offer",
+    "availability": "https://schema.org/InStock",
+    "priceCurrency": "EUR"
+  },
+  "inLanguage": "es"
+};
+---
+
+<Base lang={lang} title="Visita Teatralizada al Escorial — María Victoria Solaz" description="Reserva tu visita teatralizada al Monasterio de El Escorial. Guía intérprete diplomada. Grupos reducidos. 5 idiomas." jsonLd={jsonLd} path="/el-escorial/visita-teatralizada/">
+
+  <div class="w-full h-48 md:h-64 overflow-hidden">
+    <img src="/img/escorial/fachada.webp" alt="Fachada del Monasterio de El Escorial" class="w-full h-full object-cover" width="540" height="312" loading="eager" />
+  </div>
+
+  <article class="max-w-3xl mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold mb-2">{dest.productName}</h1>
+    <p class="text-xl text-sepia mb-8">{dest.name}</p>
+
+    <section class="mb-12">
+      <div class="grid md:grid-cols-3 gap-6 mb-8">
+        <div class="info-box p-4 rounded-lg text-center">
+          <p class="text-sm text-sepia/70">Duración</p>
+          <p class="text-lg font-bold">Según visita</p>
+        </div>
+        <div class="info-box p-4 rounded-lg text-center">
+          <p class="text-sm text-sepia/70">Precio</p>
+          <p class="text-lg font-bold">Consultar</p>
+        </div>
+        <div class="info-box p-4 rounded-lg text-center">
+          <p class="text-sm text-sepia/70">Idiomas</p>
+          <p class="text-lg font-bold">ES · EN · IT · FR · PT</p>
+        </div>
+      </div>
+
+      <div class="prose prose-lg max-w-none">
+        <h2>Qué incluye</h2>
+        <p>
+          Una visita teatralizada e inmersiva por el Monasterio de El Escorial con María Victoria Solaz, guía intérprete diplomada y especialista en Felipe II. No es una visita convencional: María Victoria interpreta la historia con gestos, cambios de ritmo y una puesta en escena que transforma cada sala en un escenario.
+        </p>
+        <p>
+          Recorrerás la Biblioteca Real con sus miles de volúmenes, el Panteón de los Reyes donde descansan los monarcas españoles, la Basílica con su impresionante retablo, y los aposentos privados de Felipe II — incluida la alcoba desde la que el rey podía ver el altar sin levantarse de la cama.
+        </p>
+
+        <h2>Para quién es esta visita</h2>
+        <p>
+          Para cualquier persona que quiera entender El Escorial de verdad, no solo verlo. Familias con niños (María Victoria tiene décadas de experiencia con visitas escolares), parejas en escapada cultural desde Madrid, grupos de amigos, turistas italianos que quieren descubrir la conexión de Felipe II con Nápoles, Milán y Sicilia, y cualquier persona curiosa que prefiera una historia contada con pasión a una audioguía monótona.
+        </p>
+        <p>
+          El precio depende del tamaño del grupo y el tipo de visita. Contacta directamente por WhatsApp para que María Victoria te prepare una propuesta a medida.
+        </p>
+      </div>
+    </section>
+
+    <div class="cta-green rounded-lg p-8 text-center">
+      <h2 class="text-2xl font-bold mb-2">Reserva tu visita</h2>
+      <p class="text-sepia mb-4">Contacta directamente con María Victoria</p>
+      <a
+        href="https://wa.me/34659953930?text=Hola%20Mar%C3%ADa%20Victoria%2C%20me%20gustar%C3%ADa%20reservar%20una%20visita%20teatralizada%20al%20Escorial"
+        target="_blank"
+        rel="noopener"
+        class="inline-block btn-whatsapp px-8 py-3 rounded-lg text-lg font-medium"
+      >
+        💬 WhatsApp
+      </a>
+      <p class="text-sm text-sepia/70 mt-4">Respuesta habitual en menos de 24 horas</p>
+    </div>
+  </article>
+
+</Base>

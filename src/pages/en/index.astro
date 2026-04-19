@@ -1,0 +1,111 @@
+---
+import Base from '../../layouts/Base.astro';
+import { SITE, t } from '../../data/i18n.js';
+
+const lang = 'en';
+const ui = t(lang);
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": SITE.guideName,
+  "description": ui.home.title,
+  "priceRange": "€€",
+  "areaServed": [
+    { "@type": "City", "name": "San Lorenzo de El Escorial" },
+    { "@type": "City", "name": "Ávila" },
+    { "@type": "City", "name": "Segovia" },
+    { "@type": "City", "name": "Madrid" },
+    { "@type": "Place", "name": "Cuelgamuros" }
+  ],
+  "knowsLanguage": ["es", "en", "it", "fr", "pt"],
+  "hasCredential": {
+    "@type": "EducationalOccupationalCredential",
+    "credentialCategory": "Licenciatura en Turismo — Guía de Patrimonio Nacional"
+  }
+};
+---
+
+<Base lang={lang} title={ui.home.title} description={ui.home.subtitle} jsonLd={jsonLd} path="/">
+
+  <!-- HERO -->
+  <div class="relative">
+    <img src="/img/escorial/monasterio-noche.webp" alt="Monasterio de El Escorial iluminado de noche" class="w-full h-64 md:h-96 object-cover" width="540" height="312" loading="eager" />
+    <div class="absolute inset-0 bg-tinta/60 flex items-center justify-center">
+      <div class="text-center text-white px-4">
+        <h1 class="text-3xl md:text-5xl font-bold leading-tight mb-4">
+          {ui.home.title}
+        </h1>
+        <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto opacity-90">
+          {ui.home.subtitle}
+        </p>
+        <a
+          href={`https://wa.me/${SITE.whatsapp.replace('+', '')}`}
+          target="_blank"
+          rel="noopener"
+          class="inline-block btn-whatsapp px-8 py-3 rounded-lg text-lg font-medium"
+        >
+          {ui.home.cta}
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- GUÍA EN ACCIÓN -->
+  <section class="max-w-5xl mx-auto px-4 py-12 flex flex-col md:flex-row gap-8 items-center">
+    <img src="/img/guia/guia-disfraz-epoca.webp" alt="Guía de Patrimonio con compañera disfrazada de época de Felipe II" class="w-full md:w-1/2 rounded-lg" width="1080" height="1440" loading="lazy" />
+    <div>
+      <h2 class="text-2xl font-bold mb-4">History you live, not just hear</h2>
+      <p class="text-sepia">María Victoria Solaz doesn't follow a script. She carries history inside her and tells it like someone inviting you into their home. National Heritage Guide, 5 languages, decades of experience. Her dramatized tours transform cold stone into living memory.</p>
+    </div>
+  </section>
+
+  <!-- DESTINOS -->
+  <section class="max-w-5xl mx-auto px-4 py-12">
+    <div class="grid md:grid-cols-2 gap-8">
+      {Object.entries(ui.destinations).map(([key, dest]) => (
+        <article class="card-hover rounded-lg p-6 border">
+          <h2 class="text-2xl font-bold mb-2">
+            <a href={`/${lang}/${dest.slug}/`} class="hover:underline">
+              {dest.name}
+            </a>
+          </h2>
+          <p class="text-sepia mb-4">{dest.tagline}</p>
+          <a
+            href={`/${lang}/${dest.slug}/${dest.productSlug}/`}
+            class="text-borgoña font-medium hover:underline"
+          >
+            {dest.productName} →
+          </a>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- CONOCE A LA GUÍA -->
+  <section class="max-w-5xl mx-auto px-4 py-8">
+    <a href={`/${lang}/about/`} class="flex flex-col md:flex-row gap-6 items-center card-hover rounded-lg p-6 border">
+      <img src="/img/guia/retrato-guia.webp" alt="María Victoria Solaz Andújar" class="w-32 h-32 md:w-24 md:h-24 rounded-full object-cover" width="800" height="450" loading="lazy" />
+      <div>
+        <h2 class="text-xl font-bold mb-1">Meet María Victoria Solaz</h2>
+        <p class="text-sepia">Official National Heritage Guide. 5 languages. Decades of passion for Philip II. Her story deserves to be told.</p>
+      </div>
+    </a>
+  </section>
+
+  <!-- MADRID RUTAS -->
+  <section class="max-w-5xl mx-auto px-4 py-8">
+    <h2 class="text-2xl font-bold mb-4">Historic Madrid</h2>
+    <div class="grid md:grid-cols-2 gap-6">
+      <a href={`/${lang}/madrid/habsburgs/`} class="card-hover rounded-lg p-5 border block">
+        <h3 class="font-bold mb-1">Habsburg Madrid</h3>
+        <p class="text-sm text-sepia">Philip II's imperial capital. Plaza Mayor, Literary Quarter, secret passages and the Spanish Golden Age.</p>
+      </a>
+      <a href={`/${lang}/madrid/bourbons/`} class="card-hover rounded-lg p-5 border block">
+        <h3 class="font-bold mb-1">Bourbon Madrid</h3>
+        <p class="text-sm text-sepia">Enlightened Madrid. Royal Palace, Prado, Retiro and the neoclassical reinvention of the capital.</p>
+      </a>
+    </div>
+  </section>
+
+</Base>

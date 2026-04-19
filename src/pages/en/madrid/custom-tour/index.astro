@@ -1,0 +1,41 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { SITE, t } from '../../../data/i18n.js';
+const lang = 'en';
+---
+<Base lang={lang} title="Custom Tour of Madrid — Book with María Victoria Solaz" description="Tailored tour of Habsburg and Bourbon Madrid. Museums, palaces. Certified Heritage guide." path="/madrid/custom-tour/">
+  <div class="w-full h-48 md:h-64 overflow-hidden">
+    <img src="/img/madrid/cibeles-atardecer.webp" alt="Madrid at sunset" class="w-full h-full object-cover" width="612" height="408" loading="eager" />
+  </div>
+
+  <article class="max-w-3xl mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold mb-2">Custom Tour</h1>
+    <p class="text-xl text-sepia mb-8">Madrid — Habsburgs & Bourbons</p>
+    <section class="mb-12">
+      <div class="grid md:grid-cols-3 gap-6 mb-8">
+        <div class="info-box p-4 rounded-lg text-center">
+          <p class="text-sm text-sepia/70">Duration</p>
+          <p class="text-lg font-bold">Tailored</p>
+        </div>
+        <div class="info-box p-4 rounded-lg text-center">
+          <p class="text-sm text-sepia/70">Price</p>
+          <p class="text-lg font-bold">On request</p>
+        </div>
+        <div class="info-box p-4 rounded-lg text-center">
+          <p class="text-sm text-sepia/70">Languages</p>
+          <p class="text-lg font-bold">EN · ES · IT · FR · PT</p>
+        </div>
+      </div>
+      <div class="prose prose-lg max-w-none">
+        <p>Every tour is designed around your interests. Habsburg Madrid, Bourbon Madrid, museums, Santiago Bernabéu.</p>
+        <p>For travellers who want to go beyond the obvious. Couples, families, business travellers.</p>
+      </div>
+    </section>
+    <div class="cta-green rounded-lg p-8 text-center">
+      <h2 class="text-2xl font-bold mb-2">Design your tour</h2>
+      <p class="text-sepia mb-4">Tell María Victoria what you'd like to see</p>
+      <a href="https://wa.me/34659953930?text=Hello%20María%20Victoria%2C%20I'd%20like%20a%20custom%20tour%20of%20Madrid" target="_blank" rel="noopener" class="inline-block btn-whatsapp px-8 py-3 rounded-lg text-lg font-medium">💬 WhatsApp</a>
+      <p class="text-sm text-sepia/70 mt-4">Usually replies within 24 hours</p>
+    </div>
+  </article>
+</Base>

@@ -1,0 +1,71 @@
+---
+import Base from '../../../layouts/Base.astro';
+import RelatedDestinations from '../../../components/RelatedDestinations.astro';
+import { SITE } from '../../../data/i18n.js';
+const lang = 'it';
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "María Victoria Solaz Andújar",
+  "jobTitle": "Guida del Patrimonio Nazionale",
+  "knowsAbout": ["Felipe II","Monasterio de El Escorial","Historia de España"],
+  "knowsLanguage": ["es","en","it","fr","pt"],
+  "hasCredential": {
+    "@type": "EducationalOccupationalCredential",
+    "credentialCategory": "Licenciatura en Turismo — Guía de Patrimonio Nacional"
+  },
+  "workLocation": {"@type": "Place","name": "Comunidad de Madrid"}
+};
+---
+<Base lang={lang} title="María Victoria Solaz — Guida del Patrimonio Nazionale" description="María Victoria Solaz Andújar, Guida del Patrimonio Nazionale. Specialista in Filippo II e il Monastero dell’Escorial. Visite in 5 lingue." jsonLd={jsonLd} path="/chi-sono/">
+  <article class="max-w-3xl mx-auto px-4 py-12">
+    <div class="flex flex-col md:flex-row gap-8 items-start mb-12">
+      <img src="/img/guia/retrato-guia.webp" alt="María Victoria Solaz Andújar" class="w-full md:w-64 rounded-lg" width="800" height="450" loading="eager" />
+      <div>
+        <h1 class="text-4xl font-bold mb-4">María Victoria Solaz Andújar</h1>
+        <p class="text-lg text-borgoña font-medium mb-4">Guida del Patrimonio Nazionale</p>
+        <section class="prose prose-lg max-w-none">
+          <p>Non vi racconterò la storia di Filippo II. Ve la farò vivere.</p>
+          <p>Sono guida del Patrimonio Nazionale, specialista in Filippo II e il Monastero dell’Escorial. Da decenni mostro questo luogo a persone di tutto il mondo, e ogni visita è diversa perché ogni gruppo porta domande che non mi aspettavo.</p>
+          <p>Parlo cinque lingue — spagnolo, inglese, italiano, francese e portoghese — perché capire la storia di Filippo II significa capire mezzo mondo: da Napoli ai Paesi Bassi, da Lisbona alle Filippine.</p>
+        </section>
+      </div>
+    </div>
+
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold mb-4">Perché le mie visite non assomigliano a nessun'altra</h2>
+      <div class="prose prose-lg max-w-none">
+        <p>Non seguo un copione. Porto la storia dentro di me e la racconto come chi ti invita a casa sua e ti mostra ogni angolo con orgoglio. Le mie visite sono teatralizzate non perché mi metto un costume (anche se a volte lo faccio), ma perché la storia di Filippo II è puro dramma: potere, fede, solitudine e un'ossessione architettonica che ha cambiato la Spagna per sempre.</p>
+        <p>I bambini escono dalle mie visite scolastiche affascinati. I turisti italiani scoprono che Filippo II governava Napoli, Milano e la Sicilia. E chi viene pensando che El Escorial sia "solo un monastero" se ne va capendo che è un palazzo, una biblioteca, un pantheon e una dichiarazione di principi.</p>
+        <p>Dopo la visita, spesso ci sediamo a mangiare insieme. Perché la storia non finisce quando esci dalla porta — finisce quando la condividi a tavola.</p>
+      </div>
+    </section>
+
+    <section class="info-box rounded-lg p-8 mb-12">
+      <h2 class="text-xl font-bold mb-4">Credenziali</h2>
+      <ul class="space-y-2 text-sepia">
+        <li>📜 Laureata in Turismo — Guida del Patrimonio Nazionale (titolo ufficiale)</li>
+        <li>🌍 5 lingue: spagnolo, inglese, italiano, francese, portoghese</li>
+        <li>🏛️ Specialista in Filippo II, El Escorial e Patrimonio UNESCO</li>
+        <li>🎭 Visite teatralizzate con narrativa propria</li>
+        <li>👥 Esperienza con gruppi internazionali di tutti i continenti</li>
+      </ul>
+    </section>
+
+    <section class="border-t border-hueso pt-8">
+      <h2 class="text-2xl font-bold mb-4">La mia storia</h2>
+      <div class="prose prose-lg max-w-none">
+        <p>Il mio legame con El Escorial non è professionale — è viscerale. Questo luogo fa parte della mia storia familiare, delle persone che amo e di quelle che non ci sono più. I miei fratelli, con cui sono cresciuta percorrendo questi corridoi quando nessuno ci guardava, mi hanno insegnato che la storia non sta nei libri ma nelle persone che la camminano.</p>
+        <p>Ogni volta che attraverso il Patio de los Reyes, li sento con me. E ogni volta che un turista mi dice che la mia visita gli ha cambiato il modo di vedere questo luogo, so che anche loro sarebbero orgogliosi.</p>
+        <p>Questo sito web è un regalo di mio figlio Raúl, che ha deciso che la mia passione meritava un palcoscenico più grande del granito della sierra. Lui si occupa della tecnologia; io mi occupo di far vivere Filippo II ogni mattina.</p>
+      </div>
+    </section>
+
+    <RelatedDestinations links={[
+      { href: "/it/el-escorial/", title: "Monastero dell’Escorial", description: "La mia passione, la mia ossessione, la mia casa. Il luogo dove Filippo II vive ogni mattina." },
+      { href: "/it/avila/", title: "Ávila — La fortezza mistica", description: "Santa Teresa, la muraglia e il granito. Il vertice spirituale dell’asse imperiale." },
+      { href: "/it/segovia/", title: "Segovia — Dall’acquedotto all’Alcázar", description: "La scienza di Proust, il genio di Herrera e il silenzio di San Giovanni della Croce." },
+      { href: "/it/madrid/", title: "Madrid — Tour personalizzati", description: "Dagli Asburgo ai Borbone, Madrid è il volto urbano di ciò che El Escorial è nella sierra." },
+    ]} />
+  </article>
+</Base>

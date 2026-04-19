@@ -1,0 +1,93 @@
+---
+import Base from '../../../../layouts/Base.astro';
+import { SITE, t } from '../../../../data/i18n.js';
+
+const lang = 'es';
+const ui = t(lang);
+const dest = ui.destinations.segovia;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "TouristTrip",
+  "name": "Visita Guiada a Segovia",
+  "description": "Visita guiada teatralizada por Segovia con María Victoria Solaz. Acueducto, Alcázar, Catedral, Casa de la Moneda, San Juan de la Cruz.",
+  "touristType": ["Cultural", "Heritage"],
+  "itinerary": {
+    "@type": "ItemList",
+    "itemListElement": [
+      {"@type": "ListItem","position": 1,"item": {"@type": "TouristAttraction","name": "Acueducto de Segovia","sameAs": "https://www.wikidata.org/wiki/Q184100"}},
+      {"@type": "ListItem","position": 2,"item": {"@type": "TouristAttraction","name": "Alcázar de Segovia","sameAs": "https://www.wikidata.org/wiki/Q178012"}},
+      {"@type": "ListItem","position": 3,"item": {"@type": "TouristAttraction","name": "Catedral de Segovia"}},
+      {"@type": "ListItem","position": 4,"item": {"@type": "TouristAttraction","name": "Real Casa de Moneda de Segovia"}}
+    ]
+  },
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "María Victoria Solaz Andújar",
+    "priceRange": "€€",
+    "knowsLanguage": ["es","en","it","fr","pt"]
+  },
+  "offers": {
+    "@type": "Offer",
+    "availability": "https://schema.org/InStock",
+    "priceCurrency": "EUR"
+  },
+  "inLanguage": "es"
+};
+---
+
+<Base lang={lang} title="Visita Guiada a Segovia — Reserva con María Victoria Solaz" description="Visita guiada teatralizada a Segovia. Acueducto, Alcázar, Catedral, Casa de la Moneda. Guía intérprete diplomada. 5 idiomas." jsonLd={jsonLd} path="/segovia/visita-guiada/">
+
+  <div class="w-full h-48 md:h-64 overflow-hidden">
+    <img src="/img/segovia/acueducto-noche.webp" alt="Acueducto de Segovia iluminado de noche" class="w-full h-full object-cover" width="1600" height="1097" loading="eager" />
+  </div>
+
+  <article class="max-w-3xl mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold mb-2">{dest.productName}</h1>
+    <p class="text-xl text-sepia mb-8">Segovia — Patrimonio de la Humanidad UNESCO</p>
+
+    <section class="mb-12">
+      <div class="grid md:grid-cols-3 gap-6 mb-8">
+        <div class="info-box p-4 rounded-lg text-center">
+          <p class="text-sm text-sepia/70">Duración</p>
+          <p class="text-lg font-bold">Según visita</p>
+        </div>
+        <div class="info-box p-4 rounded-lg text-center">
+          <p class="text-sm text-sepia/70">Precio</p>
+          <p class="text-lg font-bold">Consultar</p>
+        </div>
+        <div class="info-box p-4 rounded-lg text-center">
+          <p class="text-sm text-sepia/70">Idiomas</p>
+          <p class="text-lg font-bold">ES · EN · IT · FR · PT</p>
+        </div>
+      </div>
+
+      <div class="prose prose-lg max-w-none">
+        <h2>Qué incluye</h2>
+        <p>
+          Un recorrido teatralizado donde Segovia deja de ser un catálogo de monumentos para convertirse en un thriller histórico. María Victoria te lleva del Acueducto romano al Alcázar donde Isabel fue proclamada reina, pasando por la Catedral gótica, la Real Casa de Moneda de Felipe II, la Judería sefardí y el convento de San Juan de la Cruz. Cada parada es un acto de una ópera donde la ingeniería, el poder, la ciencia y la mística se entrelazan.
+        </p>
+
+        <h2>Para quién es esta visita</h2>
+        <p>
+          Para quien quiera entender Segovia más allá del cochinillo y la foto con el Acueducto. Amantes de la ingeniería romana, curiosos del Renacimiento industrial (la Casa de Moneda es única en Europa), buscadores de la España mística, y cualquier viajero que prefiera historias con dramatismo a audioguías sin alma. Se combina perfectamente con El Escorial y Ávila para completar el eje imperial.
+        </p>
+      </div>
+    </section>
+
+    <div class="cta-green rounded-lg p-8 text-center">
+      <h2 class="text-2xl font-bold mb-2">Reserva tu visita</h2>
+      <p class="text-sepia mb-4">Contacta directamente con María Victoria</p>
+      <a
+        href="https://wa.me/34659953930?text=Hola%20Mar%C3%ADa%20Victoria%2C%20me%20gustar%C3%ADa%20reservar%20una%20visita%20guiada%20a%20Segovia"
+        target="_blank"
+        rel="noopener"
+        class="inline-block btn-whatsapp px-8 py-3 rounded-lg text-lg font-medium"
+      >
+        💬 WhatsApp
+      </a>
+      <p class="text-sm text-sepia/70 mt-4">Respuesta habitual en menos de 24 horas</p>
+    </div>
+  </article>
+
+</Base>

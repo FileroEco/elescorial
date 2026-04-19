@@ -1,0 +1,39 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { SITE, t } from '../../../data/i18n.js';
+const lang = 'pt';
+const ui = t(lang);
+const dest = ui.destinations.madrid;
+const jsonLd = {"@context":"https://schema.org","@type":"TouristAttraction","name":"Madrid histórica","sameAs":["https://www.wikidata.org/wiki/Q2807"]};
+---
+<Base lang={lang} title="Madrid — Tours personalizados dos Áustrias aos Bourbons" description="Tours personalizados pela Madrid dos Áustrias e dos Bourbons. Museus, palácios com María Victoria Solaz." jsonLd={jsonLd} path="/madrid/">
+  <div class="w-full h-64 md:h-96 overflow-hidden">
+    <img src="/img/madrid/cibeles-atardecer.webp" alt="Madrid Cibeles at sunset" class="w-full h-full object-cover" width="612" height="408" loading="eager" />
+  </div>
+
+  <article class="max-w-3xl mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold mb-4">{dest.name}</h1>
+    <p class="text-xl text-sepia mb-8">{dest.tagline}</p>
+    <section class="prose prose-lg max-w-none mb-8">
+      <h2>Duas Madrid numa só cidade</h2>
+      <p>Madrid tem duas almas históricas. A Madrid dos Áustrias — a de Filipe II, a Plaza Mayor, as vielas que escondem séculos de intrigas. E a Madrid dos Bourbons — o Palácio Real, o Prado, o Retiro e a reinvenção de uma capital que quis competir com Paris.</p>
+      <h2>Um tour à sua medida</h2>
+      <p>María Victoria desenha um percurso personalizado segundo o seu tempo e interesses. Fala português.</p>
+    </section>
+    <section class="grid md:grid-cols-2 gap-6 mb-12">
+      <a href="/pt/madrid/austrias/" class="card-hover rounded-lg p-6 border block">
+        <h2 class="text-xl font-bold mb-2">Madrid dos Áustrias</h2>
+        <p class="text-sepia">A capital imperial de Filipe II. Plaza Mayor, Bairro das Letras, passagens secretas e o Século de Ouro.</p>
+      </a>
+      <a href="/pt/madrid/bourbons/" class="card-hover rounded-lg p-6 border block">
+        <h2 class="text-xl font-bold mb-2">Madrid dos Bourbons</h2>
+        <p class="text-sepia">A Madrid das Luzes. Palácio Real, Prado, Retiro e a reinvenção neoclássica.</p>
+      </a>
+    </section>
+    <div class="cta-box rounded-lg p-8 text-center">
+      <h2 class="text-2xl font-bold mb-2">{dest.productName}</h2>
+      <p class="text-sepia mb-4">Conte a María Victoria o que gostaria de ver — fala português</p>
+      <a href={`/${lang}/madrid/${dest.productSlug}/`} class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium">Detalhes e reserva →</a>
+    </div>
+  </article>
+</Base>

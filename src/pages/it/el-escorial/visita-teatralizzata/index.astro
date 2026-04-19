@@ -1,0 +1,106 @@
+---
+import Base from '../../../../layouts/Base.astro';
+import { SITE, t } from '../../../../data/i18n.js';
+
+const lang = 'it';
+const ui = t(lang);
+const dest = ui.destinations.escorial;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "TouristTrip",
+  "name": "Visita Teatralizzata al Monastero dell’Escorial",
+  "description": "Visita guidata teatralizzata al Monastero dell’Escorial con María Victoria Solaz, guida interprete diplomata.",
+  "touristType": ["Cultural", "Heritage"],
+  "itinerary": {
+    "@type": "ItemList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@type": "TouristAttraction",
+        "name": "Monastero di San Lorenzo de El Escorial",
+        "sameAs": "https://www.wikidata.org/wiki/Q160836"
+      }
+    }]
+  },
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "María Victoria Solaz Andújar",
+    "priceRange": "€€",
+    "knowsLanguage": ["es", "en", "it", "fr", "pt"],
+    "hasCredential": {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "Licenza in Turismo — Guida del Patrimonio Nazionale"
+    }
+  },
+  "offers": {
+    "@type": "Offer",
+    "availability": "https://schema.org/InStock",
+    "priceCurrency": "EUR"
+  },
+  "inLanguage": "it"
+};
+---
+
+<Base lang={lang} title="Visita Teatralizzata all’Escorial — Prenota con María Victoria Solaz" description="Prenota la tua visita teatralizzata al Monastero dell’Escorial. Guida interprete diplomata che parla italiano. Il legame Filippo II - Italia." jsonLd={jsonLd} path="/el-escorial/visita-teatralizzata/">
+
+  <div class="w-full h-48 md:h-64 overflow-hidden">
+    <img src="/img/escorial/fachada.webp" alt="El Escorial Monastery" class="w-full h-full object-cover" width="540" height="312" loading="eager" />
+  </div>
+
+  <article class="max-w-3xl mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold mb-2">{dest.productName}</h1>
+    <p class="text-xl text-sepia mb-8">{dest.name}</p>
+
+    <section class="mb-12">
+      <div class="grid md:grid-cols-3 gap-6 mb-8">
+        <div class="info-box p-4 rounded-lg text-center">
+          <p class="text-sm text-sepia/70">Durata</p>
+          <p class="text-lg font-bold">Da concordare</p>
+        </div>
+        <div class="info-box p-4 rounded-lg text-center">
+          <p class="text-sm text-sepia/70">Prezzo</p>
+          <p class="text-lg font-bold">Su richiesta</p>
+        </div>
+        <div class="info-box p-4 rounded-lg text-center">
+          <p class="text-sm text-sepia/70">Lingue</p>
+          <p class="text-lg font-bold">IT · ES · EN · FR · PT</p>
+        </div>
+      </div>
+
+      <div class="prose prose-lg max-w-none">
+        <h2>Cosa include</h2>
+        <p>
+          Una visita teatralizzata e immersiva al Monastero dell’Escorial con María Victoria Solaz, guida interprete diplomata e specialista in Filippo II. María Victoria parla italiano e conosce in profondità il legame storico tra la Spagna di Filippo II e l'Italia — Napoli, Milano, la Sicilia, Tiziano, Sofonisba Anguissola.
+        </p>
+        <p>
+          Percorrerai la Biblioteca Reale, il Pantheon dei Re, la Basilica e gli appartamenti privati di Filippo II. Non è una visita convenzionale: María Victoria interpreta la storia con gesti, cambi di ritmo e una messa in scena che trasforma ogni sala in un palcoscenico.
+        </p>
+
+        <h2>Per chi è questa visita</h2>
+        <p>
+          Per italiani in viaggio a Madrid che vogliono scoprire un capitolo dimenticato della propria storia. Per coppie, famiglie, gruppi di amici. Per chi ama il Rinascimento e vuole capire come un re spagnolo abbia plasmato l'Italia del Cinquecento. Per chi preferisce una storia raccontata con passione a un'audioguida monotona.
+        </p>
+        <p>
+          Il prezzo dipende dalla dimensione del gruppo e dal tipo di visita. Contatta María Victoria su WhatsApp per una proposta personalizzata.
+        </p>
+      </div>
+    </section>
+
+    <div class="cta-green rounded-lg p-8 text-center">
+      <h2 class="text-2xl font-bold mb-2">Prenota la tua visita</h2>
+      <p class="text-sepia mb-4">Contatta direttamente María Victoria — parla italiano</p>
+      <a
+        href="https://wa.me/34659953930?text=Ciao%20Mar%C3%ADa%20Victoria%2C%20vorrei%20prenotare%20una%20visita%20teatralizzata%20all%27Escorial"
+        target="_blank"
+        rel="noopener"
+        class="inline-block btn-whatsapp px-8 py-3 rounded-lg text-lg font-medium"
+      >
+        💬 WhatsApp
+      </a>
+      <p class="text-sm text-sepia/70 mt-4">Risposta abituale entro 24 ore</p>
+    </div>
+  </article>
+
+</Base>

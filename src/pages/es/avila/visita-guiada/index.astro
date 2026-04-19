@@ -1,0 +1,96 @@
+---
+import Base from '../../../../layouts/Base.astro';
+import { SITE, t } from '../../../../data/i18n.js';
+
+const lang = 'es';
+const ui = t(lang);
+const dest = ui.destinations.avila;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "TouristTrip",
+  "name": "Visita Guiada a Ávila",
+  "description": "Visita guiada teatralizada por Ávila con María Victoria Solaz. Muralla, Catedral, Santa Teresa, románico.",
+  "touristType": ["Cultural", "Heritage", "Religious"],
+  "itinerary": {
+    "@type": "ItemList",
+    "itemListElement": [
+      {"@type": "ListItem","position": 1,"item": {"@type": "TouristAttraction","name": "Muralla de Ávila","sameAs": "https://www.wikidata.org/wiki/Q608462"}},
+      {"@type": "ListItem","position": 2,"item": {"@type": "TouristAttraction","name": "Catedral del Salvador de Ávila"}},
+      {"@type": "ListItem","position": 3,"item": {"@type": "TouristAttraction","name": "Convento de Santa Teresa"}},
+      {"@type": "ListItem","position": 4,"item": {"@type": "TouristAttraction","name": "Basílica de San Vicente"}}
+    ]
+  },
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "María Victoria Solaz Andújar",
+    "priceRange": "€€",
+    "knowsLanguage": ["es","en","it","fr","pt"]
+  },
+  "offers": {
+    "@type": "Offer",
+    "availability": "https://schema.org/InStock",
+    "priceCurrency": "EUR"
+  },
+  "inLanguage": "es"
+};
+---
+
+<Base lang={lang} title="Visita Guiada a Ávila — Reserva con María Victoria Solaz" description="Visita guiada teatralizada a Ávila. Muralla, Santa Teresa, Catedral, románico. Guía intérprete diplomada. 5 idiomas." jsonLd={jsonLd} path="/avila/visita-guiada/">
+
+  <div class="w-full h-48 md:h-64 overflow-hidden">
+    <img src="/img/avila/muralla-atardecer.webp" alt="Muralla de Ávila al atardecer" class="w-full h-full object-cover" width="626" height="417" loading="eager" />
+  </div>
+
+  <article class="max-w-3xl mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold mb-2">{dest.productName}</h1>
+    <p class="text-xl text-sepia mb-8">Ávila — Patrimonio de la Humanidad UNESCO</p>
+
+    <section class="mb-12">
+      <div class="grid md:grid-cols-3 gap-6 mb-8">
+        <div class="info-box p-4 rounded-lg text-center">
+          <p class="text-sm text-sepia/70">Duración</p>
+          <p class="text-lg font-bold">Según visita</p>
+        </div>
+        <div class="info-box p-4 rounded-lg text-center">
+          <p class="text-sm text-sepia/70">Precio</p>
+          <p class="text-lg font-bold">Consultar</p>
+        </div>
+        <div class="info-box p-4 rounded-lg text-center">
+          <p class="text-sm text-sepia/70">Idiomas</p>
+          <p class="text-lg font-bold">ES · EN · IT · FR · PT</p>
+        </div>
+      </div>
+
+      <div class="prose prose-lg max-w-none">
+        <h2>Qué incluye</h2>
+        <p>
+          Un recorrido teatralizado por la Ávila que no aparece en las guías convencionales. María Victoria te lleva desde la muralla medieval hasta el convento de Santa Teresa, pasando por la Catedral del Salvador (la primera catedral-fortaleza gótica de España), la Basílica de San Vicente con su cenotafio tallado, y los palacios de los Caballeros Leales. Cada parada es un acto de una obra donde la piedra caleña, la mística y la historia militar se entrelazan.
+        </p>
+
+        <h2>Para quién es esta visita</h2>
+        <p>
+          Para quien quiera entender por qué Ávila no es "la ciudad de las murallas" sino la fortaleza del espíritu de Castilla. Amantes del románico, peregrinos del Camino de la Lengua, viajeros que buscan la España profunda más allá de Madrid, y cualquier persona que prefiera una historia contada con pasión — incluidos los niños, que salen de las visitas de María Victoria fascinados.
+        </p>
+        <p>
+          Se combina perfectamente con la visita al Monasterio de El Escorial y Segovia para completar el eje imperial.
+        </p>
+      </div>
+    </section>
+
+    <div class="cta-green rounded-lg p-8 text-center">
+      <h2 class="text-2xl font-bold mb-2">Reserva tu visita</h2>
+      <p class="text-sepia mb-4">Contacta directamente con María Victoria</p>
+      <a
+        href="https://wa.me/34659953930?text=Hola%20Mar%C3%ADa%20Victoria%2C%20me%20gustar%C3%ADa%20reservar%20una%20visita%20guiada%20a%20%C3%81vila"
+        target="_blank"
+        rel="noopener"
+        class="inline-block btn-whatsapp px-8 py-3 rounded-lg text-lg font-medium"
+      >
+        💬 WhatsApp
+      </a>
+      <p class="text-sm text-sepia/70 mt-4">Respuesta habitual en menos de 24 horas</p>
+    </div>
+  </article>
+
+</Base>

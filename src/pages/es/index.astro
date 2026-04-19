@@ -1,0 +1,910 @@
+---
+import { SITE } from '../../data/i18n.js';
+
+const lang = 'es';
+const wa = SITE.whatsapp.replace('+', '');
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": SITE.guideName,
+  "description": "Visitas teatralizadas al Monasterio de El Escorial y los grandes monumentos de Castilla",
+  "priceRange": "€€",
+  "areaServed": [
+    { "@type": "City", "name": "San Lorenzo de El Escorial" },
+    { "@type": "City", "name": "Ávila" },
+    { "@type": "City", "name": "Segovia" },
+    { "@type": "City", "name": "Madrid" },
+    { "@type": "Place", "name": "Cuelgamuros" }
+  ],
+  "knowsLanguage": ["es", "en", "it", "fr", "pt"],
+  "telephone": SITE.whatsapp,
+};
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>María Victoria Solaz · Guía Oficial El Escorial</title>
+  <meta name="description" content="Visitas teatralizadas al Monasterio de El Escorial y los grandes monumentos de Castilla. Felipe II como nunca te lo han contado." />
+  <link rel="canonical" href={`${SITE.domain}/es/`} />
+  <link rel="alternate" hreflang="es" href={`${SITE.domain}/es/`} />
+  <link rel="alternate" hreflang="en" href={`${SITE.domain}/en/`} />
+  <link rel="alternate" hreflang="it" href={`${SITE.domain}/it/`} />
+  <link rel="alternate" hreflang="fr" href={`${SITE.domain}/fr/`} />
+  <link rel="alternate" hreflang="pt" href={`${SITE.domain}/pt/`} />
+  <link rel="alternate" hreflang="x-default" href={`${SITE.domain}/en/`} />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <style>
+    :root {
+      --cream:       #f4efe3;
+      --cream-dark:  #ede5d0;
+      --green:       #2a4a2a;
+      --green-light: #3a6b3a;
+      --gold:        #c4963a;
+      --gold-light:  #e8c06a;
+      --wine:        #6b1f2a;
+      --text:        #2a2118;
+      --text-muted:  #7a6a54;
+      --white:       #fdfaf4;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--cream);
+      color: var(--text);
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(244,239,227,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(196,150,58,0.2);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px;
+      height: 64px;
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px; font-weight: 600;
+      color: var(--text);
+      letter-spacing: 0.02em;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex; gap: 28px; list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 13px; letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--wine); }
+
+    .nav-right {
+      display: flex; align-items: center; gap: 20px;
+    }
+
+    .nav-langs {
+      display: flex; gap: 6px;
+      font-size: 12px; letter-spacing: 0.06em;
+    }
+    .nav-langs a {
+      text-decoration: none;
+      color: var(--text-muted);
+      padding: 2px 5px;
+      border-radius: 2px;
+      transition: all 0.2s;
+    }
+    .nav-langs a.active { color: var(--gold); border-bottom: 1px solid var(--gold); }
+    .nav-langs a:hover { color: var(--gold); }
+
+    .btn-primary {
+      background: var(--green);
+      color: var(--white);
+      border: none;
+      padding: 10px 22px;
+      font-family: 'Lato', sans-serif;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      cursor: pointer; text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s, transform 0.15s;
+      border-radius: 2px;
+    }
+    .btn-primary:hover { background: var(--green-light); transform: translateY(-1px); }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.6);
+      padding: 10px 22px;
+      font-family: 'Lato', sans-serif;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      cursor: pointer; text-decoration: none;
+      display: inline-block;
+      transition: all 0.2s;
+      border-radius: 2px;
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.15); }
+
+    /* ── HERO ── */
+    .hero {
+      margin-top: 64px;
+      position: relative;
+      height: 92vh; min-height: 600px;
+      display: flex; align-items: flex-end;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(to top, rgba(10,8,18,0.92) 0%, rgba(10,8,18,0.45) 45%, rgba(10,8,18,0.15) 100%),
+        url('/img/escorial/monasterio-noche.webp') center/cover no-repeat;
+    }
+
+    .hero-content {
+      position: relative; z-index: 2;
+      width: 100%;
+      padding: 0 80px 72px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: flex-end;
+      gap: 48px;
+    }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(196,150,58,0.2);
+      border: 1px solid rgba(196,150,58,0.4);
+      color: var(--gold-light);
+      font-size: 11px; letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 2px;
+      margin-bottom: 20px;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--gold-light);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 5vw, 68px);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.1; letter-spacing: -0.01em;
+      margin-bottom: 16px;
+      max-width: 700px;
+    }
+    .hero h1 em { font-style: italic; color: var(--gold-light); }
+
+    .hero-sub {
+      color: rgba(255,255,255,0.75);
+      font-size: 18px; font-weight: 300;
+      margin-bottom: 36px;
+      max-width: 520px;
+    }
+
+    .hero-actions { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+
+    .hero-proof {
+      display: flex; align-items: center; gap: 10px;
+      color: rgba(255,255,255,0.55);
+      font-size: 13px;
+      margin-top: 20px;
+    }
+    .stars { color: var(--gold-light); font-size: 14px; letter-spacing: 1px; }
+
+    /* Urgency box */
+    .urgency-box {
+      background: rgba(20,15,10,0.6);
+      border: 1px solid rgba(196,150,58,0.35);
+      backdrop-filter: blur(12px);
+      border-radius: 4px;
+      padding: 20px 24px;
+      min-width: 240px;
+    }
+    .urgency-label {
+      font-size: 10px; letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 10px;
+    }
+    .urgency-date {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px; color: var(--white);
+      margin-bottom: 6px;
+    }
+    .urgency-spots {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 13px; color: rgba(255,255,255,0.7);
+      margin-bottom: 16px;
+    }
+    .spot-dots { display: flex; gap: 3px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold-light); }
+    .dot.taken { background: rgba(255,255,255,0.2); }
+
+    /* ── TRUST BAR ── */
+    .trust-bar {
+      background: var(--green);
+      padding: 18px 80px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 32px;
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 10px;
+      color: rgba(255,255,255,0.85);
+      font-size: 13px; letter-spacing: 0.04em;
+    }
+    .trust-item strong { color: var(--gold-light); font-weight: 700; }
+    .trust-divider { width: 1px; height: 28px; background: rgba(255,255,255,0.15); }
+
+    /* ── SECTION COMMONS ── */
+    section { padding: 80px; }
+
+    .section-label {
+      font-size: 11px; letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 3vw, 42px);
+      font-weight: 600; color: var(--wine);
+      line-height: 1.2; margin-bottom: 12px;
+    }
+    .section-sub {
+      color: var(--text-muted);
+      font-size: 16px; max-width: 560px; line-height: 1.7;
+    }
+
+    /* ── GUIDE BIO ── */
+    .guide-section {
+      background: var(--white);
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 0; padding: 0; overflow: hidden;
+    }
+    .guide-image {
+      background: url('/img/guia/Foto%20guia%20con%20perro%20mas%20graciosa%20con%20perro%20sonriendo.jpeg') center top/cover;
+      min-height: 520px; position: relative;
+    }
+    .guide-image-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, transparent 60%, var(--white));
+    }
+    .guide-text {
+      padding: 72px 64px 72px 48px;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .guide-credentials { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+    .cred-tag {
+      background: var(--cream); border: 1px solid var(--cream-dark);
+      color: var(--text-muted);
+      font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 5px 10px; border-radius: 2px;
+    }
+    .guide-text blockquote {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px; font-style: italic;
+      color: var(--wine); line-height: 1.5;
+      margin-bottom: 20px;
+      border-left: 2px solid var(--gold);
+      padding-left: 20px;
+    }
+    .guide-text p { color: var(--text-muted); margin-bottom: 28px; line-height: 1.8; }
+
+    /* ── TOURS ── */
+    .tours-section { background: var(--cream); }
+    .tours-header {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      margin-bottom: 48px;
+    }
+    .tours-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+    .tour-card {
+      background: var(--white);
+      padding: 36px 32px;
+      display: flex; flex-direction: column;
+      position: relative;
+      transition: transform 0.25s, box-shadow 0.25s;
+      cursor: pointer; overflow: hidden;
+    }
+    .tour-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 3px; background: var(--gold);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.3s;
+    }
+    .tour-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(42,26,14,0.12); }
+    .tour-card:hover::before { transform: scaleX(1); }
+
+    .tour-card.featured {
+      background: var(--green); color: var(--white);
+      grid-row: span 2;
+    }
+    .tour-card.featured::before { background: var(--gold); }
+
+    .tour-img {
+      width: calc(100% + 64px);
+      margin: -36px -32px 24px;
+      height: 180px;
+      background-size: cover; background-position: center;
+      flex-shrink: 0; position: relative;
+    }
+    .tour-card.featured .tour-img { height: 320px; }
+    .tour-img::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.35) 100%);
+    }
+
+    .tour-type {
+      font-size: 10px; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .tour-card.featured .tour-type { color: var(--gold-light); }
+
+    .tour-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px; font-weight: 600;
+      color: var(--wine); margin-bottom: 8px; line-height: 1.2;
+    }
+    .tour-card.featured .tour-title { color: var(--white); }
+
+    .tour-desc {
+      color: var(--text-muted); font-size: 14px; line-height: 1.7;
+      margin-bottom: 20px; flex: 1;
+    }
+    .tour-card.featured .tour-desc { color: rgba(255,255,255,0.7); }
+
+    .tour-meta { display: flex; gap: 16px; margin-bottom: 24px; }
+    .tour-meta-item {
+      font-size: 12px; color: var(--text-muted);
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tour-card.featured .tour-meta-item { color: rgba(255,255,255,0.6); }
+
+    .tour-availability {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 12px; color: #5a9a5a;
+      margin-top: 10px;
+    }
+    .avail-dot {
+      width: 6px; height: 6px; background: #5a9a5a;
+      border-radius: 50%; animation: pulse 2s infinite;
+    }
+    .tour-card.featured .tour-availability { color: #7dd87d; }
+    .tour-card.featured .avail-dot { background: #7dd87d; }
+
+    .tour-price-row {
+      display: flex; align-items: center; justify-content: space-between;
+      border-top: 1px solid var(--cream-dark);
+      padding-top: 20px; margin-top: auto;
+    }
+    .tour-card.featured .tour-price-row { border-color: rgba(255,255,255,0.15); }
+
+    .tour-price { font-family: 'Playfair Display', serif; }
+    .tour-price span {
+      font-size: 11px; color: var(--text-muted);
+      display: block; margin-bottom: 2px;
+    }
+    .tour-card.featured .tour-price span { color: rgba(255,255,255,0.5); }
+    .tour-price strong { font-size: 24px; color: var(--text); }
+    .tour-card.featured .tour-price strong { color: var(--white); }
+
+    .btn-tour {
+      background: var(--green); color: var(--white);
+      border: none; padding: 10px 18px;
+      font-family: 'Lato', sans-serif;
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      cursor: pointer; text-decoration: none;
+      border-radius: 2px; transition: filter 0.2s;
+    }
+    .tour-card.featured .btn-tour { background: var(--gold); color: var(--text); }
+    .btn-tour:hover { filter: brightness(1.1); }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials-section { background: var(--wine); padding: 80px; }
+    .testimonials-section .section-label { color: var(--gold-light); }
+    .testimonials-section .section-title { color: var(--white); }
+
+    .testimonials-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 24px; margin-top: 48px;
+    }
+    .testimonial-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 4px; padding: 28px;
+    }
+    .testi-stars {
+      color: var(--gold-light); font-size: 14px;
+      letter-spacing: 2px; margin-bottom: 14px;
+    }
+    .testi-text {
+      font-family: 'Playfair Display', serif;
+      font-style: italic; font-size: 16px;
+      color: rgba(255,255,255,0.9); line-height: 1.6; margin-bottom: 20px;
+    }
+    .testi-author { display: flex; align-items: center; gap: 10px; }
+    .testi-avatar {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--cream-dark);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; font-weight: 700; color: var(--wine);
+      flex-shrink: 0;
+    }
+    .testi-name { font-size: 13px; font-weight: 700; color: var(--white); }
+    .testi-origin { font-size: 12px; color: rgba(255,255,255,0.45); }
+    .testi-platform {
+      font-size: 11px; color: var(--gold-light);
+      letter-spacing: 0.08em; text-transform: uppercase;
+      margin-left: auto;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: var(--text);
+      color: rgba(255,255,255,0.6);
+      padding: 48px 80px;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 32px; flex-wrap: wrap;
+    }
+    .footer-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px; color: var(--white); margin-bottom: 4px;
+    }
+    .footer-links { display: flex; gap: 24px; font-size: 12px; letter-spacing: 0.08em; }
+    .footer-links a {
+      color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--gold-light); }
+    .footer-contact { text-align: right; font-size: 14px; }
+    .footer-contact a {
+      color: var(--gold-light); text-decoration: none;
+      font-weight: 700; display: block; margin-bottom: 4px;
+    }
+
+    /* ── MOBILE ── */
+    .nav-hamburger {
+      display: none;
+      background: none; border: none;
+      cursor: pointer; padding: 6px;
+      color: var(--text);
+    }
+    .mobile-menu {
+      display: none;
+      position: fixed; top: 64px; left: 0; right: 0;
+      background: rgba(244,239,227,0.97);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(196,150,58,0.2);
+      padding: 20px 24px;
+      z-index: 99;
+    }
+    .mobile-menu.open { display: block; }
+    .mobile-menu ul { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+    .mobile-menu a {
+      text-decoration: none; font-size: 14px; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--text-muted);
+    }
+    .mobile-menu-langs {
+      display: flex; gap: 12px; margin-top: 16px;
+      padding-top: 16px; border-top: 1px solid rgba(196,150,58,0.2);
+    }
+    .mobile-menu-langs a {
+      font-size: 13px; color: var(--text-muted); text-decoration: none;
+    }
+    .mobile-menu-langs a.active { color: var(--gold); }
+
+    @media (max-width: 768px) {
+      .nav { padding: 0 20px; }
+      .nav-links, .nav-langs { display: none; }
+      .nav-hamburger { display: block; }
+      .nav-right .btn-primary { display: none; }
+
+      .hero-content { padding: 0 24px 48px; grid-template-columns: 1fr; }
+      .urgency-box { display: none; }
+
+      section { padding: 48px 24px; }
+      .trust-bar { padding: 14px 24px; flex-wrap: wrap; gap: 14px; }
+
+      .guide-section { grid-template-columns: 1fr; }
+      .guide-image { min-height: 280px; }
+      .guide-text { padding: 40px 24px; }
+      .guide-image-overlay { background: linear-gradient(to bottom, transparent 60%, var(--white)); }
+
+      .tours-grid { grid-template-columns: 1fr; }
+      .tour-card.featured { grid-row: span 1; }
+
+      .testimonials-grid { grid-template-columns: 1fr; padding: 0; }
+      .testimonials-section { padding: 48px 24px; }
+
+      .footer { padding: 32px 24px; flex-direction: column; align-items: flex-start; }
+      .footer-contact { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="/es/" class="nav-logo">El Escorial</a>
+  <ul class="nav-links">
+    <li><a href="/es/el-escorial/">El Escorial</a></li>
+    <li><a href="/es/avila/">Ávila</a></li>
+    <li><a href="/es/segovia/">Segovia</a></li>
+    <li><a href="/es/cuelgamuros/">Cuelgamuros</a></li>
+    <li><a href="/es/madrid/">Madrid</a></li>
+    <li><a href="/es/sobre-mi/">Sobre mí</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="nav-langs">
+      <a href="/es/" class="active">ES</a>
+      <a href="/en/">EN</a>
+      <a href="/it/">IT</a>
+      <a href="/fr/">FR</a>
+      <a href="/pt/">PT</a>
+    </div>
+    <a href={`https://wa.me/${wa}`} target="_blank" rel="noopener" class="btn-primary">Reservar visita</a>
+  </div>
+  <button class="nav-hamburger" id="nav-toggle" aria-label="Menú" aria-expanded="false" aria-controls="mobile-menu">
+    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+    </svg>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Menú móvil">
+  <ul>
+    <li><a href="/es/el-escorial/">El Escorial</a></li>
+    <li><a href="/es/avila/">Ávila</a></li>
+    <li><a href="/es/segovia/">Segovia</a></li>
+    <li><a href="/es/cuelgamuros/">Cuelgamuros</a></li>
+    <li><a href="/es/madrid/">Madrid</a></li>
+    <li><a href="/es/sobre-mi/">Sobre mí</a></li>
+    <li><a href={`https://wa.me/${wa}`} target="_blank" rel="noopener" style="color: var(--green); font-weight: 700;">Reservar visita</a></li>
+  </ul>
+  <div class="mobile-menu-langs">
+    <a href="/es/" class="active">ES</a>
+    <a href="/en/">EN</a>
+    <a href="/it/">IT</a>
+    <a href="/fr/">FR</a>
+    <a href="/pt/">PT</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div>
+      <div class="hero-badge">Visitas teatralizadas · Guía oficial Patrimonio Nacional</div>
+      <h1>Historia que entra<br><em>por los sentidos</em></h1>
+      <p class="hero-sub">Visitas teatralizadas al Monasterio de El Escorial y los grandes monumentos de Castilla. Felipe II como nunca te lo han contado.</p>
+      <div class="hero-actions">
+        <a href="#tours" class="btn-primary">Ver visitas disponibles</a>
+        <a href="#guia" class="btn-ghost">Conoce a María Victoria</a>
+      </div>
+      <div class="hero-proof">
+        <span class="stars">★★★★★</span>
+        <span>+400 reseñas · 4.9/5 en Google</span>
+      </div>
+    </div>
+    <div class="urgency-box">
+      <div class="urgency-label">Próxima visita disponible</div>
+      <div class="urgency-date">Sábado 26 de abril</div>
+      <div class="urgency-spots">
+        <div class="spot-dots">
+          <div class="dot taken"></div>
+          <div class="dot taken"></div>
+          <div class="dot taken"></div>
+          <div class="dot taken"></div>
+          <div class="dot taken"></div>
+          <div class="dot taken"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+        <span>Solo 4 plazas libres</span>
+      </div>
+      <a href={`https://wa.me/${wa}?text=Hola%20María%20Victoria%2C%20quiero%20reservar%20para%20el%2026%20de%20abril`} target="_blank" rel="noopener" class="btn-primary" style="width:100%; text-align:center;">Reservar ahora →</a>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item"><strong>+20 años</strong> de experiencia como guía oficial</div>
+  <div class="trust-divider"></div>
+  <div class="trust-item"><strong>5 idiomas:</strong> ES · EN · IT · FR · PT</div>
+  <div class="trust-divider"></div>
+  <div class="trust-item"><strong>Grupos reducidos</strong> · máx. 10 personas</div>
+  <div class="trust-divider"></div>
+  <div class="trust-item"><strong>Cancelación gratuita</strong> hasta 48h antes</div>
+</div>
+
+<!-- GUIDE BIO -->
+<div class="guide-section" id="guia">
+  <div class="guide-image">
+    <div class="guide-image-overlay"></div>
+  </div>
+  <div class="guide-text">
+    <div class="section-label">Tu guía</div>
+    <h2 class="section-title">María Victoria Solaz</h2>
+    <div class="guide-credentials">
+      <span class="cred-tag">Guía Oficial Patrimonio Nacional</span>
+      <span class="cred-tag">5 idiomas</span>
+      <span class="cred-tag">+20 años de experiencia</span>
+    </div>
+    <blockquote>"No sigo un guion. Llevo la historia dentro y la cuento como quien te invita a su casa."</blockquote>
+    <p>María Victoria no hace visitas turísticas al uso. Transforma la piedra fría del Monasterio en memoria viva. Con décadas de pasión por Felipe II y la historia de los Austrias, cada visita es una experiencia única.</p>
+    <a href="/es/sobre-mi/" class="btn-primary">Leer su historia completa</a>
+  </div>
+</div>
+
+<!-- TOURS -->
+<section class="tours-section" id="tours">
+  <div class="tours-header">
+    <div>
+      <div class="section-label">Elige tu experiencia</div>
+      <h2 class="section-title">Visitas disponibles</h2>
+    </div>
+    <p class="section-sub" style="max-width:360px; font-size:14px;">Grupos máx. 10 personas. Cancelación gratuita. Reserva con tarjeta o transferencia.</p>
+  </div>
+
+  <div class="tours-grid">
+    <!-- Featured: El Escorial -->
+    <div class="tour-card featured">
+      <div class="tour-img" style="background-image: url('/img/guia/guias-monasterio.webp'); background-position: center 30%"></div>
+      <div class="tour-type">★ Experiencia estrella</div>
+      <div class="tour-title">Monasterio de El Escorial Teatralizado</div>
+      <div class="tour-desc">Entra en la mente de Felipe II. Una visita teatralizada donde la historia cobra vida con personajes de época. La experiencia que convierte una visita en un recuerdo imborrable.</div>
+      <div class="tour-meta">
+        <div class="tour-meta-item">⏱ 2h 30min</div>
+        <div class="tour-meta-item">👥 Máx. 10</div>
+        <div class="tour-meta-item">🌐 5 idiomas</div>
+      </div>
+      <div class="tour-availability">
+        <div class="avail-dot"></div>
+        Próxima: sáb. 26 abr · 4 plazas
+      </div>
+      <div class="tour-price-row">
+        <div class="tour-price">
+          <span>Precio por persona</span>
+          <strong>45 €</strong>
+        </div>
+        <a href="/es/el-escorial/visita-teatralizada/" class="btn-tour">Reservar →</a>
+      </div>
+    </div>
+
+    <!-- Ávila -->
+    <div class="tour-card">
+      <div class="tour-img" style="background-image: url('/img/avila/muralla-atardecer.webp'); background-position: center 60%"></div>
+      <div class="tour-type">Visita guiada</div>
+      <div class="tour-title">Ávila · La ciudad amurallada</div>
+      <div class="tour-desc">Las murallas medievales mejor conservadas de España, Santa Teresa y los secretos de una ciudad que detiene el tiempo.</div>
+      <div class="tour-meta">
+        <div class="tour-meta-item">⏱ 3h</div>
+        <div class="tour-meta-item">👥 Máx. 10</div>
+      </div>
+      <div class="tour-availability">
+        <div class="avail-dot"></div>
+        Disponible este fin de semana
+      </div>
+      <div class="tour-price-row">
+        <div class="tour-price">
+          <span>Desde</span>
+          <strong>38 €</strong>
+        </div>
+        <a href="/es/avila/visita-guiada/" class="btn-tour">Reservar →</a>
+      </div>
+    </div>
+
+    <!-- Segovia -->
+    <div class="tour-card">
+      <div class="tour-img" style="background-image: url('/img/segovia/acueducto-dia.webp'); background-position: center 40%"></div>
+      <div class="tour-type">Visita guiada</div>
+      <div class="tour-title">Segovia · Del acueducto al Alcázar</div>
+      <div class="tour-desc">Dos mil años de historia en una sola mañana. El acueducto romano, la catedral y el Alcázar que inspiró el castillo de Cenicienta.</div>
+      <div class="tour-meta">
+        <div class="tour-meta-item">⏱ 3h</div>
+        <div class="tour-meta-item">👥 Máx. 10</div>
+      </div>
+      <div class="tour-availability">
+        <div class="avail-dot"></div>
+        Plazas disponibles
+      </div>
+      <div class="tour-price-row">
+        <div class="tour-price">
+          <span>Desde</span>
+          <strong>38 €</strong>
+        </div>
+        <a href="/es/segovia/visita-guiada/" class="btn-tour">Reservar →</a>
+      </div>
+    </div>
+
+    <!-- Cuelgamuros -->
+    <div class="tour-card">
+      <div class="tour-img" style="background-image: url('/img/cuelgamuros/frontal-panoramica.webp')"></div>
+      <div class="tour-type">Visita guiada</div>
+      <div class="tour-title">Cuelgamuros · Memoria y piedra</div>
+      <div class="tour-desc">Un lugar de historia compleja y monumental. Una visita que invita a reflexionar y comprender.</div>
+      <div class="tour-meta">
+        <div class="tour-meta-item">⏱ 2h</div>
+        <div class="tour-meta-item">👥 Máx. 10</div>
+      </div>
+      <div class="tour-availability">
+        <div class="avail-dot"></div>
+        Plazas disponibles
+      </div>
+      <div class="tour-price-row">
+        <div class="tour-price">
+          <span>Desde</span>
+          <strong>32 €</strong>
+        </div>
+        <a href="/es/cuelgamuros/visita-guiada/" class="btn-tour">Reservar →</a>
+      </div>
+    </div>
+
+    <!-- Madrid -->
+    <div class="tour-card">
+      <div class="tour-img" style="background-image: url('/img/madrid/plaza-mayor-atardecer.webp'); background-position: center 50%"></div>
+      <div class="tour-type">Tour personalizado</div>
+      <div class="tour-title">Madrid Histórico · A tu medida</div>
+      <div class="tour-desc">De los Austrias a los Borbones. Plaza Mayor, el Madrid de los Habsburgo, el Palacio Real y el Retiro. Diseñamos el recorrido contigo.</div>
+      <div class="tour-meta">
+        <div class="tour-meta-item">⏱ Flexible</div>
+        <div class="tour-meta-item">👥 Privado</div>
+      </div>
+      <div class="tour-availability">
+        <div class="avail-dot"></div>
+        Consultar disponibilidad
+      </div>
+      <div class="tour-price-row">
+        <div class="tour-price">
+          <span>Desde</span>
+          <strong>180 €</strong>
+        </div>
+        <a href="/es/madrid/tour-personalizado/" class="btn-tour">Consultar →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section">
+  <div class="section-label">Lo que dicen nuestros visitantes</div>
+  <h2 class="section-title">★★★★★ 4.9 · +400 reseñas verificadas</h2>
+
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"María Victoria hace que sientas que Felipe II te está contando su propia historia. Volveré con mi familia sin dudarlo."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">MR</div>
+        <div>
+          <div class="testi-name">María R.</div>
+          <div class="testi-origin">Madrid · hace 2 semanas</div>
+        </div>
+        <div class="testi-platform">Google</div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"We did the tour in English — absolutely outstanding. She brings history alive like nobody else. A must-do near Madrid."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">JT</div>
+        <div>
+          <div class="testi-name">James T.</div>
+          <div class="testi-origin">Londres · hace 1 mes</div>
+        </div>
+        <div class="testi-platform">TripAdvisor</div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"La visita teatralizada es una experiencia única. Mi hijo de 12 años quedó fascinado. Nada que ver con una visita normal."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">AG</div>
+        <div>
+          <div class="testi-name">Ana G.</div>
+          <div class="testi-origin">Barcelona · hace 3 semanas</div>
+        </div>
+        <div class="testi-platform">Google</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div>
+    <div class="footer-brand">María Victoria Solaz Andújar</div>
+    <div style="font-size:13px;">Guía Oficial de Patrimonio Nacional · San Lorenzo de El Escorial</div>
+  </div>
+  <div class="footer-links">
+    <a href="/es/el-escorial/">El Escorial</a>
+    <a href="/es/avila/">Ávila</a>
+    <a href="/es/segovia/">Segovia</a>
+    <a href="/es/madrid/">Madrid</a>
+    <a href="/es/sobre-mi/">Sobre mí</a>
+    <a href="/es/contacto/">Contacto</a>
+  </div>
+  <div class="footer-contact">
+    <a href={`tel:${SITE.whatsapp}`}>{SITE.whatsapp}</a>
+    <span style="font-size:12px;">© {new Date().getFullYear()} · Todos los derechos reservados</span>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu toggle
+  const toggle = document.getElementById('nav-toggle');
+  const menu = document.getElementById('mobile-menu');
+  toggle?.addEventListener('click', () => {
+    const open = menu?.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(!!open));
+  });
+
+  // Smooth scroll for in-page anchors
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector((a as HTMLAnchorElement).getAttribute('href') || '');
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+
+  // Entrance animation
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        (e.target as HTMLElement).style.opacity = '1';
+        (e.target as HTMLElement).style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll<HTMLElement>('.tour-card, .testimonial-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>

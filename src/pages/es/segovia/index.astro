@@ -1,0 +1,151 @@
+---
+import Base from '../../../layouts/Base.astro';
+import RelatedDestinations from '../../../components/RelatedDestinations.astro';
+import { SITE, t } from '../../../data/i18n.js';
+
+const lang = 'es';
+const ui = t(lang);
+const dest = ui.destinations.segovia;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "TouristAttraction",
+  "name": "Segovia",
+  "alternateName": ["Ciudad del Acueducto"],
+  "sameAs": [
+    "https://www.wikidata.org/wiki/Q8356",
+    "https://es.wikipedia.org/wiki/Segovia"
+  ],
+  "isPartOf": {
+    "@type": "UNESCOWorldHeritageSite",
+    "name": "Old Town of Segovia and its Aqueduct"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Segovia",
+    "addressRegion": "Castilla y León",
+    "addressCountry": "ES"
+  },
+  "about": [
+    { "@type": "Thing", "name": "Acueducto de Segovia", "sameAs": "https://www.wikidata.org/wiki/Q184100" },
+    { "@type": "Thing", "name": "Alcázar de Segovia", "sameAs": "https://www.wikidata.org/wiki/Q178012" },
+    { "@type": "Person", "name": "Isabel I de Castilla", "sameAs": "https://www.wikidata.org/wiki/Q504" },
+    { "@type": "Person", "name": "Felipe II de España", "sameAs": "https://www.wikidata.org/wiki/Q527" },
+    { "@type": "Person", "name": "San Juan de la Cruz", "sameAs": "https://www.wikidata.org/wiki/Q189524" },
+    { "@type": "Thing", "name": "Real Casa de Moneda de Segovia" },
+    { "@type": "Person", "name": "Louis Proust" },
+    { "@type": "Thing", "name": "Gótico tardío" }
+  ]
+};
+---
+
+<Base lang={lang} title="Segovia — Visita guiada del Acueducto al Alcázar" description="Visita guiada a Segovia con María Victoria Solaz. Acueducto romano, Alcázar, Catedral, Casa de la Moneda. Guía oficial." jsonLd={jsonLd} path="/segovia/">
+
+  <div class="w-full h-64 md:h-96 overflow-hidden">
+    <img src="/img/segovia/acueducto-noche.webp" alt="Acueducto de Segovia iluminado de noche" class="w-full h-full object-cover" width="1600" height="1097" loading="eager" />
+  </div>
+
+  <article class="max-w-3xl mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold mb-4">{dest.name}</h1>
+    <p class="text-xl text-sepia mb-8">Segovia no es una ciudad de un solo acto. Es una ópera monumental que se extiende desde las cuevas de la prehistoria hasta los laboratorios de la Ilustración.</p>
+
+    <section class="prose prose-lg max-w-none mb-12">
+
+      <h2>El esqueleto de los gigantes: el Acueducto</h2>
+      <p>
+        Entrad con asombro. Ante vosotros, el Acueducto. No es una obra de ingeniería — es un desafío a las leyes de la física y de Dios. Con sus 167 arcos de granito del Guadarrama, se alza sin una sola gota de mortero. 20.400 bloques de piedra unidos por la fuerza de la gravedad y un cálculo matemático aterrador.
+      </p>
+      <p>
+        Roma no levantó esta mole solo para calmar la sed. Es un grito de propaganda imperial grabado en granito. El agua viajaba 17 kilómetros desde el río Acebeda, salvando desniveles con una precisión que hoy, con láseres, apenas podemos igualar. En los nichos de la parte superior descansaban dioses paganos antes de que la fe de los Austrias los sustituyera por la Virgen y San Esteban. Durante siglos, el pueblo lo llamó "El Puente del Diablo", creyendo que solo el Maligno pudo levantar tal coloso en una sola noche para robar un alma.
+      </p>
+
+      <div class="my-6">
+        <img src="/img/segovia/acueducto-dia.webp" alt="Acueducto de Segovia a plena luz del día" class="rounded-lg w-full" width="1400" height="976" loading="lazy" />
+        <p class="text-sm text-sepia/70 mt-2 text-center italic">20.400 bloques de granito unidos por la gravedad — "El Puente del Diablo"</p>
+      </div>
+
+      <h2>La Catedral: el último suspiro del Gótico</h2>
+      <p>
+        La "Dama de las Catedrales" es en realidad una superviviente. La antigua catedral románica fue arrasada en la Guerra de las Comunidades; las piedras que hoy pisas fueron levantadas en 1525 sobre las cenizas de una revuelta contra Carlos V.
+      </p>
+      <p>
+        Es un anacronismo glorioso. Mientras el resto de Europa ya abrazaba el Renacimiento, Segovia se mantuvo fiel al Gótico Tardío. Entra en el claustro, pieza por pieza trasladado desde la catedral vieja, y siente el peso de los 157 pináculos que coronan el cielo segoviano. Allí descansa el pequeño Infante Don Pedro, que cayó accidentalmente de las manos de su cuidadora desde lo alto del Alcázar — una tragedia real que aún hiela la sangre.
+      </p>
+
+      <h2>El Alcázar: la proa del barco de piedra</h2>
+      <p>
+        Olvida los cuentos de hadas. El Alcázar es una máquina de guerra y de gobierno. Segovia es un navío de roca navegando entre los ríos Eresma y Clamores, y el Alcázar es su proa. Sus techos de pizarra y sus torres esconden la sobriedad del poder más puro.
+      </p>
+      <p>
+        En su Sala del Trono, bajo un artesonado de piñas doradas, se gestó la unión de Castilla y Aragón. Fue aquí donde Isabel la Católica salió un 13 de diciembre de 1474 para ser proclamada Reina de Castilla. En este patio se forjó el destino de América y la unidad de un imperio.
+      </p>
+      <p>
+        Pero hay más: el Alcázar fue el Real Colegio de Artillería, el más antiguo del mundo. Bajo sus bóvedas, el químico Louis Proust formuló la Ley de las Proporciones Definitivas — una ley que aún hoy rige la materia. Segovia fue el Silicon Valley del siglo XVIII, donde la química moderna se fundía con el bronce de los cañones.
+      </p>
+
+      <h2>La Real Casa de Moneda: el ingenio de Felipe II</h2>
+      <p>
+        Bajando al valle del Eresma, encontramos el capricho tecnológico de nuestro Rey Prudente. Felipe II, obsesionado con la perfección, trajo del Tirol la tecnología de laminación por rodillos. Fue la primera fábrica mecanizada de España. Aquí no se golpeaba el metal con martillos — el río Eresma movía gigantescas ruedas hidráulicas que prensaban la plata de Potosí.
+      </p>
+      <p>
+        Diseñada por Juan de Herrera (el mismo arquitecto de <a href="/es/el-escorial/" class="underline">El Escorial</a>), es un monumento a la industrialización temprana. Un lugar donde el dinero nació del agua y la ingeniería alemana se puso al servicio del Escudo Imperial. Es el edificio industrial más antiguo de España con tecnología hidráulica conservada.
+      </p>
+
+      <h2>El Barrio de los Caballeros y la memoria sefardí</h2>
+      <p>
+        Segovia se divide entre los que rezan, los que luchan y los que cuentan. En el Barrio de los Caballeros, las fachadas de granito están decoradas con esgrafiado segoviano — un arte de origen mudéjar que juega con la luz y la sombra.
+      </p>
+      <p>
+        En la Judería, la antigua Sinagoga Mayor (hoy Iglesia del Corpus Christi) guarda en sus muros el eco de una comunidad que fue el motor económico del reino antes de la tragedia de la expulsión de 1492. Abraham Senior, consejero de Isabel la Católica, tuvo que elegir entre su fe y su reina. Estas calles estrechas conservan el trazado de la resistencia y el saber talmúdico.
+      </p>
+
+      <h2>San Juan de la Cruz: el silencio al otro lado del río</h2>
+      <p>
+        Si en <a href="/es/avila/" class="underline">Ávila</a> Teresa es la llama, en Segovia San Juan de la Cruz es el silencio. Al pie del Alcázar, en el Convento de los Carmelitas Descalzos, el pequeño fraile encontró su refugio final. Tras ser encarcelado y torturado en Toledo, fue aquí, asomado a un balcón natural sobre el Eresma, donde escribió versos que son la cumbre de la literatura universal. Su cuerpo aún descansa en un mausoleo de mármol y bronce, vigilando la ciudad que le dio la paz que el mundo le negó.
+      </p>
+      <p>
+        Y muy cerca, la Iglesia de la Vera Cruz — una joya dodecagonal atribuida a los Templarios que custodia el misterio de la Orden en su planta circular.
+      </p>
+
+      <h2>Donde comer: el banquete del fuego y el barro</h2>
+      <p>
+        <strong>Mesón de Cándido</strong> — a la sombra del Acueducto, en una casa de postas del siglo XV. Su ritual de partir el cochinillo asado con el borde de un plato es reconocido mundialmente. Aquí la historia social y el paladar se encuentran. <strong>Restaurante José María</strong> — el centro de la innovación en el asado tradicional, donde el vino de Pago de Carraovejas ha alcanzado categoría de culto. <strong>Mesón Duque</strong> — desde 1895, gestionado por la misma familia. Templo de los judiones de La Granja, el manjar de legumbre real que alimentaba a los constructores de palacios. <strong>Casa Mudéjar</strong> — un palacio del siglo XIV con restos de la muralla y artesonados originales. Comer aquí es realizar una cata arqueológica.
+      </p>
+
+      <h2>El vínculo con El Escorial</h2>
+      <p>
+        Si <a href="/es/el-escorial/" class="underline">El Escorial</a> es el cerebro de Felipe II y <a href="/es/avila/" class="underline">Ávila</a> su conciencia, Segovia es su fantasía hecha piedra. La Real Casa de Moneda conecta directamente con el rey: diseñada por su arquitecto, financiada con la plata de su imperio. Segovia completa el eje imperial junto a El Escorial y Ávila — tres ciudades Patrimonio UNESCO unidas por la ambición de Castilla.
+      </p>
+
+      <h2>La clave templaria y el mapa de las estrellas</h2>
+      <p>
+        Si creéis que la ubicación del Alcázar, la Catedral y la Vera Cruz es fruto del azar, es que aún no habéis aprendido a leer el lenguaje de los siglos. Existe una teoría que afirma que Segovia es un reflejo terrestre de la constelación de Virgo. La distancia exacta entre la Iglesia de la Vera Cruz, el Alcázar y la antigua Sinagoga Mayor traza una geometría sagrada que coincide con las estrellas principales de la virgen celeste.
+      </p>
+      <p>
+        Y el gigante de piedra tiene su propia sombra: cuentan que falta una piedra — una sola — que el Diablo no pudo colocar. Dicen que si alguien lograra encontrar el hueco exacto y encajar un sillar perfecto, el Acueducto recuperaría su función original. No de traer agua, sino de abrir un portal entre los tiempos.
+      </p>
+      <p>
+        Al caminar por la Calle Real, sentid el peso de lo que no se ve. Segovia no es una ciudad para ser leída — es una ciudad para ser descifrada. Porque aquí, el Diablo no solo puso las piedras del Acueducto; puso el velo sobre nuestros ojos para que no veamos que estamos pisando un mapa hacia las estrellas.
+      </p>
+    </section>
+
+    <RelatedDestinations links={[
+      { href: "/es/el-escorial/", title: "Monasterio de El Escorial", description: "Juan de Herrera diseñó tanto El Escorial como la Casa de la Moneda de Segovia. Dos obras, un mismo genio al servicio de Felipe II." },
+      { href: "/es/avila/", title: "Ávila — La fortaleza mística", description: "Teresa en Ávila, San Juan en Segovia. Las dos caras de la mística castellana separadas por una hora de sierra." },
+      { href: "/es/madrid/austrias/", title: "Madrid de los Austrias", description: "La plata que se acuñaba en Segovia financiaba el imperio que se gobernaba desde las calles de Madrid." },
+      { href: "/es/cuelgamuros/", title: "Cuelgamuros — Memoria y piedra", description: "Del granito romano del Acueducto al granito del siglo XX. Segovia y Cuelgamuros comparten la sierra del Guadarrama." },
+    ]} />
+
+    <div class="cta-box rounded-lg p-8 text-center">
+      <h2 class="text-2xl font-bold mb-2">{dest.productName}</h2>
+      <p class="text-sepia mb-4">Con María Victoria Solaz, Segovia deja de ser un catálogo monumental para convertirse en un thriller histórico</p>
+      <a
+        href={`/${lang}/segovia/${dest.productSlug}/`}
+        class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium"
+      >
+        Ver detalles y reservar →
+      </a>
+    </div>
+  </article>
+
+</Base>

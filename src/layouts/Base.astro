@@ -1,0 +1,341 @@
+---
+import { SITE, t, getHreflangLinks, getPathForLang } from '../data/i18n.js';
+
+const { lang, title, description, jsonLd, path = '/' } = Astro.props;
+const ui = t(lang);
+const hreflangLinks = getHreflangLinks(path);
+const aboutSlug = { es: 'sobre-mi', it: 'chi-sono', en: 'about', fr: 'a-propos', pt: 'sobre-mim' }[lang] || 'about';
+const contactSlug = { es: 'contacto', it: 'contatto', en: 'contact', fr: 'contact', pt: 'contacto' }[lang] || 'contact';
+---
+
+<!DOCTYPE html>
+<html lang={lang}>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <!-- hreflang -->
+  {hreflangLinks.map(link => (
+    <link rel="alternate" hreflang={link.lang} href={link.href} />
+  ))}
+
+  <!-- Canonical -->
+  <link rel="canonical" href={`${SITE.domain}/${lang}${path}`} />
+
+  <!-- JSON-LD -->
+  {jsonLd && (
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  )}
+
+  <style is:global>
+    /* Base resets */
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: #faf6f0;
+      color: #2c2419;
+    }
+
+    /* Display headings use EB Garamond */
+    h1, h2, h3 {
+      font-family: 'EB Garamond', Georgia, serif;
+    }
+
+    /* All h2 in articles: uppercase, centered, gold underline */
+    article h2,
+    section > h2 {
+      font-family: 'EB Garamond', Georgia, serif;
+      color: #6b1d2a;
+      font-weight: 600;
+      text-transform: uppercase;
+      text-align: center;
+      letter-spacing: 0.06em;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #d4a843;
+      margin-bottom: 1rem;
+    }
+
+    /* H1: centered with decorative flourish */
+    article > h1,
+    article > div > h1 {
+      text-align: center;
+      color: #2c2419;
+      letter-spacing: -0.01em;
+    }
+    article > h1::after {
+      content: '◆';
+      display: block;
+      text-align: center;
+      color: #d4a843;
+      font-size: 0.6rem;
+      margin-top: 0.5rem;
+      letter-spacing: 0.5em;
+    }
+
+    /* Prose content styling */
+    .prose h2 {
+      font-family: 'EB Garamond', Georgia, serif;
+      color: #6b1d2a;
+      font-weight: 600;
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      text-align: center;
+      letter-spacing: 0.08em;
+      padding-bottom: 0.6rem;
+      border-bottom: 2px solid #d4a843;
+    }
+
+    /* Image frames — vintage with modern touch */
+    .prose img,
+    article > div > img,
+    .img-frame {
+      border: 3px solid #d4c4a8;
+      padding: 4px;
+      background: #f5f0e8;
+      box-shadow: 0 4px 16px rgba(44, 36, 25, 0.12), inset 0 0 0 1px rgba(184, 134, 11, 0.15);
+      border-radius: 4px;
+    }
+
+    /* Caption under framed images */
+    .prose img + p,
+    .prose .text-sm {
+      text-align: center;
+      font-style: italic;
+      color: #8b7355;
+    }
+
+    /* Hero images should NOT have the frame */
+    .hero-img,
+    header img,
+    .w-full.h-64 img,
+    .w-full.h-96 img,
+    div.overflow-hidden > img {
+      border: none !important;
+      padding: 0 !important;
+      background: none !important;
+      box-shadow: none !important;
+      border-radius: 0 !important;
+    }
+
+    .prose p {
+      color: #3d3529;
+      line-height: 1.8;
+      margin-bottom: 1.25rem;
+    }
+
+    .prose strong {
+      color: #2c2419;
+      font-weight: 700;
+    }
+
+    .prose a {
+      color: #6b1d2a;
+      text-decoration-color: #d4a843;
+      text-underline-offset: 3px;
+      transition: color 0.2s ease;
+    }
+
+    .prose a:hover {
+      color: #b8860b;
+    }
+
+    /* Subtle grain texture overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      opacity: 0.015;
+      z-index: 9999;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    }
+
+    /* Smooth transitions */
+    a, button {
+      transition: all 0.2s ease;
+    }
+
+    /* Golden accent line on nav */
+    .nav-accent {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #b8860b, transparent);
+    }
+
+    /* CTA buttons */
+    .btn-primary {
+      background-color: #6b1d2a;
+      color: #faf6f0;
+      transition: all 0.3s ease;
+    }
+    .btn-primary:hover {
+      background-color: #8b2d3a;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(107, 29, 42, 0.3);
+    }
+
+    .btn-whatsapp {
+      background-color: #2d5016;
+      color: white;
+      transition: all 0.3s ease;
+    }
+    .btn-whatsapp:hover {
+      background-color: #3a6b1e;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(45, 80, 22, 0.3);
+    }
+
+    /* Card hover */
+    .card-hover {
+      transition: all 0.3s ease;
+      border-color: #e0d9cf;
+    }
+    .card-hover:hover {
+      border-color: #b8860b;
+      box-shadow: 0 8px 24px rgba(184, 134, 11, 0.1);
+      transform: translateY(-2px);
+    }
+
+    /* Info boxes */
+    .info-box {
+      background-color: #f0ebe3;
+      border: 1px solid #e0d9cf;
+    }
+
+    /* CTA box */
+    .cta-box {
+      background: linear-gradient(135deg, #f0ebe3 0%, #faf6f0 100%);
+      border: 1px solid #d4a843;
+    }
+
+    /* Green CTA box (for product pages) */
+    .cta-green {
+      background: linear-gradient(135deg, #f0f5eb 0%, #faf6f0 100%);
+      border: 1px solid #4a7c2e;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen">
+
+  <!-- NAV -->
+  <header class="sticky top-0 z-50 bg-pergamino/95 backdrop-blur-sm">
+    <div class="nav-accent"></div>
+    <nav class="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a href={`/${lang}/`} class="font-display text-2xl font-bold tracking-tight text-tinta hover:text-borgoña transition-colors">
+        El Escorial
+      </a>
+
+      <!-- Mobile menu button -->
+      <button id="menu-toggle" class="md:hidden p-2 text-tinta" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+
+      <!-- Desktop nav -->
+      <ul class="hidden md:flex gap-6 text-sm font-body font-medium text-sepia">
+        <li><a href={`/${lang}/el-escorial/`} class="hover:text-borgoña transition-colors">{ui.nav.escorial}</a></li>
+        <li><a href={`/${lang}/avila/`} class="hover:text-borgoña transition-colors">{ui.nav.avila}</a></li>
+        <li><a href={`/${lang}/segovia/`} class="hover:text-borgoña transition-colors">{ui.nav.segovia}</a></li>
+        <li><a href={`/${lang}/cuelgamuros/`} class="hover:text-borgoña transition-colors">{ui.nav.cuelgamuros}</a></li>
+        <li><a href={`/${lang}/madrid/`} class="hover:text-borgoña transition-colors">{ui.nav.madrid}</a></li>
+        <li><a href={`/${lang}/${aboutSlug}/`} class="hover:text-borgoña transition-colors">{ui.nav.about}</a></li>
+      </ul>
+
+      <!-- CTA button -->
+      <a
+        href={`https://wa.me/${SITE.whatsapp.replace('+', '')}`}
+        target="_blank"
+        rel="noopener"
+        class="hidden md:inline-block btn-whatsapp px-5 py-2 rounded-lg text-sm font-medium"
+      >
+        {ui.nav.book}
+      </a>
+    </nav>
+
+    <!-- Mobile nav -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-hueso pb-4 px-4">
+      <ul class="flex flex-col gap-3 pt-3 text-sm font-body text-sepia">
+        <li><a href={`/${lang}/el-escorial/`}>{ui.nav.escorial}</a></li>
+        <li><a href={`/${lang}/avila/`}>{ui.nav.avila}</a></li>
+        <li><a href={`/${lang}/segovia/`}>{ui.nav.segovia}</a></li>
+        <li><a href={`/${lang}/cuelgamuros/`}>{ui.nav.cuelgamuros}</a></li>
+        <li><a href={`/${lang}/madrid/`}>{ui.nav.madrid}</a></li>
+        <li><a href={`/${lang}/${aboutSlug}/`}>{ui.nav.about}</a></li>
+        <li class="pt-2">
+          <a href={`https://wa.me/${SITE.whatsapp.replace('+', '')}`} target="_blank" rel="noopener" class="btn-whatsapp inline-block px-5 py-2 rounded-lg text-sm font-medium">
+            {ui.nav.book}
+          </a>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <main>
+    <slot />
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="mt-20 border-t border-hueso">
+    <div class="max-w-5xl mx-auto px-4 py-10">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+        <!-- Brand -->
+        <div class="text-center md:text-left">
+          <p class="font-display text-lg font-bold text-tinta">{SITE.guideName}</p>
+          <p class="text-sm text-sepia mt-1">Guía de Patrimonio Nacional · 5 idiomas</p>
+        </div>
+
+        <!-- Language switcher -->
+        <div class="flex gap-4 text-sm font-body">
+          {SITE.languages.map(l => (
+            <a
+              href={getPathForLang(path, lang, l)}
+              class={l === lang
+                ? 'text-borgoña font-bold border-b-2 border-dorado pb-1'
+                : 'text-sepia hover:text-borgoña pb-1 transition-colors'}
+            >
+              {l.toUpperCase()}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Bottom -->
+      <div class="mt-8 pt-6 border-t border-hueso flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-xs text-sepia/70">© {new Date().getFullYear()} {SITE.guideName}. San Lorenzo de El Escorial, Madrid.</p>
+        <a
+          href={`https://wa.me/${SITE.whatsapp.replace('+', '')}`}
+          target="_blank"
+          rel="noopener"
+          class="text-xs text-sepia hover:text-borgoña transition-colors"
+        >
+          {SITE.whatsapp}
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile menu toggle -->
+  <script>
+    const toggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+    toggle?.addEventListener('click', () => {
+      const isOpen = !menu?.classList.toggle('hidden');
+      toggle.setAttribute('aria-expanded', String(!isOpen));
+    });
+  </script>
+
+</body>
+</html>
