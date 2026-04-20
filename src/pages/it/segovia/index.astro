@@ -3,6 +3,7 @@ import Base from '../../../layouts/Base.astro';
 import RelatedDestinations from '../../../components/RelatedDestinations.astro';
 import { SITE, t } from '../../../data/i18n.js';
 const lang = 'it';
+const base = import.meta.env.BASE_URL;
 const ui = t(lang);
 const dest = ui.destinations.segovia;
 const jsonLd = {
@@ -58,7 +59,7 @@ const jsonLd = {
       <p>Esiste una teoria che afferma che Segovia è un riflesso terrestre della costellazione della Vergine. La distanza esatta tra la Chiesa della Vera Cruz, l’Alcázar e l'antica Sinagoga Maggiore traccia una geometria sacra. E il gigante di pietra ha la sua ombra: dicono che manca una pietra — una sola — che il Diavolo non riuscì a collocare.</p>
     </section>
 
-    <RelatedDestinations links={[
+    <RelatedDestinations lang={lang} links={[
       { href: "/it/el-escorial/", title: "Monastero dell’Escorial", description: "Juan de Herrera progettò sia El Escorial che la Zecca di Segovia. Due opere, un solo genio al servizio di Filippo II." },
       { href: "/it/avila/", title: "Ávila — La fortezza mistica", description: "Teresa ad Ávila, San Giovanni a Segovia. Le due facce della mistica castigliana." },
       { href: "/it/cuelgamuros/", title: "Cuelgamuros — Memoria e pietra", description: "Dal granito romano dell’Acquedotto al granito del XX secolo. Segovia e Cuelgamuros condividono la sierra." },
@@ -67,7 +68,7 @@ const jsonLd = {
     <div class="cta-box rounded-lg p-8 text-center">
       <h2 class="text-2xl font-bold mb-2">{dest.productName}</h2>
       <p class="text-sepia mb-4">Con María Victoria Solaz, Segovia smette di essere un catalogo di monumenti per diventare un thriller storico</p>
-      <a href={`/${lang}/segovia/${dest.productSlug}/`} class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium">Dettagli e prenotazione →</a>
+      <a href={`${base}${lang}/segovia/${dest.productSlug}/`} class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium">Dettagli e prenotazione →</a>
     </div>
   </article>
 </Base>

@@ -3,6 +3,7 @@ import Base from '../../../layouts/Base.astro';
 import RelatedDestinations from '../../../components/RelatedDestinations.astro';
 import { SITE, t } from '../../../data/i18n.js';
 const lang = 'fr';
+const base = import.meta.env.BASE_URL;
 const ui = t(lang);
 const dest = ui.destinations.segovia;
 const jsonLd = {"@context":"https://schema.org","@type":"TouristAttraction","name":"Ségovie","sameAs":["https://www.wikidata.org/wiki/Q8356"],"isPartOf":{"@type":"UNESCOWorldHeritageSite","name":"Old Town of Segovia and its Aqueduct"},"about":[{"@type":"Thing","name":"Aqueduc de Ségovie","sameAs":"https://www.wikidata.org/wiki/Q184100"},{"@type":"Thing","name":"Alcázar de Ségovie","sameAs":"https://www.wikidata.org/wiki/Q178012"}]};
@@ -35,7 +36,7 @@ const jsonLd = {"@context":"https://schema.org","@type":"TouristAttraction","nam
       <h2>La clé templière et la carte des étoiles</h2>
       <p>Une théorie affirme que Ségovie est un reflet terrestre de la constellation de la Vierge. On dit qu'il manque une pierre — une seule — que le Diable n'a pas pu poser.</p>
     </section>
-    <RelatedDestinations links={[
+    <RelatedDestinations lang={lang} links={[
       { href: "/fr/el-escorial/", title: "Monastère de l’Escorial", description: "Herrera a conçu l’Escorial et la Monnaie de Ségovie. Deux œuvres, un même génie." },
       { href: "/fr/avila/", title: "Ávila — La forteresse mystique", description: "Thérèse à Ávila, Saint Jean à Ségovie. Les deux faces de la mystique castillane." },
       { href: "/fr/cuelgamuros/", title: "Cuelgamuros — Mémoire et pierre", description: "Le triangle Escorial-Cuelgamuros-Ségovie partage la Sierra de Guadarrama." },
@@ -43,7 +44,7 @@ const jsonLd = {"@context":"https://schema.org","@type":"TouristAttraction","nam
     <div class="cta-box rounded-lg p-8 text-center">
       <h2 class="text-2xl font-bold mb-2">{dest.productName}</h2>
       <p class="text-sepia mb-4">Avec María Victoria, Ségovie cesse d'être un catalogue de monuments pour devenir un thriller historique</p>
-      <a href={`/${lang}/segovia/${dest.productSlug}/`} class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium">Détails et réservation →</a>
+      <a href={`${base}${lang}/segovia/${dest.productSlug}/`} class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium">Détails et réservation →</a>
     </div>
   </article>
 </Base>

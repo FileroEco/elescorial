@@ -4,6 +4,7 @@ import RelatedDestinations from '../../../../components/RelatedDestinations.astr
 import { SITE, t } from '../../../../data/i18n.js';
 
 const lang = 'es';
+const base = import.meta.env.BASE_URL;
 const ui = t(lang);
 
 const jsonLd = {
@@ -183,7 +184,7 @@ const jsonLd = {
       </p>
     </section>
 
-    <RelatedDestinations links={[
+    <RelatedDestinations lang={lang} links={[
       { href: "/es/madrid/borbones/", title: "Madrid de los Borbones", description: "Los Borbones no destruyeron al Madrid de los Austrias — lo sepultaron bajo mármol y razón. Descubre la otra capa de la capital." },
       { href: "/es/el-escorial/", title: "Monasterio de El Escorial", description: "El estilo herreriano nació en el monasterio y se propagó por las torres de Madrid. Felipe II gobernaba desde ambos." },
       { href: "/es/segovia/", title: "Segovia — La Casa de la Moneda", description: "La plata que financiaba el Madrid de los Austrias se acuñaba en la Segovia de Felipe II." },
@@ -194,7 +195,7 @@ const jsonLd = {
       <h2 class="text-2xl font-bold mb-2">Tour Personalizado</h2>
       <p class="text-sepia mb-4">Recorre el Madrid de los Austrias con María Victoria Solaz — donde cada callejón es un acto y cada esquina una trampa para el incauto</p>
       <a
-        href="/es/madrid/tour-personalizado/"
+        href={`${base}es/madrid/tour-personalizado/`}
         class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium"
       >
         Ver detalles y reservar →

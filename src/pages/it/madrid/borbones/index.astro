@@ -3,6 +3,7 @@ import Base from '../../../../layouts/Base.astro';
 import RelatedDestinations from '../../../../components/RelatedDestinations.astro';
 import { SITE, t } from '../../../../data/i18n.js';
 const lang = 'it';
+const base = import.meta.env.BASE_URL;
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "TouristAttraction",
@@ -53,7 +54,7 @@ const jsonLd = {
       <p>Il mistero più oscuro avvolge la Real Fabbrica di Porcellana del Buen Retiro — "La China". Quando gli inglesi la distrussero durante la Guerra d'Indipendenza, molti sussurrarono che non fu solo per rivalità commerciale, ma per occultare un laboratorio di alchimia dove i Borbone tentavano di trasmutare il destino della Spagna.</p>
     </section>
 
-    <RelatedDestinations links={[
+    <RelatedDestinations lang={lang} links={[
       { href: "/it/madrid/austrias/", title: "Madrid degli Asburgo", description: "Sotto il marmo borbonico spunta il mattone rosso degli Asburgo. Due strati che si necessitano." },
       { href: "/it/el-escorial/", title: "Monastero dell’Escorial", description: "I Borbone ereditarono El Escorial e lo ampliarono. La connessione tra il monastero e il Palazzo Reale è diretta." },
       { href: "/it/segovia/", title: "Segovia — Scienza e Illuminismo", description: "Il Real Colegio de Artillería fu la Silicon Valley borbonica. Proust formulò le sue leggi lì." },
@@ -62,7 +63,7 @@ const jsonLd = {
     <div class="cta-box rounded-lg p-8 text-center">
       <h2 class="text-2xl font-bold mb-2">Tour Personalizzato</h2>
       <p class="text-sepia mb-4">Percorri la Madrid delle Luci con María Victoria — dove il marmo brilla ma le ombre insidiano</p>
-      <a href="/it/madrid/tour-personalizzato/" class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium">Dettagli e prenotazione →</a>
+      <a href={`${base}it/madrid/tour-personalizzato/`} class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium">Dettagli e prenotazione →</a>
     </div>
   </article>
 </Base>

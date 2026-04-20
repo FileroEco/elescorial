@@ -2,6 +2,7 @@
 import Base from '../../../layouts/Base.astro';
 import { SITE, t } from '../../../data/i18n.js';
 const lang = 'pt';
+const base = import.meta.env.BASE_URL;
 const ui = t(lang);
 const dest = ui.destinations.madrid;
 const jsonLd = {"@context":"https://schema.org","@type":"TouristAttraction","name":"Madrid histórica","sameAs":["https://www.wikidata.org/wiki/Q2807"]};
@@ -21,11 +22,11 @@ const jsonLd = {"@context":"https://schema.org","@type":"TouristAttraction","nam
       <p>María Victoria desenha um percurso personalizado segundo o seu tempo e interesses. Fala português.</p>
     </section>
     <section class="grid md:grid-cols-2 gap-6 mb-12">
-      <a href="/pt/madrid/austrias/" class="card-hover rounded-lg p-6 border block">
+      <a href={`${base}pt/madrid/austrias/`} class="card-hover rounded-lg p-6 border block">
         <h2 class="text-xl font-bold mb-2">Madrid dos Áustrias</h2>
         <p class="text-sepia">A capital imperial de Filipe II. Plaza Mayor, Bairro das Letras, passagens secretas e o Século de Ouro.</p>
       </a>
-      <a href="/pt/madrid/bourbons/" class="card-hover rounded-lg p-6 border block">
+      <a href={`${base}pt/madrid/bourbons/`} class="card-hover rounded-lg p-6 border block">
         <h2 class="text-xl font-bold mb-2">Madrid dos Bourbons</h2>
         <p class="text-sepia">A Madrid das Luzes. Palácio Real, Prado, Retiro e a reinvenção neoclássica.</p>
       </a>
@@ -33,7 +34,7 @@ const jsonLd = {"@context":"https://schema.org","@type":"TouristAttraction","nam
     <div class="cta-box rounded-lg p-8 text-center">
       <h2 class="text-2xl font-bold mb-2">{dest.productName}</h2>
       <p class="text-sepia mb-4">Conte a María Victoria o que gostaria de ver — fala português</p>
-      <a href={`/${lang}/madrid/${dest.productSlug}/`} class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium">Detalhes e reserva →</a>
+      <a href={`${base}${lang}/madrid/${dest.productSlug}/`} class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium">Detalhes e reserva →</a>
     </div>
   </article>
 </Base>

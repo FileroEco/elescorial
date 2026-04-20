@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import { SITE, t } from '../../data/i18n.js';
 
 const lang = 'fr';
+const base = import.meta.env.BASE_URL;
 const ui = t(lang);
 
 const jsonLd = {
@@ -66,13 +67,13 @@ const jsonLd = {
       {Object.entries(ui.destinations).map(([key, dest]) => (
         <article class="card-hover rounded-lg p-6 border">
           <h2 class="text-2xl font-bold mb-2">
-            <a href={`/${lang}/${dest.slug}/`} class="hover:underline">
+            <a href={`${base}${lang}/${dest.slug}/`} class="hover:underline">
               {dest.name}
             </a>
           </h2>
           <p class="text-sepia mb-4">{dest.tagline}</p>
           <a
-            href={`/${lang}/${dest.slug}/${dest.productSlug}/`}
+            href={`${base}${lang}/${dest.slug}/${dest.productSlug}/`}
             class="text-borgoña font-medium hover:underline"
           >
             {dest.productName} →
@@ -84,7 +85,7 @@ const jsonLd = {
 
   <!-- CONOCE A LA GUÍA -->
   <section class="max-w-5xl mx-auto px-4 py-8">
-    <a href={`/${lang}/a-propos/`} class="flex flex-col md:flex-row gap-6 items-center card-hover rounded-lg p-6 border">
+    <a href={`${base}${lang}/a-propos/`} class="flex flex-col md:flex-row gap-6 items-center card-hover rounded-lg p-6 border">
       <img src="/img/guia/retrato-guia.webp" alt="María Victoria Solaz Andújar" class="w-32 h-32 md:w-24 md:h-24 rounded-full object-cover" width="800" height="450" loading="lazy" />
       <div>
         <h2 class="text-xl font-bold mb-1">Découvrez María Victoria Solaz</h2>
@@ -97,11 +98,11 @@ const jsonLd = {
   <section class="max-w-5xl mx-auto px-4 py-8">
     <h2 class="text-2xl font-bold mb-4">Madrid historique</h2>
     <div class="grid md:grid-cols-2 gap-6">
-      <a href={`/${lang}/madrid/austrias/`} class="card-hover rounded-lg p-5 border block">
+      <a href={`${base}${lang}/madrid/austrias/`} class="card-hover rounded-lg p-5 border block">
         <h3 class="font-bold mb-1">Madrid des Habsbourg</h3>
         <p class="text-sm text-sepia">La capitale impériale de Philippe II. Plaza Mayor, Quartier des Lettres, passages secrets et le Siècle d'Or.</p>
       </a>
-      <a href={`/${lang}/madrid/borbones/`} class="card-hover rounded-lg p-5 border block">
+      <a href={`${base}${lang}/madrid/borbones/`} class="card-hover rounded-lg p-5 border block">
         <h3 class="font-bold mb-1">Madrid des Bourbons</h3>
         <p class="text-sm text-sepia">Le Madrid des Lumières. Palais Royal, Prado, Retiro et la réinvention néoclassique.</p>
       </a>

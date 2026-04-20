@@ -3,6 +3,7 @@ import Base from '../../../layouts/Base.astro';
 import RelatedDestinations from '../../../components/RelatedDestinations.astro';
 import { SITE, t } from '../../../data/i18n.js';
 const lang = 'en';
+const base = import.meta.env.BASE_URL;
 const ui = t(lang);
 const dest = ui.destinations.segovia;
 const jsonLd = {
@@ -56,7 +57,7 @@ const jsonLd = {
       <p>There's a theory that Segovia is an earthly reflection of the constellation of Virgo. The exact distance between the Church of Vera Cruz, the Alcázar and the old Great Synagogue traces a sacred geometry. And the stone giant has its own shadow: they say one stone is missing — just one — that the Devil couldn't place.</p>
     </section>
 
-    <RelatedDestinations links={[
+    <RelatedDestinations lang={lang} links={[
       { href: "/en/el-escorial/", title: "Royal Monastery of El Escorial", description: "Herrera designed both El Escorial and Segovia's Royal Mint. Two works, one genius serving Philip II." },
       { href: "/en/avila/", title: "Ávila — The mystic fortress", description: "Teresa in Ávila, Saint John in Segovia. Two faces of Castilian mysticism." },
       { href: "/en/cuelgamuros/", title: "Cuelgamuros — Memory and stone", description: "The Escorial-Cuelgamuros-Segovia triangle shares the Guadarrama mountains." },
@@ -65,7 +66,7 @@ const jsonLd = {
     <div class="cta-box rounded-lg p-8 text-center">
       <h2 class="text-2xl font-bold mb-2">{dest.productName}</h2>
       <p class="text-sepia mb-4">With María Victoria, Segovia stops being a catalogue of monuments and becomes a historical thriller</p>
-      <a href={`/${lang}/segovia/${dest.productSlug}/`} class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium">Details & booking →</a>
+      <a href={`${base}${lang}/segovia/${dest.productSlug}/`} class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium">Details & booking →</a>
     </div>
   </article>
 </Base>

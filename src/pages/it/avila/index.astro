@@ -3,6 +3,7 @@ import Base from '../../../layouts/Base.astro';
 import RelatedDestinations from '../../../components/RelatedDestinations.astro';
 import { SITE, t } from '../../../data/i18n.js';
 const lang = 'it';
+const base = import.meta.env.BASE_URL;
 const ui = t(lang);
 const dest = ui.destinations.avila;
 const jsonLd = {
@@ -70,7 +71,7 @@ const jsonLd = {
       <p>Per l'occhio distratto, la muraglia è una difesa militare. Per l'iniziato, è un'altra cosa. Perché tanti re cercarono rifugio qui nei loro momenti più bui? Forse il vero "Castello interiore" di cui parlava Teresa non era una metafora, ma una descrizione letterale. Camminando sul cammino di ronda, fate attenzione: ad Ávila non siete voi che osservate la storia — è la geometria dei secoli che sta osservando voi.</p>
     </section>
 
-    <RelatedDestinations links={[
+    <RelatedDestinations lang={lang} links={[
       { href: "/it/el-escorial/", title: "Monastero dell’Escorial", description: "Se Ávila è la coscienza di Filippo II, El Escorial è il suo cervello. A un’ora di macchina." },
       { href: "/it/segovia/", title: "Segovia — Dall’acquedotto all’Alcázar", description: "Se ad Ávila Teresa è la fiamma, a Segovia San Giovanni della Croce è il silenzio." },
       { href: "/it/cuelgamuros/", title: "Cuelgamuros — Memoria e pietra", description: "Dalla muraglia medievale alla basilica del XX secolo. Due modi di costruire monumenti." },
@@ -79,7 +80,7 @@ const jsonLd = {
     <div class="cta-box rounded-lg p-8 text-center">
       <h2 class="text-2xl font-bold mb-2">{dest.productName}</h2>
       <p class="text-sepia mb-4">Con María Victoria Solaz, la muraglia smette di essere pietra per diventare un libro aperto</p>
-      <a href={`/${lang}/avila/${dest.productSlug}/`} class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium">Dettagli e prenotazione →</a>
+      <a href={`${base}${lang}/avila/${dest.productSlug}/`} class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium">Dettagli e prenotazione →</a>
     </div>
   </article>
 </Base>

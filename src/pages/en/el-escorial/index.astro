@@ -3,6 +3,7 @@ import Base from '../../../layouts/Base.astro';
 import RelatedDestinations from '../../../components/RelatedDestinations.astro';
 import { SITE, t } from '../../../data/i18n.js';
 const lang = 'en';
+const base = import.meta.env.BASE_URL;
 const ui = t(lang);
 const dest = ui.destinations.escorial;
 const jsonLd = {
@@ -46,7 +47,7 @@ const jsonLd = {
       <h2>The Imperial Axis: Escorial, Ávila, Segovia & Cuelgamuros</h2>
       <p>El Escorial doesn't exist in a vacuum. It forms a historical triangle with <a href="/en/avila/" class="underline">Ávila</a> and <a href="/en/segovia/" class="underline">Segovia</a> — three UNESCO World Heritage cities united by the history of Castile and Philip II's reign. And just kilometres away, <a href="/en/cuelgamuros/" class="underline">Cuelgamuros</a> (Valley of the Fallen) adds a layer of 20th-century history that completes the journey.</p>
     </section>
-    <RelatedDestinations links={[
+    <RelatedDestinations lang={lang} links={[
       { href: "/en/avila/", title: "Ávila — The mystic fortress", description: "If El Escorial is Philip II's brain, Ávila is his conscience. Saint Teresa, the walls and Castile's most austere beauty." },
       { href: "/en/segovia/", title: "Segovia — Aqueduct to Alcázar", description: "Juan de Herrera designed Segovia's Royal Mint for the same king. The imperial connection is direct." },
       { href: "/en/cuelgamuros/", title: "Cuelgamuros — Memory and stone", description: "10 km from El Escorial. Two monuments separated by four centuries, united by the same mountains." },
@@ -54,7 +55,7 @@ const jsonLd = {
     <div class="cta-box rounded-lg p-8 text-center">
       <h2 class="text-2xl font-bold mb-2">{dest.productName}</h2>
       <p class="text-sepia mb-4">Book your tour with María Victoria</p>
-      <a href={`/${lang}/el-escorial/${dest.productSlug}/`} class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium">Details & booking →</a>
+      <a href={`${base}${lang}/el-escorial/${dest.productSlug}/`} class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium">Details & booking →</a>
     </div>
   </article>
 </Base>

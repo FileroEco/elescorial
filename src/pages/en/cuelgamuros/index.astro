@@ -3,6 +3,7 @@ import Base from '../../../layouts/Base.astro';
 import RelatedDestinations from '../../../components/RelatedDestinations.astro';
 import { SITE, t } from '../../../data/i18n.js';
 const lang = 'en';
+const base = import.meta.env.BASE_URL;
 const ui = t(lang);
 const dest = ui.destinations.cuelgamuros;
 const jsonLd = {
@@ -42,7 +43,7 @@ const jsonLd = {
       <h2>The link to El Escorial</h2>
       <p>Cuelgamuros is less than 10 km from the <a href="/en/el-escorial/" class="underline">Monastery of El Escorial</a>. Where Philip II raised granite for eternity, the 20th century carved rock for memory. Two monuments separated by four centuries, united by the same mountains and the same stone.</p>
     </section>
-    <RelatedDestinations links={[
+    <RelatedDestinations lang={lang} links={[
       { href: "/en/el-escorial/", title: "Royal Monastery of El Escorial", description: "10 km away. The combined visit is the most complete: four centuries in one day." },
       { href: "/en/avila/", title: "Ávila — The mystic fortress", description: "From medieval walls to a 20th-century monument. Two ways of building in stone." },
       { href: "/en/segovia/", title: "Segovia — Aqueduct to Alcázar", description: "The Escorial-Cuelgamuros-Segovia triangle shares the Guadarrama mountains." },
@@ -50,7 +51,7 @@ const jsonLd = {
     <div class="cta-box rounded-lg p-8 text-center">
       <h2 class="text-2xl font-bold mb-2">{dest.productName}</h2>
       <p class="text-sepia mb-4">A place that needs context, rigour and sensitivity. María Victoria provides all three.</p>
-      <a href={`/${lang}/cuelgamuros/${dest.productSlug}/`} class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium">Details & booking →</a>
+      <a href={`${base}${lang}/cuelgamuros/${dest.productSlug}/`} class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium">Details & booking →</a>
     </div>
   </article>
 </Base>

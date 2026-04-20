@@ -4,6 +4,7 @@ import RelatedDestinations from '../../../components/RelatedDestinations.astro';
 import { SITE, t } from '../../../data/i18n.js';
 
 const lang = 'es';
+const base = import.meta.env.BASE_URL;
 const ui = t(lang);
 const dest = ui.destinations.avila;
 
@@ -144,7 +145,7 @@ const jsonLd = {
       </div>
     </section>
 
-    <RelatedDestinations links={[
+    <RelatedDestinations lang={lang} links={[
       { href: "/es/el-escorial/", title: "Monasterio de El Escorial", description: "Si Ávila es la conciencia de Felipe II, El Escorial es su cerebro. A una hora por carretera, el monasterio completa la visión del rey." },
       { href: "/es/segovia/", title: "Segovia — Del Acueducto al Alcázar", description: "Si en Ávila Teresa es la llama, en Segovia San Juan de la Cruz es el silencio. Las dos ciudades comparten mística y granito." },
       { href: "/es/cuelgamuros/", title: "Cuelgamuros — Memoria y piedra", description: "De la muralla medieval a la basílica del siglo XX. Dos formas de construir monumentos que exigen contexto." },
@@ -155,7 +156,7 @@ const jsonLd = {
       <h2 class="text-2xl font-bold mb-2">{dest.productName}</h2>
       <p class="text-sepia mb-4">Con María Victoria Solaz, la muralla deja de ser piedra para convertirse en un libro abierto</p>
       <a
-        href={`/${lang}/avila/${dest.productSlug}/`}
+        href={`${base}${lang}/avila/${dest.productSlug}/`}
         class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium"
       >
         Ver detalles y reservar →

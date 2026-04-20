@@ -4,6 +4,7 @@ import RelatedDestinations from '../../../components/RelatedDestinations.astro';
 import { SITE, t } from '../../../data/i18n.js';
 
 const lang = 'es';
+const base = import.meta.env.BASE_URL;
 const ui = t(lang);
 const dest = ui.destinations.segovia;
 
@@ -129,7 +130,7 @@ const jsonLd = {
       </p>
     </section>
 
-    <RelatedDestinations links={[
+    <RelatedDestinations lang={lang} links={[
       { href: "/es/el-escorial/", title: "Monasterio de El Escorial", description: "Juan de Herrera diseñó tanto El Escorial como la Casa de la Moneda de Segovia. Dos obras, un mismo genio al servicio de Felipe II." },
       { href: "/es/avila/", title: "Ávila — La fortaleza mística", description: "Teresa en Ávila, San Juan en Segovia. Las dos caras de la mística castellana separadas por una hora de sierra." },
       { href: "/es/madrid/austrias/", title: "Madrid de los Austrias", description: "La plata que se acuñaba en Segovia financiaba el imperio que se gobernaba desde las calles de Madrid." },
@@ -140,7 +141,7 @@ const jsonLd = {
       <h2 class="text-2xl font-bold mb-2">{dest.productName}</h2>
       <p class="text-sepia mb-4">Con María Victoria Solaz, Segovia deja de ser un catálogo monumental para convertirse en un thriller histórico</p>
       <a
-        href={`/${lang}/segovia/${dest.productSlug}/`}
+        href={`${base}${lang}/segovia/${dest.productSlug}/`}
         class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium"
       >
         Ver detalles y reservar →

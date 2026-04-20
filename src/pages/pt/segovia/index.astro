@@ -3,6 +3,7 @@ import Base from '../../../layouts/Base.astro';
 import RelatedDestinations from '../../../components/RelatedDestinations.astro';
 import { SITE, t } from '../../../data/i18n.js';
 const lang = 'pt';
+const base = import.meta.env.BASE_URL;
 const ui = t(lang);
 const dest = ui.destinations.segovia;
 const jsonLd = {"@context":"https://schema.org","@type":"TouristAttraction","name":"Segóvia","sameAs":["https://www.wikidata.org/wiki/Q8356"],"isPartOf":{"@type":"UNESCOWorldHeritageSite","name":"Old Town of Segovia and its Aqueduct"},"about":[{"@type":"Thing","name":"Aqueduto de Segóvia","sameAs":"https://www.wikidata.org/wiki/Q184100"},{"@type":"Thing","name":"Alcázar de Segóvia","sameAs":"https://www.wikidata.org/wiki/Q178012"}]};
@@ -31,14 +32,14 @@ const jsonLd = {"@context":"https://schema.org","@type":"TouristAttraction","nam
       <h2>Onde comer</h2>
       <p><strong>Mesón de Cándido</strong> — o ritual do leitão cortado com o bordo de um prato. <strong>José María</strong> — inovação no assado. <strong>Mesón Duque</strong> — desde 1895.</p>
     </section>
-    <RelatedDestinations links={[
+    <RelatedDestinations lang={lang} links={[
       { href: "/pt/el-escorial/", title: "Mosteiro de El Escorial", description: "Herrera desenhou El Escorial e a Casa da Moeda de Segóvia. Duas obras, um génio." },
       { href: "/pt/avila/", title: "Ávila — A fortaleza mística", description: "Teresa em Ávila, São João em Segóvia." },
       { href: "/pt/cuelgamuros/", title: "Cuelgamuros — Memória e pedra", description: "O triângulo Escorial-Cuelgamuros-Segóvia partilha a serra." },
     ]} />
     <div class="cta-box rounded-lg p-8 text-center">
       <h2 class="text-2xl font-bold mb-2">{dest.productName}</h2>
-      <a href={`/${lang}/segovia/${dest.productSlug}/`} class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium">Detalhes e reserva →</a>
+      <a href={`${base}${lang}/segovia/${dest.productSlug}/`} class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium">Detalhes e reserva →</a>
     </div>
   </article>
 </Base>

@@ -4,6 +4,7 @@ import RelatedDestinations from '../../../components/RelatedDestinations.astro';
 import { SITE, t } from '../../../data/i18n.js';
 
 const lang = 'es';
+const base = import.meta.env.BASE_URL;
 const ui = t(lang);
 const dest = ui.destinations.cuelgamuros;
 
@@ -115,7 +116,7 @@ const jsonLd = {
       </p>
     </section>
 
-    <RelatedDestinations links={[
+    <RelatedDestinations lang={lang} links={[
       { href: "/es/el-escorial/", title: "Monasterio de El Escorial", description: "A 10 km. Donde Felipe II levantó granito para la eternidad, el siglo XX excavó roca para la memoria. La visita combinada es la más completa." },
       { href: "/es/avila/", title: "Ávila — La fortaleza mística", description: "De la muralla medieval al monumento del siglo XX. Dos formas de construir en piedra que exigen un guía con rigor." },
       { href: "/es/segovia/", title: "Segovia — Del Acueducto al Alcázar", description: "El triángulo Escorial-Cuelgamuros-Segovia comparte la Sierra de Guadarrama y la historia de Castilla." },
@@ -126,7 +127,7 @@ const jsonLd = {
       <h2 class="text-2xl font-bold mb-2">{dest.productName}</h2>
       <p class="text-sepia mb-4">Un lugar que necesita contexto, rigor y sensibilidad. María Victoria aporta los tres.</p>
       <a
-        href={`/${lang}/cuelgamuros/${dest.productSlug}/`}
+        href={`${base}${lang}/cuelgamuros/${dest.productSlug}/`}
         class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium"
       >
         Ver detalles y reservar →

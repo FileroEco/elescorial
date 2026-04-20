@@ -4,6 +4,7 @@ import RelatedDestinations from '../../../../components/RelatedDestinations.astr
 import { SITE, t } from '../../../../data/i18n.js';
 
 const lang = 'fr';
+const base = import.meta.env.BASE_URL;
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -136,7 +137,7 @@ const jsonLd = {
       </p>
     </section>
 
-    <RelatedDestinations links={[
+    <RelatedDestinations lang={lang} links={[
       { href: "/fr/madrid/habsbourg/", title: "Madrid de los Austrias", description: "Bajo el mármol borbónico asoma el ladrillo rojo de los Habsburgo. Dos capas de Madrid que se necesitan para entender la ciudad." },
       { href: "/fr/el-escorial/", title: "Monasterio de El Escorial", description: "Los Borbones heredaron El Escorial y lo ampliaron. La conexión entre el monasterio y el Palacio Real es directa." },
       { href: "/fr/segovia/", title: "Segovia — Ciencia e Ilustración", description: "El Real Colegio de Artillería de Segovia fue el Silicon Valley borbónico. Proust formuló sus leyes allí." },
@@ -147,7 +148,7 @@ const jsonLd = {
       <h2 class="text-2xl font-bold mb-2">Tour Personalizado</h2>
       <p class="text-sepia mb-4">Recorre el Madrid de las Luces con María Victoria — donde el mármol brilla pero las sombras acechan</p>
       <a
-        href="/fr/madrid/visite-personnalisee/"
+        href={`${base}fr/madrid/visite-personnalisee/`}
         class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium"
       >
         Ver detalles y reservar →

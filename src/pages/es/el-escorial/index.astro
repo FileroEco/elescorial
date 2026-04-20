@@ -4,6 +4,7 @@ import RelatedDestinations from '../../../components/RelatedDestinations.astro';
 import { SITE, t } from '../../../data/i18n.js';
 
 const lang = 'es';
+const base = import.meta.env.BASE_URL;
 const ui = t(lang);
 const dest = ui.destinations.escorial;
 
@@ -104,7 +105,7 @@ const jsonLd = {
       </p>
     </section>
 
-    <RelatedDestinations links={[
+    <RelatedDestinations lang={lang} links={[
       { href: "/es/avila/", title: "Ávila — La fortaleza mística", description: "Si El Escorial es el cerebro de Felipe II, Ávila es su conciencia. Santa Teresa, la muralla y el romanticismo más austero de Castilla." },
       { href: "/es/segovia/", title: "Segovia — Del Acueducto al Alcázar", description: "Juan de Herrera diseñó la Casa de la Moneda de Segovia para el mismo rey. La conexión imperial es directa." },
       { href: "/es/cuelgamuros/", title: "Cuelgamuros — Memoria y piedra", description: "A 10 km del Escorial. Dos monumentos separados por cuatro siglos, unidos por la misma sierra." },
@@ -115,7 +116,7 @@ const jsonLd = {
       <h2 class="text-2xl font-bold mb-2">{dest.productName}</h2>
       <p class="text-sepia mb-4">Reserva tu visita con María Victoria</p>
       <a
-        href={`/${lang}/el-escorial/${dest.productSlug}/`}
+        href={`${base}${lang}/el-escorial/${dest.productSlug}/`}
         class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium"
       >
         Ver detalles y reservar →

@@ -3,6 +3,7 @@ import Base from '../../../layouts/Base.astro';
 import RelatedDestinations from '../../../components/RelatedDestinations.astro';
 import { SITE, t } from '../../../data/i18n.js';
 const lang = 'fr';
+const base = import.meta.env.BASE_URL;
 const ui = t(lang);
 const dest = ui.destinations.avila;
 const jsonLd = {"@context":"https://schema.org","@type":"TouristAttraction","name":"Ávila","sameAs":["https://www.wikidata.org/wiki/Q15688"],"isPartOf":{"@type":"UNESCOWorldHeritageSite","name":"Old Town of Ávila"},"about":[{"@type":"Person","name":"Sainte Thérèse d’Ávila","sameAs":"https://www.wikidata.org/wiki/Q171411"},{"@type":"Thing","name":"Murailles d’Ávila","sameAs":"https://www.wikidata.org/wiki/Q608462"}]};
@@ -42,7 +43,7 @@ const jsonLd = {"@context":"https://schema.org","@type":"TouristAttraction","nam
       <h2>Le secret des murailles</h2>
       <p>Peut-être le vrai « Château intérieur » de Thérèse n'était-il pas une métaphore mais une description littérale. En marchant sur le chemin de ronde, faites attention : à Ávila, ce n'est pas vous qui observez l'histoire — c'est la géométrie des siècles qui vous observe.</p>
     </section>
-    <RelatedDestinations links={[
+    <RelatedDestinations lang={lang} links={[
       { href: "/fr/el-escorial/", title: "Monastère de l’Escorial", description: "Si Ávila est la conscience de Philippe II, l’Escorial est son cerveau." },
       { href: "/fr/segovia/", title: "Ségovie — De l’aqueduc à l’Alcázar", description: "Thérèse à Ávila, Saint Jean à Ségovie. Deux faces de la mystique castillane." },
       { href: "/fr/cuelgamuros/", title: "Cuelgamuros — Mémoire et pierre", description: "Des murailles médiévales au monument du XXe siècle." },
@@ -50,7 +51,7 @@ const jsonLd = {"@context":"https://schema.org","@type":"TouristAttraction","nam
     <div class="cta-box rounded-lg p-8 text-center">
       <h2 class="text-2xl font-bold mb-2">{dest.productName}</h2>
       <p class="text-sepia mb-4">Avec María Victoria, les murailles cessent d'être de la pierre pour devenir un livre ouvert</p>
-      <a href={`/${lang}/avila/${dest.productSlug}/`} class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium">Détails et réservation →</a>
+      <a href={`${base}${lang}/avila/${dest.productSlug}/`} class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium">Détails et réservation →</a>
     </div>
   </article>
 </Base>

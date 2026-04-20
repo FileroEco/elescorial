@@ -3,6 +3,7 @@ import Base from '../../../layouts/Base.astro';
 import { SITE, t } from '../../../data/i18n.js';
 
 const lang = 'es';
+const base = import.meta.env.BASE_URL;
 const ui = t(lang);
 const dest = ui.destinations.madrid;
 
@@ -62,11 +63,11 @@ const jsonLd = {
 
     <!-- SUB-RUTAS -->
     <section class="grid md:grid-cols-2 gap-6 mb-12">
-      <a href="/es/madrid/austrias/" class="card-hover rounded-lg p-6 border block">
+      <a href={`${base}es/madrid/austrias/`} class="card-hover rounded-lg p-6 border block">
         <h2 class="text-xl font-bold mb-2">Madrid de los Austrias</h2>
         <p class="text-sepia">La capital imperial de Felipe II. Plaza Mayor, Barrio de las Letras, pasadizos secretos, Casas a la Malicia y el Siglo de Oro.</p>
       </a>
-      <a href="/es/madrid/borbones/" class="card-hover rounded-lg p-6 border block">
+      <a href={`${base}es/madrid/borbones/`} class="card-hover rounded-lg p-6 border block">
         <h2 class="text-xl font-bold mb-2">Madrid de los Borbones</h2>
         <p class="text-sepia">El Madrid ilustrado. Palacio Real, Prado, Retiro, Gran Vía y la reinvención de una capital que quiso competir con París.</p>
       </a>
@@ -76,7 +77,7 @@ const jsonLd = {
       <h2 class="text-2xl font-bold mb-2">{dest.productName}</h2>
       <p class="text-sepia mb-4">Cuéntale qué quieres ver y ella te diseña el recorrido</p>
       <a
-        href={`/${lang}/madrid/${dest.productSlug}/`}
+        href={`${base}${lang}/madrid/${dest.productSlug}/`}
         class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium"
       >
         Ver detalles y reservar →
