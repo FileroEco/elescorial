@@ -6,6 +6,7 @@ const ui = t(lang);
 const hreflangLinks = getHreflangLinks(path);
 const aboutSlug = { es: 'sobre-mi', it: 'chi-sono', en: 'about', fr: 'a-propos', pt: 'sobre-mim' }[lang] || 'about';
 const contactSlug = { es: 'contacto', it: 'contatto', en: 'contact', fr: 'contact', pt: 'contacto' }[lang] || 'contact';
+const base = import.meta.env.BASE_URL; // '/elescorial/' en GitHub Pages
 ---
 
 <!DOCTYPE html>
@@ -232,7 +233,7 @@ const contactSlug = { es: 'contacto', it: 'contatto', en: 'contact', fr: 'contac
   <header class="sticky top-0 z-50 bg-pergamino/95 backdrop-blur-sm">
     <div class="nav-accent"></div>
     <nav class="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
-      <a href={`/${lang}/`} class="font-display text-2xl font-bold tracking-tight text-tinta hover:text-borgoña transition-colors">
+      <a href={`${base}${lang}/`} class="font-display text-2xl font-bold tracking-tight text-tinta hover:text-borgoña transition-colors">
         El Escorial
       </a>
 
@@ -245,12 +246,12 @@ const contactSlug = { es: 'contacto', it: 'contatto', en: 'contact', fr: 'contac
 
       <!-- Desktop nav -->
       <ul class="hidden md:flex gap-6 text-sm font-body font-medium text-sepia">
-        <li><a href={`/${lang}/el-escorial/`} class="hover:text-borgoña transition-colors">{ui.nav.escorial}</a></li>
-        <li><a href={`/${lang}/avila/`} class="hover:text-borgoña transition-colors">{ui.nav.avila}</a></li>
-        <li><a href={`/${lang}/segovia/`} class="hover:text-borgoña transition-colors">{ui.nav.segovia}</a></li>
-        <li><a href={`/${lang}/cuelgamuros/`} class="hover:text-borgoña transition-colors">{ui.nav.cuelgamuros}</a></li>
-        <li><a href={`/${lang}/madrid/`} class="hover:text-borgoña transition-colors">{ui.nav.madrid}</a></li>
-        <li><a href={`/${lang}/${aboutSlug}/`} class="hover:text-borgoña transition-colors">{ui.nav.about}</a></li>
+        <li><a href={`${base}${lang}/el-escorial/`} class="hover:text-borgoña transition-colors">{ui.nav.escorial}</a></li>
+        <li><a href={`${base}${lang}/avila/`} class="hover:text-borgoña transition-colors">{ui.nav.avila}</a></li>
+        <li><a href={`${base}${lang}/segovia/`} class="hover:text-borgoña transition-colors">{ui.nav.segovia}</a></li>
+        <li><a href={`${base}${lang}/cuelgamuros/`} class="hover:text-borgoña transition-colors">{ui.nav.cuelgamuros}</a></li>
+        <li><a href={`${base}${lang}/madrid/`} class="hover:text-borgoña transition-colors">{ui.nav.madrid}</a></li>
+        <li><a href={`${base}${lang}/${aboutSlug}/`} class="hover:text-borgoña transition-colors">{ui.nav.about}</a></li>
       </ul>
 
       <!-- CTA button -->
@@ -267,12 +268,12 @@ const contactSlug = { es: 'contacto', it: 'contatto', en: 'contact', fr: 'contac
     <!-- Mobile nav -->
     <div id="mobile-menu" class="hidden md:hidden border-t border-hueso pb-4 px-4">
       <ul class="flex flex-col gap-3 pt-3 text-sm font-body text-sepia">
-        <li><a href={`/${lang}/el-escorial/`}>{ui.nav.escorial}</a></li>
-        <li><a href={`/${lang}/avila/`}>{ui.nav.avila}</a></li>
-        <li><a href={`/${lang}/segovia/`}>{ui.nav.segovia}</a></li>
-        <li><a href={`/${lang}/cuelgamuros/`}>{ui.nav.cuelgamuros}</a></li>
-        <li><a href={`/${lang}/madrid/`}>{ui.nav.madrid}</a></li>
-        <li><a href={`/${lang}/${aboutSlug}/`}>{ui.nav.about}</a></li>
+        <li><a href={`${base}${lang}/el-escorial/`}>{ui.nav.escorial}</a></li>
+        <li><a href={`${base}${lang}/avila/`}>{ui.nav.avila}</a></li>
+        <li><a href={`${base}${lang}/segovia/`}>{ui.nav.segovia}</a></li>
+        <li><a href={`${base}${lang}/cuelgamuros/`}>{ui.nav.cuelgamuros}</a></li>
+        <li><a href={`${base}${lang}/madrid/`}>{ui.nav.madrid}</a></li>
+        <li><a href={`${base}${lang}/${aboutSlug}/`}>{ui.nav.about}</a></li>
         <li class="pt-2">
           <a href={`https://wa.me/${SITE.whatsapp.replace('+', '')}`} target="_blank" rel="noopener" class="btn-whatsapp inline-block px-5 py-2 rounded-lg text-sm font-medium">
             {ui.nav.book}
@@ -301,7 +302,7 @@ const contactSlug = { es: 'contacto', it: 'contatto', en: 'contact', fr: 'contac
         <div class="flex gap-4 text-sm font-body">
           {SITE.languages.map(l => (
             <a
-              href={getPathForLang(path, lang, l)}
+              href={`${base.slice(0, -1)}${getPathForLang(path, lang, l)}`}
               class={l === lang
                 ? 'text-borgoña font-bold border-b-2 border-dorado pb-1'
                 : 'text-sepia hover:text-borgoña pb-1 transition-colors'}

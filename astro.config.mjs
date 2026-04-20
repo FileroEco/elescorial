@@ -3,7 +3,6 @@ import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
   integrations: [tailwind()],
-  site: 'https://fileroeco.github.io',
-  base: '/elescorial',
+  site: 'https://elescorial.pro',
   trailingSlash: 'always',
 });

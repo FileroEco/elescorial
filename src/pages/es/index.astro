@@ -3,6 +3,7 @@ import { SITE } from '../../data/i18n.js';
 
 const lang = 'es';
 const wa = SITE.whatsapp.replace('+', '');
+const base = import.meta.env.BASE_URL; // '/elescorial/' en producción
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -154,9 +155,8 @@ const jsonLd = {
 
     .hero-bg {
       position: absolute; inset: 0;
-      background:
-        linear-gradient(to top, rgba(10,8,18,0.92) 0%, rgba(10,8,18,0.45) 45%, rgba(10,8,18,0.15) 100%),
-        url('/img/escorial/monasterio-noche.webp') center/cover no-repeat;
+      background-size: cover;
+      background-position: center;
     }
 
     .hero-content {
@@ -292,7 +292,8 @@ const jsonLd = {
       gap: 0; padding: 0; overflow: hidden;
     }
     .guide-image {
-      background: url('/img/guia/Foto%20guia%20con%20perro%20mas%20graciosa%20con%20perro%20sonriendo.jpeg') center top/cover;
+      background-size: cover;
+      background-position: center top;
       min-height: 520px; position: relative;
     }
     .guide-image-overlay {
@@ -561,24 +562,24 @@ const jsonLd = {
 
 <!-- NAV -->
 <nav class="nav">
-  <a href="/es/" class="nav-logo">
-    <img src="/img/guia/logo%20sin%20fondo.png" alt="El Escorial" height="36" style="height:36px; width:auto; display:block;" />
+  <a href={`${base}es/`} class="nav-logo">
+    <img src={`${base}img/guia/logo%20sin%20fondo.png`} alt="El Escorial" height="36" style="height:36px; width:auto; display:block;" />
   </a>
   <ul class="nav-links">
-    <li><a href="/es/el-escorial/">El Escorial</a></li>
-    <li><a href="/es/avila/">Ávila</a></li>
-    <li><a href="/es/segovia/">Segovia</a></li>
-    <li><a href="/es/cuelgamuros/">Cuelgamuros</a></li>
-    <li><a href="/es/madrid/">Madrid</a></li>
-    <li><a href="/es/sobre-mi/">Sobre mí</a></li>
+    <li><a href={`${base}es/el-escorial/`}>El Escorial</a></li>
+    <li><a href={`${base}es/avila/`}>Ávila</a></li>
+    <li><a href={`${base}es/segovia/`}>Segovia</a></li>
+    <li><a href={`${base}es/cuelgamuros/`}>Cuelgamuros</a></li>
+    <li><a href={`${base}es/madrid/`}>Madrid</a></li>
+    <li><a href={`${base}es/sobre-mi/`}>Sobre mí</a></li>
   </ul>
   <div class="nav-right">
     <div class="nav-langs">
-      <a href="/es/" class="active">ES</a>
-      <a href="/en/">EN</a>
-      <a href="/it/">IT</a>
-      <a href="/fr/">FR</a>
-      <a href="/pt/">PT</a>
+      <a href={`${base}es/`} class="active">ES</a>
+      <a href={`${base}en/`}>EN</a>
+      <a href={`${base}it/`}>IT</a>
+      <a href={`${base}fr/`}>FR</a>
+      <a href={`${base}pt/`}>PT</a>
     </div>
     <a href={`https://wa.me/${wa}`} target="_blank" rel="noopener" class="btn-primary">Reservar visita</a>
   </div>
@@ -592,26 +593,26 @@ const jsonLd = {
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Menú móvil">
   <ul>
-    <li><a href="/es/el-escorial/">El Escorial</a></li>
-    <li><a href="/es/avila/">Ávila</a></li>
-    <li><a href="/es/segovia/">Segovia</a></li>
-    <li><a href="/es/cuelgamuros/">Cuelgamuros</a></li>
-    <li><a href="/es/madrid/">Madrid</a></li>
-    <li><a href="/es/sobre-mi/">Sobre mí</a></li>
+    <li><a href={`${base}es/el-escorial/`}>El Escorial</a></li>
+    <li><a href={`${base}es/avila/`}>Ávila</a></li>
+    <li><a href={`${base}es/segovia/`}>Segovia</a></li>
+    <li><a href={`${base}es/cuelgamuros/`}>Cuelgamuros</a></li>
+    <li><a href={`${base}es/madrid/`}>Madrid</a></li>
+    <li><a href={`${base}es/sobre-mi/`}>Sobre mí</a></li>
     <li><a href={`https://wa.me/${wa}`} target="_blank" rel="noopener" style="color: var(--green); font-weight: 700;">Reservar visita</a></li>
   </ul>
   <div class="mobile-menu-langs">
-    <a href="/es/" class="active">ES</a>
-    <a href="/en/">EN</a>
-    <a href="/it/">IT</a>
-    <a href="/fr/">FR</a>
-    <a href="/pt/">PT</a>
+    <a href={`${base}es/`} class="active">ES</a>
+    <a href={`${base}en/`}>EN</a>
+    <a href={`${base}it/`}>IT</a>
+    <a href={`${base}fr/`}>FR</a>
+    <a href={`${base}pt/`}>PT</a>
   </div>
 </div>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg"></div>
+  <div class="hero-bg" style={`background: linear-gradient(to top, rgba(10,8,18,0.92) 0%, rgba(10,8,18,0.45) 45%, rgba(10,8,18,0.15) 100%), url('${base}img/escorial/monasterio-noche.webp') center/cover no-repeat`}></div>
   <div class="hero-content">
     <div>
       <div class="hero-badge">Visitas teatralizadas · Guía oficial Patrimonio Nacional</div>
@@ -662,7 +663,7 @@ const jsonLd = {
 
 <!-- GUIDE BIO -->
 <div class="guide-section" id="guia">
-  <div class="guide-image">
+  <div class="guide-image" style={`background-image: url('${base}img/guia/Foto%20guia%20con%20perro%20mas%20graciosa%20con%20perro%20sonriendo.jpeg')`}>
     <div class="guide-image-overlay"></div>
   </div>
   <div class="guide-text">
@@ -675,7 +676,7 @@ const jsonLd = {
     </div>
     <blockquote>"No sigo un guion. Llevo la historia dentro y la cuento como quien te invita a su casa."</blockquote>
     <p>María Victoria no hace visitas turísticas al uso. Transforma la piedra fría del Monasterio en memoria viva. Con décadas de pasión por Felipe II y la historia de los Austrias, cada visita es una experiencia única.</p>
-    <a href="/es/sobre-mi/" class="btn-primary">Leer su historia completa</a>
+    <a href={`${base}es/sobre-mi/`} class="btn-primary">Leer su historia completa</a>
   </div>
 </div>
 
@@ -692,7 +693,7 @@ const jsonLd = {
   <div class="tours-grid">
     <!-- Featured: El Escorial -->
     <div class="tour-card featured">
-      <div class="tour-img" style="background-image: url('/img/guia/guias-monasterio.webp'); background-position: center 30%"></div>
+      <div class="tour-img" style={`background-image: url('${base}img/guia/guias-monasterio.webp'); background-position: center 30%`}></div>
       <div class="tour-type">★ Experiencia estrella</div>
       <div class="tour-title">Monasterio de El Escorial Teatralizado</div>
       <div class="tour-desc">Entra en la mente de Felipe II. Una visita teatralizada donde la historia cobra vida con personajes de época. La experiencia que convierte una visita en un recuerdo imborrable.</div>
@@ -710,13 +711,13 @@ const jsonLd = {
           <span>Precio por persona</span>
           <strong>45 €</strong>
         </div>
-        <a href="/es/el-escorial/visita-teatralizada/" class="btn-tour">Reservar →</a>
+        <a href={`${base}es/el-escorial/visita-teatralizada/`} class="btn-tour">Reservar →</a>
       </div>
     </div>
 
     <!-- Ávila -->
     <div class="tour-card">
-      <div class="tour-img" style="background-image: url('/img/avila/muralla-atardecer.webp'); background-position: center 60%"></div>
+      <div class="tour-img" style={`background-image: url('${base}img/avila/muralla-atardecer.webp'); background-position: center 60%`}></div>
       <div class="tour-type">Visita guiada</div>
       <div class="tour-title">Ávila · La ciudad amurallada</div>
       <div class="tour-desc">Las murallas medievales mejor conservadas de España, Santa Teresa y los secretos de una ciudad que detiene el tiempo.</div>
@@ -733,13 +734,13 @@ const jsonLd = {
           <span>Desde</span>
           <strong>38 €</strong>
         </div>
-        <a href="/es/avila/visita-guiada/" class="btn-tour">Reservar →</a>
+        <a href={`${base}es/avila/visita-guiada/`} class="btn-tour">Reservar →</a>
       </div>
     </div>
 
     <!-- Segovia -->
     <div class="tour-card">
-      <div class="tour-img" style="background-image: url('/img/segovia/acueducto-dia.webp'); background-position: center 40%"></div>
+      <div class="tour-img" style={`background-image: url('${base}img/segovia/acueducto-dia.webp'); background-position: center 40%`}></div>
       <div class="tour-type">Visita guiada</div>
       <div class="tour-title">Segovia · Del acueducto al Alcázar</div>
       <div class="tour-desc">Dos mil años de historia en una sola mañana. El acueducto romano, la catedral y el Alcázar que inspiró el castillo de Cenicienta.</div>
@@ -756,13 +757,13 @@ const jsonLd = {
           <span>Desde</span>
           <strong>38 €</strong>
         </div>
-        <a href="/es/segovia/visita-guiada/" class="btn-tour">Reservar →</a>
+        <a href={`${base}es/segovia/visita-guiada/`} class="btn-tour">Reservar →</a>
       </div>
     </div>
 
     <!-- Cuelgamuros -->
     <div class="tour-card">
-      <div class="tour-img" style="background-image: url('/img/cuelgamuros/frontal-panoramica.webp')"></div>
+      <div class="tour-img" style={`background-image: url('${base}img/cuelgamuros/frontal-panoramica.webp')`}></div>
       <div class="tour-type">Visita guiada</div>
       <div class="tour-title">Cuelgamuros · Memoria y piedra</div>
       <div class="tour-desc">Un lugar de historia compleja y monumental. Una visita que invita a reflexionar y comprender.</div>
@@ -779,13 +780,13 @@ const jsonLd = {
           <span>Desde</span>
           <strong>32 €</strong>
         </div>
-        <a href="/es/cuelgamuros/visita-guiada/" class="btn-tour">Reservar →</a>
+        <a href={`${base}es/cuelgamuros/visita-guiada/`} class="btn-tour">Reservar →</a>
       </div>
     </div>
 
     <!-- Madrid -->
     <div class="tour-card">
-      <div class="tour-img" style="background-image: url('/img/guia/casita%20principe.jpg'); background-position: center 50%"></div>
+      <div class="tour-img" style={`background-image: url('${base}img/guia/casita%20principe.jpg'); background-position: center 50%`}></div>
       <div class="tour-type">Tour personalizado</div>
       <div class="tour-title">Madrid Histórico · A tu medida</div>
       <div class="tour-desc">De los Austrias a los Borbones. Plaza Mayor, el Madrid de los Habsburgo, el Palacio Real y el Retiro. Diseñamos el recorrido contigo.</div>
@@ -802,7 +803,7 @@ const jsonLd = {
           <span>Desde</span>
           <strong>180 €</strong>
         </div>
-        <a href="/es/madrid/tour-personalizado/" class="btn-tour">Consultar →</a>
+        <a href={`${base}es/madrid/tour-personalizado/`} class="btn-tour">Consultar →</a>
       </div>
     </div>
   </div>
@@ -860,12 +861,12 @@ const jsonLd = {
     <div style="font-size:13px;">Guía Oficial de Patrimonio Nacional · San Lorenzo de El Escorial</div>
   </div>
   <div class="footer-links">
-    <a href="/es/el-escorial/">El Escorial</a>
-    <a href="/es/avila/">Ávila</a>
-    <a href="/es/segovia/">Segovia</a>
-    <a href="/es/madrid/">Madrid</a>
-    <a href="/es/sobre-mi/">Sobre mí</a>
-    <a href="/es/contacto/">Contacto</a>
+    <a href={`${base}es/el-escorial/`}>El Escorial</a>
+    <a href={`${base}es/avila/`}>Ávila</a>
+    <a href={`${base}es/segovia/`}>Segovia</a>
+    <a href={`${base}es/madrid/`}>Madrid</a>
+    <a href={`${base}es/sobre-mi/`}>Sobre mí</a>
+    <a href={`${base}es/contacto/`}>Contacto</a>
   </div>
   <div class="footer-contact">
     <a href={`tel:${SITE.whatsapp}`}>{SITE.whatsapp}</a>
