@@ -2,60 +2,124 @@
 import Base from '../../../layouts/Base.astro';
 import RelatedDestinations from '../../../components/RelatedDestinations.astro';
 import { SITE, t } from '../../../data/i18n.js';
+
 const lang = 'fr';
 const base = import.meta.env.BASE_URL;
 const ui = t(lang);
 const dest = ui.destinations.escorial;
+
 const jsonLd = {
-  "@context": "https://schema.org","@type": "TouristAttraction",
+  "@context": "https://schema.org",
+  "@type": "TouristAttraction",
   "name": "Monastère royal de San Lorenzo de El Escorial",
-  "alternateName": ["L'Escorial","El Escorial","The Escorial"],
-  "sameAs": ["https://www.wikidata.org/wiki/Q160836"],
-  "isPartOf": {"@type": "UNESCOWorldHeritageSite","name": "Monastery and Site of the Escurial, Madrid"},
+  "alternateName": ["L'Escorial", "El Escorial", "The Escorial", "Monasterio de El Escorial"],
+  "sameAs": [
+    "https://www.wikidata.org/wiki/Q160836",
+    "https://fr.wikipedia.org/wiki/Monast%C3%A8re_de_l%27Escurial"
+  ],
+  "isPartOf": {
+    "@type": "UNESCOWorldHeritageSite",
+    "name": "Monastery and Site of the Escurial, Madrid"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "San Lorenzo de El Escorial",
+    "addressRegion": "Comunidad de Madrid",
+    "addressCountry": "ES"
+  },
   "about": [
-    {"@type": "Person","name": "Philippe II d'Espagne","sameAs": "https://www.wikidata.org/wiki/Q527"},
-    {"@type": "Thing","name": "Contre-Réforme"},
-    {"@type": "ArchitecturalStyle","name": "Style herrérien"}
-  ]
+    { "@type": "Person", "name": "Philippe II d'Espagne", "sameAs": "https://www.wikidata.org/wiki/Q527" },
+    { "@type": "Thing", "name": "Contre-Réforme" },
+    { "@type": "ArchitecturalStyle", "name": "Style herrérien" }
+  ],
+  "mentions": [
+    { "@type": "TouristAttraction", "name": "Ávila", "sameAs": "https://www.wikidata.org/wiki/Q15688" },
+    { "@type": "TouristAttraction", "name": "Ségovie", "sameAs": "https://www.wikidata.org/wiki/Q8356" },
+    { "@type": "TouristAttraction", "name": "Cuelgamuros", "sameAs": "https://www.wikidata.org/wiki/Q1138282" },
+    { "@type": "Person", "name": "Titien", "sameAs": "https://www.wikidata.org/wiki/Q47551" },
+    { "@type": "Person", "name": "Sofonisba Anguissola", "sameAs": "https://www.wikidata.org/wiki/Q234791" },
+    { "@type": "Person", "name": "Juan de Herrera", "sameAs": "https://www.wikidata.org/wiki/Q470737" },
+    { "@type": "Thing", "name": "Bataille de Saint-Quentin" },
+    { "@type": "Thing", "name": "Palais Royal de Naples" }
+  ],
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "María Victoria Solaz Andújar",
+    "priceRange": "€€",
+    "knowsLanguage": ["es", "en", "it", "fr", "pt"],
+    "hasCredential": {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "Licence en Tourisme — Guide du Patrimoine National"
+    }
+  }
 };
 ---
-<Base lang={lang} title="Monastère de l’Escorial — Visite théâtralisée avec guide officiel" description="Découvrez le Monastère de l’Escorial avec María Victoria Solaz. Guide interprète diplômée spécialiste de Philippe II. Visites théâtralisées en 5 langues." jsonLd={jsonLd} path="/el-escorial/">
+
+<Base lang={lang} title={`${dest.name} — Visite théâtralisée avec guide officiel`} description="Découvrez le Monastère de l'Escorial avec María Victoria Solaz. Guide interprète diplômée spécialiste de Philippe II. Visites théâtralisées en 5 langues." jsonLd={jsonLd} path="/el-escorial/">
+
   <div class="w-full h-64 md:h-96 overflow-hidden">
-    <img src={`${base}img/escorial/fachada.webp`} alt="Façade principale du Monastère de San Lorenzo de El Escorial" class="w-full h-full object-cover" width="540" height="312" loading="eager" />
+    <img src={`${base}img/escorial/fachada.webp`} alt="Façade principale du Monastère de San Lorenzo de El Escorial, Cour des Rois" class="w-full h-full object-cover" width="540" height="312" loading="eager" />
   </div>
+
   <article class="max-w-3xl mx-auto px-4 py-12">
     <h1 class="text-4xl font-bold mb-4">{dest.name}</h1>
     <p class="text-xl text-sepia mb-8">Bien plus qu'un monastère. Un palais, une bibliothèque, un panthéon et la déclaration de principes d'un roi qui voulait gouverner le monde depuis une cellule.</p>
+
     <section class="prose prose-lg max-w-none mb-12">
       <h2>Philippe II n'a pas construit un bâtiment. Il a construit une obsession.</h2>
-      <p>Les guides touristiques vous diront que l’Escorial a été construit pour commémorer la bataille de Saint-Quentin. C'est vrai, mais ce n'est que la surface. Philippe II a conçu ce lieu comme le centre névralgique d'un empire qui s'étendait de Naples aux Philippines. Chaque pierre, chaque couloir, chaque décision architecturale a une intention politique et spirituelle.</p>
-      <p>Ici a gouverné le roi le plus puissant de son époque depuis une chambre austère avec vue directe sur l'autel de la Basilique. Ici Titien a envoyé ses derniers chefs-d'œuvre depuis Venise. Ici Sofonisba Anguissola a peint les portraits de la cour. Et ici, au Panthéon Royal, reposent les rois d'Espagne dans un silence qui en impose plus que tout discours.</p>
+      <p>
+        Les guides touristiques vous diront que l'Escorial a été construit pour commémorer la bataille de Saint-Quentin. C'est vrai, mais ce n'est que la surface. Philippe II a conçu ce lieu comme le centre névralgique d'un empire qui s'étendait de Naples aux Philippines. Chaque pierre, chaque couloir, chaque décision architecturale porte une intention politique et spirituelle qui ne se comprend que lorsque quelqu'un vous la raconte en vous regardant dans les yeux.
+      </p>
+      <p>
+        Ici a gouverné le roi le plus puissant de son époque depuis une chambre austère avec vue directe sur l'autel de la Basilique. Ici Titien a envoyé ses derniers chefs-d'œuvre depuis Venise. Dans cette cour, Sofonisba Anguissola a peint les portraits de la famille royale. Et ici, au Panthéon Royal, reposent les rois d'Espagne dans un silence qui en impose plus que tout discours.
+      </p>
 
       <h2>Ce qui n'apparaît pas dans Wikipédia</h2>
-      <p>L'intrahistoire de l’Escorial réside dans les détails que seul connaît celui qui étudie Philippe II depuis des décennies. La psychologie d'un roi qui contrôlait un empire depuis son bureau mais ne pouvait contrôler la goutte qui le consumait. Les lettres personnelles qui révèlent un père inquiet, pas seulement un monarque. La chaise à porteurs dans laquelle il fut transporté à la fin de sa vie.</p>
+      <p>
+        L'intrahistoire de l'Escorial réside dans les détails que seul connaît celui qui étudie Philippe II depuis des décennies. La psychologie d'un roi qui contrôlait un empire depuis son bureau mais ne pouvait contrôler la goutte qui le consumait. Les lettres personnelles qui révèlent un père inquiet, pas seulement un monarque. La chaise à porteurs dans laquelle il fut transporté à la fin de sa vie — un objet qui dit plus sur le pouvoir et la fragilité humaine que n'importe quel manuel.
+      </p>
+      <p>
+        Ce sont les histoires qui ne figurent pas dans les audioguides. Et ce sont elles qui font passer une visite à l'Escorial de « intéressante » à inoubliable.
+      </p>
 
       <h2>Patrimoine de l'Humanité depuis 1984</h2>
-      <div class="my-8">
-        <img src={`${base}img/guia/guia-disfraz-epoca.webp`} alt="María Victoria Solaz - visita teatralizada" class="rounded-lg w-full" width="1080" height="1440" loading="lazy" />
-      </div>
-      <p>L'UNESCO a reconnu l’Escorial pour sa valeur exceptionnelle d'ensemble architectural Renaissance. Le style herrérien, créé par Juan de Herrera, a influencé l'architecture de tout l'empire — y compris le Palazzo Reale de Naples.</p>
+      <p>
+        L'UNESCO a reconnu l'Escorial comme Patrimoine de l'Humanité pour sa valeur exceptionnelle d'ensemble architectural Renaissance. Le style herrérien, créé par Juan de Herrera pour ce bâtiment, a influencé l'architecture de tout l'empire — y compris le Palais Royal de Naples. Comprendre l'Escorial, c'est comprendre l'ambition esthétique de toute une époque.
+      </p>
 
-            <div class="my-8">
-        <img src={`${base}img/guia/guias-pasillo-monasterio.webp`} alt="Pasillos del Monasterio de El Escorial" class="rounded-lg w-full" width="1024" height="768" loading="lazy" />
+      <div class="my-8">
+        <img src={`${base}img/guia/guia-disfraz-epoca.webp`} alt="María Victoria Solaz avec une collègue en costume d'époque de Philippe II" class="rounded-lg w-full" width="1080" height="1440" loading="lazy" />
+        <p class="text-sm text-sepia/70 mt-2">María Victoria lors d'une visite théâtralisée — l'histoire prend vie</p>
+      </div>
+
+      <div class="my-8">
+        <img src={`${base}img/guia/guias-pasillo-monasterio.webp`} alt="Guides dans les couloirs du Monastère de l'Escorial" class="rounded-lg w-full" width="1024" height="768" loading="lazy" />
+        <p class="text-sm text-sepia/70 mt-2 text-center italic">Les couloirs du Monastère — où chaque pas est un acte de la représentation</p>
       </div>
 
       <h2>L'axe impérial : Escorial, Ávila, Ségovie et Cuelgamuros</h2>
-      <p>L'Escorial n'existe pas dans le vide. Il fait partie d'un triangle historique avec <a href="/fr/avila/" class="underline">Ávila</a> et <a href="/fr/segovia/" class="underline">Ségovie</a> — trois villes Patrimoine UNESCO unies par l'histoire de Castille. Et à quelques kilomètres, <a href="/fr/cuelgamuros/" class="underline">Cuelgamuros</a> ajoute une couche d'histoire du XXe siècle.</p>
+      <p>
+        L'Escorial n'existe pas dans le vide. Il fait partie d'un triangle historique avec <a href="/fr/avila/" class="underline">Ávila</a> et <a href="/fr/segovia/" class="underline">Ségovie</a> — trois villes Patrimoine UNESCO unies par l'histoire de Castille et le règne de Philippe II. Et à quelques kilomètres, <a href="/fr/cuelgamuros/" class="underline">Cuelgamuros</a> (Vallée des Tombés) ajoute une couche d'histoire du XXe siècle qui complète le voyage. María Victoria maîtrise les quatre destinations avec la même passion et la même rigueur, offrant une continuité narrative qu'aucun autre guide ne peut égaler. Et dans <a href="/fr/madrid/habsbourg/" class="underline">le Madrid des Habsbourg</a>, les rues que Philippe II a foulées complètent le portrait du roi qui a construit ce monastère.
+      </p>
     </section>
+
     <RelatedDestinations lang={lang} links={[
-      { href: "/fr/avila/", title: "Ávila — La forteresse mystique", description: "Si l’Escorial est le cerveau de Philippe II, Ávila est sa conscience." },
-      { href: "/fr/segovia/", title: "Ségovie — De l’aqueduc à l’Alcázar", description: "Juan de Herrera a conçu la Monnaie Royale de Ségovie pour le même roi." },
-      { href: "/fr/cuelgamuros/", title: "Cuelgamuros — Mémoire et pierre", description: "À 10 km de l’Escorial. Deux monuments séparés par quatre siècles." },
+      { href: "/fr/avila/", title: "Ávila — La forteresse mystique", description: "Si l'Escorial est le cerveau de Philippe II, Ávila est sa conscience. Sainte Thérèse, les murailles et le romantisme le plus austère de Castille." },
+      { href: "/fr/segovia/", title: "Ségovie — De l'aqueduc à l'Alcázar", description: "Juan de Herrera a conçu la Monnaie Royale de Ségovie pour le même roi. Le lien impérial est direct." },
+      { href: "/fr/cuelgamuros/", title: "Cuelgamuros — Mémoire et pierre", description: "À 10 km de l'Escorial. Deux monuments séparés par quatre siècles, unis par la même sierra." },
+      { href: "/fr/madrid/habsbourg/", title: "Madrid des Habsbourg", description: "Philippe II a transféré la cour à Madrid en 1561. Le style herrérien de l'Escorial s'est propagé sur les flèches de la capitale." },
     ]} />
+
     <div class="cta-box rounded-lg p-8 text-center">
       <h2 class="text-2xl font-bold mb-2">{dest.productName}</h2>
       <p class="text-sepia mb-4">Réservez votre visite avec María Victoria</p>
-      <a href={`${base}${lang}/el-escorial/${dest.productSlug}/`} class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium">Détails et réservation →</a>
+      <a
+        href={`${base}${lang}/el-escorial/${dest.productSlug}/`}
+        class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium"
+      >
+        Détails et réservation →
+      </a>
     </div>
   </article>
+
 </Base>

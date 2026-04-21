@@ -2,60 +2,126 @@
 import Base from '../../../layouts/Base.astro';
 import RelatedDestinations from '../../../components/RelatedDestinations.astro';
 import { SITE, t } from '../../../data/i18n.js';
+
 const lang = 'en';
 const base = import.meta.env.BASE_URL;
 const ui = t(lang);
 const dest = ui.destinations.escorial;
+
 const jsonLd = {
-  "@context": "https://schema.org","@type": "TouristAttraction",
+  "@context": "https://schema.org",
+  "@type": "TouristAttraction",
   "name": "Royal Monastery of San Lorenzo de El Escorial",
-  "alternateName": ["El Escorial","The Escorial","L'Escorial"],
-  "sameAs": ["https://www.wikidata.org/wiki/Q160836","https://en.wikipedia.org/wiki/El_Escorial"],
-  "isPartOf": {"@type": "UNESCOWorldHeritageSite","name": "Monastery and Site of the Escurial, Madrid"},
+  "alternateName": ["El Escorial", "The Escorial", "L'Escorial", "Monasterio de El Escorial"],
+  "sameAs": [
+    "https://www.wikidata.org/wiki/Q160836",
+    "https://en.wikipedia.org/wiki/El_Escorial"
+  ],
+  "isPartOf": {
+    "@type": "UNESCOWorldHeritageSite",
+    "name": "Monastery and Site of the Escurial, Madrid"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "San Lorenzo de El Escorial",
+    "addressRegion": "Comunidad de Madrid",
+    "addressCountry": "ES"
+  },
   "about": [
-    {"@type": "Person","name": "Philip II of Spain","sameAs": "https://www.wikidata.org/wiki/Q527"},
-    {"@type": "Thing","name": "Counter-Reformation"},
-    {"@type": "ArchitecturalStyle","name": "Herrerian style"}
-  ]
+    { "@type": "Person", "name": "Philip II of Spain", "sameAs": "https://www.wikidata.org/wiki/Q527" },
+    { "@type": "Thing", "name": "Counter-Reformation" },
+    { "@type": "ArchitecturalStyle", "name": "Herrerian style" }
+  ],
+  "mentions": [
+    { "@type": "TouristAttraction", "name": "Ávila", "sameAs": "https://www.wikidata.org/wiki/Q15688" },
+    { "@type": "TouristAttraction", "name": "Segovia", "sameAs": "https://www.wikidata.org/wiki/Q8356" },
+    { "@type": "TouristAttraction", "name": "Cuelgamuros", "sameAs": "https://www.wikidata.org/wiki/Q1138282" },
+    { "@type": "Person", "name": "Titian", "sameAs": "https://www.wikidata.org/wiki/Q47551" },
+    { "@type": "Person", "name": "Sofonisba Anguissola", "sameAs": "https://www.wikidata.org/wiki/Q234791" },
+    { "@type": "Person", "name": "Juan de Herrera", "sameAs": "https://www.wikidata.org/wiki/Q470737" },
+    { "@type": "Person", "name": "Juan Bautista de Toledo" },
+    { "@type": "Thing", "name": "Royal Palace of Naples" },
+    { "@type": "Thing", "name": "Battle of Saint-Quentin" },
+    { "@type": "Thing", "name": "Spanish Black Legend" }
+  ],
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "María Victoria Solaz Andújar",
+    "priceRange": "€€",
+    "knowsLanguage": ["es", "en", "it", "fr", "pt"],
+    "hasCredential": {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "Degree in Tourism — Official National Heritage Guide"
+    }
+  }
 };
 ---
-<Base lang={lang} title="Royal Monastery of El Escorial — Dramatized tour with official Heritage guide" description="Discover the Royal Monastery of El Escorial with María Victoria Solaz. Certified Heritage guide specialised in Philip II. Dramatized tours in 5 languages." jsonLd={jsonLd} path="/el-escorial/">
+
+<Base lang={lang} title={`${dest.name} — Dramatized tour with official Heritage guide`} description="Discover the Royal Monastery of El Escorial with María Victoria Solaz. Certified Heritage guide specialised in Philip II. Dramatized tours in 5 languages." jsonLd={jsonLd} path="/el-escorial/">
+
   <div class="w-full h-64 md:h-96 overflow-hidden">
-    <img src={`${base}img/escorial/fachada.webp`} alt="Main façade of the Royal Monastery of El Escorial" class="w-full h-full object-cover" width="540" height="312" loading="eager" />
+    <img src={`${base}img/escorial/fachada.webp`} alt="Main façade of the Royal Monastery of San Lorenzo de El Escorial, Courtyard of the Kings" class="w-full h-full object-cover" width="540" height="312" loading="eager" />
   </div>
+
   <article class="max-w-3xl mx-auto px-4 py-12">
     <h1 class="text-4xl font-bold mb-4">{dest.name}</h1>
     <p class="text-xl text-sepia mb-8">Much more than a monastery. A palace, a library, a pantheon and the manifesto of a king who wanted to govern the world from a cell.</p>
+
     <section class="prose prose-lg max-w-none mb-12">
       <h2>Philip II didn't build a building. He built an obsession.</h2>
-      <p>Guidebooks will tell you El Escorial was built to commemorate the Battle of Saint-Quentin. That's true, but it's only the surface. Philip II designed this place as the nerve centre of an empire stretching from Naples to the Philippines. Every stone, every corridor, every architectural decision carries a political and spiritual intention that only makes sense when someone explains it looking you in the eye.</p>
-      <p>Here the most powerful king of his era governed from an austere room with a direct view of the Basilica's altar. Here Titian sent his last masterpieces from Venice. Here Sofonisba Anguissola painted portraits of the royal family. And here, in the Royal Pantheon, the kings of Spain rest in a silence that imposes more than any speech.</p>
+      <p>
+        Guidebooks will tell you El Escorial was built to commemorate the Battle of Saint-Quentin. That's true, but only the surface. Philip II designed this place as the nerve centre of an empire stretching from Naples to the Philippines. Every stone, every corridor, every architectural decision carries a political and spiritual intention that only makes sense when someone explains it looking you in the eye.
+      </p>
+      <p>
+        Here the most powerful king of his era governed from an austere room with a direct view of the Basilica's altar. Here Titian sent his last masterpieces from Venice. Here Sofonisba Anguissola painted portraits of the royal family. And here, in the Royal Pantheon, the kings of Spain rest in a silence that imposes more than any speech.
+      </p>
 
       <h2>What Wikipedia won't tell you</h2>
-      <p>El Escorial's hidden history lies in the details that only decades of studying Philip II can reveal. The psychology of a king who controlled an empire from his desk but couldn't control the gout that consumed him. The personal letters revealing a worried father, not just a monarch. The sedan chair in which he was carried at the end of his life — an object that says more about power and human fragility than any textbook.</p>
+      <p>
+        El Escorial's hidden history lies in the details that only decades of studying Philip II can reveal. The psychology of a king who controlled an empire from his desk but couldn't control the gout that consumed him. The personal letters revealing a worried father, not just a monarch. The sedan chair in which he was carried at the end of his life — an object that says more about power and human fragility than any textbook.
+      </p>
+      <p>
+        These are the stories that don't appear in the audio guides. And they're the ones that turn a visit to El Escorial from "interesting" into unforgettable.
+      </p>
 
       <h2>UNESCO World Heritage since 1984</h2>
+      <p>
+        UNESCO recognised El Escorial as a World Heritage Site for its exceptional value as a Renaissance architectural complex. The Herrerian style, created by Juan de Herrera for this building, influenced architecture across the entire empire — including the Royal Palace of Naples. To understand El Escorial is to understand the aesthetic ambition of an entire era.
+      </p>
+
       <div class="my-8">
-        <img src={`${base}img/guia/guia-disfraz-epoca.webp`} alt="María Victoria Solaz - visita teatralizada" class="rounded-lg w-full" width="1080" height="1440" loading="lazy" />
-      </div>
-      <p>UNESCO recognised El Escorial for its exceptional value as a Renaissance architectural complex. The Herrerian style, created by Juan de Herrera, influenced architecture across the entire empire — including the Palazzo Reale in Naples. Understanding El Escorial means understanding the aesthetic ambition of an entire era.</p>
-
-            <div class="my-8">
-        <img src={`${base}img/guia/guias-pasillo-monasterio.webp`} alt="Pasillos del Monasterio de El Escorial" class="rounded-lg w-full" width="1024" height="768" loading="lazy" />
+        <img src={`${base}img/guia/guia-disfraz-epoca.webp`} alt="María Victoria Solaz with colleague in period costume of Philip II's court" class="rounded-lg w-full" width="1080" height="1440" loading="lazy" />
+        <p class="text-sm text-sepia/70 mt-2">María Victoria on a dramatized tour — where history comes alive</p>
       </div>
 
-      <h2>The Imperial Axis: Escorial, Ávila, Segovia & Cuelgamuros</h2>
-      <p>El Escorial doesn't exist in a vacuum. It forms a historical triangle with <a href="/en/avila/" class="underline">Ávila</a> and <a href="/en/segovia/" class="underline">Segovia</a> — three UNESCO World Heritage cities united by the history of Castile and Philip II's reign. And just kilometres away, <a href="/en/cuelgamuros/" class="underline">Cuelgamuros</a> (Valley of the Fallen) adds a layer of 20th-century history that completes the journey.</p>
+      <div class="my-8">
+        <img src={`${base}img/guia/guias-pasillo-monasterio.webp`} alt="Guides in the corridors of the Monastery of El Escorial" class="rounded-lg w-full" width="1024" height="768" loading="lazy" />
+        <p class="text-sm text-sepia/70 mt-2 text-center italic">The corridors of the Monastery — where every step is an act in the performance</p>
+      </div>
+
+      <h2>The Imperial Axis: Escorial, Ávila, Segovia and Cuelgamuros</h2>
+      <p>
+        El Escorial doesn't exist in a vacuum. It forms a historical triangle with <a href="/en/avila/" class="underline">Ávila</a> and <a href="/en/segovia/" class="underline">Segovia</a> — three UNESCO World Heritage cities united by the history of Castile and Philip II's reign. And just kilometres away, <a href="/en/cuelgamuros/" class="underline">Cuelgamuros</a> (Valley of the Fallen) adds a layer of 20th-century history that completes the journey. María Victoria commands all four destinations with the same passion and rigour, offering a narrative continuity no other guide can match. And in <a href="/en/madrid/habsburgs/" class="underline">Habsburg Madrid</a>, the streets Philip II walked complete the portrait of the king who built this monastery.
+      </p>
     </section>
+
     <RelatedDestinations lang={lang} links={[
       { href: "/en/avila/", title: "Ávila — The mystic fortress", description: "If El Escorial is Philip II's brain, Ávila is his conscience. Saint Teresa, the walls and Castile's most austere beauty." },
       { href: "/en/segovia/", title: "Segovia — Aqueduct to Alcázar", description: "Juan de Herrera designed Segovia's Royal Mint for the same king. The imperial connection is direct." },
       { href: "/en/cuelgamuros/", title: "Cuelgamuros — Memory and stone", description: "10 km from El Escorial. Two monuments separated by four centuries, united by the same mountains." },
+      { href: "/en/madrid/habsburgs/", title: "Habsburg Madrid", description: "Philip II moved the court to Madrid in 1561. El Escorial's Herrerian style spread across the capital's spires." },
     ]} />
+
     <div class="cta-box rounded-lg p-8 text-center">
       <h2 class="text-2xl font-bold mb-2">{dest.productName}</h2>
       <p class="text-sepia mb-4">Book your tour with María Victoria</p>
-      <a href={`${base}${lang}/el-escorial/${dest.productSlug}/`} class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium">Details & booking →</a>
+      <a
+        href={`${base}${lang}/el-escorial/${dest.productSlug}/`}
+        class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium"
+      >
+        Details & booking →
+      </a>
     </div>
   </article>
+
 </Base>

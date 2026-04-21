@@ -1,17 +1,62 @@
 ---
 import Base from '../../../../layouts/Base.astro';
 import { SITE, t } from '../../../../data/i18n.js';
+
 const lang = 'fr';
 const base = import.meta.env.BASE_URL;
+const ui = t(lang);
+const dest = ui.destinations.escorial;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "TouristTrip",
+  "name": "Visite Théâtralisée du Monastère de l'Escorial",
+  "description": "Visite guidée théâtralisée du Monastère de l'Escorial avec María Victoria Solaz, guide interprète diplômée.",
+  "touristType": ["Cultural", "Heritage"],
+  "itinerary": {
+    "@type": "ItemList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@type": "TouristAttraction",
+        "name": "Monastère de San Lorenzo de El Escorial",
+        "sameAs": "https://www.wikidata.org/wiki/Q160836"
+      }
+    }]
+  },
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "María Victoria Solaz Andújar",
+    "priceRange": "€€",
+    "areaServed": [
+      { "@type": "City", "name": "San Lorenzo de El Escorial" }
+    ],
+    "knowsLanguage": ["es", "en", "it", "fr", "pt"],
+    "hasCredential": {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "Licence en Tourisme — Guide du Patrimoine National"
+    }
+  },
+  "offers": {
+    "@type": "Offer",
+    "availability": "https://schema.org/InStock",
+    "priceCurrency": "EUR"
+  },
+  "inLanguage": "fr"
+};
 ---
-<Base lang={lang} title="Visite Théâtralisée de l’Escorial — Réservez avec María Victoria" description="Visite théâtralisée du Monastère de l’Escorial. Guide interprète diplômée. 5 langues." path="/el-escorial/visite-theatralisee/">
+
+<Base lang={lang} title="Visite Théâtralisée de l'Escorial — María Victoria Solaz" description="Réservez votre visite théâtralisée du Monastère de l'Escorial. Guide interprète diplômée. Petits groupes. 5 langues." jsonLd={jsonLd} path="/el-escorial/visite-theatralisee/">
+
   <div class="w-full h-48 md:h-64 overflow-hidden">
-    <img src={`${base}img/escorial/fachada.webp`} alt="El Escorial Monastery" class="w-full h-full object-cover" width="540" height="312" loading="eager" />
+    <img src={`${base}img/escorial/fachada.webp`} alt="Façade du Monastère de l'Escorial" class="w-full h-full object-cover" width="540" height="312" loading="eager" />
   </div>
 
   <article class="max-w-3xl mx-auto px-4 py-12">
-    <h1 class="text-4xl font-bold mb-2">Visite Théâtralisée</h1>
-    <p class="text-xl text-sepia mb-8">Monastère de l’Escorial</p>
+    <h1 class="text-4xl font-bold mb-2">{dest.productName}</h1>
+    <p class="text-xl text-sepia mb-8">{dest.name}</p>
+
     <section class="mb-12">
       <div class="grid md:grid-cols-3 gap-6 mb-8">
         <div class="info-box p-4 rounded-lg text-center">
@@ -27,16 +72,50 @@ const base = import.meta.env.BASE_URL;
           <p class="text-lg font-bold">FR · ES · EN · IT · PT</p>
         </div>
       </div>
+
       <div class="prose prose-lg max-w-none">
-        <p>Une visite immersive avec María Victoria Solaz, guide interprète diplômée. Bibliothèque Royale, Panthéon des Rois, Basilique et appartements de Philippe II.</p>
-        <p>Pour tous ceux qui veulent comprendre l’Escorial. Familles, couples, voyageurs culturels.</p>
+        <h2>Ce qui est inclus</h2>
+        <p>
+          Une visite théâtralisée et immersive du Monastère de l'Escorial avec María Victoria Solaz, guide interprète diplômée et spécialiste de Philippe II. Ce n'est pas une visite conventionnelle : María Victoria interprète l'histoire avec des gestes, des changements de rythme et une mise en scène qui transforme chaque salle en un décor.
+        </p>
+        <p>
+          Vous parcourrez la Bibliothèque Royale avec ses milliers de volumes, le Panthéon Royal où reposent les monarques espagnols, la Basilique avec son impressionnant retable, et les appartements privés de Philippe II — y compris l'alcôve depuis laquelle le roi pouvait voir l'autel sans se lever du lit.
+        </p>
+
+        <h2>À qui s'adresse cette visite</h2>
+        <p>
+          À toute personne qui souhaite vraiment comprendre l'Escorial, pas seulement le voir. Familles avec enfants (María Victoria a des décennies d'expérience avec les visites scolaires), couples en escapade culturelle depuis Madrid, groupes d'amis, voyageurs francophones qui veulent découvrir le lien entre Philippe II et l'Europe de son temps, et toute personne curieuse qui préfère une histoire racontée avec passion à un audioguide monotone.
+        </p>
+        <p>
+          Le prix dépend de la taille du groupe et du type de visite. Contactez directement via WhatsApp pour que María Victoria vous prépare une proposition sur mesure.
+        </p>
       </div>
+
+      <div class="my-8">
+        <img src={`${base}img/guia/Foto%20de%20guia%20con%20su%20compa%C3%B1era%20guia%20disfrazada%20de%20epoca%20felipe%20segundo%20y%20presidenta%20de%20san%20lorenzo.jpeg`} alt="María Victoria avec une collègue en costume d'époque de Philippe II" class="rounded-lg w-full" loading="lazy" />
+        <p class="text-sm text-sepia/70 mt-2 text-center italic">En costume d'époque — quand l'histoire prend vie dans chaque salle</p>
+      </div>
+
+      <div class="my-8">
+        <img src={`${base}img/guia/Foto%20guia%20muy%20bien%20estructurada%20con%20el%20monasterio%20detras%20pasillo%20tunel%20de%20edificio%20y%203%20guias%20sentadas%20en%20un%20banco.jpeg`} alt="Guides dans le couloir du Monastère de l'Escorial" class="rounded-lg w-full" loading="lazy" />
+        <p class="text-sm text-sepia/70 mt-2 text-center italic">Le Monastère comme décor — chaque couloir est un acte de la représentation</p>
+      </div>
+
     </section>
+
     <div class="cta-green rounded-lg p-8 text-center">
       <h2 class="text-2xl font-bold mb-2">Réservez votre visite</h2>
       <p class="text-sepia mb-4">Contactez directement María Victoria</p>
-      <a href="https://wa.me/34659953930?text=Bonjour%20María%20Victoria%2C%20je%20souhaite%20réserver%20une%20visite%20de%20l’Escorial" target="_blank" rel="noopener" class="inline-block btn-whatsapp px-8 py-3 rounded-lg text-lg font-medium">💬 WhatsApp</a>
+      <a
+        href="https://wa.me/34659953930?text=Bonjour%20Mar%C3%ADa%20Victoria%2C%20je%20souhaite%20r%C3%A9server%20une%20visite%20th%C3%A9%C3%A2tralis%C3%A9e%20de%20l%27Escorial"
+        target="_blank"
+        rel="noopener"
+        class="inline-block btn-whatsapp px-8 py-3 rounded-lg text-lg font-medium"
+      >
+        💬 WhatsApp
+      </a>
       <p class="text-sm text-sepia/70 mt-4">Réponse habituelle sous 24 heures</p>
     </div>
   </article>
+
 </Base>

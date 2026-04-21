@@ -1,5 +1,6 @@
 ---
 import Base from '../../../layouts/Base.astro';
+import RelatedDestinations from '../../../components/RelatedDestinations.astro';
 import { SITE, t } from '../../../data/i18n.js';
 
 const lang = 'it';
@@ -29,14 +30,31 @@ const jsonLd = {
   "about": [
     { "@type": "Person", "name": "Filippo II di Spagna", "sameAs": "https://www.wikidata.org/wiki/Q527" },
     { "@type": "Thing", "name": "Controriforma" },
-    { "@type": "ArchitecturalStyle", "name": "Stile herreriano" },
+    { "@type": "ArchitecturalStyle", "name": "Stile herreriano" }
+  ],
+  "mentions": [
     { "@type": "Person", "name": "Tiziano Vecellio", "sameAs": "https://www.wikidata.org/wiki/Q47551" },
-    { "@type": "Person", "name": "Sofonisba Anguissola", "sameAs": "https://www.wikidata.org/wiki/Q234791" }
-  ]
+    { "@type": "Person", "name": "Sofonisba Anguissola", "sameAs": "https://www.wikidata.org/wiki/Q234791" },
+    { "@type": "Person", "name": "Juan de Herrera", "sameAs": "https://www.wikidata.org/wiki/Q470737" },
+    { "@type": "Person", "name": "Juan Bautista de Toledo" },
+    { "@type": "Thing", "name": "Palazzo Reale di Napoli" },
+    { "@type": "Thing", "name": "Regno di Napoli" },
+    { "@type": "Thing", "name": "Ducato di Milano" }
+  ],
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "María Victoria Solaz Andújar",
+    "priceRange": "€€",
+    "knowsLanguage": ["es", "en", "it", "fr", "pt"],
+    "hasCredential": {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "Licenza in Turismo — Guida del Patrimonio Nazionale"
+    }
+  }
 };
 ---
 
-<Base lang={lang} title="Monastero dell’Escorial — Visita teatralizzata con guida ufficiale italiana" description="Scopri il Monastero dell’Escorial con María Victoria Solaz, guida interprete diplomata. Il legame tra Filippo II e l'Italia raccontato con passione." jsonLd={jsonLd} path="/el-escorial/">
+<Base lang={lang} title={`${dest.name} — Visita teatralizzata con guida ufficiale italiana`} description="Scopri il Monastero dell'Escorial con María Victoria Solaz, guida interprete diplomata. Il legame tra Filippo II e l'Italia raccontato con passione." jsonLd={jsonLd} path="/el-escorial/">
 
   <div class="w-full h-64 md:h-96 overflow-hidden">
     <img src={`${base}img/escorial/fachada.webp`} alt="Facciata principale del Monastero di San Lorenzo de El Escorial" class="w-full h-full object-cover" width="540" height="312" loading="eager" />
@@ -52,10 +70,10 @@ const jsonLd = {
         Quello che molti italiani non sanno è che Filippo II fu anche il loro re. Napoli, Milano, la Sicilia e la Sardegna facevano parte del suo impero. Da questo monastero nella Sierra de Madrid, il monarca più potente del XVI secolo governava mezza Italia — e lo faceva circondato da arte italiana.
       </p>
       <p>
-        Tiziano Vecellio fu il suo pittore di corte preferito: le sue ultime opere furono inviate da Venezia direttamente qui, all’Escorial. Sofonisba Anguissola, la pittrice cremonese che sfidò ogni convenzione del suo tempo, dipinse ritratti nella sua corte. E lo stile architettonico di questo edificio — lo stile herreriano — influenzò direttamente il Palazzo Reale di Napoli.
+        Tiziano Vecellio fu il suo pittore di corte preferito: le sue ultime opere furono inviate da Venezia direttamente qui, all'Escorial. Sofonisba Anguissola, la pittrice cremonese che sfidò ogni convenzione del suo tempo, dipinse ritratti nella sua corte. E lo stile architettonico di questo edificio — lo stile herreriano — influenzò direttamente il Palazzo Reale di Napoli.
       </p>
       <p>
-        Visitare l’Escorial da italiano non è visitare un monumento straniero. È scoprire un capitolo dimenticato della propria storia.
+        Visitare l'Escorial da italiano non è visitare un monumento straniero. È scoprire un capitolo dimenticato della propria storia.
       </p>
 
       <h2>Un monastero che è palazzo, biblioteca e pantheon</h2>
@@ -66,21 +84,41 @@ const jsonLd = {
         Ma sono i dettagli che rendono questa visita indimenticabile: la stanza da cui il re poteva vedere l'altare senza alzarsi dal letto, la sedia a portantina in cui fu trasportato negli ultimi anni della sua vita, le lettere personali che rivelano un padre preoccupato dietro la maschera del monarca.
       </p>
 
+      <h2>Quello che non c'è su Wikipedia</h2>
+      <p>
+        L'intrastoria dell'Escorial sta nei dettagli che solo chi studia Filippo II da decenni può raccontare. La psicologia di un re che controllava un impero dalla sua scrivania ma non poteva controllare la gotta che lo consumava. Le carte personali che rivelano un padre preoccupato, non solo un monarca. Gli aneddoti sulle visite di ambasciatori italiani, sulle consegne di opere di Tiziano da Venezia, sulle lettere scambiate con il governatore di Milano.
+      </p>
+      <p>
+        Queste sono le storie che non appaiono nelle audioguide. E sono quelle che trasformano una visita all'Escorial da "interessante" a indimenticabile.
+      </p>
+
       <div class="my-8">
         <img src={`${base}img/guia/guia-disfraz-epoca.webp`} alt="María Victoria Solaz con collega in costume d'epoca di Filippo II" class="rounded-lg w-full" width="1080" height="1440" loading="lazy" />
         <p class="text-sm text-sepia/70 mt-2">María Victoria durante una visita teatralizzata: la storia prende vita</p>
       </div>
 
-      <h2>Patrimonio dell’Umanità UNESCO dal 1984</h2>
+      <div class="my-8">
+        <img src={`${base}img/guia/guias-pasillo-monasterio.webp`} alt="I corridoi del Monastero dell'Escorial" class="rounded-lg w-full" width="1024" height="768" loading="lazy" />
+        <p class="text-sm text-sepia/70 mt-2 text-center italic">I corridoi del Monastero — dove ogni passo è un atto della rappresentazione</p>
+      </div>
+
+      <h2>Patrimonio dell'Umanità UNESCO dal 1984</h2>
       <p>
-        L'UNESCO ha riconosciuto l’Escorial come Patrimonio dell’Umanità per il suo eccezionale valore come complesso architettonico rinascimentale. Lo stile herreriano, creato da Juan de Herrera per questo edificio, ha influenzato l'architettura dell'intero impero spagnolo — compresa l'Italia meridionale.
+        L'UNESCO ha riconosciuto l'Escorial come Patrimonio dell'Umanità per il suo eccezionale valore come complesso architettonico rinascimentale. Lo stile herreriano, creato da Juan de Herrera per questo edificio, ha influenzato l'architettura dell'intero impero spagnolo — compresa l'Italia meridionale. Capire l'Escorial significa capire l'ambizione estetica di un'intera epoca.
+      </p>
+
+      <h2>L'asse imperiale: Escorial, Ávila, Segovia e Cuelgamuros</h2>
+      <p>
+        L'Escorial non esiste nel vuoto. Fa parte di un triangolo storico con <a href="/it/avila/" class="underline">Ávila</a> e <a href="/it/segovia/" class="underline">Segovia</a> — tre città Patrimonio UNESCO unite dalla storia di Castiglia e dal regno di Filippo II. E a pochi chilometri, <a href="/it/cuelgamuros/" class="underline">Cuelgamuros</a> (Valle dei Caduti) aggiunge uno strato di storia del XX secolo che completa il viaggio. María Victoria padroneggia tutte e quattro le destinazioni con la stessa passione e rigore, offrendo una continuità narrativa che nessun'altra guida può eguagliare.
       </p>
     </section>
 
-      <div class="my-8">
-        <img src={`${base}img/guia/guias-pasillo-monasterio.webp`} alt="I corridoi del Monastero dell’Escorial" class="rounded-lg w-full" width="1024" height="768" loading="lazy" />
-      </div>
-    </section>
+    <RelatedDestinations lang={lang} links={[
+      { href: "/it/avila/", title: "Ávila — La fortezza mistica", description: "Se l'Escorial è il cervello di Filippo II, Ávila è la sua coscienza. Santa Teresa, le mura e il romanticismo più austero di Castiglia." },
+      { href: "/it/segovia/", title: "Segovia — Dall'acquedotto all'Alcázar", description: "Juan de Herrera progettò la Zecca di Segovia per lo stesso re. Il legame imperiale è diretto." },
+      { href: "/it/cuelgamuros/", title: "Cuelgamuros — Memoria e pietra", description: "A 10 km dall'Escorial. Due monumenti separati da quattro secoli, uniti dalla stessa sierra." },
+      { href: "/it/madrid/", title: "Madrid — Tour personalizzati", description: "Filippo II trasferì la corte a Madrid nel 1561. Lo stile herreriano dell'Escorial si propagò sulle torri della capitale." },
+    ]} />
 
     <div class="cta-box rounded-lg p-8 text-center">
       <h2 class="text-2xl font-bold mb-2">{dest.productName}</h2>

@@ -1,17 +1,62 @@
 ---
 import Base from '../../../../layouts/Base.astro';
 import { SITE, t } from '../../../../data/i18n.js';
+
 const lang = 'en';
 const base = import.meta.env.BASE_URL;
+const ui = t(lang);
+const dest = ui.destinations.escorial;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "TouristTrip",
+  "name": "Dramatized Tour of the Royal Monastery of El Escorial",
+  "description": "Dramatized guided tour of the Royal Monastery of El Escorial with María Victoria Solaz, certified Heritage interpreter guide.",
+  "touristType": ["Cultural", "Heritage"],
+  "itinerary": {
+    "@type": "ItemList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@type": "TouristAttraction",
+        "name": "Royal Monastery of San Lorenzo de El Escorial",
+        "sameAs": "https://www.wikidata.org/wiki/Q160836"
+      }
+    }]
+  },
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "María Victoria Solaz Andújar",
+    "priceRange": "€€",
+    "areaServed": [
+      { "@type": "City", "name": "San Lorenzo de El Escorial" }
+    ],
+    "knowsLanguage": ["es", "en", "it", "fr", "pt"],
+    "hasCredential": {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "Degree in Tourism — Official National Heritage Guide"
+    }
+  },
+  "offers": {
+    "@type": "Offer",
+    "availability": "https://schema.org/InStock",
+    "priceCurrency": "EUR"
+  },
+  "inLanguage": "en"
+};
 ---
-<Base lang={lang} title="Dramatized Tour of El Escorial — Book with María Victoria Solaz" description="Book a dramatized tour of El Escorial. Certified Heritage guide. 5 languages." path="/el-escorial/dramatized-tour/">
+
+<Base lang={lang} title="Dramatized Tour of El Escorial — María Victoria Solaz" description="Book your dramatized tour of the Royal Monastery of El Escorial. Certified Heritage interpreter guide. Small groups. 5 languages." jsonLd={jsonLd} path="/el-escorial/dramatized-tour/">
+
   <div class="w-full h-48 md:h-64 overflow-hidden">
-    <img src={`${base}img/escorial/fachada.webp`} alt="El Escorial Monastery" class="w-full h-full object-cover" width="540" height="312" loading="eager" />
+    <img src={`${base}img/escorial/fachada.webp`} alt="Façade of the Royal Monastery of El Escorial" class="w-full h-full object-cover" width="540" height="312" loading="eager" />
   </div>
 
   <article class="max-w-3xl mx-auto px-4 py-12">
-    <h1 class="text-4xl font-bold mb-2">Dramatized Tour</h1>
-    <p class="text-xl text-sepia mb-8">Royal Monastery of El Escorial</p>
+    <h1 class="text-4xl font-bold mb-2">{dest.productName}</h1>
+    <p class="text-xl text-sepia mb-8">{dest.name}</p>
+
     <section class="mb-12">
       <div class="grid md:grid-cols-3 gap-6 mb-8">
         <div class="info-box p-4 rounded-lg text-center">
@@ -27,16 +72,50 @@ const base = import.meta.env.BASE_URL;
           <p class="text-lg font-bold">EN · ES · IT · FR · PT</p>
         </div>
       </div>
+
       <div class="prose prose-lg max-w-none">
-        <p>An immersive dramatized tour with María Victoria Solaz, certified Heritage guide. Royal Library, Royal Pantheon, Basilica and Philip II's private quarters.</p>
-        <p>For anyone who wants to understand El Escorial beyond the guidebook. Families, couples, cultural travellers.</p>
+        <h2>What's included</h2>
+        <p>
+          An immersive dramatized tour of the Royal Monastery of El Escorial with María Victoria Solaz, certified Heritage interpreter guide and specialist in Philip II. This is not a conventional tour: María Victoria performs history with gestures, shifts in tempo and a staging that turns each hall into a scene.
+        </p>
+        <p>
+          You will walk through the Royal Library with its thousands of volumes, the Royal Pantheon where the Spanish monarchs rest, the Basilica with its imposing altarpiece, and Philip II's private chambers — including the alcove from which the king could see the altar without leaving his bed.
+        </p>
+
+        <h2>Who this tour is for</h2>
+        <p>
+          For anyone who wants to truly understand El Escorial, not just see it. Families with children (María Victoria has decades of experience with school groups), couples on a cultural escape from Madrid, groups of friends, travellers curious about the link between Philip II and Naples, Milan and Sicily, and anyone who prefers history told with passion over a monotonous audio guide.
+        </p>
+        <p>
+          Pricing depends on group size and tour type. Contact directly via WhatsApp so María Victoria can prepare a tailored proposal.
+        </p>
       </div>
+
+      <div class="my-8">
+        <img src={`${base}img/guia/Foto%20de%20guia%20con%20su%20compa%C3%B1era%20guia%20disfrazada%20de%20epoca%20felipe%20segundo%20y%20presidenta%20de%20san%20lorenzo.jpeg`} alt="María Victoria with a colleague in Philip II period costume" class="rounded-lg w-full" loading="lazy" />
+        <p class="text-sm text-sepia/70 mt-2 text-center italic">In period costume — history comes alive in every hall</p>
+      </div>
+
+      <div class="my-8">
+        <img src={`${base}img/guia/Foto%20guia%20muy%20bien%20estructurada%20con%20el%20monasterio%20detras%20pasillo%20tunel%20de%20edificio%20y%203%20guias%20sentadas%20en%20un%20banco.jpeg`} alt="Guides in the corridor of the Monastery of El Escorial" class="rounded-lg w-full" loading="lazy" />
+        <p class="text-sm text-sepia/70 mt-2 text-center italic">The Monastery as a stage — every corridor is an act in the performance</p>
+      </div>
+
     </section>
+
     <div class="cta-green rounded-lg p-8 text-center">
       <h2 class="text-2xl font-bold mb-2">Book your tour</h2>
       <p class="text-sepia mb-4">Contact María Victoria directly</p>
-      <a href="https://wa.me/34659953930?text=Hello%20María%20Victoria%2C%20I'd%20like%20to%20book%20a%20tour%20of%20El%20Escorial" target="_blank" rel="noopener" class="inline-block btn-whatsapp px-8 py-3 rounded-lg text-lg font-medium">💬 WhatsApp</a>
+      <a
+        href="https://wa.me/34659953930?text=Hello%20Mar%C3%ADa%20Victoria%2C%20I%27d%20like%20to%20book%20a%20dramatized%20tour%20of%20El%20Escorial"
+        target="_blank"
+        rel="noopener"
+        class="inline-block btn-whatsapp px-8 py-3 rounded-lg text-lg font-medium"
+      >
+        💬 WhatsApp
+      </a>
       <p class="text-sm text-sepia/70 mt-4">Usually replies within 24 hours</p>
     </div>
   </article>
+
 </Base>

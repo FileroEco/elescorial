@@ -1,17 +1,49 @@
 ---
 import Base from '../../../../layouts/Base.astro';
 import { SITE, t } from '../../../../data/i18n.js';
+
 const lang = 'en';
 const base = import.meta.env.BASE_URL;
+const ui = t(lang);
+const dest = ui.destinations.cuelgamuros;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "TouristTrip",
+  "name": "Guided Tour of Cuelgamuros (Valley of the Fallen)",
+  "description": "Guided tour of Cuelgamuros with rigorous historical context. María Victoria Solaz, certified Heritage interpreter guide.",
+  "touristType": ["Cultural", "Heritage"],
+  "itinerary": {
+    "@type": "ItemList",
+    "itemListElement": [
+      {"@type": "ListItem","position": 1,"item": {"@type": "TouristAttraction","name": "Cuelgamuros","sameAs": "https://www.wikidata.org/wiki/Q1138282"}}
+    ]
+  },
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "María Victoria Solaz Andújar",
+    "priceRange": "€€",
+    "knowsLanguage": ["es","en","it","fr","pt"]
+  },
+  "offers": {
+    "@type": "Offer",
+    "availability": "https://schema.org/InStock",
+    "priceCurrency": "EUR"
+  },
+  "inLanguage": "en"
+};
 ---
-<Base lang={lang} title="Guided Tour of Cuelgamuros — Book with María Victoria Solaz" description="Guided tour of Cuelgamuros (Valley of the Fallen). Rigorous historical context." path="/cuelgamuros/guided-tour/">
+
+<Base lang={lang} title="Guided Tour of Cuelgamuros — Book with María Victoria Solaz" description="Guided tour of Cuelgamuros (Valley of the Fallen). Historical context and memory. Combines with El Escorial." jsonLd={jsonLd} path="/cuelgamuros/guided-tour/">
+
   <div class="w-full h-48 md:h-64 overflow-hidden">
     <img src={`${base}img/cuelgamuros/atardecer-aerea.webp`} alt="Cuelgamuros at sunset" class="w-full h-full object-cover" width="1200" height="675" loading="eager" />
   </div>
 
   <article class="max-w-3xl mx-auto px-4 py-12">
-    <h1 class="text-4xl font-bold mb-2">Guided Tour</h1>
-    <p class="text-xl text-sepia mb-8">Cuelgamuros — Valley of the Fallen</p>
+    <h1 class="text-4xl font-bold mb-2">{dest.productName}</h1>
+    <p class="text-xl text-sepia mb-8">Cuelgamuros — formerly Valley of the Fallen</p>
+
     <section class="mb-12">
       <div class="grid md:grid-cols-3 gap-6 mb-8">
         <div class="info-box p-4 rounded-lg text-center">
@@ -27,16 +59,46 @@ const base = import.meta.env.BASE_URL;
           <p class="text-lg font-bold">EN · ES · IT · FR · PT</p>
         </div>
       </div>
+
       <div class="prose prose-lg max-w-none">
-        <p>A contextualised visit: the exterior, the rock-hewn basilica, the Spanish Civil War, the 2019 exhumations, and the current memory debate.</p>
-        <p>For anyone who wants to understand this complex site. Combines with El Escorial — 10 km away.</p>
+        <h2>What's included</h2>
+        <p>
+          A contextualised visit to Cuelgamuros covering the exterior (the cross, the valley, the landscape), the basilica carved into the rock, and the historical context of the Spanish Civil War, the post-war era, the 2019 exhumations and the current debate on historical memory. María Victoria does not impose a reading — she offers the historical layers and lets each visitor form their own judgement.
+        </p>
+
+        <h2>Who this tour is for</h2>
+        <p>
+          For anyone who wants to understand this place beyond the headlines. Foreign travellers who need context on Spain's recent history (especially Italians, with their own debate on the monuments of the Ventennio). Spaniards who want to see the site with fresh eyes. Historians, journalists, students. And anyone curious who prefers honest questions to simplistic answers.
+        </p>
+        <p>
+          It combines naturally with a visit to the Monastery of El Escorial — less than 10 kilometres away. Two monuments, four centuries apart, the same mountains.
+        </p>
       </div>
+
+      <div class="my-8">
+        <img src={`${base}img/guia/VALLE%20DE%20LOS%20CAIDOS.jpg`} alt="View of the Cuelgamuros valley with the great cross in the background" class="rounded-lg w-full" loading="lazy" />
+        <p class="text-sm text-sepia/70 mt-2 text-center italic">The 150-metre cross — visible from over 30 kilometres in the mountains</p>
+      </div>
+      <div class="my-8">
+        <img src={`${base}img/guia/foto%20turistas%20en%20valle%20de%20los%20caidos%20es%20una%20pareja.jpeg`} alt="Visitors at Cuelgamuros contemplating the monument" class="rounded-lg w-full" loading="lazy" />
+        <p class="text-sm text-sepia/70 mt-2 text-center italic">A place that does not admit indifference — each visitor forms their own reading</p>
+      </div>
+
     </section>
+
     <div class="cta-green rounded-lg p-8 text-center">
       <h2 class="text-2xl font-bold mb-2">Book your tour</h2>
       <p class="text-sepia mb-4">Contact María Victoria directly</p>
-      <a href="https://wa.me/34659953930?text=Hello%20María%20Victoria%2C%20I'd%20like%20a%20tour%20of%20Cuelgamuros" target="_blank" rel="noopener" class="inline-block btn-whatsapp px-8 py-3 rounded-lg text-lg font-medium">💬 WhatsApp</a>
+      <a
+        href="https://wa.me/34659953930?text=Hello%20Mar%C3%ADa%20Victoria%2C%20I%27d%20like%20a%20guided%20tour%20of%20Cuelgamuros"
+        target="_blank"
+        rel="noopener"
+        class="inline-block btn-whatsapp px-8 py-3 rounded-lg text-lg font-medium"
+      >
+        💬 WhatsApp
+      </a>
       <p class="text-sm text-sepia/70 mt-4">Usually replies within 24 hours</p>
     </div>
   </article>
+
 </Base>

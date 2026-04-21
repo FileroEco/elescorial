@@ -2,56 +2,139 @@
 import Base from '../../../layouts/Base.astro';
 import RelatedDestinations from '../../../components/RelatedDestinations.astro';
 import { SITE, t } from '../../../data/i18n.js';
+
 const lang = 'en';
 const base = import.meta.env.BASE_URL;
 const ui = t(lang);
 const dest = ui.destinations.cuelgamuros;
+
 const jsonLd = {
-  "@context": "https://schema.org","@type": "TouristAttraction",
-  "name": "Cuelgamuros","alternateName": ["Valley of the Fallen","Valle de los Caídos"],
-  "sameAs": ["https://www.wikidata.org/wiki/Q1138282"],
-  "about": [{"@type": "Thing","name": "Spanish Civil War","sameAs": "https://www.wikidata.org/wiki/Q10861"},{"@type": "Thing","name": "Historical memory"}]
+  "@context": "https://schema.org",
+  "@type": "TouristAttraction",
+  "name": "Cuelgamuros",
+  "alternateName": ["Valley of the Fallen", "Valle de los Caídos"],
+  "sameAs": [
+    "https://www.wikidata.org/wiki/Q1138282"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "San Lorenzo de El Escorial",
+    "addressRegion": "Comunidad de Madrid",
+    "addressCountry": "ES"
+  },
+  "about": [
+    { "@type": "Thing", "name": "Spanish Civil War", "sameAs": "https://www.wikidata.org/wiki/Q10861" },
+    { "@type": "Thing", "name": "Historical memory" },
+    { "@type": "Thing", "name": "20th-century monumental architecture" },
+    { "@type": "Person", "name": "Pedro Muguruza" },
+    { "@type": "Person", "name": "Diego Méndez" }
+  ]
 };
 ---
-<Base lang={lang} title="Cuelgamuros (Valley of the Fallen) — Guided tour with historical context" description="Guided tour of Cuelgamuros with María Victoria Solaz. Rigorous, balanced historical context. Certified Heritage guide." jsonLd={jsonLd} path="/cuelgamuros/">
+
+<Base lang={lang} title="Cuelgamuros (Valley of the Fallen) — Guided tour with historical context" description="Guided tour of Cuelgamuros (Valley of the Fallen). Rigorous historical context with María Victoria Solaz, certified Heritage guide." jsonLd={jsonLd} path="/cuelgamuros/">
+
   <div class="w-full h-64 md:h-96 overflow-hidden">
-    <img src={`${base}img/cuelgamuros/atardecer-aerea.webp`} alt="Cross at Cuelgamuros, formerly Valley of the Fallen" class="w-full h-full object-cover" width="1200" height="1026" loading="eager" />
+    <img src={`${base}img/cuelgamuros/atardecer-aerea.webp`} alt="Cross at Cuelgamuros, formerly known as Valley of the Fallen" class="w-full h-full object-cover" width="1200" height="1026" loading="eager" />
   </div>
+
   <article class="max-w-3xl mx-auto px-4 py-12">
     <h1 class="text-4xl font-bold mb-2">{dest.name}</h1>
     <p class="text-sm text-sepia/70 mb-4">Formerly known as Valley of the Fallen</p>
     <p class="text-xl text-sepia mb-8">A place that does not admit indifference. A scar in the rock of the Guadarrama mountains that stares across at El Escorial, attempting to establish a dialogue — or a duel — with eternity.</p>
+
     <section class="prose prose-lg max-w-none mb-12">
+
       <h2>The stage of the wind</h2>
-      <p>The visit doesn't begin in the crypt. It begins outside, with the mountain wind hitting your face. Cuelgamuros is understood first through geography: a valley set between pine forests and granite rocks, just kilometres from <a href="/en/el-escorial/" class="underline">El Escorial</a>. The 150-metre cross is visible from over 30 kilometres. It's the largest Christian cross in the world.</p>
+      <p>
+        The visit doesn't begin in the crypt. It begins outside, with the mountain wind hitting your face. Because Cuelgamuros is understood first through geography: a valley set between pine forests and granite rocks, just kilometres from <a href="/en/el-escorial/" class="underline">Philip II's monastery</a>. This is no coincidence. The site was chosen precisely for its proximity to El Escorial — an attempt to connect the 20th century with the 16th, national-Catholicism with the Counter-Reformation, the ambition of a regime with the ambition of a king.
+      </p>
+      <p>
+        The 150-metre cross is visible from over 30 kilometres away. It is the tallest Christian cross in the world. You have to let that scale sink in before crossing the threshold.
+      </p>
+
       <h2>The hidden history of the chisel</h2>
-      <p>Built between 1940 and 1958. The basilica is carved into living rock — 263 metres of underground nave, longer than St Peter's in Rome. In the early phases, political prisoners participated in construction. María Victoria doesn't shy away from this chapter.</p>
+      <p>
+        Cuelgamuros was built between 1940 and 1958. The basilica is carved into the living rock of the mountain — 263 metres of underground nave, longer than St Peter's in Rome. It is a colossal work of engineering: the crypt's dome measures 42 metres across.
+      </p>
+      <p>
+        But the official history masks the hidden history. In the early phases, political prisoners participated in the construction. The sound of metal striking granite wasn't just work — it was the echo of a brutal post-war era. María Victoria doesn't shy away from this chapter: she tells it with the rigour and sensitivity it demands.
+      </p>
+
       <h2>The basilica: the sublime and the terrible</h2>
       <div class="my-6">
-        <img src={`${base}img/cuelgamuros/basilica-nave.webp`} alt="Nave de la basílica de Cuelgamuros" class="rounded-lg w-full" width="1400" height="886" loading="lazy" />
+        <img src={`${base}img/cuelgamuros/basilica-nave.webp`} alt="Nave of the Cuelgamuros basilica with Apocalypse tapestries" class="rounded-lg w-full" width="1400" height="886" loading="lazy" />
+        <p class="text-sm text-sepia/70 mt-2 text-center italic">263 metres of underground nave carved into living rock</p>
       </div>
+      <p>
+        To enter the basilica is to feel the pressure of the mountain on your chest. The nave, carved into the bowels of the earth, recalls the Roman catacombs but on a scale that seeks the sublime — that feeling of awe and terror in the face of the immense.
+      </p>
+      <p>
+        The Apocalypse tapestries flank the path to the altar.
+      </p>
       <div class="my-6">
-        <img src={`${base}img/cuelgamuros/basilica-cupula.webp`} alt="Cúpula de la basílica de Cuelgamuros" class="rounded-lg w-full" width="1200" height="800" loading="lazy" />
+        <img src={`${base}img/cuelgamuros/basilica-cupula.webp`} alt="Dome of the Cuelgamuros basilica with mosaics by Santiago Padrós" class="rounded-lg w-full" width="1200" height="800" loading="lazy" />
+        <p class="text-sm text-sepia/70 mt-2 text-center italic">The dome with mosaics by Santiago Padrós</p>
       </div>
-      <p>Over 33,000 people are buried here. Combatants from both sides of the Spanish Civil War. Many were transferred without their families' consent. This fact transforms the visit from a monumental tour into an experience of historical memory.</p>
-            <div class="my-6">
-        <img src={`${base}img/cuelgamuros/frontal-panoramica.webp`} alt="Vista frontal de Cuelgamuros" class="rounded-lg w-full" width="1200" height="350" loading="lazy" />
+      <p>
+        The dome, decorated with mosaics by Santiago Padrós, depicts warrior saints and martyrs. The aesthetic is triumphalist and monumental — befitting a regime that needed to legitimise itself through architectural grandeur.
+      </p>
+      <p>
+        More than 33,000 people are buried here. Combatants from both sides of the Spanish Civil War. Many were transferred without their families' consent. This fact is what turns the visit from a monumental tour into an experience of historical memory.
+      </p>
+
+      <h2>What the audio guides don't say</h2>
+      <p>
+        The architects: Pedro Muguruza drafted the initial project. Diego Méndez completed it, including the monumental cross. Both worked under precise ideological directives, but the constructive reality is more complex than the official narrative: craftsmen, stonecutters and workers from across Spain participated in a work that, like it or not, is a milestone of 20th-century engineering.
+      </p>
+      <p>
+        The Benedictine abbey still functions on the site. Spiritual retreats are held metres from the basilica. Monastic life continues while political debate boils outside the walls. Cuelgamuros is a place of layers — and a visit without a guide only scratches the surface.
+      </p>
+
+      <div class="my-6">
+        <img src={`${base}img/cuelgamuros/frontal-panoramica.webp`} alt="Frontal panoramic view of Cuelgamuros with the esplanade and the cross" class="rounded-lg w-full" width="1200" height="350" loading="lazy" />
+        <p class="text-sm text-sepia/70 mt-2 text-center italic">The esplanade — 150 metres of cross visible from 30 kilometres</p>
       </div>
 
       <h2>A place that demands context</h2>
-      <p>You cannot visit Cuelgamuros like a museum. María Victoria doesn't give closed answers. She launches questions into the air and lets each visitor find their own historical truth. As in the best tragedies, the guide knows when to fall silent.</p>
-      <h2>The link to El Escorial</h2>
-      <p>Cuelgamuros is less than 10 km from the <a href="/en/el-escorial/" class="underline">Monastery of El Escorial</a>. Where Philip II raised granite for eternity, the 20th century carved rock for memory. Two monuments separated by four centuries, united by the same mountains and the same stone.</p>
+      <p>
+        You cannot visit Cuelgamuros as you would a museum. It is a monument that generates uncomfortable questions and has no simple answers. Is it a place of reconciliation or imposition? Can architectural grandeur be separated from the ideology that drove it? What do we do with difficult monuments?
+      </p>
+      <p>
+        María Victoria doesn't give closed answers. She launches questions into the air and lets the visitor, facing the magnitude of the monument, find their own historical truth. As in the best tragedies, the guide knows when to fall silent.
+      </p>
+
+      <h2>After the visit: the exhumation and the debate</h2>
+      <p>
+        In 2019, Francisco Franco's remains were exhumed and transferred to the Mingorrubio cemetery. In 2023, the site was officially renamed Cuelgamuros. These changes reflect an ongoing national debate on historical memory. To visit this place is to participate, whether you like it or not, in that conversation.
+      </p>
+
+      <h2>The link with El Escorial</h2>
+      <p>
+        Cuelgamuros is less than 10 kilometres from the <a href="/en/el-escorial/" class="underline">Monastery of El Escorial</a>. The proximity is not accidental — it is intentional. The regime that built it sought to anchor its legitimacy in the imperial tradition of the Habsburgs. Where Philip II raised granite for eternity, the 20th century carved rock for memory. Two monuments separated by four centuries but united by the same mountains, the same stone and the same ambition to transcend time.
+      </p>
+      <p>
+        With María Victoria, a visit to Cuelgamuros is naturally combined with El Escorial. Together, both places tell a story of Spain spanning the 16th to the 21st century — from the Counter-Reformation to Historical Memory. It is a journey no audio guide can offer.
+      </p>
     </section>
+
     <RelatedDestinations lang={lang} links={[
-      { href: "/en/el-escorial/", title: "Royal Monastery of El Escorial", description: "10 km away. The combined visit is the most complete: four centuries in one day." },
-      { href: "/en/avila/", title: "Ávila — The mystic fortress", description: "From medieval walls to a 20th-century monument. Two ways of building in stone." },
-      { href: "/en/segovia/", title: "Segovia — Aqueduct to Alcázar", description: "The Escorial-Cuelgamuros-Segovia triangle shares the Guadarrama mountains." },
+      { href: "/en/el-escorial/", title: "Royal Monastery of El Escorial", description: "10 km away. Where Philip II raised granite for eternity, the 20th century carved rock for memory. The combined visit is the most complete." },
+      { href: "/en/avila/", title: "Ávila — The mystic fortress", description: "From medieval walls to a 20th-century monument. Two ways of building in stone that demand a guide with rigour." },
+      { href: "/en/segovia/", title: "Segovia — Aqueduct to Alcázar", description: "The Escorial-Cuelgamuros-Segovia triangle shares the Guadarrama mountains and the history of Castile." },
+      { href: "/en/madrid/", title: "Madrid — Custom tours", description: "Complete the experience with Habsburg Madrid, the capital Philip II founded an hour from El Escorial." },
     ]} />
+
     <div class="cta-box rounded-lg p-8 text-center">
       <h2 class="text-2xl font-bold mb-2">{dest.productName}</h2>
       <p class="text-sepia mb-4">A place that needs context, rigour and sensitivity. María Victoria provides all three.</p>
-      <a href={`${base}${lang}/cuelgamuros/${dest.productSlug}/`} class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium">Details & booking →</a>
+      <a
+        href={`${base}${lang}/cuelgamuros/${dest.productSlug}/`}
+        class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium"
+      >
+        Details & booking →
+      </a>
     </div>
   </article>
+
 </Base>

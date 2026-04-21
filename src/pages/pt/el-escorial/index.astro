@@ -2,46 +2,135 @@
 import Base from '../../../layouts/Base.astro';
 import RelatedDestinations from '../../../components/RelatedDestinations.astro';
 import { SITE, t } from '../../../data/i18n.js';
+
 const lang = 'pt';
 const base = import.meta.env.BASE_URL;
 const ui = t(lang);
 const dest = ui.destinations.escorial;
-const jsonLd = {"@context":"https://schema.org","@type":"TouristAttraction","name":"Mosteiro de San Lorenzo de El Escorial","alternateName":["El Escorial","O Escorial"],"sameAs":["https://www.wikidata.org/wiki/Q160836"],"isPartOf":{"@type":"UNESCOWorldHeritageSite","name":"Monastery and Site of the Escurial, Madrid"},"about":[{"@type":"Person","name":"Filipe II de Espanha","sameAs":"https://www.wikidata.org/wiki/Q527"},{"@type":"Thing","name":"Contrarreforma"},{"@type":"ArchitecturalStyle","name":"Estilo herreriano"}]};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "TouristAttraction",
+  "name": "Mosteiro de San Lorenzo de El Escorial",
+  "alternateName": ["El Escorial", "O Escorial", "Monasterio de El Escorial"],
+  "sameAs": [
+    "https://www.wikidata.org/wiki/Q160836",
+    "https://pt.wikipedia.org/wiki/Mosteiro_de_El_Escorial"
+  ],
+  "isPartOf": {
+    "@type": "UNESCOWorldHeritageSite",
+    "name": "Monastery and Site of the Escurial, Madrid"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "San Lorenzo de El Escorial",
+    "addressRegion": "Comunidad de Madrid",
+    "addressCountry": "ES"
+  },
+  "about": [
+    { "@type": "Person", "name": "Filipe II de Espanha", "sameAs": "https://www.wikidata.org/wiki/Q527" },
+    { "@type": "Thing", "name": "Contrarreforma" },
+    { "@type": "ArchitecturalStyle", "name": "Estilo herreriano" }
+  ],
+  "mentions": [
+    { "@type": "Thing", "name": "União Ibérica 1580-1640" },
+    { "@type": "Thing", "name": "Dinastia Filipina" },
+    { "@type": "Person", "name": "Filipe I de Portugal" },
+    { "@type": "Person", "name": "Ticiano", "sameAs": "https://www.wikidata.org/wiki/Q47551" },
+    { "@type": "Person", "name": "Sofonisba Anguissola", "sameAs": "https://www.wikidata.org/wiki/Q234791" },
+    { "@type": "Person", "name": "Juan de Herrera", "sameAs": "https://www.wikidata.org/wiki/Q470737" },
+    { "@type": "Thing", "name": "Batalha de Alcácer-Quibir" },
+    { "@type": "Thing", "name": "Mosteiro dos Jerónimos" },
+    { "@type": "TouristAttraction", "name": "Ávila", "sameAs": "https://www.wikidata.org/wiki/Q15688" },
+    { "@type": "TouristAttraction", "name": "Segóvia", "sameAs": "https://www.wikidata.org/wiki/Q8356" },
+    { "@type": "TouristAttraction", "name": "Cuelgamuros", "sameAs": "https://www.wikidata.org/wiki/Q1138282" }
+  ],
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "María Victoria Solaz Andújar",
+    "priceRange": "€€",
+    "knowsLanguage": ["es", "en", "it", "fr", "pt"],
+    "hasCredential": {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "Licenciatura em Turismo — Guia do Patrimônio Nacional"
+    }
+  }
+};
 ---
-<Base lang={lang} title="Mosteiro de El Escorial — Visita teatralizada com guia oficial" description="Descubra o Mosteiro de El Escorial com María Victoria Solaz. Guia intérprete diplomada especialista em Filipe II. 5 idiomas." jsonLd={jsonLd} path="/el-escorial/">
+
+<Base lang={lang} title={`${dest.name} — Visita teatralizada com guia oficial`} description="Descubra o Mosteiro de El Escorial com María Victoria Solaz, guia intérprete diplomada especialista em Filipe II. 5 idiomas. Para portugueses: a conexão com a União Ibérica." jsonLd={jsonLd} path="/el-escorial/">
+
   <div class="w-full h-64 md:h-96 overflow-hidden">
-    <img src={`${base}img/escorial/fachada.webp`} alt="Fachada principal do Mosteiro de El Escorial" class="w-full h-full object-cover" width="540" height="312" loading="eager" />
+    <img src={`${base}img/escorial/fachada.webp`} alt="Fachada principal do Mosteiro de San Lorenzo de El Escorial, Pátio dos Reis" class="w-full h-full object-cover" width="540" height="312" loading="eager" />
   </div>
+
   <article class="max-w-3xl mx-auto px-4 py-12">
     <h1 class="text-4xl font-bold mb-4">{dest.name}</h1>
     <p class="text-xl text-sepia mb-8">Muito mais do que um mosteiro. Um palácio, uma biblioteca, um panteão e a declaração de princípios de um rei que quis governar o mundo a partir de uma cela.</p>
+
     <section class="prose prose-lg max-w-none mb-12">
       <h2>Filipe II não construiu um edifício. Construiu uma obsessão.</h2>
-      <p>Os guias turísticos dir-lhe-ão que El Escorial foi construído para comemorar a batalha de São Quintino. É verdade, mas é só a superfície. Filipe II concebeu este lugar como o centro nevrálgico de um império que se estendia de Nápoles às Filipinas.</p>
-      <p>Aqui governou o rei mais poderoso da sua época desde um quarto austero com vista direta para o altar da Basílica. Aqui Ticiano enviou as suas últimas obras-primas desde Veneza. E aqui, no Panteão Real, descansam os reis de Espanha.</p>
+      <p>
+        Os guias turísticos dir-lhe-ão que El Escorial foi construído para comemorar a batalha de São Quintino. É verdade, mas é só a superfície. Filipe II concebeu este lugar como o centro nevrálgico de um império que se estendia de Nápoles às Filipinas. Cada pedra, cada corredor, cada decisão arquitetónica tem uma intenção política e espiritual que só se compreende quando alguém lha conta olhando-o nos olhos.
+      </p>
+      <p>
+        Aqui governou o rei mais poderoso da sua época desde um quarto austero com vista direta para o altar da Basílica. Aqui Ticiano enviou as suas últimas obras-primas desde Veneza. Nesta corte, Sofonisba Anguissola pintou os retratos da família real. E aqui, no Panteão Real, descansam os reis de Espanha num silêncio que impõe mais do que qualquer discurso.
+      </p>
+
+      <h2>Para portugueses: Filipe II foi também Filipe I de Portugal</h2>
+      <p>
+        Entre 1580 e 1640, Portugal e Espanha partilharam a mesma Coroa. Após a morte do rei-cardeal D. Henrique e a ausência de herdeiro depois do desastre de Alcácer-Quibir, Filipe II reclamou o trono português como descendente de D. Manuel I. Nas Cortes de Tomar de 1581, foi aclamado Filipe I de Portugal. Este mosteiro é, portanto, também parte da história de Portugal — aqui se geriu, durante sessenta anos, um império que ia da Índia ao Brasil.
+      </p>
+      <p>
+        Filipe I jurou respeitar as instituições portuguesas e manter a independência administrativa. Os Jerónimos de Lisboa, onde repousa D. Manuel, partilham com El Escorial a ambição manuelina e herreriana de unir piedade e poder. Visitar El Escorial sendo português não é visitar um monumento estrangeiro — é revisitar um capítulo partilhado.
+      </p>
+
       <h2>O que não aparece na Wikipédia</h2>
-      <p>A intra-história do Escorial está nos detalhes que só conhece quem estuda Filipe II há décadas. A psicologia de um rei que controlava um império mas não conseguia controlar a gota que o consumia. As cartas pessoais que revelam um pai preocupado.</p>
+      <p>
+        A intra-história do Escorial está nos detalhes que só conhece quem estuda Filipe II há décadas. A psicologia de um rei que controlava um império a partir da sua secretária mas não conseguia controlar a gota que o consumia. As cartas pessoais que revelam um pai preocupado, não apenas um monarca. A cadeira de braços em que foi transportado no final da sua vida, um objeto que diz mais sobre o poder e a fragilidade humana do que qualquer manual.
+      </p>
+      <p>
+        Estas são as histórias que não aparecem nas audioguias. E são as que transformam uma visita ao Escorial de "interessante" em inesquecível.
+      </p>
+
       <h2>Património da Humanidade desde 1984</h2>
+      <p>
+        A UNESCO reconheceu El Escorial como Património da Humanidade pelo seu valor excecional enquanto conjunto arquitetónico renascentista. O estilo herreriano, criado por Juan de Herrera para este edifício, influenciou a arquitetura de todo o império — incluindo o Palazzo Reale de Nápoles e as catedrais da América Latina. A conexão com Portugal é direta: durante a União Ibérica, este estilo chegou também a Lisboa, Évora e Coimbra.
+      </p>
+
       <div class="my-8">
-        <img src={`${base}img/guia/guia-disfraz-epoca.webp`} alt="María Victoria Solaz - visita teatralizada" class="rounded-lg w-full" width="1080" height="1440" loading="lazy" />
-      </div>
-      <p>O estilo herreriano, criado por Juan de Herrera, influenciou a arquitetura de todo o império — incluindo o Palazzo Reale de Nápoles e as catedrais da América Latina. A conexão com Portugal é direta: Filipe II foi também Filipe I de Portugal.</p>
-            <div class="my-8">
-        <img src={`${base}img/guia/guias-pasillo-monasterio.webp`} alt="Pasillos del Monasterio de El Escorial" class="rounded-lg w-full" width="1024" height="768" loading="lazy" />
+        <img src={`${base}img/guia/guia-disfraz-epoca.webp`} alt="María Victoria Solaz com colega vestida de época de Filipe II" class="rounded-lg w-full" width="1080" height="1440" loading="lazy" />
+        <p class="text-sm text-sepia/70 mt-2">María Victoria numa visita teatralizada — a história ganha vida</p>
       </div>
 
-      <h2>O eixo imperial</h2>
-      <p>El Escorial forma um triângulo histórico com <a href="/pt/avila/" class="underline">Ávila</a> e <a href="/pt/segovia/" class="underline">Segóvia</a>. E a poucos quilómetros, <a href="/pt/cuelgamuros/" class="underline">Cuelgamuros</a> acrescenta uma camada de história do século XX.</p>
+      <div class="my-8">
+        <img src={`${base}img/guia/guias-pasillo-monasterio.webp`} alt="Guias nos corredores do Mosteiro de El Escorial" class="rounded-lg w-full" width="1024" height="768" loading="lazy" />
+        <p class="text-sm text-sepia/70 mt-2 text-center italic">Os corredores do Mosteiro — onde cada passo é um ato da representação</p>
+      </div>
+
+      <h2>O eixo imperial: Escorial, Ávila, Segóvia e Cuelgamuros</h2>
+      <p>
+        El Escorial não existe no vazio. Forma parte de um triângulo histórico com <a href="/pt/avila/" class="underline">Ávila</a> e <a href="/pt/segovia/" class="underline">Segóvia</a> — três cidades Património UNESCO unidas pela história de Castela e pelo reinado de Filipe II. E a poucos quilómetros, <a href="/pt/cuelgamuros/" class="underline">Cuelgamuros</a> (Vale dos Caídos) acrescenta uma camada de história do século XX que completa a viagem. María Victoria domina os quatro destinos com a mesma paixão e rigor, oferecendo uma continuidade narrativa que nenhum outro guia consegue igualar.
+      </p>
     </section>
+
     <RelatedDestinations lang={lang} links={[
-      { href: "/pt/avila/", title: "Ávila — A fortaleza mística", description: "Se El Escorial é o cérebro de Filipe II, Ávila é a sua consciência." },
-      { href: "/pt/segovia/", title: "Segóvia — Do aqueduto ao Alcázar", description: "Juan de Herrera desenhou a Casa da Moeda de Segóvia para o mesmo rei." },
-      { href: "/pt/cuelgamuros/", title: "Cuelgamuros — Memória e pedra", description: "A 10 km do Escorial. Dois monumentos separados por quatro séculos." },
+      { href: "/pt/avila/", title: "Ávila — A fortaleza mística", description: "Se El Escorial é o cérebro de Filipe II, Ávila é a sua consciência. Santa Teresa, a muralha e o romantismo mais austero de Castela." },
+      { href: "/pt/segovia/", title: "Segóvia — Do aqueduto ao Alcázar", description: "Juan de Herrera desenhou a Casa da Moeda de Segóvia para o mesmo rei. A conexão imperial é direta." },
+      { href: "/pt/cuelgamuros/", title: "Cuelgamuros — Memória e pedra", description: "A 10 km do Escorial. Dois monumentos separados por quatro séculos, unidos pela mesma serra." },
+      { href: "/pt/madrid/", title: "Madrid — Tours personalizados", description: "Filipe II transferiu a corte para Madrid em 1561. O estilo herreriano propagou-se pelas torres da capital." },
     ]} />
+
     <div class="cta-box rounded-lg p-8 text-center">
       <h2 class="text-2xl font-bold mb-2">{dest.productName}</h2>
       <p class="text-sepia mb-4">Reserve a sua visita com María Victoria — fala português</p>
-      <a href={`${base}${lang}/el-escorial/${dest.productSlug}/`} class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium">Detalhes e reserva →</a>
+      <a
+        href={`${base}${lang}/el-escorial/${dest.productSlug}/`}
+        class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium"
+      >
+        Detalhes e reserva →
+      </a>
     </div>
   </article>
+
 </Base>

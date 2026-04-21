@@ -1,17 +1,62 @@
 ---
 import Base from '../../../../layouts/Base.astro';
 import { SITE, t } from '../../../../data/i18n.js';
+
 const lang = 'pt';
 const base = import.meta.env.BASE_URL;
+const ui = t(lang);
+const dest = ui.destinations.escorial;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "TouristTrip",
+  "name": "Visita Teatralizada ao Mosteiro de El Escorial",
+  "description": "Visita guiada teatralizada ao Mosteiro de El Escorial com María Victoria Solaz, guia intérprete diplomada.",
+  "touristType": ["Cultural", "Heritage"],
+  "itinerary": {
+    "@type": "ItemList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@type": "TouristAttraction",
+        "name": "Mosteiro de San Lorenzo de El Escorial",
+        "sameAs": "https://www.wikidata.org/wiki/Q160836"
+      }
+    }]
+  },
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "María Victoria Solaz Andújar",
+    "priceRange": "€€",
+    "areaServed": [
+      { "@type": "City", "name": "San Lorenzo de El Escorial" }
+    ],
+    "knowsLanguage": ["es", "en", "it", "fr", "pt"],
+    "hasCredential": {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "Licenciatura em Turismo — Guia do Patrimônio Nacional"
+    }
+  },
+  "offers": {
+    "@type": "Offer",
+    "availability": "https://schema.org/InStock",
+    "priceCurrency": "EUR"
+  },
+  "inLanguage": "pt"
+};
 ---
-<Base lang={lang} title="Visita Teatralizada ao Escorial — Reserve com María Victoria" description="Reserve a visita teatralizada ao Mosteiro de El Escorial. Guia intérprete diplomada." path="/el-escorial/visita-teatralizada/">
+
+<Base lang={lang} title="Visita Teatralizada ao Escorial — María Victoria Solaz" description="Reserve a sua visita teatralizada ao Mosteiro de El Escorial. Guia intérprete diplomada que fala português. Pequenos grupos. 5 idiomas." jsonLd={jsonLd} path="/el-escorial/visita-teatralizada/">
+
   <div class="w-full h-48 md:h-64 overflow-hidden">
-    <img src={`${base}img/escorial/fachada.webp`} alt="El Escorial Monastery" class="w-full h-full object-cover" width="540" height="312" loading="eager" />
+    <img src={`${base}img/escorial/fachada.webp`} alt="Fachada do Mosteiro de El Escorial" class="w-full h-full object-cover" width="540" height="312" loading="eager" />
   </div>
 
   <article class="max-w-3xl mx-auto px-4 py-12">
-    <h1 class="text-4xl font-bold mb-2">Visita Teatralizada</h1>
-    <p class="text-xl text-sepia mb-8">Mosteiro de El Escorial</p>
+    <h1 class="text-4xl font-bold mb-2">{dest.productName}</h1>
+    <p class="text-xl text-sepia mb-8">{dest.name}</p>
+
     <section class="mb-12">
       <div class="grid md:grid-cols-3 gap-6 mb-8">
         <div class="info-box p-4 rounded-lg text-center">
@@ -27,16 +72,55 @@ const base = import.meta.env.BASE_URL;
           <p class="text-lg font-bold">PT · ES · EN · IT · FR</p>
         </div>
       </div>
+
       <div class="prose prose-lg max-w-none">
-        <p>Uma visita teatralizada ao Mosteiro de El Escorial com María Victoria Solaz. Biblioteca Real, Panteão dos Reis, Basílica e aposentos de Filipe II.</p>
-        <p>Para quem quer compreender El Escorial a sério. María Victoria fala português.</p>
+        <h2>O que inclui</h2>
+        <p>
+          Uma visita teatralizada e imersiva ao Mosteiro de El Escorial com María Victoria Solaz, guia intérprete diplomada e especialista em Filipe II. Não é uma visita convencional: María Victoria interpreta a história com gestos, mudanças de ritmo e uma encenação que transforma cada sala num palco.
+        </p>
+        <p>
+          Percorrerá a Biblioteca Real com os seus milhares de volumes, o Panteão dos Reis onde descansam os monarcas espanhóis, a Basílica com o seu impressionante retábulo, e os aposentos privados de Filipe II — incluindo a alcova de onde o rei podia ver o altar sem se levantar da cama.
+        </p>
+
+        <h2>Para portugueses: Filipe II foi também Filipe I de Portugal</h2>
+        <p>
+          Entre 1580 e 1640, Portugal e Espanha partilharam a mesma Coroa durante a União Ibérica. Este mosteiro foi também centro político do império português durante seis décadas. Visitar El Escorial sendo português é revisitar um capítulo partilhado da nossa história — e María Victoria conhece bem a historiografia portuguesa sobre o período filipino.
+        </p>
+
+        <h2>Para quem é esta visita</h2>
+        <p>
+          Para qualquer pessoa que queira compreender El Escorial a sério, não apenas vê-lo. Famílias com crianças (María Victoria tem décadas de experiência com visitas escolares), casais em escapada cultural a partir de Madrid, grupos de amigos, viajantes portugueses e brasileiros que querem descobrir a conexão ibérica, e qualquer pessoa curiosa que prefira uma história contada com paixão a uma audioguia monótona.
+        </p>
+        <p>
+          O preço depende do tamanho do grupo e do tipo de visita. Contacte diretamente por WhatsApp para que María Victoria prepare uma proposta à sua medida.
+        </p>
       </div>
+
+      <div class="my-8">
+        <img src={`${base}img/guia/Foto%20de%20guia%20con%20su%20compa%C3%B1era%20guia%20disfrazada%20de%20epoca%20felipe%20segundo%20y%20presidenta%20de%20san%20lorenzo.jpeg`} alt="María Victoria com colega em traje de época de Filipe II" class="rounded-lg w-full" loading="lazy" />
+        <p class="text-sm text-sepia/70 mt-2 text-center italic">Com traje de época — quando a história ganha vida em cada sala</p>
+      </div>
+
+      <div class="my-8">
+        <img src={`${base}img/guia/Foto%20guia%20muy%20bien%20estructurada%20con%20el%20monasterio%20detras%20pasillo%20tunel%20de%20edificio%20y%203%20guias%20sentadas%20en%20un%20banco.jpeg`} alt="Guias no corredor do Mosteiro de El Escorial" class="rounded-lg w-full" loading="lazy" />
+        <p class="text-sm text-sepia/70 mt-2 text-center italic">O Mosteiro como palco — cada corredor é um ato da representação</p>
+      </div>
+
     </section>
+
     <div class="cta-green rounded-lg p-8 text-center">
       <h2 class="text-2xl font-bold mb-2">Reserve a sua visita</h2>
-      <p class="text-sepia mb-4">Contacte diretamente María Victoria</p>
-      <a href="https://wa.me/34659953930?text=Olá%20María%20Victoria%2C%20gostaria%20de%20reservar%20uma%20visita%20ao%20Escorial" target="_blank" rel="noopener" class="inline-block btn-whatsapp px-8 py-3 rounded-lg text-lg font-medium">💬 WhatsApp</a>
+      <p class="text-sepia mb-4">Contacte diretamente María Victoria — fala português</p>
+      <a
+        href="https://wa.me/34659953930?text=Ol%C3%A1%20Mar%C3%ADa%20Victoria%2C%20gostaria%20de%20reservar%20uma%20visita%20teatralizada%20ao%20Escorial"
+        target="_blank"
+        rel="noopener"
+        class="inline-block btn-whatsapp px-8 py-3 rounded-lg text-lg font-medium"
+      >
+        💬 WhatsApp
+      </a>
       <p class="text-sm text-sepia/70 mt-4">Resposta habitual em menos de 24 horas</p>
     </div>
   </article>
+
 </Base>

@@ -2,48 +2,144 @@
 import Base from '../../../layouts/Base.astro';
 import RelatedDestinations from '../../../components/RelatedDestinations.astro';
 import { SITE, t } from '../../../data/i18n.js';
+
 const lang = 'pt';
 const base = import.meta.env.BASE_URL;
 const ui = t(lang);
 const dest = ui.destinations.cuelgamuros;
-const jsonLd = {"@context":"https://schema.org","@type":"TouristAttraction","name":"Cuelgamuros","alternateName":["Vale dos Caídos","Valle de los Caídos"],"sameAs":["https://www.wikidata.org/wiki/Q1138282"]};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "TouristAttraction",
+  "name": "Cuelgamuros",
+  "alternateName": ["Vale dos Caídos", "Valle de los Caídos", "Valley of the Fallen"],
+  "sameAs": [
+    "https://www.wikidata.org/wiki/Q1138282"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "San Lorenzo de El Escorial",
+    "addressRegion": "Comunidad de Madrid",
+    "addressCountry": "ES"
+  },
+  "about": [
+    { "@type": "Thing", "name": "Guerra Civil Espanhola", "sameAs": "https://www.wikidata.org/wiki/Q10861" },
+    { "@type": "Thing", "name": "Memória histórica" },
+    { "@type": "Thing", "name": "Arquitetura monumental do século XX" },
+    { "@type": "Person", "name": "Pedro Muguruza" },
+    { "@type": "Person", "name": "Diego Méndez" }
+  ]
+};
 ---
-<Base lang={lang} title="Cuelgamuros (Vale dos Caídos) — Visita guiada com contexto histórico" description="Visita guiada a Cuelgamuros com María Victoria Solaz. Contexto histórico rigoroso e equilibrado. Guia diplomada." jsonLd={jsonLd} path="/cuelgamuros/">
+
+<Base lang={lang} title="Cuelgamuros (Vale dos Caídos) — Visita guiada com contexto histórico" description="Visita guiada a Cuelgamuros (Vale dos Caídos). Contexto histórico rigoroso e equilibrado com María Victoria Solaz, guia oficial do Património." jsonLd={jsonLd} path="/cuelgamuros/">
+
   <div class="w-full h-64 md:h-96 overflow-hidden">
-    <img src={`${base}img/cuelgamuros/atardecer-aerea.webp`} alt="Cruz de Cuelgamuros" class="w-full h-full object-cover" width="1200" height="1026" loading="eager" />
+    <img src={`${base}img/cuelgamuros/atardecer-aerea.webp`} alt="Cruz de Cuelgamuros, anteriormente conhecido como Vale dos Caídos" class="w-full h-full object-cover" width="1200" height="1026" loading="eager" />
   </div>
+
   <article class="max-w-3xl mx-auto px-4 py-12">
     <h1 class="text-4xl font-bold mb-2">{dest.name}</h1>
     <p class="text-sm text-sepia/70 mb-4">Anteriormente conhecido como Vale dos Caídos</p>
-    <p class="text-xl text-sepia mb-8">Um lugar que não admite indiferença. Uma cicatriz na rocha da Serra de Guadarrama que olha de frente para El Escorial.</p>
+    <p class="text-xl text-sepia mb-8">Um lugar que não admite indiferença. Uma cicatriz na rocha da Serra de Guadarrama que olha de frente para El Escorial, tentando estabelecer um diálogo — ou um duelo — com a eternidade.</p>
+
     <section class="prose prose-lg max-w-none mb-12">
+
       <h2>O palco do vento</h2>
-      <p>A visita não começa na cripta. Começa lá fora, com o vento da serra. Cuelgamuros fica a poucos quilómetros de <a href="/pt/el-escorial/" class="underline">El Escorial</a>. A cruz de 150 metros é visível a mais de 30 km — a maior cruz cristã do mundo.</p>
+      <p>
+        A visita não começa na cripta. Começa lá fora, com o vento da serra a fustigar os rostos. Porque Cuelgamuros compreende-se primeiro pela geografia: um vale encaixado entre pinhais e rochas de granito a poucos quilómetros do <a href="/pt/el-escorial/" class="underline">mosteiro de Filipe II</a>. Não é por acaso. Este lugar foi escolhido precisamente pela sua proximidade com El Escorial — uma tentativa de ligar o século XX ao XVI, o nacional-catolicismo à Contrarreforma, a ambição de um regime à ambição de um rei.
+      </p>
+      <p>
+        A cruz de 150 metros de altura é visível a mais de 30 quilómetros. É a maior cruz cristã do mundo. É preciso deixar que essa escala penetre antes de cruzar o umbral.
+      </p>
+
+      <h2>A intra-história do cinzel</h2>
+      <p>
+        Cuelgamuros foi construído entre 1940 e 1958. A basílica está escavada na rocha viva da montanha — 263 metros de nave subterrânea, mais longa do que a basílica de São Pedro em Roma. É uma obra de engenharia colossal: a abóbada da cripta mede 42 metros de diâmetro.
+      </p>
+      <p>
+        Mas a história oficial mascara a intra-história. Nas primeiras fases, presos políticos participaram na construção. O som do metal a bater no granito não era apenas trabalho — era o eco de um pós-guerra brutal. María Victoria não esquiva este capítulo: narra-o com o rigor e a sensibilidade que exige.
+      </p>
+
       <h2>A basílica: o sublime e o terrível</h2>
       <div class="my-6">
-        <img src={`${base}img/cuelgamuros/basilica-nave.webp`} alt="Nave de la basílica de Cuelgamuros" class="rounded-lg w-full" width="1400" height="886" loading="lazy" />
+        <img src={`${base}img/cuelgamuros/basilica-nave.webp`} alt="Nave da basílica de Cuelgamuros com tapeçarias do Apocalipse" class="rounded-lg w-full" width="1400" height="886" loading="lazy" />
+        <p class="text-sm text-sepia/70 mt-2 text-center italic">263 metros de nave subterrânea escavada na rocha viva</p>
       </div>
+      <p>
+        Entrar na basílica é sentir a pressão da montanha sobre o peito. A nave, escavada nas entranhas da terra, recorda as catacumbas romanas mas com uma escala que busca o sublime — aquele sentimento de espanto e terror perante o imenso.
+      </p>
+      <p>
+        As tapeçarias do Apocalipse ladeiam o caminho até ao altar.
+      </p>
       <div class="my-6">
-        <img src={`${base}img/cuelgamuros/basilica-cupula.webp`} alt="Cúpula de la basílica de Cuelgamuros" class="rounded-lg w-full" width="1200" height="800" loading="lazy" />
+        <img src={`${base}img/cuelgamuros/basilica-cupula.webp`} alt="Cúpula da basílica de Cuelgamuros com mosaicos de Santiago Padrós" class="rounded-lg w-full" width="1200" height="800" loading="lazy" />
+        <p class="text-sm text-sepia/70 mt-2 text-center italic">A cúpula com os mosaicos de Santiago Padrós</p>
       </div>
-      <p>263 metros de nave subterrânea escavada na rocha, mais longa que a Basílica de São Pedro em Roma. Mais de 33.000 pessoas estão enterradas aqui — combatentes de ambos os lados da Guerra Civil. Muitos foram transferidos sem o consentimento das famílias.</p>
-            <div class="my-6">
-        <img src={`${base}img/cuelgamuros/frontal-panoramica.webp`} alt="Vista frontal de Cuelgamuros" class="rounded-lg w-full" width="1200" height="350" loading="lazy" />
+      <p>
+        A cúpula, decorada com mosaicos de Santiago Padrós, representa os santos guerreiros e os mártires. A estética é triunfalista e monumental — própria de um regime que precisava de se legitimar através da grandeza arquitetónica.
+      </p>
+      <p>
+        Mais de 33.000 pessoas estão enterradas aqui. Combatentes de ambos os lados da Guerra Civil Espanhola. Muitos foram transferidos sem o consentimento das famílias. Este dado é o que converte a visita de um percurso monumental numa experiência de memória histórica.
+      </p>
+
+      <h2>Um paralelo para portugueses: Salazar, o Estado Novo e os seus monumentos</h2>
+      <p>
+        Para um visitante português, Cuelgamuros abre uma conversa que também é nossa: como tratar a herança arquitetónica de regimes autoritários? O Estado Novo ergueu o Padrão dos Descobrimentos, o Mosteiro da Batalha restaurado como símbolo, o Cristo Rei de Almada em 1959. Portugal e Espanha partilharam ditaduras contemporâneas e saíram delas por caminhos diferentes. Cuelgamuros obriga-nos a pensar o que fizemos — e o que não fizemos — com os nossos próprios monumentos da memória.
+      </p>
+
+      <h2>O que as audioguias não dizem</h2>
+      <p>
+        Os arquitetos: Pedro Muguruza desenhou o projeto inicial. Diego Méndez culminou-o, incluindo a cruz monumental. Ambos trabalharam sob diretivas ideológicas precisas, mas a realidade construtiva é mais complexa do que a narrativa oficial: artesãos, canteiros e trabalhadores de toda a Espanha participaram numa obra que, goste-se ou não, é um marco da engenharia do século XX.
+      </p>
+      <p>
+        A abadia beneditina que ainda funciona no recinto. Os retiros espirituais que se celebram a poucos metros da basílica. A vida monástica que continua enquanto o debate político ferve fora dos muros. Cuelgamuros é um lugar de camadas — e uma visita sem guia apenas arranha a superfície.
+      </p>
+
+      <div class="my-6">
+        <img src={`${base}img/cuelgamuros/frontal-panoramica.webp`} alt="Vista frontal panorâmica de Cuelgamuros com a esplanada e a cruz" class="rounded-lg w-full" width="1200" height="350" loading="lazy" />
+        <p class="text-sm text-sepia/70 mt-2 text-center italic">A esplanada — 150 metros de cruz visíveis a 30 quilómetros</p>
       </div>
 
       <h2>Um lugar que exige contexto</h2>
-      <p>Em 2019, os restos de Franco foram exumados. Em 2023, o lugar foi rebatizado Cuelgamuros. María Victoria não dá respostas fechadas — lança perguntas e deixa cada visitante encontrar a sua verdade histórica.</p>
-      <h2>A conexão portuguesa</h2>
-      <p>Para os portugueses, este lugar evoca questões semelhantes sobre monumentos e memória — como lidar com heranças arquitetónicas complexas. Filipe II, que foi também Filipe I de Portugal, está a menos de 10 km no <a href="/pt/el-escorial/" class="underline">Mosteiro de El Escorial</a>.</p>
+      <p>
+        Não se pode visitar Cuelgamuros como quem visita um museu. É um monumento que gera perguntas incómodas e que não tem respostas simples. É um lugar de reconciliação ou de imposição? Pode separar-se a grandeza arquitetónica da ideologia que a impulsionou? O que fazemos com os monumentos difíceis?
+      </p>
+      <p>
+        María Victoria não dá respostas fechadas. Lança as perguntas ao ar e deixa que seja o próprio visitante quem, perante a magnitude do monumento, encontre a sua própria verdade histórica. Como nas melhores tragédias, o guia sabe quando calar.
+      </p>
+
+      <h2>Depois da visita: a exumação e o debate</h2>
+      <p>
+        Em 2019, os restos de Francisco Franco foram exumados e trasladados para o cemitério de Mingorrubio. Em 2023, o lugar foi rebatizado oficialmente como Cuelgamuros. Estas mudanças refletem um debate nacional sobre memória histórica que ainda está vivo. Visitar este lugar é participar, queira-se ou não, nessa conversa.
+      </p>
+
+      <h2>A ligação com El Escorial</h2>
+      <p>
+        Cuelgamuros está a menos de 10 quilómetros do <a href="/pt/el-escorial/" class="underline">Mosteiro de El Escorial</a>. A proximidade não é casual — é intencional. O regime que o construiu procurava ancorar a sua legitimidade na tradição imperial dos Habsburgos. Onde Filipe II ergueu granito para a eternidade, o século XX escavou rocha para a memória. Dois monumentos separados por quatro séculos mas unidos pela mesma serra, pela mesma pedra e pela mesma ambição de transcender o tempo.
+      </p>
+      <p>
+        Com María Victoria, a visita a Cuelgamuros complementa-se naturalmente com El Escorial. Juntos, ambos os lugares contam uma história de Espanha que vai do século XVI ao XXI — da Contrarreforma à Memória Histórica. É um percurso que nenhuma audioguia pode oferecer.
+      </p>
     </section>
+
     <RelatedDestinations lang={lang} links={[
-      { href: "/pt/el-escorial/", title: "Mosteiro de El Escorial", description: "A 10 km. A visita combinada é a mais completa: quatro séculos num dia." },
-      { href: "/pt/avila/", title: "Ávila — A fortaleza mística", description: "Da muralha medieval ao monumento do século XX." },
-      { href: "/pt/segovia/", title: "Segóvia — Do aqueduto ao Alcázar", description: "O triângulo Escorial-Cuelgamuros-Segóvia." },
+      { href: "/pt/el-escorial/", title: "Mosteiro de El Escorial", description: "A 10 km. Onde Filipe II ergueu granito para a eternidade, o século XX escavou rocha para a memória. A visita combinada é a mais completa." },
+      { href: "/pt/avila/", title: "Ávila — A fortaleza mística", description: "Da muralha medieval ao monumento do século XX. Duas formas de construir em pedra que exigem um guia com rigor." },
+      { href: "/pt/segovia/", title: "Segóvia — Do aqueduto ao Alcázar", description: "O triângulo Escorial-Cuelgamuros-Segóvia partilha a Serra de Guadarrama e a história de Castela." },
+      { href: "/pt/madrid/", title: "Madrid — Tours personalizados", description: "Complete a experiência com o Madrid dos Áustrias, a capital que Filipe II fundou a uma hora do Escorial." },
     ]} />
+
     <div class="cta-box rounded-lg p-8 text-center">
       <h2 class="text-2xl font-bold mb-2">{dest.productName}</h2>
-      <a href={`${base}${lang}/cuelgamuros/${dest.productSlug}/`} class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium">Detalhes e reserva →</a>
+      <p class="text-sepia mb-4">Um lugar que precisa de contexto, rigor e sensibilidade. María Victoria traz os três.</p>
+      <a
+        href={`${base}${lang}/cuelgamuros/${dest.productSlug}/`}
+        class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium"
+      >
+        Detalhes e reserva →
+      </a>
     </div>
   </article>
+
 </Base>

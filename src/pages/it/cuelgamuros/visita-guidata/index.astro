@@ -1,17 +1,49 @@
 ---
 import Base from '../../../../layouts/Base.astro';
 import { SITE, t } from '../../../../data/i18n.js';
+
 const lang = 'it';
 const base = import.meta.env.BASE_URL;
+const ui = t(lang);
+const dest = ui.destinations.cuelgamuros;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "TouristTrip",
+  "name": "Visita Guidata a Cuelgamuros (Valle dei Caduti)",
+  "description": "Visita guidata a Cuelgamuros con contesto storico rigoroso. María Victoria Solaz, guida interprete diplomata.",
+  "touristType": ["Cultural", "Heritage"],
+  "itinerary": {
+    "@type": "ItemList",
+    "itemListElement": [
+      {"@type": "ListItem","position": 1,"item": {"@type": "TouristAttraction","name": "Cuelgamuros","sameAs": "https://www.wikidata.org/wiki/Q1138282"}}
+    ]
+  },
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "María Victoria Solaz Andújar",
+    "priceRange": "€€",
+    "knowsLanguage": ["es","en","it","fr","pt"]
+  },
+  "offers": {
+    "@type": "Offer",
+    "availability": "https://schema.org/InStock",
+    "priceCurrency": "EUR"
+  },
+  "inLanguage": "it"
+};
 ---
-<Base lang={lang} title="Visita Guidata a Cuelgamuros — Prenota con María Victoria Solaz" description="Visita guidata a Cuelgamuros (Valle dei Caduti). Contesto storico rigoroso." path="/cuelgamuros/visita-guidata/">
+
+<Base lang={lang} title="Visita Guidata a Cuelgamuros — Prenota con María Victoria Solaz" description="Visita guidata a Cuelgamuros (Valle dei Caduti). Contesto storico e memoria. Per italiani che conoscono il dibattito sui monumenti del Ventennio." jsonLd={jsonLd} path="/cuelgamuros/visita-guidata/">
+
   <div class="w-full h-48 md:h-64 overflow-hidden">
-    <img src={`${base}img/cuelgamuros/atardecer-aerea.webp`} alt="Cuelgamuros at sunset" class="w-full h-full object-cover" width="1200" height="675" loading="eager" />
+    <img src={`${base}img/cuelgamuros/atardecer-aerea.webp`} alt="Cuelgamuros al tramonto" class="w-full h-full object-cover" width="1200" height="675" loading="eager" />
   </div>
 
   <article class="max-w-3xl mx-auto px-4 py-12">
-    <h1 class="text-4xl font-bold mb-2">Visita Guidata</h1>
-    <p class="text-xl text-sepia mb-8">Cuelgamuros — Valle dei Caduti</p>
+    <h1 class="text-4xl font-bold mb-2">{dest.productName}</h1>
+    <p class="text-xl text-sepia mb-8">Cuelgamuros — precedentemente Valle dei Caduti</p>
+
     <section class="mb-12">
       <div class="grid md:grid-cols-3 gap-6 mb-8">
         <div class="info-box p-4 rounded-lg text-center">
@@ -27,16 +59,46 @@ const base = import.meta.env.BASE_URL;
           <p class="text-lg font-bold">IT · ES · EN · FR · PT</p>
         </div>
       </div>
+
       <div class="prose prose-lg max-w-none">
-        <p>Una visita contestualizzata con la basilica scavata nella roccia e il contesto della Guerra Civile. Come il Ventennio in Italia, questo monumento genera domande che meritano risposte oneste.</p>
-        <p>Per italiani che conoscono il dibattito sui monumenti del Ventennio. Si combina con El Escorial — a 10 km.</p>
+        <h2>Cosa include</h2>
+        <p>
+          Una visita contestualizzata a Cuelgamuros che abbraccia l'esterno (la croce, la valle, il paesaggio), la basilica scavata nella roccia e il contesto storico della Guerra Civile, del dopoguerra, delle esumazioni del 2019 e il dibattito attuale sulla memoria storica. María Victoria non impone una lettura — offre le stratificazioni storiche e lascia che ogni visitatore si formi il proprio giudizio.
+        </p>
+
+        <h2>Per chi è questa visita</h2>
+        <p>
+          Per italiani che conoscono bene il dibattito sui monumenti del Ventennio — il Foro Italico, l'EUR, l'Obelisco, le architetture razionaliste. Come si separa la grandezza architettonica dall'ideologia che l'ha ispirata? Cuelgamuros pone la stessa domanda nella versione spagnola. Per storici, giornalisti, studenti. Per chiunque preferisca domande oneste a risposte semplicistiche.
+        </p>
+        <p>
+          Si combina in modo naturale con la visita al Monastero dell'Escorial — a meno di 10 chilometri. Due monumenti, quattro secoli di distanza, la stessa sierra.
+        </p>
       </div>
+
+      <div class="my-8">
+        <img src={`${base}img/guia/VALLE%20DE%20LOS%20CAIDOS.jpg`} alt="Vista della valle di Cuelgamuros con la grande croce sullo sfondo" class="rounded-lg w-full" loading="lazy" />
+        <p class="text-sm text-sepia/70 mt-2 text-center italic">La croce di 150 metri — visibile da oltre 30 chilometri nella sierra</p>
+      </div>
+      <div class="my-8">
+        <img src={`${base}img/guia/foto%20turistas%20en%20valle%20de%20los%20caidos%20es%20una%20pareja.jpeg`} alt="Visitatori a Cuelgamuros in contemplazione del monumento" class="rounded-lg w-full" loading="lazy" />
+        <p class="text-sm text-sepia/70 mt-2 text-center italic">Un luogo che non ammette indifferenza — ogni visitatore forma la propria lettura</p>
+      </div>
+
     </section>
+
     <div class="cta-green rounded-lg p-8 text-center">
       <h2 class="text-2xl font-bold mb-2">Prenota la tua visita</h2>
-      <p class="text-sepia mb-4">Contatta direttamente María Victoria</p>
-      <a href="https://wa.me/34659953930?text=Ciao%20María%20Victoria%2C%20vorrei%20una%20visita%20a%20Cuelgamuros" target="_blank" rel="noopener" class="inline-block btn-whatsapp px-8 py-3 rounded-lg text-lg font-medium">💬 WhatsApp</a>
+      <p class="text-sepia mb-4">Contatta direttamente María Victoria — parla italiano</p>
+      <a
+        href="https://wa.me/34659953930?text=Ciao%20Mar%C3%ADa%20Victoria%2C%20vorrei%20una%20visita%20guidata%20a%20Cuelgamuros"
+        target="_blank"
+        rel="noopener"
+        class="inline-block btn-whatsapp px-8 py-3 rounded-lg text-lg font-medium"
+      >
+        💬 WhatsApp
+      </a>
       <p class="text-sm text-sepia/70 mt-4">Risposta abituale entro 24 ore</p>
     </div>
   </article>
+
 </Base>

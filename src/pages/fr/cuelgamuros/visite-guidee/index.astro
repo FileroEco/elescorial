@@ -1,17 +1,49 @@
 ---
 import Base from '../../../../layouts/Base.astro';
 import { SITE, t } from '../../../../data/i18n.js';
+
 const lang = 'fr';
 const base = import.meta.env.BASE_URL;
+const ui = t(lang);
+const dest = ui.destinations.cuelgamuros;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "TouristTrip",
+  "name": "Visite Guidée de Cuelgamuros (Vallée des Tombés)",
+  "description": "Visite guidée de Cuelgamuros avec contexte historique rigoureux. María Victoria Solaz, guide interprète diplômée.",
+  "touristType": ["Cultural", "Heritage"],
+  "itinerary": {
+    "@type": "ItemList",
+    "itemListElement": [
+      {"@type": "ListItem","position": 1,"item": {"@type": "TouristAttraction","name": "Cuelgamuros","sameAs": "https://www.wikidata.org/wiki/Q1138282"}}
+    ]
+  },
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "María Victoria Solaz Andújar",
+    "priceRange": "€€",
+    "knowsLanguage": ["es","en","it","fr","pt"]
+  },
+  "offers": {
+    "@type": "Offer",
+    "availability": "https://schema.org/InStock",
+    "priceCurrency": "EUR"
+  },
+  "inLanguage": "fr"
+};
 ---
-<Base lang={lang} title="Visite Guidée de Cuelgamuros — Réservez avec María Victoria" description="Visite guidée de Cuelgamuros (Vallée des Tombés). Contexte historique rigoureux." path="/cuelgamuros/visite-guidee/">
+
+<Base lang={lang} title="Visite Guidée de Cuelgamuros — Réservez avec María Victoria Solaz" description="Visite guidée de Cuelgamuros (Vallée des Tombés). Contexte historique et mémoire. Se combine avec l'Escorial." jsonLd={jsonLd} path="/cuelgamuros/visite-guidee/">
+
   <div class="w-full h-48 md:h-64 overflow-hidden">
-    <img src={`${base}img/cuelgamuros/atardecer-aerea.webp`} alt="Cuelgamuros at sunset" class="w-full h-full object-cover" width="1200" height="675" loading="eager" />
+    <img src={`${base}img/cuelgamuros/atardecer-aerea.webp`} alt="Cuelgamuros au coucher du soleil" class="w-full h-full object-cover" width="1200" height="675" loading="eager" />
   </div>
 
   <article class="max-w-3xl mx-auto px-4 py-12">
-    <h1 class="text-4xl font-bold mb-2">Visite Guidée</h1>
-    <p class="text-xl text-sepia mb-8">Cuelgamuros — Vallée des Tombés</p>
+    <h1 class="text-4xl font-bold mb-2">{dest.productName}</h1>
+    <p class="text-xl text-sepia mb-8">Cuelgamuros — anciennement Vallée des Tombés</p>
+
     <section class="mb-12">
       <div class="grid md:grid-cols-3 gap-6 mb-8">
         <div class="info-box p-4 rounded-lg text-center">
@@ -27,16 +59,46 @@ const base = import.meta.env.BASE_URL;
           <p class="text-lg font-bold">FR · ES · EN · IT · PT</p>
         </div>
       </div>
+
       <div class="prose prose-lg max-w-none">
-        <p>Une visite contextualisée: l'extérieur, la basilique et le contexte de la Guerre Civile espagnole.</p>
-        <p>Pour qui veut comprendre ce lieu complexe. Se combine avec l’Escorial — à 10 km.</p>
+        <h2>Ce qui est inclus</h2>
+        <p>
+          Une visite contextualisée de Cuelgamuros qui couvre l'extérieur (la croix, la vallée, le paysage), la basilique creusée dans la roche et le contexte historique de la Guerre Civile, l'après-guerre, les exhumations de 2019 et le débat actuel sur la mémoire historique. María Victoria n'impose pas de lecture — elle propose les strates historiques et laisse chaque visiteur se forger son propre jugement.
+        </p>
+
+        <h2>À qui s'adresse cette visite</h2>
+        <p>
+          À toute personne qui souhaite comprendre ce lieu au-delà des gros titres. Voyageurs étrangers ayant besoin de contexte sur l'histoire récente de l'Espagne. Français et Européens qui reconnaissent, par analogie, les débats sur leurs propres monuments controversés. Historiens, journalistes, étudiants. Et toute personne curieuse qui préfère des questions honnêtes à des réponses simplistes.
+        </p>
+        <p>
+          Elle se combine naturellement avec la visite du Monastère de l'Escorial — à moins de 10 kilomètres. Deux monuments, quatre siècles de distance, la même sierra.
+        </p>
       </div>
+
+      <div class="my-8">
+        <img src={`${base}img/guia/VALLE%20DE%20LOS%20CAIDOS.jpg`} alt="Vue de la vallée de Cuelgamuros avec la grande croix au fond" class="rounded-lg w-full" loading="lazy" />
+        <p class="text-sm text-sepia/70 mt-2 text-center italic">La croix de 150 mètres — visible à plus de 30 kilomètres dans la sierra</p>
+      </div>
+      <div class="my-8">
+        <img src={`${base}img/guia/foto%20turistas%20en%20valle%20de%20los%20caidos%20es%20una%20pareja.jpeg`} alt="Visiteurs à Cuelgamuros contemplant le monument" class="rounded-lg w-full" loading="lazy" />
+        <p class="text-sm text-sepia/70 mt-2 text-center italic">Un lieu qui n'admet pas l'indifférence — chaque visiteur forme sa propre lecture</p>
+      </div>
+
     </section>
+
     <div class="cta-green rounded-lg p-8 text-center">
       <h2 class="text-2xl font-bold mb-2">Réservez votre visite</h2>
       <p class="text-sepia mb-4">Contactez directement María Victoria</p>
-      <a href="https://wa.me/34659953930?text=Bonjour%20María%20Victoria%2C%20je%20souhaite%20une%20visite%20de%20Cuelgamuros" target="_blank" rel="noopener" class="inline-block btn-whatsapp px-8 py-3 rounded-lg text-lg font-medium">💬 WhatsApp</a>
+      <a
+        href="https://wa.me/34659953930?text=Bonjour%20Mar%C3%ADa%20Victoria%2C%20je%20souhaite%20une%20visite%20guid%C3%A9e%20de%20Cuelgamuros"
+        target="_blank"
+        rel="noopener"
+        class="inline-block btn-whatsapp px-8 py-3 rounded-lg text-lg font-medium"
+      >
+        💬 WhatsApp
+      </a>
       <p class="text-sm text-sepia/70 mt-4">Réponse habituelle sous 24 heures</p>
     </div>
   </article>
+
 </Base>
