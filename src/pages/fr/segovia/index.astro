@@ -10,7 +10,7 @@ const jsonLd = {"@context":"https://schema.org","@type":"TouristAttraction","nam
 ---
 <Base lang={lang} title="Ségovie — Visite guidée de l'Aqueduc à l’Alcázar" description="Visite guidée de Ségovie avec María Victoria Solaz. Aqueduc romain, Alcázar, Cathédrale, Hôtel de la Monnaie. Guide diplômée." jsonLd={jsonLd} path="/segovia/">
   <div class="w-full h-64 md:h-96 overflow-hidden">
-    <img src="/img/segovia/acueducto-noche.webp" alt="Aqueduct of Segovia at night" class="w-full h-full object-cover" width="1600" height="1097" loading="eager" />
+    <img src={`${base}img/segovia/acueducto-noche.webp`} alt="Aqueduct of Segovia at night" class="w-full h-full object-cover" width="1600" height="1097" loading="eager" />
   </div>
 
   <article class="max-w-3xl mx-auto px-4 py-12">
@@ -20,7 +20,7 @@ const jsonLd = {"@context":"https://schema.org","@type":"TouristAttraction","nam
       <h2>Le squelette des géants : l'Aqueduc</h2>
       <p>Entrez avec émerveillement. 167 arcs de granit sans une seule goutte de mortier. 20 400 blocs de pierre tenus par la gravité et un calcul mathématique terrifiant. Rome n'a pas érigé ce colosse uniquement pour étancher la soif — c'est un cri de propagande impériale gravé dans le granit. Pendant des siècles, le peuple l'appelait « Le Pont du Diable ».</p>
             <div class="my-6">
-        <img src="/img/segovia/acueducto-dia.webp" alt="Acueducto de Segovia" class="rounded-lg w-full" width="1400" height="976" loading="lazy" />
+        <img src={`${base}img/segovia/acueducto-dia.webp`} alt="Acueducto de Segovia" class="rounded-lg w-full" width="1400" height="976" loading="lazy" />
       </div>
 
       <h2>La Cathédrale : le dernier soupir du Gothique</h2>

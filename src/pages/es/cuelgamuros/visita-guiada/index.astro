@@ -3,6 +3,7 @@ import Base from '../../../../layouts/Base.astro';
 import { SITE, t } from '../../../../data/i18n.js';
 
 const lang = 'es';
+const base = import.meta.env.BASE_URL;
 const ui = t(lang);
 const dest = ui.destinations.cuelgamuros;
 
@@ -36,7 +37,7 @@ const jsonLd = {
 <Base lang={lang} title="Visita Guiada a Cuelgamuros — Reserva con María Victoria Solaz" description="Visita guiada a Cuelgamuros (Valle de los Caídos). Contexto histórico y memoria. Se combina con El Escorial." jsonLd={jsonLd} path="/cuelgamuros/visita-guiada/">
 
   <div class="w-full h-48 md:h-64 overflow-hidden">
-    <img src="/img/cuelgamuros/atardecer-aerea.webp" alt="Cuelgamuros al atardecer" class="w-full h-full object-cover" width="1200" height="675" loading="eager" />
+    <img src={`${base}img/cuelgamuros/atardecer-aerea.webp`} alt="Cuelgamuros al atardecer" class="w-full h-full object-cover" width="1200" height="675" loading="eager" />
   </div>
 
   <article class="max-w-3xl mx-auto px-4 py-12">
@@ -75,11 +76,11 @@ const jsonLd = {
       </div>
 
       <div class="my-8">
-        <img src="/img/guia/VALLE%20DE%20LOS%20CAIDOS.jpg" alt="Vista del valle de Cuelgamuros con la gran cruz al fondo" class="rounded-lg w-full" loading="lazy" />
+        <img src={`${base}img/guia/VALLE%20DE%20LOS%20CAIDOS.jpg`} alt="Vista del valle de Cuelgamuros con la gran cruz al fondo" class="rounded-lg w-full" loading="lazy" />
         <p class="text-sm text-sepia/70 mt-2 text-center italic">La cruz de 150 metros — visible desde más de 30 kilómetros en la sierra</p>
       </div>
       <div class="my-8">
-        <img src="/img/guia/foto%20turistas%20en%20valle%20de%20los%20caidos%20es%20una%20pareja.jpeg" alt="Visitantes en Cuelgamuros contemplando el monumento" class="rounded-lg w-full" loading="lazy" />
+        <img src={`${base}img/guia/foto%20turistas%20en%20valle%20de%20los%20caidos%20es%20una%20pareja.jpeg`} alt="Visitantes en Cuelgamuros contemplando el monumento" class="rounded-lg w-full" loading="lazy" />
         <p class="text-sm text-sepia/70 mt-2 text-center italic">Un lugar que no admite indiferencia — cada visitante forma su propia lectura</p>
       </div>
 

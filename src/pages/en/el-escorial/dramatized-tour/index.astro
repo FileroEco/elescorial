@@ -2,10 +2,11 @@
 import Base from '../../../../layouts/Base.astro';
 import { SITE, t } from '../../../../data/i18n.js';
 const lang = 'en';
+const base = import.meta.env.BASE_URL;
 ---
 <Base lang={lang} title="Dramatized Tour of El Escorial — Book with María Victoria Solaz" description="Book a dramatized tour of El Escorial. Certified Heritage guide. 5 languages." path="/el-escorial/dramatized-tour/">
   <div class="w-full h-48 md:h-64 overflow-hidden">
-    <img src="/img/escorial/fachada.webp" alt="El Escorial Monastery" class="w-full h-full object-cover" width="540" height="312" loading="eager" />
+    <img src={`${base}img/escorial/fachada.webp`} alt="El Escorial Monastery" class="w-full h-full object-cover" width="540" height="312" loading="eager" />
   </div>
 
   <article class="max-w-3xl mx-auto px-4 py-12">

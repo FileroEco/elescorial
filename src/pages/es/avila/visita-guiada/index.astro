@@ -3,6 +3,7 @@ import Base from '../../../../layouts/Base.astro';
 import { SITE, t } from '../../../../data/i18n.js';
 
 const lang = 'es';
+const base = import.meta.env.BASE_URL;
 const ui = t(lang);
 const dest = ui.destinations.avila;
 
@@ -39,7 +40,7 @@ const jsonLd = {
 <Base lang={lang} title="Visita Guiada a Ávila — Reserva con María Victoria Solaz" description="Visita guiada teatralizada a Ávila. Muralla, Santa Teresa, Catedral, románico. Guía intérprete diplomada. 5 idiomas." jsonLd={jsonLd} path="/avila/visita-guiada/">
 
   <div class="w-full h-48 md:h-64 overflow-hidden">
-    <img src="/img/avila/muralla-atardecer.webp" alt="Muralla de Ávila al atardecer" class="w-full h-full object-cover" width="626" height="417" loading="eager" />
+    <img src={`${base}img/avila/muralla-atardecer.webp`} alt="Muralla de Ávila al atardecer" class="w-full h-full object-cover" width="626" height="417" loading="eager" />
   </div>
 
   <article class="max-w-3xl mx-auto px-4 py-12">
@@ -78,11 +79,11 @@ const jsonLd = {
       </div>
 
       <div class="my-8">
-        <img src="/img/guia/ESCALERAS%20MURALLA%20AVILA.jpg" alt="Escaleras de acceso al adarve de la Muralla de Ávila" class="rounded-lg w-full" loading="lazy" />
+        <img src={`${base}img/guia/ESCALERAS%20MURALLA%20AVILA.jpg`} alt="Escaleras de acceso al adarve de la Muralla de Ávila" class="rounded-lg w-full" loading="lazy" />
         <p class="text-sm text-sepia/70 mt-2 text-center italic">La muralla como escenario — subir es ya el primer acto de la visita</p>
       </div>
       <div class="my-8">
-        <img src="/img/guia/TURISTAS%20MURALLA%20AVILA.jpg" alt="Turistas en la Muralla de Ávila durante una visita guiada" class="rounded-lg w-full" loading="lazy" />
+        <img src={`${base}img/guia/TURISTAS%20MURALLA%20AVILA.jpg`} alt="Turistas en la Muralla de Ávila durante una visita guiada" class="rounded-lg w-full" loading="lazy" />
         <p class="text-sm text-sepia/70 mt-2 text-center italic">Grupos pequeños, experiencia grande — máx. 10 personas</p>
       </div>
 

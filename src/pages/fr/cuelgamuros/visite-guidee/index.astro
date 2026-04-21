@@ -2,10 +2,11 @@
 import Base from '../../../../layouts/Base.astro';
 import { SITE, t } from '../../../../data/i18n.js';
 const lang = 'fr';
+const base = import.meta.env.BASE_URL;
 ---
 <Base lang={lang} title="Visite Guidée de Cuelgamuros — Réservez avec María Victoria" description="Visite guidée de Cuelgamuros (Vallée des Tombés). Contexte historique rigoureux." path="/cuelgamuros/visite-guidee/">
   <div class="w-full h-48 md:h-64 overflow-hidden">
-    <img src="/img/cuelgamuros/atardecer-aerea.webp" alt="Cuelgamuros at sunset" class="w-full h-full object-cover" width="1200" height="675" loading="eager" />
+    <img src={`${base}img/cuelgamuros/atardecer-aerea.webp`} alt="Cuelgamuros at sunset" class="w-full h-full object-cover" width="1200" height="675" loading="eager" />
   </div>
 
   <article class="max-w-3xl mx-auto px-4 py-12">

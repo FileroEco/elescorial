@@ -10,7 +10,7 @@ const jsonLd = {"@context":"https://schema.org","@type":"TouristAttraction","nam
 ---
 <Base lang={lang} title="Segóvia — Visita guiada do Aqueduto ao Alcázar" description="Visita guiada a Segóvia com María Victoria Solaz. Aqueduto romano, Alcázar, Catedral, Casa da Moeda Real. Guia diplomada." jsonLd={jsonLd} path="/segovia/">
   <div class="w-full h-64 md:h-96 overflow-hidden">
-    <img src="/img/segovia/acueducto-noche.webp" alt="Aqueduct of Segovia at night" class="w-full h-full object-cover" width="1600" height="1097" loading="eager" />
+    <img src={`${base}img/segovia/acueducto-noche.webp`} alt="Aqueduct of Segovia at night" class="w-full h-full object-cover" width="1600" height="1097" loading="eager" />
   </div>
 
   <article class="max-w-3xl mx-auto px-4 py-12">
@@ -20,7 +20,7 @@ const jsonLd = {"@context":"https://schema.org","@type":"TouristAttraction","nam
       <h2>O esqueleto dos gigantes: o Aqueduto</h2>
       <p>167 arcos de granito sem uma gota de argamassa. 20.400 blocos unidos pela gravidade. Roma não ergueu este colosso só para saciar a sede — é um grito de propaganda imperial. Durante séculos chamaram-lhe "A Ponte do Diabo".</p>
             <div class="my-6">
-        <img src="/img/segovia/acueducto-dia.webp" alt="Acueducto de Segovia" class="rounded-lg w-full" width="1400" height="976" loading="lazy" />
+        <img src={`${base}img/segovia/acueducto-dia.webp`} alt="Acueducto de Segovia" class="rounded-lg w-full" width="1400" height="976" loading="lazy" />
       </div>
 
       <h2>O Alcázar: a proa do navio de pedra</h2>

@@ -3,6 +3,7 @@ import Base from '../../../../layouts/Base.astro';
 import { SITE, t } from '../../../../data/i18n.js';
 
 const lang = 'es';
+const base = import.meta.env.BASE_URL;
 const ui = t(lang);
 const dest = ui.destinations.segovia;
 
@@ -39,7 +40,7 @@ const jsonLd = {
 <Base lang={lang} title="Visita Guiada a Segovia — Reserva con María Victoria Solaz" description="Visita guiada teatralizada a Segovia. Acueducto, Alcázar, Catedral, Casa de la Moneda. Guía intérprete diplomada. 5 idiomas." jsonLd={jsonLd} path="/segovia/visita-guiada/">
 
   <div class="w-full h-48 md:h-64 overflow-hidden">
-    <img src="/img/segovia/acueducto-noche.webp" alt="Acueducto de Segovia iluminado de noche" class="w-full h-full object-cover" width="1600" height="1097" loading="eager" />
+    <img src={`${base}img/segovia/acueducto-noche.webp`} alt="Acueducto de Segovia iluminado de noche" class="w-full h-full object-cover" width="1600" height="1097" loading="eager" />
   </div>
 
   <article class="max-w-3xl mx-auto px-4 py-12">
@@ -75,7 +76,7 @@ const jsonLd = {
       </div>
 
       <div class="my-8">
-        <img src="/img/guia/Foto%20con%20pantalla%20de%20fondo%20y%20otra%20guia%20acreditada%20al%20lado.jpeg" alt="María Victoria Solaz con su acreditación oficial como Guía de Patrimonio Nacional" class="rounded-lg w-full" loading="lazy" />
+        <img src={`${base}img/guia/Foto%20con%20pantalla%20de%20fondo%20y%20otra%20guia%20acreditada%20al%20lado.jpeg`} alt="María Victoria Solaz con su acreditación oficial como Guía de Patrimonio Nacional" class="rounded-lg w-full" loading="lazy" />
         <p class="text-sm text-sepia/70 mt-2 text-center italic">Guía acreditada oficialmente por Patrimonio Nacional — garantía de rigor</p>
       </div>
 

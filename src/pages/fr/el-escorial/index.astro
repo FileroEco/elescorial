@@ -21,7 +21,7 @@ const jsonLd = {
 ---
 <Base lang={lang} title="Monastère de l’Escorial — Visite théâtralisée avec guide officiel" description="Découvrez le Monastère de l’Escorial avec María Victoria Solaz. Guide interprète diplômée spécialiste de Philippe II. Visites théâtralisées en 5 langues." jsonLd={jsonLd} path="/el-escorial/">
   <div class="w-full h-64 md:h-96 overflow-hidden">
-    <img src="/img/escorial/fachada.webp" alt="Façade principale du Monastère de San Lorenzo de El Escorial" class="w-full h-full object-cover" width="540" height="312" loading="eager" />
+    <img src={`${base}img/escorial/fachada.webp`} alt="Façade principale du Monastère de San Lorenzo de El Escorial" class="w-full h-full object-cover" width="540" height="312" loading="eager" />
   </div>
   <article class="max-w-3xl mx-auto px-4 py-12">
     <h1 class="text-4xl font-bold mb-4">{dest.name}</h1>
@@ -36,12 +36,12 @@ const jsonLd = {
 
       <h2>Patrimoine de l'Humanité depuis 1984</h2>
       <div class="my-8">
-        <img src="/img/guia/guia-disfraz-epoca.webp" alt="María Victoria Solaz - visita teatralizada" class="rounded-lg w-full" width="1080" height="1440" loading="lazy" />
+        <img src={`${base}img/guia/guia-disfraz-epoca.webp`} alt="María Victoria Solaz - visita teatralizada" class="rounded-lg w-full" width="1080" height="1440" loading="lazy" />
       </div>
       <p>L'UNESCO a reconnu l’Escorial pour sa valeur exceptionnelle d'ensemble architectural Renaissance. Le style herrérien, créé par Juan de Herrera, a influencé l'architecture de tout l'empire — y compris le Palazzo Reale de Naples.</p>
 
             <div class="my-8">
-        <img src="/img/guia/guias-pasillo-monasterio.webp" alt="Pasillos del Monasterio de El Escorial" class="rounded-lg w-full" width="1024" height="768" loading="lazy" />
+        <img src={`${base}img/guia/guias-pasillo-monasterio.webp`} alt="Pasillos del Monasterio de El Escorial" class="rounded-lg w-full" width="1024" height="768" loading="lazy" />
       </div>
 
       <h2>L'axe impérial : Escorial, Ávila, Ségovie et Cuelgamuros</h2>

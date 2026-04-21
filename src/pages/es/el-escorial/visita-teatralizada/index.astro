@@ -3,6 +3,7 @@ import Base from '../../../../layouts/Base.astro';
 import { SITE, t } from '../../../../data/i18n.js';
 
 const lang = 'es';
+const base = import.meta.env.BASE_URL;
 const ui = t(lang);
 const dest = ui.destinations.escorial;
 
@@ -49,7 +50,7 @@ const jsonLd = {
 <Base lang={lang} title="Visita Teatralizada al Escorial — María Victoria Solaz" description="Reserva tu visita teatralizada al Monasterio de El Escorial. Guía intérprete diplomada. Grupos reducidos. 5 idiomas." jsonLd={jsonLd} path="/el-escorial/visita-teatralizada/">
 
   <div class="w-full h-48 md:h-64 overflow-hidden">
-    <img src="/img/escorial/fachada.webp" alt="Fachada del Monasterio de El Escorial" class="w-full h-full object-cover" width="540" height="312" loading="eager" />
+    <img src={`${base}img/escorial/fachada.webp`} alt="Fachada del Monasterio de El Escorial" class="w-full h-full object-cover" width="540" height="312" loading="eager" />
   </div>
 
   <article class="max-w-3xl mx-auto px-4 py-12">
@@ -91,12 +92,12 @@ const jsonLd = {
       </div>
 
       <div class="my-8">
-        <img src="/img/guia/Foto%20de%20guia%20con%20su%20compa%C3%B1era%20guia%20disfrazada%20de%20epoca%20felipe%20segundo%20y%20presidenta%20de%20san%20lorenzo.jpeg" alt="María Victoria con compañera disfrazada de época de Felipe II y presidenta de San Lorenzo" class="rounded-lg w-full" loading="lazy" />
+        <img src={`${base}img/guia/Foto%20de%20guia%20con%20su%20compa%C3%B1era%20guia%20disfrazada%20de%20epoca%20felipe%20segundo%20y%20presidenta%20de%20san%20lorenzo.jpeg`} alt="María Victoria con compañera disfrazada de época de Felipe II y presidenta de San Lorenzo" class="rounded-lg w-full" loading="lazy" />
         <p class="text-sm text-sepia/70 mt-2 text-center italic">Con traje de época — cuando la historia cobra vida en cada sala</p>
       </div>
 
       <div class="my-8">
-        <img src="/img/guia/Foto%20guia%20muy%20bien%20estructurada%20con%20el%20monasterio%20detras%20pasillo%20tunel%20de%20edificio%20y%203%20guias%20sentadas%20en%20un%20banco.jpeg" alt="Guías en el pasillo del Monasterio de El Escorial" class="rounded-lg w-full" loading="lazy" />
+        <img src={`${base}img/guia/Foto%20guia%20muy%20bien%20estructurada%20con%20el%20monasterio%20detras%20pasillo%20tunel%20de%20edificio%20y%203%20guias%20sentadas%20en%20un%20banco.jpeg`} alt="Guías en el pasillo del Monasterio de El Escorial" class="rounded-lg w-full" loading="lazy" />
         <p class="text-sm text-sepia/70 mt-2 text-center italic">El Monasterio como escenario — cada pasillo es un acto de la función</p>
       </div>
 

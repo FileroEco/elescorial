@@ -2,10 +2,11 @@
 import Base from '../../../../layouts/Base.astro';
 import { SITE, t } from '../../../../data/i18n.js';
 const lang = 'fr';
+const base = import.meta.env.BASE_URL;
 ---
 <Base lang={lang} title="Visite Guidée de Ségovie — Réservez avec María Victoria" description="Visite guidée de Ségovie. Aqueduc, Alcázar, Cathédrale. Guide diplômée." path="/segovia/visite-guidee/">
   <div class="w-full h-48 md:h-64 overflow-hidden">
-    <img src="/img/segovia/acueducto-noche.webp" alt="Aqueduct of Segovia" class="w-full h-full object-cover" width="1600" height="1097" loading="eager" />
+    <img src={`${base}img/segovia/acueducto-noche.webp`} alt="Aqueduct of Segovia" class="w-full h-full object-cover" width="1600" height="1097" loading="eager" />
   </div>
 
   <article class="max-w-3xl mx-auto px-4 py-12">

@@ -3,6 +3,7 @@ import Base from '../../../../layouts/Base.astro';
 import { SITE, t } from '../../../../data/i18n.js';
 
 const lang = 'it';
+const base = import.meta.env.BASE_URL;
 const ui = t(lang);
 const dest = ui.destinations.escorial;
 
@@ -46,7 +47,7 @@ const jsonLd = {
 <Base lang={lang} title="Visita Teatralizzata all’Escorial — Prenota con María Victoria Solaz" description="Prenota la tua visita teatralizzata al Monastero dell’Escorial. Guida interprete diplomata che parla italiano. Il legame Filippo II - Italia." jsonLd={jsonLd} path="/el-escorial/visita-teatralizzata/">
 
   <div class="w-full h-48 md:h-64 overflow-hidden">
-    <img src="/img/escorial/fachada.webp" alt="El Escorial Monastery" class="w-full h-full object-cover" width="540" height="312" loading="eager" />
+    <img src={`${base}img/escorial/fachada.webp`} alt="El Escorial Monastery" class="w-full h-full object-cover" width="540" height="312" loading="eager" />
   </div>
 
   <article class="max-w-3xl mx-auto px-4 py-12">

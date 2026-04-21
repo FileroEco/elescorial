@@ -3,6 +3,7 @@ import Base from '../../../../layouts/Base.astro';
 import { SITE, t } from '../../../../data/i18n.js';
 
 const lang = 'es';
+const base = import.meta.env.BASE_URL;
 const ui = t(lang);
 const dest = ui.destinations.madrid;
 
@@ -30,7 +31,7 @@ const jsonLd = {
 <Base lang={lang} title="Tour Personalizado por Madrid — María Victoria Solaz" description="Tour a medida por el Madrid de los Austrias y los Borbones. Museos, palacios, Bernabéu. Guía intérprete diplomada. 5 idiomas." jsonLd={jsonLd} path="/madrid/tour-personalizado/">
 
   <div class="w-full h-64 md:h-96 overflow-hidden">
-    <img src="/img/madrid/cibeles-atardecer.webp" alt="Madrid al atardecer, Fuente de Cibeles" class="w-full h-full object-cover" width="612" height="408" loading="eager" />
+    <img src={`${base}img/madrid/cibeles-atardecer.webp`} alt="Madrid al atardecer, Fuente de Cibeles" class="w-full h-full object-cover" width="612" height="408" loading="eager" />
   </div>
 
   <article class="max-w-3xl mx-auto px-4 py-12">
@@ -64,7 +65,7 @@ const jsonLd = {
         <p>
           </p>
         <div class="my-6">
-          <img src="/img/madrid/plaza-mayor-atardecer.webp" alt="Plaza Mayor de Madrid al atardecer" class="rounded-lg w-full" width="1280" height="857" loading="lazy" />
+          <img src={`${base}img/madrid/plaza-mayor-atardecer.webp`} alt="Plaza Mayor de Madrid al atardecer" class="rounded-lg w-full" width="1280" height="857" loading="lazy" />
           <p class="text-sm text-sepia/70 mt-2 text-center italic">Madrid de los Austrias — Plaza Mayor al atardecer</p>
         </div>
         <p>
@@ -73,7 +74,7 @@ const jsonLd = {
         <p>
           </p>
         <div class="my-6">
-          <img src="/img/madrid/puerta-alcala.webp" alt="Puerta de Alcalá de Madrid" class="rounded-lg w-full" width="768" height="479" loading="lazy" />
+          <img src={`${base}img/madrid/puerta-alcala.webp`} alt="Puerta de Alcalá de Madrid" class="rounded-lg w-full" width="768" height="479" loading="lazy" />
           <p class="text-sm text-sepia/70 mt-2 text-center italic">Madrid de los Borbones — Puerta de Alcalá de Sabatini</p>
         </div>
         <p>

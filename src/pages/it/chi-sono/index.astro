@@ -3,6 +3,7 @@ import Base from '../../../layouts/Base.astro';
 import RelatedDestinations from '../../../components/RelatedDestinations.astro';
 import { SITE } from '../../../data/i18n.js';
 const lang = 'it';
+const base = import.meta.env.BASE_URL;
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
@@ -20,7 +21,7 @@ const jsonLd = {
 <Base lang={lang} title="María Victoria Solaz — Guida del Patrimonio Nazionale" description="María Victoria Solaz Andújar, Guida del Patrimonio Nazionale. Specialista in Filippo II e il Monastero dell’Escorial. Visite in 5 lingue." jsonLd={jsonLd} path="/chi-sono/">
   <article class="max-w-3xl mx-auto px-4 py-12">
     <div class="flex flex-col md:flex-row gap-8 items-start mb-12">
-      <img src="/img/guia/Foto%20guia%20posando%20formal%20con%20fuente%20detras%20del%20pueblo.jpeg" alt="María Victoria Solaz Andújar, guía de Patrimonio Nacional, posando en San Lorenzo de El Escorial" class="w-full md:w-64 rounded-lg" width="800" height="450" loading="eager" />
+      <img src={`${base}img/guia/Foto%20guia%20posando%20formal%20con%20fuente%20detras%20del%20pueblo.jpeg`} alt="María Victoria Solaz Andújar, guía de Patrimonio Nacional, posando en San Lorenzo de El Escorial" class="w-full md:w-64 rounded-lg" width="800" height="450" loading="eager" />
       <div>
         <h1 class="text-4xl font-bold mb-4">María Victoria Solaz Andújar</h1>
         <p class="text-lg text-borgoña font-medium mb-4">Guida del Patrimonio Nazionale</p>

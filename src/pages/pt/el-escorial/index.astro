@@ -10,7 +10,7 @@ const jsonLd = {"@context":"https://schema.org","@type":"TouristAttraction","nam
 ---
 <Base lang={lang} title="Mosteiro de El Escorial — Visita teatralizada com guia oficial" description="Descubra o Mosteiro de El Escorial com María Victoria Solaz. Guia intérprete diplomada especialista em Filipe II. 5 idiomas." jsonLd={jsonLd} path="/el-escorial/">
   <div class="w-full h-64 md:h-96 overflow-hidden">
-    <img src="/img/escorial/fachada.webp" alt="Fachada principal do Mosteiro de El Escorial" class="w-full h-full object-cover" width="540" height="312" loading="eager" />
+    <img src={`${base}img/escorial/fachada.webp`} alt="Fachada principal do Mosteiro de El Escorial" class="w-full h-full object-cover" width="540" height="312" loading="eager" />
   </div>
   <article class="max-w-3xl mx-auto px-4 py-12">
     <h1 class="text-4xl font-bold mb-4">{dest.name}</h1>
@@ -23,11 +23,11 @@ const jsonLd = {"@context":"https://schema.org","@type":"TouristAttraction","nam
       <p>A intra-história do Escorial está nos detalhes que só conhece quem estuda Filipe II há décadas. A psicologia de um rei que controlava um império mas não conseguia controlar a gota que o consumia. As cartas pessoais que revelam um pai preocupado.</p>
       <h2>Património da Humanidade desde 1984</h2>
       <div class="my-8">
-        <img src="/img/guia/guia-disfraz-epoca.webp" alt="María Victoria Solaz - visita teatralizada" class="rounded-lg w-full" width="1080" height="1440" loading="lazy" />
+        <img src={`${base}img/guia/guia-disfraz-epoca.webp`} alt="María Victoria Solaz - visita teatralizada" class="rounded-lg w-full" width="1080" height="1440" loading="lazy" />
       </div>
       <p>O estilo herreriano, criado por Juan de Herrera, influenciou a arquitetura de todo o império — incluindo o Palazzo Reale de Nápoles e as catedrais da América Latina. A conexão com Portugal é direta: Filipe II foi também Filipe I de Portugal.</p>
             <div class="my-8">
-        <img src="/img/guia/guias-pasillo-monasterio.webp" alt="Pasillos del Monasterio de El Escorial" class="rounded-lg w-full" width="1024" height="768" loading="lazy" />
+        <img src={`${base}img/guia/guias-pasillo-monasterio.webp`} alt="Pasillos del Monasterio de El Escorial" class="rounded-lg w-full" width="1024" height="768" loading="lazy" />
       </div>
 
       <h2>O eixo imperial</h2>
