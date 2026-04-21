@@ -22,17 +22,18 @@ const lang = 'en';
             <label for="email" class="block text-sm font-medium text-sepia mb-1">Email</label>
             <input id="email" type="email" name="email" placeholder="you@email.com" required class="w-full border border-gray-300 rounded px-4 py-2" />
           </div>
-          <div>
-            <label for="destination" class="block text-sm font-medium text-sepia mb-1">Destination</label>
-            <select id="destination" name="destination" class="w-full border border-gray-300 rounded px-4 py-2">
-              <option value="">Which destination interests you?</option>
-              <option value="escorial">El Escorial</option>
-              <option value="avila">Ávila</option>
-              <option value="segovia">Segovia</option>
-              <option value="cuelgamuros">Cuelgamuros</option>
-              <option value="madrid">Madrid</option>
-            </select>
-          </div>
+          <fieldset>
+            <legend class="block text-sm font-medium text-sepia mb-2">Destinations (choose one or more)</legend>
+            <div class="space-y-2">
+              <label class="flex items-center gap-2"><input type="checkbox" name="destinations[]" value="escorial" class="rounded" /> Royal Monastery of El Escorial</label>
+              <label class="flex items-center gap-2"><input type="checkbox" name="destinations[]" value="avila" class="rounded" /> Ávila</label>
+              <label class="flex items-center gap-2"><input type="checkbox" name="destinations[]" value="segovia" class="rounded" /> Segovia</label>
+              <label class="flex items-center gap-2"><input type="checkbox" name="destinations[]" value="cuelgamuros" class="rounded" /> Cuelgamuros</label>
+              <label class="flex items-center gap-2"><input type="checkbox" name="destinations[]" value="madrid-habsburgs" class="rounded" /> Habsburg Madrid</label>
+              <label class="flex items-center gap-2"><input type="checkbox" name="destinations[]" value="madrid-bourbons" class="rounded" /> Bourbon Madrid</label>
+              <label class="flex items-center gap-2"><input type="checkbox" name="destinations[]" value="madrid-tour" class="rounded" /> Madrid — Custom tour</label>
+            </div>
+          </fieldset>
           <div>
             <label for="message" class="block text-sm font-medium text-sepia mb-1">Message</label>
             <textarea id="message" name="message" placeholder="Your message" rows="4" class="w-full border border-gray-300 rounded px-4 py-2"></textarea>
