@@ -32,25 +32,31 @@ const jsonLd = {
       <p>Madrid ha due anime storiche. La Madrid degli Asburgo — quella di Filippo II, la Plaza Mayor, le chiese barocche e i vicoli che nascondono secoli di intrighi. E la Madrid dei Borbone — il Palazzo Reale, il Prado, il Retiro e la reinvenzione di una capitale che volle competere con Parigi e Vienna.</p>
       <p>María Victoria conosce entrambe. E ciò che la rende diversa è che non racconta Madrid come un museo: la racconta come una storia che collega ogni via, ogni piazza e ogni quadro con le persone che li hanno creati.</p>
 
+      <div class="my-6">
+        <img src={`${base}img/guia/PLAZA%20MAYOR%20MADRID%20ESTATUA.jpeg`} alt="Statua equestre di Filippo III nella Plaza Mayor di Madrid" class="rounded-lg w-full" loading="lazy" />
+        <p class="text-sm text-sepia/70 mt-2 text-center italic">Filippo III presiede la Plaza Mayor — cuore della Madrid degli Asburgo dal 1619</p>
+      </div>
       <h2>Un tour su misura per te</h2>
       <p>Non esistono due visite uguali. Secondo il tuo tempo, i tuoi interessi e il tuo livello di curiosità, María Victoria progetta un percorso personalizzato. Vuoi dedicare la mattina al Prado e il pomeriggio alla Madrid degli Asburgo? Fatto. Preferisci il Santiago Bernabéu combinato con i musei? Anche quello.</p>
+      <h2>Musei, palazzi e altro ancora</h2>
+      <p>Museo del Prado, Reina Sofía, Palazzo Reale, Cattedrale dell'Almudena, Plaza Mayor, Puerta del Sol, Retiro, Tempio di Debod — e qualsiasi angolo ti interessi. Perché la storia di una città non deve essere solenne — a volte passa anche per uno stadio.</p>
     </section>
 
     <section class="grid md:grid-cols-2 gap-6 mb-12">
-      <a href="/it/madrid/austrias/" class="card-hover rounded-lg p-6 border block">
+      <a href={`${base}it/madrid/austrias/`} class="card-hover rounded-lg p-6 border block">
         <h2 class="text-xl font-bold mb-2">Madrid degli Asburgo</h2>
         <p class="text-sepia">La capitale imperiale di Filippo II. Plaza Mayor, Barrio de las Letras, passaggi segreti e il Secolo d'Oro.</p>
       </a>
-      <a href="/it/madrid/borbones/" class="card-hover rounded-lg p-6 border block">
+      <a href={`${base}it/madrid/borbones/`} class="card-hover rounded-lg p-6 border block">
         <h2 class="text-xl font-bold mb-2">Madrid dei Borbone</h2>
-        <p class="text-sepia">La Madrid illuminata. Palazzo Reale (di architetti italiani!), Prado, Retiro e la reinvenzione neoclassica.</p>
+        <p class="text-sepia">La Madrid illuminata. Palazzo Reale (progettato da architetti italiani!), Prado, Retiro e la reinvenzione neoclassica.</p>
       </a>
     </section>
 
     <div class="cta-box rounded-lg p-8 text-center">
       <h2 class="text-2xl font-bold mb-2">{dest.productName}</h2>
       <p class="text-sepia mb-4">Racconta a María Victoria cosa vuoi vedere — parla italiano</p>
-      <a href={`/${lang}/madrid/${dest.productSlug}/`} class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium">Dettagli e prenotazione →</a>
+      <a href={`${base}${lang}/madrid/${dest.productSlug}/`} class="inline-block btn-whatsapp px-8 py-3 rounded-lg font-medium">Dettagli e prenotazione →</a>
     </div>
   </article>
 </Base>

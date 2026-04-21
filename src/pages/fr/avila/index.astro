@@ -17,8 +17,17 @@ const jsonLd = {"@context":"https://schema.org","@type":"TouristAttraction","nam
     <h1 class="text-4xl font-bold mb-4">{dest.name}</h1>
     <p class="text-xl text-sepia mb-8">On ne visite pas Ávila. On l'escalade. À 1 131 mètres d'altitude, cette ville est le cœur mystique de Castille et la forteresse médiévale la mieux conservée d'Europe.</p>
     <section class="prose prose-lg max-w-none mb-12">
-      <h2>Les Murailles : la ceinture de granit de l'Empire</h2>
-      <p>Le monument médiéval le mieux conservé d'Europe. 2 516 mètres de périmètre, 87 tours et 9 portes. Mais les murailles d’Ávila ne sont pas seulement une défense militaire — c'est un organisme vivant construit avec les os de civilisations antérieures. Observez les fondations : des stèles romaines et des autels vettons utilisés comme gravats.</p>
+      <h2>Les Murailles : la ceinture de granit de l’Empire</h2>
+      <p>Le monument médiéval le mieux conservé d’Europe. 2 516 mètres de périmètre, 87 tours et 9 portes. Mais les murailles d’Ávila ne sont pas seulement une défense militaire — c’est un organisme vivant construit avec les os de civilisations antérieures. Observez les fondations : des stèles romaines et des autels vettons utilisés comme gravats. Ávila s’est édifiée sur les cendres d’autres mondes.</p>
+      <p>Quand vous touchez les murailles, vous ne touchez pas de la pierre. Vous touchez le bouclier physique de la Couronne de Castille.</p>
+      <div class="my-6">
+        <img src={`${base}img/guia/MURALLA%20AVILA.jpg`} alt="Murailles d’Ávila, monument médiéval le mieux conservé d’Europe" class="rounded-lg w-full" loading="lazy" />
+        <p class="text-sm text-sepia/70 mt-2 text-center italic">2 516 mètres de périmètre et 87 tours — le bouclier physique de la Couronne de Castille</p>
+      </div>
+      <div class="my-6">
+        <img src={`${base}img/guia/ESCALERAS%20MURALLA%20AVILA.jpg`} alt="Escaliers d’accès au chemin de ronde des murailles d’Ávila" class="rounded-lg w-full" loading="lazy" />
+        <p class="text-sm text-sepia/70 mt-2 text-center italic">Monter sur le chemin de ronde est le premier acte — depuis là-haut la ville se révèle entière</p>
+      </div>
       <h2>La Cathédrale du Salvador : temple et forteresse</h2>
       <div class="my-6">
         <img src={`${base}img/avila/catedral-interior.webp`} alt="Interior de la Catedral de Ávila" class="rounded-lg w-full" width="1200" height="675" loading="lazy" />
@@ -40,8 +49,25 @@ const jsonLd = {"@context":"https://schema.org","@type":"TouristAttraction","nam
       <p><strong>Restaurante El Almacén</strong> — contre les murailles. <strong>Mesón de Los Infantes</strong> — dans un bâtiment du XVIe siècle, l'entrecôte de bœuf d’Ávila. <strong>La Flor de Castilla</strong> — depuis 1860, les Yemas de Santa Teresa.</p>
       <h2>Le lien avec l’Escorial</h2>
       <p>Si <a href="/fr/el-escorial/" class="underline">l’Escorial</a> est le cerveau de Philippe II, Ávila est sa conscience. Avec <a href="/fr/segovia/" class="underline">Ségovie</a>, trois villes Patrimoine UNESCO unies par l'histoire de Castille.</p>
+      <h2>Le palimpseste des trois cultures</h2>
+      <p>Sous l'ordre chrétien bat le cœur du quartier juif et la trace des artisans mudéjars. Les murailles elles-mêmes témoignent de ce métissage forcé et fascinant. Les Vettons ont laissé leurs verracos de pierre — taureaux et sangliers grossiers qui sont le prologue de toute l'histoire. Ils relient avec une Hispania magique et païenne que le granit a tenté d'apprivoiser, sans pouvoir l'effacer.</p>
+
+      <h2>Semaine Sainte : quand la ville devient monastère</h2>
+      <p>Déclarée d'Intérêt Touristique International. Quand le printemps arrive, Ávila quitte son armure de guerrière pour revêtir la bure du pénitent. Le moment culminant : le silence de la nuit déchiré par une sonnerie de clairon contre le mur nord. Voir le Chemin de Croix encercler l'enceinte murée à l'aube, c'est retourner au XVIe siècle.</p>
+
       <h2>Le secret des murailles</h2>
       <p>Peut-être le vrai « Château intérieur » de Thérèse n'était-il pas une métaphore mais une description littérale. En marchant sur le chemin de ronde, faites attention : à Ávila, ce n'est pas vous qui observez l'histoire — c'est la géométrie des siècles qui vous observe.</p>
+
+      <h2>L'acte final : les Quatre Piliers</h2>
+      <p>Quand le soleil se couche derrière la Sierra de Gredos, Ávila s'illumine comme un joyau d'ambre. Depuis les Quatre Piliers (Cuatro Postes), la cité fortifiée flotte dans la pénombre de la nuit castillane. C'est le moment où le guide se tait, car aucun mot ne peut rivaliser avec cette vision. C'est là qu'on comprend qu'Ávila n'est pas une destination touristique — c'est un état d'esprit.</p>
+      <div class="my-6">
+        <img src={`${base}img/guia/HUMILLADERO%204%20POSTES%20AVILA.jpg`} alt="Les Quatre Piliers d'Ávila avec la cité fortifiée en arrière-plan" class="rounded-lg w-full" loading="lazy" />
+        <p class="text-sm text-sepia/70 mt-2 text-center italic">Les Quatre Piliers — la vue qui clôt toute visite à Ávila</p>
+      </div>
+      <div class="my-6">
+        <img src={`${base}img/guia/TURISTAS%20MURALLA%20AVILA.jpg`} alt="Touristes visitant les murailles d'Ávila avec un guide" class="rounded-lg w-full" loading="lazy" />
+        <p class="text-sm text-sepia/70 mt-2 text-center italic">Des groupes découvrent les secrets des murailles avec María Victoria</p>
+      </div>
     </section>
     <RelatedDestinations lang={lang} links={[
       { href: "/fr/el-escorial/", title: "Monastère de l’Escorial", description: "Si Ávila est la conscience de Philippe II, l’Escorial est son cerveau." },
